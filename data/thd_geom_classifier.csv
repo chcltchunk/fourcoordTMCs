@@ -1,0 +1,1717 @@
+,metal,ox,ligstr,complex.size,spin,geom
+0,co,2.0,acac_acac_acac_acac_s_s,29.0,4.0,tetrahedral
+1,co,2.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_s_s,65.0,4.0,tetrahedral
+2,co,2.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s_s,25.0,4.0,tetrahedral
+3,co,2.0,ammonia_ammonia_ammonia_ammonia_s_s,17.0,4.0,tetrahedral
+4,co,2.0,bipy_bipy_bipy_bipy_s_s,41.0,4.0,tetrahedral
+6,co,2.0,chloride_chloride_chloride_chloride_s_s,5.0,4.0,tetrahedral
+7,co,2.0,cn_cn_cn_cn_s_s,9.0,4.0,tetrahedral
+8,co,2.0,cyanate_cyanate_cyanate_cyanate_s_s,13.0,4.0,tetrahedral
+9,co,2.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine_s_s,49.0,4.0,tetrahedral
+11,co,2.0,fluoride_fluoride_fluoride_fluoride_s_s,5.0,4.0,tetrahedral
+12,co,2.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s_s,17.0,4.0,tetrahedral
+13,co,2.0,furan_furan_furan_furan_s_s,37.0,4.0,tetrahedral
+14,co,2.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide_s_s,13.0,4.0,tetrahedral
+15,co,2.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s_s,9.0,4.0,tetrahedral
+16,co,2.0,iodide_iodide_iodide_iodide_s_s,5.0,4.0,tetrahedral
+17,co,2.0,mebipy_mebipy_mebipy_mebipy_s_s,53.0,4.0,tetrahedral
+18,co,2.0,mec_mec_mec_mec_s_s,31.0,4.0,tetrahedral
+19,co,2.0,methylamine_methylamine_methylamine_methylamine_s_s,29.0,4.0,tetrahedral
+20,co,2.0,misc_misc_misc_misc_s_s,25.0,4.0,tetrahedral
+21,co,2.0,ncs_ncs_ncs_ncs_s_s,13.0,4.0,tetrahedral
+22,co,2.0,ox_ox_ox_ox_s_s,13.0,4.0,tetrahedral
+23,co,2.0,phen_phen_phen_phen_s_s,45.0,4.0,tetrahedral
+24,co,2.0,phenisc_phenisc_phenisc_phenisc_s_s,53.0,4.0,tetrahedral
+25,co,2.0,phosphine_phosphine_phosphine_phosphine_s_s,17.0,4.0,tetrahedral
+26,co,2.0,pisc_pisc_pisc_pisc_s_s,101.0,4.0,tetrahedral
+27,co,2.0,pyridine_pyridine_pyridine_pyridine_s_s,45.0,4.0,tetrahedral
+28,co,2.0,scn_scn_scn_scn_s_s,13.0,4.0,tetrahedral
+29,co,2.0,tbuc_tbuc_tbuc_tbuc_s_s,49.0,4.0,tetrahedral
+30,co,2.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s_s,49.0,4.0,tetrahedral
+31,co,2.0,water_water_water_water_s_s,13.0,4.0,tetrahedral
+32,co,3.0,acac_acac_acac_acac_s,29.0,5.0,tetrahedral
+33,co,3.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_s,65.0,5.0,tetrahedral
+34,co,3.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s,25.0,5.0,tetrahedral
+35,co,3.0,ammonia_ammonia_ammonia_ammonia_s,17.0,5.0,tetrahedral
+36,co,3.0,benzisc_benzisc_benzisc_benzisc_s,65.0,5.0,tetrahedral
+37,co,3.0,bipy_bipy_bipy_bipy_s,41.0,5.0,tetrahedral
+38,co,3.0,carbonyl_carbonyl_carbonyl_carbonyl_s,9.0,5.0,tetrahedral
+39,co,3.0,chloride_chloride_chloride_chloride_s,5.0,5.0,tetrahedral
+40,co,3.0,cn_cn_cn_cn_s,9.0,5.0,tetrahedral
+42,co,3.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine_s,49.0,5.0,tetrahedral
+43,co,3.0,en_en_en_en_s,25.0,5.0,tetrahedral
+44,co,3.0,fluoride_fluoride_fluoride_fluoride_s,5.0,5.0,tetrahedral
+45,co,3.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s,17.0,5.0,tetrahedral
+46,co,3.0,furan_furan_furan_furan_s,37.0,5.0,tetrahedral
+47,co,3.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s,9.0,5.0,tetrahedral
+48,co,3.0,iodide_iodide_iodide_iodide_s,5.0,5.0,tetrahedral
+49,co,3.0,mebipy_mebipy_mebipy_mebipy_s,53.0,5.0,tetrahedral
+50,co,3.0,mec_mec_mec_mec_s,31.0,5.0,tetrahedral
+51,co,3.0,methylamine_methylamine_methylamine_methylamine_s,29.0,5.0,tetrahedral
+52,co,3.0,misc_misc_misc_misc_s,25.0,5.0,tetrahedral
+53,co,3.0,ncs_ncs_ncs_ncs_s,13.0,5.0,tetrahedral
+54,co,3.0,ox_ox_ox_ox_s,13.0,5.0,tetrahedral
+55,co,3.0,phen_phen_phen_phen_s,45.0,5.0,tetrahedral
+56,co,3.0,phenisc_phenisc_phenisc_phenisc_s,53.0,5.0,tetrahedral
+57,co,3.0,phosphine_phosphine_phosphine_phosphine_s,17.0,5.0,tetrahedral
+58,co,3.0,pisc_pisc_pisc_pisc_s,101.0,5.0,tetrahedral
+59,co,3.0,pyridine_pyridine_pyridine_pyridine_s,45.0,5.0,tetrahedral
+61,co,3.0,scn_scn_scn_scn_s,13.0,5.0,tetrahedral
+62,co,3.0,tbuc_tbuc_tbuc_tbuc_s,49.0,5.0,tetrahedral
+63,co,3.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s,49.0,5.0,tetrahedral
+64,co,3.0,water_water_water_water_s,13.0,5.0,tetrahedral
+72,cr,2.0,chloride_chloride_chloride_chloride_s,5.0,5.0,tetrahedral
+77,cr,2.0,fluoride_fluoride_fluoride_fluoride_s,5.0,5.0,tetrahedral
+81,cr,2.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s,9.0,5.0,tetrahedral
+82,cr,2.0,iodide_iodide_iodide_iodide_s,5.0,5.0,tetrahedral
+95,cr,2.0,s2-_s2-_s2-_s2-_s,5.0,5.0,tetrahedral
+100,cr,3.0,acac_acac_acac_acac_s_s,29.0,4.0,tetrahedral
+107,cr,3.0,chloride_chloride_chloride_chloride_s_s,5.0,4.0,tetrahedral
+110,cr,3.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine_s_s,49.0,4.0,tetrahedral
+112,cr,3.0,fluoride_fluoride_fluoride_fluoride_s_s,5.0,4.0,tetrahedral
+113,cr,3.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s_s,17.0,4.0,tetrahedral
+115,cr,3.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide_s_s,13.0,4.0,tetrahedral
+116,cr,3.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s_s,9.0,4.0,tetrahedral
+117,cr,3.0,iodide_iodide_iodide_iodide_s_s,5.0,4.0,tetrahedral
+119,cr,3.0,mec_mec_mec_mec_s_s,31.0,4.0,tetrahedral
+122,cr,3.0,ncs_ncs_ncs_ncs_s_s,13.0,4.0,tetrahedral
+123,cr,3.0,ox_ox_ox_ox_s_s,13.0,4.0,tetrahedral
+128,cr,3.0,pyridine_pyridine_pyridine_pyridine_s_s,45.0,4.0,tetrahedral
+129,cr,3.0,s2-_s2-_s2-_s2-_s_s,5.0,4.0,tetrahedral
+130,cr,3.0,scn_scn_scn_scn_s_s,13.0,4.0,tetrahedral
+131,cr,3.0,tbuc_tbuc_tbuc_tbuc_s_s,49.0,4.0,tetrahedral
+132,cr,3.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s_s,49.0,4.0,tetrahedral
+134,fe,2.0,acac_acac_acac_acac_s,29.0,5.0,tetrahedral
+135,fe,2.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_s,65.0,5.0,tetrahedral
+136,fe,2.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s,25.0,5.0,tetrahedral
+137,fe,2.0,ammonia_ammonia_ammonia_ammonia_s,17.0,5.0,tetrahedral
+138,fe,2.0,benzisc_benzisc_benzisc_benzisc_s,65.0,5.0,tetrahedral
+139,fe,2.0,bipy_bipy_bipy_bipy_s,41.0,5.0,tetrahedral
+140,fe,2.0,carbonyl_carbonyl_carbonyl_carbonyl_s,9.0,5.0,tetrahedral
+141,fe,2.0,chloride_chloride_chloride_chloride_s,5.0,5.0,tetrahedral
+142,fe,2.0,cn_cn_cn_cn_s,9.0,5.0,tetrahedral
+143,fe,2.0,cyanate_cyanate_cyanate_cyanate_s,13.0,5.0,tetrahedral
+144,fe,2.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine_s,49.0,5.0,tetrahedral
+145,fe,2.0,en_en_en_en_s,25.0,5.0,tetrahedral
+146,fe,2.0,fluoride_fluoride_fluoride_fluoride_s,5.0,5.0,tetrahedral
+147,fe,2.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s,17.0,5.0,tetrahedral
+148,fe,2.0,furan_furan_furan_furan_s,37.0,5.0,tetrahedral
+149,fe,2.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide_s,13.0,5.0,tetrahedral
+150,fe,2.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s,9.0,5.0,tetrahedral
+151,fe,2.0,iodide_iodide_iodide_iodide_s,5.0,5.0,tetrahedral
+152,fe,2.0,mebipy_mebipy_mebipy_mebipy_s,53.0,5.0,tetrahedral
+153,fe,2.0,mec_mec_mec_mec_s,31.0,5.0,tetrahedral
+154,fe,2.0,methylamine_methylamine_methylamine_methylamine_s,29.0,5.0,tetrahedral
+155,fe,2.0,misc_misc_misc_misc_s,25.0,5.0,tetrahedral
+156,fe,2.0,ncs_ncs_ncs_ncs_s,13.0,5.0,tetrahedral
+157,fe,2.0,ox_ox_ox_ox_s,13.0,5.0,tetrahedral
+158,fe,2.0,phen_phen_phen_phen_s,45.0,5.0,tetrahedral
+159,fe,2.0,phenisc_phenisc_phenisc_phenisc_s,53.0,5.0,tetrahedral
+160,fe,2.0,phosphine_phosphine_phosphine_phosphine_s,17.0,5.0,tetrahedral
+161,fe,2.0,pisc_pisc_pisc_pisc_s,101.0,5.0,tetrahedral
+163,fe,2.0,pyridine_pyridine_pyridine_pyridine_s,45.0,5.0,tetrahedral
+164,fe,2.0,scn_scn_scn_scn_s,13.0,5.0,tetrahedral
+165,fe,2.0,tbuc_tbuc_tbuc_tbuc_s,49.0,5.0,tetrahedral
+166,fe,2.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s,49.0,5.0,tetrahedral
+167,fe,2.0,water_water_water_water_s,13.0,5.0,tetrahedral
+168,fe,3.0,acac_acac_acac_acac_s_s,29.0,6.0,tetrahedral
+169,fe,3.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_s_s,65.0,6.0,tetrahedral
+170,fe,3.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s_s,25.0,6.0,tetrahedral
+171,fe,3.0,ammonia_ammonia_ammonia_ammonia_s_s,17.0,6.0,tetrahedral
+172,fe,3.0,benzisc_benzisc_benzisc_benzisc_s_s,65.0,6.0,tetrahedral
+173,fe,3.0,bipy_bipy_bipy_bipy_s_s,41.0,6.0,tetrahedral
+174,fe,3.0,carbonyl_carbonyl_carbonyl_carbonyl_s_s,9.0,6.0,tetrahedral
+175,fe,3.0,chloride_chloride_chloride_chloride_s_s,5.0,6.0,tetrahedral
+176,fe,3.0,cn_cn_cn_cn_s_s,9.0,6.0,tetrahedral
+178,fe,3.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine_s_s,49.0,6.0,tetrahedral
+179,fe,3.0,en_en_en_en_s_s,25.0,6.0,tetrahedral
+180,fe,3.0,fluoride_fluoride_fluoride_fluoride_s_s,5.0,6.0,tetrahedral
+181,fe,3.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s_s,17.0,6.0,tetrahedral
+182,fe,3.0,furan_furan_furan_furan_s_s,37.0,6.0,tetrahedral
+184,fe,3.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s_s,9.0,6.0,tetrahedral
+185,fe,3.0,iodide_iodide_iodide_iodide_s_s,5.0,6.0,tetrahedral
+186,fe,3.0,mebipy_mebipy_mebipy_mebipy_s_s,53.0,6.0,tetrahedral
+187,fe,3.0,mec_mec_mec_mec_s_s,31.0,6.0,tetrahedral
+188,fe,3.0,methylamine_methylamine_methylamine_methylamine_s_s,29.0,6.0,tetrahedral
+189,fe,3.0,misc_misc_misc_misc_s_s,25.0,6.0,tetrahedral
+190,fe,3.0,ncs_ncs_ncs_ncs_s_s,13.0,6.0,tetrahedral
+191,fe,3.0,ox_ox_ox_ox_s_s,13.0,6.0,tetrahedral
+192,fe,3.0,phenisc_phenisc_phenisc_phenisc_s_s,53.0,6.0,tetrahedral
+193,fe,3.0,phosphine_phosphine_phosphine_phosphine_s_s,17.0,6.0,tetrahedral
+194,fe,3.0,pisc_pisc_pisc_pisc_s_s,101.0,6.0,tetrahedral
+195,fe,3.0,pyridine_pyridine_pyridine_pyridine_s_s,45.0,6.0,tetrahedral
+196,fe,3.0,s2-_s2-_s2-_s2-_s_s,5.0,6.0,tetrahedral
+197,fe,3.0,scn_scn_scn_scn_s_s,13.0,6.0,tetrahedral
+198,fe,3.0,tbuc_tbuc_tbuc_tbuc_s_s,49.0,6.0,tetrahedral
+199,fe,3.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s_s,49.0,6.0,tetrahedral
+200,fe,3.0,water_water_water_water_s_s,13.0,6.0,tetrahedral
+201,mn,2.0,acac_acac_acac_acac_s_s,29.0,6.0,tetrahedral
+202,mn,2.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_s_s,65.0,6.0,tetrahedral
+203,mn,2.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s_s,25.0,6.0,tetrahedral
+204,mn,2.0,ammonia_ammonia_ammonia_ammonia_s_s,17.0,6.0,tetrahedral
+205,mn,2.0,benzisc_benzisc_benzisc_benzisc_s_s,65.0,6.0,tetrahedral
+206,mn,2.0,bipy_bipy_bipy_bipy_s_s,41.0,6.0,tetrahedral
+207,mn,2.0,carbonyl_carbonyl_carbonyl_carbonyl_s_s,9.0,6.0,tetrahedral
+208,mn,2.0,chloride_chloride_chloride_chloride_s_s,5.0,6.0,tetrahedral
+209,mn,2.0,cn_cn_cn_cn_s_s,9.0,6.0,tetrahedral
+211,mn,2.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine_s_s,49.0,6.0,tetrahedral
+212,mn,2.0,en_en_en_en_s_s,25.0,6.0,tetrahedral
+213,mn,2.0,fluoride_fluoride_fluoride_fluoride_s_s,5.0,6.0,tetrahedral
+214,mn,2.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s_s,17.0,6.0,tetrahedral
+215,mn,2.0,furan_furan_furan_furan_s_s,37.0,6.0,tetrahedral
+216,mn,2.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide_s_s,13.0,6.0,tetrahedral
+217,mn,2.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s_s,9.0,6.0,tetrahedral
+218,mn,2.0,iodide_iodide_iodide_iodide_s_s,5.0,6.0,tetrahedral
+219,mn,2.0,mebipy_mebipy_mebipy_mebipy_s_s,53.0,6.0,tetrahedral
+220,mn,2.0,mec_mec_mec_mec_s_s,31.0,6.0,tetrahedral
+221,mn,2.0,methylamine_methylamine_methylamine_methylamine_s_s,29.0,6.0,tetrahedral
+222,mn,2.0,misc_misc_misc_misc_s_s,25.0,6.0,tetrahedral
+223,mn,2.0,ncs_ncs_ncs_ncs_s_s,13.0,6.0,tetrahedral
+224,mn,2.0,ox_ox_ox_ox_s_s,13.0,6.0,tetrahedral
+225,mn,2.0,phen_phen_phen_phen_s_s,45.0,6.0,tetrahedral
+226,mn,2.0,phenisc_phenisc_phenisc_phenisc_s_s,53.0,6.0,tetrahedral
+227,mn,2.0,phosphine_phosphine_phosphine_phosphine_s_s,17.0,6.0,tetrahedral
+228,mn,2.0,pisc_pisc_pisc_pisc_s_s,101.0,6.0,tetrahedral
+229,mn,2.0,pph3_pph3_pph3_pph3_s_s,137.0,6.0,tetrahedral
+230,mn,2.0,pyridine_pyridine_pyridine_pyridine_s_s,45.0,6.0,tetrahedral
+231,mn,2.0,scn_scn_scn_scn_s_s,13.0,6.0,tetrahedral
+232,mn,2.0,tbuc_tbuc_tbuc_tbuc_s_s,49.0,6.0,tetrahedral
+233,mn,2.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s_s,49.0,6.0,tetrahedral
+234,mn,2.0,water_water_water_water_s_s,13.0,6.0,tetrahedral
+236,mn,3.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_s,65.0,5.0,tetrahedral
+240,mn,3.0,bipy_bipy_bipy_bipy_s,41.0,5.0,tetrahedral
+242,mn,3.0,chloride_chloride_chloride_chloride_s,5.0,5.0,tetrahedral
+245,mn,3.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine_s,49.0,5.0,tetrahedral
+248,mn,3.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s,17.0,5.0,tetrahedral
+249,mn,3.0,furan_furan_furan_furan_s,37.0,5.0,tetrahedral
+252,mn,3.0,iodide_iodide_iodide_iodide_s,5.0,5.0,tetrahedral
+253,mn,3.0,mebipy_mebipy_mebipy_mebipy_s,53.0,5.0,tetrahedral
+259,mn,3.0,phen_phen_phen_phen_s,45.0,5.0,tetrahedral
+260,mn,3.0,phenisc_phenisc_phenisc_phenisc_s,53.0,5.0,tetrahedral
+262,mn,3.0,pisc_pisc_pisc_pisc_s,101.0,5.0,tetrahedral
+263,mn,3.0,pyridine_pyridine_pyridine_pyridine_s,45.0,5.0,tetrahedral
+267,mn,3.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s,49.0,5.0,tetrahedral
+269,ni,2.0,acac_acac_acac_acac_s,29.0,3.0,tetrahedral
+271,ni,2.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s,25.0,3.0,tetrahedral
+272,ni,2.0,ammonia_ammonia_ammonia_ammonia_s,17.0,3.0,tetrahedral
+273,ni,2.0,benzisc_benzisc_benzisc_benzisc_s,65.0,3.0,tetrahedral
+275,ni,2.0,carbonyl_carbonyl_carbonyl_carbonyl_s,9.0,3.0,tetrahedral
+276,ni,2.0,chloride_chloride_chloride_chloride_s,5.0,3.0,tetrahedral
+277,ni,2.0,cn_cn_cn_cn_s,9.0,3.0,tetrahedral
+278,ni,2.0,cyanate_cyanate_cyanate_cyanate_s,13.0,3.0,tetrahedral
+280,ni,2.0,fluoride_fluoride_fluoride_fluoride_s,5.0,3.0,tetrahedral
+281,ni,2.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s,17.0,3.0,tetrahedral
+282,ni,2.0,furan_furan_furan_furan_s,37.0,3.0,tetrahedral
+285,ni,2.0,iodide_iodide_iodide_iodide_s,5.0,3.0,tetrahedral
+287,ni,2.0,mec_mec_mec_mec_s,31.0,3.0,tetrahedral
+288,ni,2.0,methylamine_methylamine_methylamine_methylamine_s,29.0,3.0,tetrahedral
+290,ni,2.0,ncs_ncs_ncs_ncs_s,13.0,3.0,tetrahedral
+291,ni,2.0,ox_ox_ox_ox_s,13.0,3.0,tetrahedral
+293,ni,2.0,phenisc_phenisc_phenisc_phenisc_s,53.0,3.0,tetrahedral
+294,ni,2.0,phosphine_phosphine_phosphine_phosphine_s,17.0,3.0,tetrahedral
+295,ni,2.0,pisc_pisc_pisc_pisc_s,101.0,3.0,tetrahedral
+297,ni,2.0,pyridine_pyridine_pyridine_pyridine_s,45.0,3.0,tetrahedral
+298,ni,2.0,scn_scn_scn_scn_s,13.0,3.0,tetrahedral
+299,ni,2.0,tbuc_tbuc_tbuc_tbuc_s,49.0,3.0,tetrahedral
+300,ni,2.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s,49.0,3.0,tetrahedral
+2,co,2.0,acetonitrile_acetonitrile_chloride_chloride,15.0,4.0,tetrahedral
+4,co,2.0,acetonitrile_acetonitrile_acetonitrile_chloride,20.0,4.0,tetrahedral
+5,co,2.0,acetonitrile_acetonitrile_acetonitrile_fluoride,20.0,4.0,tetrahedral
+6,co,2.0,ammonia_fluoride_fluoride_fluoride,8.0,4.0,tetrahedral
+8,co,2.0,ammonia_ammonia_ammonia_chloride,14.0,4.0,tetrahedral
+9,co,2.0,ammonia_ammonia_ammonia_fluoride,14.0,4.0,tetrahedral
+10,co,2.0,cn_chloride_chloride_chloride,6.0,4.0,tetrahedral
+11,co,2.0,cn_fluoride_fluoride_fluoride,6.0,4.0,tetrahedral
+12,co,2.0,cn_cn_fluoride_fluoride,7.0,4.0,tetrahedral
+13,co,2.0,cn_cn_cn_fluoride,8.0,4.0,tetrahedral
+14,co,2.0,fluoride_chloride_chloride_chloride,5.0,4.0,tetrahedral
+15,co,2.0,fluoride_iodide_iodide_iodide,5.0,4.0,tetrahedral
+16,co,2.0,fluoride_fluoride_chloride_chloride,5.0,4.0,tetrahedral
+17,co,2.0,fluoride_fluoride_iodide_iodide,5.0,4.0,tetrahedral
+19,co,2.0,formaldehyde_chloride_chloride_chloride,8.0,4.0,tetrahedral
+21,co,2.0,formaldehyde_formaldehyde_chloride_chloride,11.0,4.0,tetrahedral
+22,co,2.0,formaldehyde_formaldehyde_fluoride_fluoride,11.0,4.0,tetrahedral
+23,co,2.0,formaldehyde_formaldehyde_formaldehyde_chloride,14.0,4.0,tetrahedral
+24,co,2.0,formaldehyde_formaldehyde_formaldehyde_fluoride,14.0,4.0,tetrahedral
+25,co,2.0,scn_chloride_chloride_chloride,7.0,4.0,tetrahedral
+27,co,2.0,scn_scn_chloride_chloride,9.0,4.0,tetrahedral
+29,co,2.0,scn_scn_scn_chloride,11.0,4.0,tetrahedral
+30,co,2.0,scn_scn_scn_fluoride,11.0,4.0,tetrahedral
+31,co,3.0,benzisc_chloride_chloride_chloride,20.0,5.0,tetrahedral
+32,co,3.0,formaldehyde_chloride_chloride_chloride,8.0,5.0,tetrahedral
+33,co,3.0,formaldehyde_formaldehyde_formaldehyde_chloride,14.0,5.0,tetrahedral
+34,co,3.0,methylamine_methylamine_methylamine_chloride,23.0,5.0,tetrahedral
+35,co,3.0,ncs_chloride_chloride_chloride,7.0,5.0,tetrahedral
+36,co,3.0,ncs_ncs_chloride_chloride,9.0,5.0,tetrahedral
+37,co,3.0,ncs_ncs_ncs_chloride,11.0,5.0,tetrahedral
+38,co,3.0,scn_scn_chloride_chloride,9.0,5.0,tetrahedral
+39,co,3.0,scn_scn_scn_chloride,11.0,5.0,tetrahedral
+40,co,3.0,thiopyridine_chloride_chloride_chloride,16.0,5.0,tetrahedral
+41,cr,2.0,chloride_chloride_chloride_hydroxyl,6.0,5.0,tetrahedral
+42,cr,2.0,fluoride_chloride_chloride_chloride,5.0,5.0,tetrahedral
+43,cr,2.0,fluoride_hydroxyl_hydroxyl_hydroxyl,8.0,5.0,tetrahedral
+44,cr,2.0,fluoride_iodide_iodide_iodide,5.0,5.0,tetrahedral
+45,cr,2.0,fluoride_s2-_s2-_s2-,5.0,5.0,tetrahedral
+46,cr,2.0,fluoride_fluoride_hydroxyl_hydroxyl,7.0,5.0,tetrahedral
+48,cr,2.0,fluoride_fluoride_s2-_s2-,5.0,5.0,tetrahedral
+49,cr,2.0,fluoride_fluoride_fluoride_hydroxyl,6.0,5.0,tetrahedral
+51,cr,2.0,fluoride_fluoride_fluoride_s2-,5.0,5.0,tetrahedral
+52,cr,3.0,chloride_chloride_hydroxyl_hydroxyl,7.0,4.0,tetrahedral
+53,cr,3.0,chloride_chloride_chloride_hydroxyl,6.0,4.0,tetrahedral
+54,cr,3.0,cyanopyridine_chloride_chloride_chloride,16.0,4.0,tetrahedral
+56,cr,3.0,cyanopyridine_cyanopyridine_chloride_chloride,27.0,4.0,tetrahedral
+57,cr,3.0,cyanopyridine_cyanopyridine_cyanopyridine_chloride,38.0,4.0,tetrahedral
+58,cr,3.0,cyanopyridine_cyanopyridine_cyanopyridine_fluoride,38.0,4.0,tetrahedral
+59,cr,3.0,fluoride_chloride_chloride_chloride,5.0,4.0,tetrahedral
+61,cr,3.0,fluoride_hydroxyl_hydroxyl_hydroxyl,8.0,4.0,tetrahedral
+62,cr,3.0,fluoride_iodide_iodide_iodide,5.0,4.0,tetrahedral
+63,cr,3.0,fluoride_fluoride_chloride_chloride,5.0,4.0,tetrahedral
+65,cr,3.0,fluoride_fluoride_hydroxyl_hydroxyl,7.0,4.0,tetrahedral
+66,cr,3.0,fluoride_fluoride_iodide_iodide,5.0,4.0,tetrahedral
+67,cr,3.0,fluoride_fluoride_fluoride_chloride,5.0,4.0,tetrahedral
+69,cr,3.0,fluoride_fluoride_fluoride_hydroxyl,6.0,4.0,tetrahedral
+70,cr,3.0,fluoride_fluoride_fluoride_iodide,5.0,4.0,tetrahedral
+73,cr,3.0,ncs_chloride_chloride_chloride,7.0,4.0,tetrahedral
+74,cr,3.0,ncs_fluoride_fluoride_fluoride,7.0,4.0,tetrahedral
+75,cr,3.0,ncs_ncs_chloride_chloride,9.0,4.0,tetrahedral
+76,cr,3.0,ncs_ncs_fluoride_fluoride,9.0,4.0,tetrahedral
+77,cr,3.0,ncs_ncs_ncs_chloride,11.0,4.0,tetrahedral
+78,cr,3.0,ncs_ncs_ncs_fluoride,11.0,4.0,tetrahedral
+79,cr,3.0,pyridine_chloride_chloride_chloride,15.0,4.0,tetrahedral
+81,cr,3.0,pyridine_pyridine_chloride_chloride,25.0,4.0,tetrahedral
+85,cr,3.0,scn_chloride_chloride_chloride,7.0,4.0,tetrahedral
+86,cr,3.0,scn_scn_chloride_chloride,9.0,4.0,tetrahedral
+87,cr,3.0,scn_scn_fluoride_fluoride,9.0,4.0,tetrahedral
+88,cr,3.0,scn_scn_scn_chloride,11.0,4.0,tetrahedral
+89,cr,3.0,scn_scn_scn_fluoride,11.0,4.0,tetrahedral
+90,cr,3.0,thiopyridine_chloride_chloride_chloride,16.0,4.0,tetrahedral
+91,cr,3.0,thiopyridine_fluoride_fluoride_fluoride,16.0,4.0,tetrahedral
+92,cr,3.0,thiopyridine_thiopyridine_chloride_chloride,27.0,4.0,tetrahedral
+94,cr,3.0,thiopyridine_thiopyridine_thiopyridine_chloride,38.0,4.0,tetrahedral
+95,cr,3.0,thiopyridine_thiopyridine_thiopyridine_fluoride,38.0,4.0,tetrahedral
+96,fe,2.0,cyanate_chloride_chloride_chloride,7.0,5.0,tetrahedral
+98,fe,2.0,cyanate_cyanate_chloride_chloride,9.0,5.0,tetrahedral
+99,fe,2.0,cyanate_cyanate_fluoride_fluoride,9.0,5.0,tetrahedral
+100,fe,2.0,cyanate_cyanate_water_water,13.0,5.0,tetrahedral
+101,fe,2.0,cyanate_cyanate_cyanate_chloride,11.0,5.0,tetrahedral
+102,fe,2.0,fluoride_chloride_chloride_chloride,5.0,5.0,tetrahedral
+103,fe,2.0,fluoride_hydrogensulfide_hydrogensulfide_hydrogensulfide,11.0,5.0,tetrahedral
+104,fe,2.0,fluoride_iodide_iodide_iodide,5.0,5.0,tetrahedral
+107,fe,2.0,fluoride_fluoride_iodide_iodide,5.0,5.0,tetrahedral
+110,fe,2.0,formaldehyde_chloride_chloride_chloride,8.0,5.0,tetrahedral
+111,fe,2.0,formaldehyde_fluoride_fluoride_fluoride,8.0,5.0,tetrahedral
+112,fe,2.0,formaldehyde_water_water_water,14.0,5.0,tetrahedral
+113,fe,2.0,formaldehyde_formaldehyde_chloride_chloride,11.0,5.0,tetrahedral
+115,fe,2.0,formaldehyde_formaldehyde_water_water,15.0,5.0,tetrahedral
+116,fe,2.0,formaldehyde_formaldehyde_formaldehyde_fluoride,14.0,5.0,tetrahedral
+117,fe,2.0,formaldehyde_formaldehyde_formaldehyde_water,16.0,5.0,tetrahedral
+119,fe,2.0,furan_water_water_water,19.0,5.0,tetrahedral
+120,fe,2.0,furan_furan_chloride_chloride,21.0,5.0,tetrahedral
+122,fe,2.0,furan_furan_water_water,25.0,5.0,tetrahedral
+123,fe,2.0,furan_furan_furan_chloride,29.0,5.0,tetrahedral
+124,fe,2.0,furan_furan_furan_water,31.0,5.0,tetrahedral
+125,fe,2.0,ncs_chloride_chloride_chloride,7.0,5.0,tetrahedral
+127,fe,2.0,ncs_ncs_chloride_chloride,9.0,5.0,tetrahedral
+128,fe,2.0,ncs_ncs_fluoride_fluoride,9.0,5.0,tetrahedral
+129,fe,2.0,ncs_ncs_water_water,13.0,5.0,tetrahedral
+130,fe,2.0,ncs_ncs_ncs_chloride,11.0,5.0,tetrahedral
+131,fe,2.0,ncs_ncs_ncs_fluoride,11.0,5.0,tetrahedral
+132,fe,2.0,ncs_ncs_ncs_water,13.0,5.0,tetrahedral
+133,fe,2.0,pyridine_chloride_chloride_chloride,15.0,5.0,tetrahedral
+134,fe,2.0,pyridine_fluoride_fluoride_fluoride,15.0,5.0,tetrahedral
+135,fe,2.0,pyridine_water_water_water,21.0,5.0,tetrahedral
+136,fe,2.0,pyridine_pyridine_chloride_chloride,25.0,5.0,tetrahedral
+138,fe,2.0,pyridine_pyridine_water_water,29.0,5.0,tetrahedral
+139,fe,2.0,pyridine_pyridine_pyridine_chloride,35.0,5.0,tetrahedral
+140,fe,2.0,pyridine_pyridine_pyridine_fluoride,35.0,5.0,tetrahedral
+141,fe,2.0,pyridine_pyridine_pyridine_water,37.0,5.0,tetrahedral
+144,fe,2.0,scn_water_water_water,13.0,5.0,tetrahedral
+145,fe,2.0,scn_scn_chloride_chloride,9.0,5.0,tetrahedral
+147,fe,2.0,scn_scn_water_water,13.0,5.0,tetrahedral
+148,fe,2.0,scn_scn_scn_chloride,11.0,5.0,tetrahedral
+149,fe,2.0,scn_scn_scn_fluoride,11.0,5.0,tetrahedral
+150,fe,2.0,scn_scn_scn_water,13.0,5.0,tetrahedral
+151,fe,2.0,water_chloride_chloride_chloride,7.0,5.0,tetrahedral
+153,fe,2.0,water_hydrogensulfide_hydrogensulfide_hydrogensulfide,13.0,5.0,tetrahedral
+154,fe,2.0,water_iodide_iodide_iodide,7.0,5.0,tetrahedral
+155,fe,2.0,water_water_fluoride_fluoride,9.0,5.0,tetrahedral
+156,fe,2.0,water_water_hydrogensulfide_hydrogensulfide,13.0,5.0,tetrahedral
+157,fe,2.0,water_water_iodide_iodide,9.0,5.0,tetrahedral
+158,fe,2.0,water_water_water_chloride,11.0,5.0,tetrahedral
+159,fe,2.0,water_water_water_fluoride,11.0,5.0,tetrahedral
+160,fe,2.0,water_water_water_hydrogensulfide,13.0,5.0,tetrahedral
+161,fe,2.0,water_water_water_iodide,11.0,5.0,tetrahedral
+162,fe,3.0,acetonitrile_chloride_chloride_chloride,10.0,6.0,tetrahedral
+163,fe,3.0,acetonitrile_fluoride_fluoride_fluoride,10.0,6.0,tetrahedral
+164,fe,3.0,acetonitrile_acetonitrile_fluoride_fluoride,15.0,6.0,tetrahedral
+165,fe,3.0,acetonitrile_acetonitrile_acetonitrile_fluoride,20.0,6.0,tetrahedral
+166,fe,3.0,ammonia_chloride_chloride_chloride,8.0,6.0,tetrahedral
+167,fe,3.0,ammonia_fluoride_fluoride_fluoride,8.0,6.0,tetrahedral
+168,fe,3.0,ammonia_ammonia_fluoride_fluoride,11.0,6.0,tetrahedral
+169,fe,3.0,ammonia_ammonia_ammonia_fluoride,14.0,6.0,tetrahedral
+170,fe,3.0,benzisc_fluoride_fluoride_fluoride,20.0,6.0,tetrahedral
+171,fe,3.0,benzisc_benzisc_fluoride_fluoride,35.0,6.0,tetrahedral
+172,fe,3.0,benzisc_benzisc_benzisc_fluoride,50.0,6.0,tetrahedral
+173,fe,3.0,cyanopyridine_chloride_chloride_chloride,16.0,6.0,tetrahedral
+174,fe,3.0,cyanopyridine_fluoride_fluoride_fluoride,16.0,6.0,tetrahedral
+175,fe,3.0,cyanopyridine_cyanopyridine_cyanopyridine_chloride,38.0,6.0,tetrahedral
+176,fe,3.0,cyanopyridine_cyanopyridine_cyanopyridine_fluoride,38.0,6.0,tetrahedral
+177,fe,3.0,fluoride_chloride_chloride_chloride,5.0,6.0,tetrahedral
+178,fe,3.0,fluoride_iodide_iodide_iodide,5.0,6.0,tetrahedral
+179,fe,3.0,fluoride_fluoride_chloride_chloride,5.0,6.0,tetrahedral
+180,fe,3.0,fluoride_fluoride_iodide_iodide,5.0,6.0,tetrahedral
+181,fe,3.0,fluoride_fluoride_fluoride_chloride,5.0,6.0,tetrahedral
+182,fe,3.0,fluoride_fluoride_fluoride_iodide,5.0,6.0,tetrahedral
+183,fe,3.0,formaldehyde_fluoride_fluoride_fluoride,8.0,6.0,tetrahedral
+184,fe,3.0,formaldehyde_formaldehyde_chloride_chloride,11.0,6.0,tetrahedral
+185,fe,3.0,formaldehyde_formaldehyde_fluoride_fluoride,11.0,6.0,tetrahedral
+186,fe,3.0,formaldehyde_formaldehyde_formaldehyde_chloride,14.0,6.0,tetrahedral
+187,fe,3.0,formaldehyde_formaldehyde_formaldehyde_fluoride,14.0,6.0,tetrahedral
+188,fe,3.0,methylamine_fluoride_fluoride_fluoride,11.0,6.0,tetrahedral
+189,fe,3.0,methylamine_methylamine_fluoride_fluoride,17.0,6.0,tetrahedral
+190,fe,3.0,methylamine_methylamine_methylamine_fluoride,23.0,6.0,tetrahedral
+191,fe,3.0,ncs_chloride_chloride_chloride,7.0,6.0,tetrahedral
+192,fe,3.0,ncs_fluoride_fluoride_fluoride,7.0,6.0,tetrahedral
+193,fe,3.0,ncs_ncs_chloride_chloride,9.0,6.0,tetrahedral
+194,fe,3.0,ncs_ncs_fluoride_fluoride,9.0,6.0,tetrahedral
+195,fe,3.0,ncs_ncs_ncs_chloride,11.0,6.0,tetrahedral
+196,fe,3.0,ncs_ncs_ncs_fluoride,11.0,6.0,tetrahedral
+197,fe,3.0,pyridine_chloride_chloride_chloride,15.0,6.0,tetrahedral
+198,fe,3.0,pyridine_fluoride_fluoride_fluoride,15.0,6.0,tetrahedral
+199,fe,3.0,pyridine_pyridine_fluoride_fluoride,25.0,6.0,tetrahedral
+200,fe,3.0,pyridine_pyridine_pyridine_chloride,35.0,6.0,tetrahedral
+201,fe,3.0,pyridine_pyridine_pyridine_fluoride,35.0,6.0,tetrahedral
+202,fe,3.0,scn_chloride_chloride_chloride,7.0,6.0,tetrahedral
+203,fe,3.0,scn_fluoride_fluoride_fluoride,7.0,6.0,tetrahedral
+204,fe,3.0,scn_scn_chloride_chloride,9.0,6.0,tetrahedral
+205,fe,3.0,scn_scn_fluoride_fluoride,9.0,6.0,tetrahedral
+206,fe,3.0,scn_scn_scn_chloride,11.0,6.0,tetrahedral
+207,fe,3.0,scn_scn_scn_fluoride,11.0,6.0,tetrahedral
+208,fe,3.0,thiopyridine_chloride_chloride_chloride,16.0,6.0,tetrahedral
+209,fe,3.0,thiopyridine_fluoride_fluoride_fluoride,16.0,6.0,tetrahedral
+210,fe,3.0,thiopyridine_thiopyridine_fluoride_fluoride,27.0,6.0,tetrahedral
+211,fe,3.0,thiopyridine_thiopyridine_thiopyridine_chloride,38.0,6.0,tetrahedral
+212,fe,3.0,thiopyridine_thiopyridine_thiopyridine_fluoride,38.0,6.0,tetrahedral
+213,mn,2.0,chloride_chloride_chloride_hydroxyl,6.0,6.0,tetrahedral
+214,mn,2.0,cyanate_chloride_chloride_chloride,7.0,6.0,tetrahedral
+215,mn,2.0,cyanate_cyanate_chloride_chloride,9.0,6.0,tetrahedral
+216,mn,2.0,cyanate_cyanate_cyanate_chloride,11.0,6.0,tetrahedral
+217,mn,2.0,furan_chloride_chloride_chloride,13.0,6.0,tetrahedral
+219,mn,2.0,furan_furan_furan_chloride,29.0,6.0,tetrahedral
+220,mn,2.0,ncs_chloride_chloride_chloride,7.0,6.0,tetrahedral
+221,mn,2.0,ncs_ncs_chloride_chloride,9.0,6.0,tetrahedral
+222,mn,2.0,ncs_ncs_ncs_chloride,11.0,6.0,tetrahedral
+223,mn,2.0,pph3_chloride_chloride_chloride,38.0,6.0,tetrahedral
+224,mn,2.0,pph3_pph3_chloride_chloride,71.0,6.0,tetrahedral
+225,mn,2.0,pph3_pph3_pph3_chloride,104.0,6.0,tetrahedral
+226,mn,2.0,thiopyridine_chloride_chloride_chloride,16.0,6.0,tetrahedral
+227,mn,2.0,thiopyridine_thiopyridine_chloride_chloride,27.0,6.0,tetrahedral
+228,mn,2.0,thiopyridine_thiopyridine_thiopyridine_chloride,38.0,6.0,tetrahedral
+232,mn,3.0,formaldehyde_chloride_chloride_chloride,8.0,5.0,tetrahedral
+233,mn,3.0,formaldehyde_formaldehyde_chloride_chloride,11.0,5.0,tetrahedral
+234,mn,3.0,pyridine_chloride_chloride_chloride,15.0,5.0,tetrahedral
+237,mn,3.0,thiopyridine_chloride_chloride_chloride,16.0,5.0,tetrahedral
+239,mn,3.0,thiopyridine_thiopyridine_thiopyridine_chloride,38.0,5.0,tetrahedral
+242,ni,2.0,acetonitrile_acetonitrile_acetonitrile_fluoride,20.0,3.0,tetrahedral
+243,ni,2.0,cyanate_fluoride_fluoride_fluoride,7.0,3.0,tetrahedral
+245,ni,2.0,cyanate_cyanate_cyanate_fluoride,11.0,3.0,tetrahedral
+246,ni,2.0,pyridine_fluoride_fluoride_fluoride,15.0,3.0,tetrahedral
+248,ni,2.0,pyridine_pyridine_pyridine_fluoride,35.0,3.0,tetrahedral
+249,ni,2.0,thiopyridine_fluoride_fluoride_fluoride,16.0,3.0,tetrahedral
+252,co,2.0,acetonitrile_iodide_iodide_iodide,10.0,4.0,tetrahedral
+253,co,2.0,acetonitrile_acetonitrile_iodide_iodide,15.0,4.0,tetrahedral
+254,co,2.0,acetonitrile_acetonitrile_acetonitrile_iodide,20.0,4.0,tetrahedral
+255,co,2.0,ammonia_ammonia_iodide_iodide,11.0,4.0,tetrahedral
+256,co,2.0,ammonia_ammonia_ammonia_iodide,14.0,4.0,tetrahedral
+257,co,2.0,cn_iodide_iodide_iodide,6.0,4.0,tetrahedral
+258,co,2.0,cn_cn_iodide_iodide,7.0,4.0,tetrahedral
+259,co,2.0,cn_cn_cn_iodide,8.0,4.0,tetrahedral
+260,co,2.0,formaldehyde_iodide_iodide_iodide,8.0,4.0,tetrahedral
+261,co,2.0,formaldehyde_formaldehyde_iodide_iodide,11.0,4.0,tetrahedral
+262,co,2.0,formaldehyde_formaldehyde_formaldehyde_iodide,14.0,4.0,tetrahedral
+263,co,2.0,scn_iodide_iodide_iodide,7.0,4.0,tetrahedral
+264,co,2.0,scn_scn_iodide_iodide,9.0,4.0,tetrahedral
+265,co,2.0,scn_scn_scn_iodide,11.0,4.0,tetrahedral
+266,co,3.0,benzisc_iodide_iodide_iodide,20.0,5.0,tetrahedral
+267,co,3.0,benzisc_benzisc_iodide_iodide,35.0,5.0,tetrahedral
+268,co,3.0,benzisc_benzisc_benzisc_iodide,50.0,5.0,tetrahedral
+269,co,3.0,formaldehyde_iodide_iodide_iodide,8.0,5.0,tetrahedral
+270,co,3.0,formaldehyde_formaldehyde_iodide_iodide,11.0,5.0,tetrahedral
+271,co,3.0,formaldehyde_formaldehyde_formaldehyde_iodide,14.0,5.0,tetrahedral
+272,co,3.0,methylamine_iodide_iodide_iodide,11.0,5.0,tetrahedral
+273,co,3.0,methylamine_methylamine_iodide_iodide,17.0,5.0,tetrahedral
+274,co,3.0,methylamine_methylamine_methylamine_iodide,23.0,5.0,tetrahedral
+275,co,3.0,ncs_iodide_iodide_iodide,7.0,5.0,tetrahedral
+276,co,3.0,ncs_ncs_iodide_iodide,9.0,5.0,tetrahedral
+277,co,3.0,ncs_ncs_ncs_iodide,11.0,5.0,tetrahedral
+279,co,3.0,scn_scn_iodide_iodide,9.0,5.0,tetrahedral
+280,co,3.0,scn_scn_scn_iodide,11.0,5.0,tetrahedral
+281,co,3.0,thiopyridine_iodide_iodide_iodide,16.0,5.0,tetrahedral
+282,co,3.0,thiopyridine_thiopyridine_iodide_iodide,27.0,5.0,tetrahedral
+283,co,3.0,thiopyridine_thiopyridine_thiopyridine_iodide,38.0,5.0,tetrahedral
+288,cr,2.0,iodide_iodide_iodide_hydroxyl,6.0,5.0,tetrahedral
+290,cr,3.0,cyanopyridine_iodide_iodide_iodide,16.0,4.0,tetrahedral
+291,cr,3.0,cyanopyridine_cyanopyridine_iodide_iodide,27.0,4.0,tetrahedral
+292,cr,3.0,cyanopyridine_cyanopyridine_cyanopyridine_iodide,38.0,4.0,tetrahedral
+299,cr,3.0,iodide_iodide_hydroxyl_hydroxyl,7.0,4.0,tetrahedral
+301,cr,3.0,iodide_iodide_iodide_hydroxyl,6.0,4.0,tetrahedral
+302,cr,3.0,ncs_iodide_iodide_iodide,7.0,4.0,tetrahedral
+303,cr,3.0,ncs_ncs_iodide_iodide,9.0,4.0,tetrahedral
+304,cr,3.0,ncs_ncs_ncs_iodide,11.0,4.0,tetrahedral
+305,cr,3.0,pyridine_iodide_iodide_iodide,15.0,4.0,tetrahedral
+306,cr,3.0,pyridine_pyridine_iodide_iodide,25.0,4.0,tetrahedral
+307,cr,3.0,pyridine_pyridine_pyridine_iodide,35.0,4.0,tetrahedral
+308,cr,3.0,scn_iodide_iodide_iodide,7.0,4.0,tetrahedral
+309,cr,3.0,scn_scn_iodide_iodide,9.0,4.0,tetrahedral
+310,cr,3.0,scn_scn_scn_iodide,11.0,4.0,tetrahedral
+311,cr,3.0,thiopyridine_iodide_iodide_iodide,16.0,4.0,tetrahedral
+312,cr,3.0,thiopyridine_thiopyridine_iodide_iodide,27.0,4.0,tetrahedral
+313,cr,3.0,thiopyridine_thiopyridine_thiopyridine_iodide,38.0,4.0,tetrahedral
+314,fe,2.0,cyanate_iodide_iodide_iodide,7.0,5.0,tetrahedral
+315,fe,2.0,cyanate_cyanate_iodide_iodide,9.0,5.0,tetrahedral
+316,fe,2.0,cyanate_cyanate_cyanate_iodide,11.0,5.0,tetrahedral
+317,fe,2.0,formaldehyde_iodide_iodide_iodide,8.0,5.0,tetrahedral
+318,fe,2.0,formaldehyde_formaldehyde_iodide_iodide,11.0,5.0,tetrahedral
+319,fe,2.0,formaldehyde_formaldehyde_formaldehyde_iodide,14.0,5.0,tetrahedral
+321,fe,2.0,furan_furan_iodide_iodide,21.0,5.0,tetrahedral
+322,fe,2.0,furan_furan_furan_iodide,29.0,5.0,tetrahedral
+323,fe,2.0,iodide_hydrogensulfide_hydrogensulfide_hydrogensulfide,11.0,5.0,tetrahedral
+326,fe,2.0,ncs_iodide_iodide_iodide,7.0,5.0,tetrahedral
+327,fe,2.0,ncs_ncs_iodide_iodide,9.0,5.0,tetrahedral
+328,fe,2.0,ncs_ncs_ncs_iodide,11.0,5.0,tetrahedral
+329,fe,2.0,pyridine_iodide_iodide_iodide,15.0,5.0,tetrahedral
+330,fe,2.0,pyridine_pyridine_iodide_iodide,25.0,5.0,tetrahedral
+331,fe,2.0,pyridine_pyridine_pyridine_iodide,35.0,5.0,tetrahedral
+332,fe,2.0,scn_iodide_iodide_iodide,7.0,5.0,tetrahedral
+333,fe,2.0,scn_scn_iodide_iodide,9.0,5.0,tetrahedral
+334,fe,2.0,scn_scn_scn_iodide,11.0,5.0,tetrahedral
+335,fe,3.0,acetonitrile_iodide_iodide_iodide,10.0,6.0,tetrahedral
+336,fe,3.0,acetonitrile_acetonitrile_iodide_iodide,15.0,6.0,tetrahedral
+337,fe,3.0,acetonitrile_acetonitrile_acetonitrile_iodide,20.0,6.0,tetrahedral
+338,fe,3.0,ammonia_iodide_iodide_iodide,8.0,6.0,tetrahedral
+339,fe,3.0,ammonia_ammonia_iodide_iodide,11.0,6.0,tetrahedral
+340,fe,3.0,ammonia_ammonia_ammonia_iodide,14.0,6.0,tetrahedral
+341,fe,3.0,benzisc_iodide_iodide_iodide,20.0,6.0,tetrahedral
+342,fe,3.0,benzisc_benzisc_iodide_iodide,35.0,6.0,tetrahedral
+343,fe,3.0,benzisc_benzisc_benzisc_iodide,50.0,6.0,tetrahedral
+344,fe,3.0,cyanopyridine_iodide_iodide_iodide,16.0,6.0,tetrahedral
+345,fe,3.0,cyanopyridine_cyanopyridine_iodide_iodide,27.0,6.0,tetrahedral
+346,fe,3.0,cyanopyridine_cyanopyridine_cyanopyridine_iodide,38.0,6.0,tetrahedral
+347,fe,3.0,formaldehyde_iodide_iodide_iodide,8.0,6.0,tetrahedral
+348,fe,3.0,formaldehyde_formaldehyde_iodide_iodide,11.0,6.0,tetrahedral
+349,fe,3.0,formaldehyde_formaldehyde_formaldehyde_iodide,14.0,6.0,tetrahedral
+350,fe,3.0,methylamine_iodide_iodide_iodide,11.0,6.0,tetrahedral
+351,fe,3.0,methylamine_methylamine_iodide_iodide,17.0,6.0,tetrahedral
+352,fe,3.0,methylamine_methylamine_methylamine_iodide,23.0,6.0,tetrahedral
+353,fe,3.0,ncs_iodide_iodide_iodide,7.0,6.0,tetrahedral
+354,fe,3.0,ncs_ncs_iodide_iodide,9.0,6.0,tetrahedral
+355,fe,3.0,ncs_ncs_ncs_iodide,11.0,6.0,tetrahedral
+356,fe,3.0,pyridine_iodide_iodide_iodide,15.0,6.0,tetrahedral
+357,fe,3.0,pyridine_pyridine_iodide_iodide,25.0,6.0,tetrahedral
+358,fe,3.0,pyridine_pyridine_pyridine_iodide,35.0,6.0,tetrahedral
+359,fe,3.0,scn_iodide_iodide_iodide,7.0,6.0,tetrahedral
+360,fe,3.0,scn_scn_iodide_iodide,9.0,6.0,tetrahedral
+361,fe,3.0,scn_scn_scn_iodide,11.0,6.0,tetrahedral
+362,fe,3.0,thiopyridine_iodide_iodide_iodide,16.0,6.0,tetrahedral
+363,fe,3.0,thiopyridine_thiopyridine_iodide_iodide,27.0,6.0,tetrahedral
+364,fe,3.0,thiopyridine_thiopyridine_thiopyridine_iodide,38.0,6.0,tetrahedral
+365,mn,2.0,cyanate_iodide_iodide_iodide,7.0,6.0,tetrahedral
+366,mn,2.0,cyanate_cyanate_iodide_iodide,9.0,6.0,tetrahedral
+367,mn,2.0,cyanate_cyanate_cyanate_iodide,11.0,6.0,tetrahedral
+368,mn,2.0,furan_iodide_iodide_iodide,13.0,6.0,tetrahedral
+369,mn,2.0,furan_furan_iodide_iodide,21.0,6.0,tetrahedral
+370,mn,2.0,furan_furan_furan_iodide,29.0,6.0,tetrahedral
+373,mn,2.0,iodide_iodide_iodide_hydroxyl,6.0,6.0,tetrahedral
+374,mn,2.0,ncs_iodide_iodide_iodide,7.0,6.0,tetrahedral
+375,mn,2.0,ncs_ncs_iodide_iodide,9.0,6.0,tetrahedral
+376,mn,2.0,ncs_ncs_ncs_iodide,11.0,6.0,tetrahedral
+377,mn,2.0,pph3_iodide_iodide_iodide,38.0,6.0,tetrahedral
+378,mn,2.0,pph3_pph3_iodide_iodide,71.0,6.0,tetrahedral
+379,mn,2.0,pph3_pph3_pph3_iodide,104.0,6.0,tetrahedral
+380,mn,2.0,thiopyridine_iodide_iodide_iodide,16.0,6.0,tetrahedral
+381,mn,2.0,thiopyridine_thiopyridine_iodide_iodide,27.0,6.0,tetrahedral
+382,mn,2.0,thiopyridine_thiopyridine_thiopyridine_iodide,38.0,6.0,tetrahedral
+383,mn,3.0,cyanopyridine_iodide_iodide_iodide,16.0,5.0,tetrahedral
+384,mn,3.0,cyanopyridine_cyanopyridine_iodide_iodide,27.0,5.0,tetrahedral
+385,mn,3.0,cyanopyridine_cyanopyridine_cyanopyridine_iodide,38.0,5.0,tetrahedral
+386,mn,3.0,formaldehyde_iodide_iodide_iodide,8.0,5.0,tetrahedral
+387,mn,3.0,formaldehyde_formaldehyde_iodide_iodide,11.0,5.0,tetrahedral
+388,mn,3.0,formaldehyde_formaldehyde_formaldehyde_iodide,14.0,5.0,tetrahedral
+389,mn,3.0,pyridine_iodide_iodide_iodide,15.0,5.0,tetrahedral
+390,mn,3.0,pyridine_pyridine_iodide_iodide,25.0,5.0,tetrahedral
+391,mn,3.0,pyridine_pyridine_pyridine_iodide,35.0,5.0,tetrahedral
+392,mn,3.0,thiopyridine_iodide_iodide_iodide,16.0,5.0,tetrahedral
+393,mn,3.0,thiopyridine_thiopyridine_iodide_iodide,27.0,5.0,tetrahedral
+394,mn,3.0,thiopyridine_thiopyridine_thiopyridine_iodide,38.0,5.0,tetrahedral
+395,co,2.0,acetonitrile_formaldehyde_formaldehyde_formaldehyde,19.0,4.0,tetrahedral
+396,co,2.0,acetonitrile_acetonitrile_formaldehyde_formaldehyde,21.0,4.0,tetrahedral
+397,co,2.0,acetonitrile_acetonitrile_acetonitrile_formaldehyde,23.0,4.0,tetrahedral
+398,co,2.0,ammonia_formaldehyde_formaldehyde_formaldehyde,17.0,4.0,tetrahedral
+399,co,2.0,ammonia_ammonia_formaldehyde_formaldehyde,17.0,4.0,tetrahedral
+400,co,2.0,ammonia_ammonia_ammonia_formaldehyde,17.0,4.0,tetrahedral
+401,co,2.0,cn_formaldehyde_formaldehyde_formaldehyde,15.0,4.0,tetrahedral
+402,co,2.0,cn_cn_formaldehyde_formaldehyde,13.0,4.0,tetrahedral
+403,co,2.0,cn_cn_cn_formaldehyde,11.0,4.0,tetrahedral
+404,co,2.0,scn_formaldehyde_formaldehyde_formaldehyde,16.0,4.0,tetrahedral
+405,co,2.0,scn_scn_formaldehyde_formaldehyde,15.0,4.0,tetrahedral
+406,co,2.0,scn_scn_scn_formaldehyde,14.0,4.0,tetrahedral
+407,co,3.0,benzisc_formaldehyde_formaldehyde_formaldehyde,29.0,5.0,tetrahedral
+408,co,3.0,benzisc_benzisc_formaldehyde_formaldehyde,41.0,5.0,tetrahedral
+409,co,3.0,benzisc_benzisc_benzisc_formaldehyde,53.0,5.0,tetrahedral
+410,co,3.0,formaldehyde_methylamine_methylamine_methylamine,26.0,5.0,tetrahedral
+411,co,3.0,formaldehyde_thiopyridine_thiopyridine_thiopyridine,41.0,5.0,tetrahedral
+412,co,3.0,formaldehyde_formaldehyde_methylamine_methylamine,23.0,5.0,tetrahedral
+413,co,3.0,formaldehyde_formaldehyde_thiopyridine_thiopyridine,33.0,5.0,tetrahedral
+414,co,3.0,formaldehyde_formaldehyde_formaldehyde_methylamine,20.0,5.0,tetrahedral
+415,co,3.0,formaldehyde_formaldehyde_formaldehyde_thiopyridine,25.0,5.0,tetrahedral
+416,co,3.0,ncs_benzisc_benzisc_benzisc,52.0,5.0,tetrahedral
+417,co,3.0,ncs_formaldehyde_formaldehyde_formaldehyde,16.0,5.0,tetrahedral
+418,co,3.0,ncs_methylamine_methylamine_methylamine,25.0,5.0,tetrahedral
+419,co,3.0,ncs_thiopyridine_thiopyridine_thiopyridine,40.0,5.0,tetrahedral
+420,co,3.0,ncs_ncs_benzisc_benzisc,39.0,5.0,tetrahedral
+421,co,3.0,ncs_ncs_formaldehyde_formaldehyde,15.0,5.0,tetrahedral
+422,co,3.0,ncs_ncs_methylamine_methylamine,21.0,5.0,tetrahedral
+423,co,3.0,ncs_ncs_thiopyridine_thiopyridine,31.0,5.0,tetrahedral
+424,co,3.0,ncs_ncs_ncs_benzisc,26.0,5.0,tetrahedral
+425,co,3.0,ncs_ncs_ncs_formaldehyde,14.0,5.0,tetrahedral
+426,co,3.0,ncs_ncs_ncs_methylamine,17.0,5.0,tetrahedral
+427,co,3.0,ncs_ncs_ncs_thiopyridine,22.0,5.0,tetrahedral
+428,co,3.0,scn_formaldehyde_formaldehyde_formaldehyde,16.0,5.0,tetrahedral
+429,co,3.0,scn_ncs_ncs_ncs,13.0,5.0,tetrahedral
+430,co,3.0,scn_scn_formaldehyde_formaldehyde,15.0,5.0,tetrahedral
+431,co,3.0,scn_scn_ncs_ncs,13.0,5.0,tetrahedral
+432,co,3.0,scn_scn_scn_formaldehyde,14.0,5.0,tetrahedral
+433,co,3.0,scn_scn_scn_ncs,13.0,5.0,tetrahedral
+435,cr,3.0,cyanopyridine_cyanopyridine_formaldehyde_formaldehyde,33.0,4.0,tetrahedral
+436,cr,3.0,cyanopyridine_cyanopyridine_cyanopyridine_formaldehyde,41.0,4.0,tetrahedral
+437,cr,3.0,formaldehyde_hydrogensulfide_hydrogensulfide_hydrogensulfide,14.0,4.0,tetrahedral
+439,cr,3.0,formaldehyde_pyridine_pyridine_pyridine,38.0,4.0,tetrahedral
+442,cr,3.0,formaldehyde_formaldehyde_hydroxyl_hydroxyl,13.0,4.0,tetrahedral
+443,cr,3.0,formaldehyde_formaldehyde_pyridine_pyridine,31.0,4.0,tetrahedral
+445,cr,3.0,formaldehyde_formaldehyde_formaldehyde_hydrogensulfide,16.0,4.0,tetrahedral
+446,cr,3.0,formaldehyde_formaldehyde_formaldehyde_hydroxyl,15.0,4.0,tetrahedral
+447,cr,3.0,formaldehyde_formaldehyde_formaldehyde_pyridine,24.0,4.0,tetrahedral
+449,cr,3.0,ncs_cyanopyridine_cyanopyridine_cyanopyridine,40.0,4.0,tetrahedral
+453,cr,3.0,ncs_pyridine_pyridine_pyridine,37.0,4.0,tetrahedral
+454,cr,3.0,ncs_thiopyridine_thiopyridine_thiopyridine,40.0,4.0,tetrahedral
+455,cr,3.0,ncs_ncs_cyanopyridine_cyanopyridine,31.0,4.0,tetrahedral
+458,cr,3.0,ncs_ncs_hydroxyl_hydroxyl,11.0,4.0,tetrahedral
+459,cr,3.0,ncs_ncs_pyridine_pyridine,29.0,4.0,tetrahedral
+460,cr,3.0,ncs_ncs_thiopyridine_thiopyridine,31.0,4.0,tetrahedral
+461,cr,3.0,ncs_ncs_ncs_cyanopyridine,22.0,4.0,tetrahedral
+464,cr,3.0,ncs_ncs_ncs_hydroxyl,12.0,4.0,tetrahedral
+465,cr,3.0,ncs_ncs_ncs_pyridine,21.0,4.0,tetrahedral
+466,cr,3.0,ncs_ncs_ncs_thiopyridine,22.0,4.0,tetrahedral
+468,cr,3.0,scn_ncs_ncs_ncs,13.0,4.0,tetrahedral
+470,cr,3.0,scn_scn_ncs_ncs,13.0,4.0,tetrahedral
+471,cr,3.0,scn_scn_scn_formaldehyde,14.0,4.0,tetrahedral
+472,cr,3.0,scn_scn_scn_ncs,13.0,4.0,tetrahedral
+473,fe,2.0,cyanate_cyanate_formaldehyde_formaldehyde,15.0,5.0,tetrahedral
+474,fe,2.0,cyanate_cyanate_cyanate_formaldehyde,14.0,5.0,tetrahedral
+475,fe,2.0,formaldehyde_furan_furan_furan,32.0,5.0,tetrahedral
+476,fe,2.0,formaldehyde_hydrogensulfide_hydrogensulfide_hydrogensulfide,14.0,5.0,tetrahedral
+477,fe,2.0,formaldehyde_pyridine_pyridine_pyridine,38.0,5.0,tetrahedral
+478,fe,2.0,formaldehyde_formaldehyde_furan_furan,27.0,5.0,tetrahedral
+479,fe,2.0,formaldehyde_formaldehyde_hydrogensulfide_hydrogensulfide,15.0,5.0,tetrahedral
+480,fe,2.0,formaldehyde_formaldehyde_pyridine_pyridine,31.0,5.0,tetrahedral
+481,fe,2.0,formaldehyde_formaldehyde_formaldehyde_furan,22.0,5.0,tetrahedral
+482,fe,2.0,formaldehyde_formaldehyde_formaldehyde_hydrogensulfide,16.0,5.0,tetrahedral
+483,fe,2.0,formaldehyde_formaldehyde_formaldehyde_pyridine,24.0,5.0,tetrahedral
+484,fe,2.0,ncs_formaldehyde_formaldehyde_formaldehyde,16.0,5.0,tetrahedral
+485,fe,2.0,ncs_furan_furan_furan,31.0,5.0,tetrahedral
+486,fe,2.0,ncs_hydrogensulfide_hydrogensulfide_hydrogensulfide,13.0,5.0,tetrahedral
+487,fe,2.0,ncs_pyridine_pyridine_pyridine,37.0,5.0,tetrahedral
+488,fe,2.0,ncs_ncs_cyanate_cyanate,13.0,5.0,tetrahedral
+489,fe,2.0,ncs_ncs_formaldehyde_formaldehyde,15.0,5.0,tetrahedral
+492,fe,2.0,ncs_ncs_pyridine_pyridine,29.0,5.0,tetrahedral
+496,fe,2.0,ncs_ncs_ncs_pyridine,21.0,5.0,tetrahedral
+497,fe,2.0,scn_formaldehyde_formaldehyde_formaldehyde,16.0,5.0,tetrahedral
+498,fe,2.0,scn_ncs_ncs_ncs,13.0,5.0,tetrahedral
+499,fe,2.0,scn_scn_formaldehyde_formaldehyde,15.0,5.0,tetrahedral
+500,fe,2.0,scn_scn_ncs_ncs,13.0,5.0,tetrahedral
+501,fe,2.0,scn_scn_scn_formaldehyde,14.0,5.0,tetrahedral
+502,fe,2.0,scn_scn_scn_ncs,13.0,5.0,tetrahedral
+503,fe,3.0,acetonitrile_formaldehyde_formaldehyde_formaldehyde,19.0,6.0,tetrahedral
+504,fe,3.0,acetonitrile_acetonitrile_formaldehyde_formaldehyde,21.0,6.0,tetrahedral
+505,fe,3.0,acetonitrile_acetonitrile_acetonitrile_formaldehyde,23.0,6.0,tetrahedral
+506,fe,3.0,ammonia_formaldehyde_formaldehyde_formaldehyde,17.0,6.0,tetrahedral
+507,fe,3.0,ammonia_ammonia_formaldehyde_formaldehyde,17.0,6.0,tetrahedral
+508,fe,3.0,ammonia_ammonia_ammonia_formaldehyde,17.0,6.0,tetrahedral
+509,fe,3.0,benzisc_formaldehyde_formaldehyde_formaldehyde,29.0,6.0,tetrahedral
+510,fe,3.0,benzisc_benzisc_formaldehyde_formaldehyde,41.0,6.0,tetrahedral
+511,fe,3.0,benzisc_benzisc_benzisc_formaldehyde,53.0,6.0,tetrahedral
+512,fe,3.0,cyanopyridine_formaldehyde_formaldehyde_formaldehyde,25.0,6.0,tetrahedral
+513,fe,3.0,cyanopyridine_cyanopyridine_formaldehyde_formaldehyde,33.0,6.0,tetrahedral
+514,fe,3.0,cyanopyridine_cyanopyridine_cyanopyridine_formaldehyde,41.0,6.0,tetrahedral
+515,fe,3.0,formaldehyde_methylamine_methylamine_methylamine,26.0,6.0,tetrahedral
+516,fe,3.0,formaldehyde_pyridine_pyridine_pyridine,38.0,6.0,tetrahedral
+517,fe,3.0,formaldehyde_thiopyridine_thiopyridine_thiopyridine,41.0,6.0,tetrahedral
+518,fe,3.0,formaldehyde_formaldehyde_methylamine_methylamine,23.0,6.0,tetrahedral
+519,fe,3.0,formaldehyde_formaldehyde_pyridine_pyridine,31.0,6.0,tetrahedral
+520,fe,3.0,formaldehyde_formaldehyde_thiopyridine_thiopyridine,33.0,6.0,tetrahedral
+521,fe,3.0,formaldehyde_formaldehyde_formaldehyde_methylamine,20.0,6.0,tetrahedral
+522,fe,3.0,formaldehyde_formaldehyde_formaldehyde_pyridine,24.0,6.0,tetrahedral
+523,fe,3.0,formaldehyde_formaldehyde_formaldehyde_thiopyridine,25.0,6.0,tetrahedral
+524,fe,3.0,ncs_acetonitrile_acetonitrile_acetonitrile,22.0,6.0,tetrahedral
+525,fe,3.0,ncs_ammonia_ammonia_ammonia,16.0,6.0,tetrahedral
+526,fe,3.0,ncs_benzisc_benzisc_benzisc,52.0,6.0,tetrahedral
+527,fe,3.0,ncs_cyanopyridine_cyanopyridine_cyanopyridine,40.0,6.0,tetrahedral
+528,fe,3.0,ncs_formaldehyde_formaldehyde_formaldehyde,16.0,6.0,tetrahedral
+529,fe,3.0,ncs_methylamine_methylamine_methylamine,25.0,6.0,tetrahedral
+530,fe,3.0,ncs_pyridine_pyridine_pyridine,37.0,6.0,tetrahedral
+531,fe,3.0,ncs_thiopyridine_thiopyridine_thiopyridine,40.0,6.0,tetrahedral
+532,fe,3.0,ncs_ncs_acetonitrile_acetonitrile,19.0,6.0,tetrahedral
+533,fe,3.0,ncs_ncs_ammonia_ammonia,15.0,6.0,tetrahedral
+534,fe,3.0,ncs_ncs_benzisc_benzisc,39.0,6.0,tetrahedral
+535,fe,3.0,ncs_ncs_cyanopyridine_cyanopyridine,31.0,6.0,tetrahedral
+536,fe,3.0,ncs_ncs_formaldehyde_formaldehyde,15.0,6.0,tetrahedral
+537,fe,3.0,ncs_ncs_methylamine_methylamine,21.0,6.0,tetrahedral
+538,fe,3.0,ncs_ncs_pyridine_pyridine,29.0,6.0,tetrahedral
+539,fe,3.0,ncs_ncs_thiopyridine_thiopyridine,31.0,6.0,tetrahedral
+540,fe,3.0,ncs_ncs_ncs_acetonitrile,16.0,6.0,tetrahedral
+541,fe,3.0,ncs_ncs_ncs_ammonia,14.0,6.0,tetrahedral
+542,fe,3.0,ncs_ncs_ncs_benzisc,26.0,6.0,tetrahedral
+543,fe,3.0,ncs_ncs_ncs_cyanopyridine,22.0,6.0,tetrahedral
+544,fe,3.0,ncs_ncs_ncs_formaldehyde,14.0,6.0,tetrahedral
+545,fe,3.0,ncs_ncs_ncs_methylamine,17.0,6.0,tetrahedral
+546,fe,3.0,ncs_ncs_ncs_pyridine,21.0,6.0,tetrahedral
+547,fe,3.0,ncs_ncs_ncs_thiopyridine,22.0,6.0,tetrahedral
+548,fe,3.0,scn_formaldehyde_formaldehyde_formaldehyde,16.0,6.0,tetrahedral
+549,fe,3.0,scn_ncs_ncs_ncs,13.0,6.0,tetrahedral
+550,fe,3.0,scn_scn_formaldehyde_formaldehyde,15.0,6.0,tetrahedral
+551,fe,3.0,scn_scn_ncs_ncs,13.0,6.0,tetrahedral
+552,fe,3.0,scn_scn_scn_formaldehyde,14.0,6.0,tetrahedral
+553,fe,3.0,scn_scn_scn_ncs,13.0,6.0,tetrahedral
+554,mn,2.0,ncs_cyanate_cyanate_cyanate,13.0,6.0,tetrahedral
+555,mn,2.0,ncs_furan_furan_furan,31.0,6.0,tetrahedral
+557,mn,2.0,ncs_pph3_pph3_pph3,106.0,6.0,tetrahedral
+558,mn,2.0,ncs_thiopyridine_thiopyridine_thiopyridine,40.0,6.0,tetrahedral
+559,mn,2.0,ncs_ncs_cyanate_cyanate,13.0,6.0,tetrahedral
+561,mn,2.0,ncs_ncs_hydroxyl_hydroxyl,11.0,6.0,tetrahedral
+562,mn,2.0,ncs_ncs_pph3_pph3,75.0,6.0,tetrahedral
+563,mn,2.0,ncs_ncs_thiopyridine_thiopyridine,31.0,6.0,tetrahedral
+564,mn,2.0,ncs_ncs_ncs_furan,19.0,6.0,tetrahedral
+565,mn,2.0,ncs_ncs_ncs_hydroxyl,12.0,6.0,tetrahedral
+566,mn,2.0,ncs_ncs_ncs_pph3,44.0,6.0,tetrahedral
+567,mn,2.0,ncs_ncs_ncs_thiopyridine,22.0,6.0,tetrahedral
+568,mn,3.0,cyanopyridine_formaldehyde_formaldehyde_formaldehyde,25.0,5.0,tetrahedral
+569,mn,3.0,cyanopyridine_cyanopyridine_formaldehyde_formaldehyde,33.0,5.0,tetrahedral
+570,mn,3.0,cyanopyridine_cyanopyridine_cyanopyridine_formaldehyde,41.0,5.0,tetrahedral
+571,mn,3.0,formaldehyde_pyridine_pyridine_pyridine,38.0,5.0,tetrahedral
+572,mn,3.0,formaldehyde_thiopyridine_thiopyridine_thiopyridine,41.0,5.0,tetrahedral
+573,mn,3.0,formaldehyde_formaldehyde_pyridine_pyridine,31.0,5.0,tetrahedral
+574,mn,3.0,formaldehyde_formaldehyde_thiopyridine_thiopyridine,33.0,5.0,tetrahedral
+575,mn,3.0,formaldehyde_formaldehyde_formaldehyde_pyridine,24.0,5.0,tetrahedral
+576,mn,3.0,formaldehyde_formaldehyde_formaldehyde_thiopyridine,25.0,5.0,tetrahedral
+577,co,2.0,acetonitrile_acetonitrile_ammonia_ammonia,21.0,4.0,tetrahedral
+578,co,2.0,acetonitrile_acetonitrile_acetonitrile_ammonia,23.0,4.0,tetrahedral
+579,co,2.0,cn_ammonia_ammonia_ammonia,15.0,4.0,tetrahedral
+581,co,2.0,cn_cn_cn_ammonia,11.0,4.0,tetrahedral
+582,co,2.0,scn_ammonia_ammonia_ammonia,16.0,4.0,tetrahedral
+583,co,2.0,scn_scn_ammonia_ammonia,15.0,4.0,tetrahedral
+584,co,2.0,scn_scn_scn_ammonia,14.0,4.0,tetrahedral
+586,cr,3.0,cyanopyridine_cyanopyridine_pyridine_pyridine,47.0,4.0,tetrahedral
+587,cr,3.0,cyanopyridine_cyanopyridine_cyanopyridine_pyridine,48.0,4.0,tetrahedral
+589,cr,3.0,pyridine_hydroxyl_hydroxyl_hydroxyl,18.0,4.0,tetrahedral
+590,cr,3.0,pyridine_thiopyridine_thiopyridine_thiopyridine,48.0,4.0,tetrahedral
+591,cr,3.0,pyridine_pyridine_hydrogensulfide_hydrogensulfide,29.0,4.0,tetrahedral
+594,cr,3.0,pyridine_pyridine_pyridine_thiopyridine,46.0,4.0,tetrahedral
+595,cr,3.0,scn_pyridine_pyridine_pyridine,37.0,4.0,tetrahedral
+596,cr,3.0,scn_scn_pyridine_pyridine,29.0,4.0,tetrahedral
+598,fe,2.0,cyanate_furan_furan_furan,31.0,5.0,tetrahedral
+599,fe,2.0,cyanate_hydrogensulfide_hydrogensulfide_hydrogensulfide,13.0,5.0,tetrahedral
+602,fe,2.0,cyanate_cyanate_pyridine_pyridine,29.0,5.0,tetrahedral
+603,fe,2.0,cyanate_cyanate_cyanate_furan,19.0,5.0,tetrahedral
+605,fe,2.0,cyanate_cyanate_cyanate_pyridine,21.0,5.0,tetrahedral
+606,fe,2.0,furan_pyridine_pyridine_pyridine,43.0,5.0,tetrahedral
+607,fe,2.0,furan_furan_pyridine_pyridine,41.0,5.0,tetrahedral
+608,fe,2.0,furan_furan_furan_pyridine,39.0,5.0,tetrahedral
+609,fe,2.0,pyridine_hydrogensulfide_hydrogensulfide_hydrogensulfide,21.0,5.0,tetrahedral
+610,fe,2.0,scn_cyanate_cyanate_cyanate,13.0,5.0,tetrahedral
+611,fe,2.0,scn_pyridine_pyridine_pyridine,37.0,5.0,tetrahedral
+612,fe,2.0,scn_scn_cyanate_cyanate,13.0,5.0,tetrahedral
+613,fe,2.0,scn_scn_pyridine_pyridine,29.0,5.0,tetrahedral
+614,fe,2.0,scn_scn_scn_cyanate,13.0,5.0,tetrahedral
+615,fe,2.0,scn_scn_scn_pyridine,21.0,5.0,tetrahedral
+616,fe,3.0,acetonitrile_ammonia_ammonia_ammonia,19.0,6.0,tetrahedral
+617,fe,3.0,acetonitrile_pyridine_pyridine_pyridine,40.0,6.0,tetrahedral
+618,fe,3.0,acetonitrile_acetonitrile_ammonia_ammonia,21.0,6.0,tetrahedral
+619,fe,3.0,acetonitrile_acetonitrile_pyridine_pyridine,35.0,6.0,tetrahedral
+620,fe,3.0,acetonitrile_acetonitrile_acetonitrile_ammonia,23.0,6.0,tetrahedral
+621,fe,3.0,acetonitrile_acetonitrile_acetonitrile_pyridine,30.0,6.0,tetrahedral
+622,fe,3.0,ammonia_benzisc_benzisc_benzisc,53.0,6.0,tetrahedral
+623,fe,3.0,ammonia_cyanopyridine_cyanopyridine_cyanopyridine,41.0,6.0,tetrahedral
+624,fe,3.0,ammonia_methylamine_methylamine_methylamine,26.0,6.0,tetrahedral
+625,fe,3.0,ammonia_pyridine_pyridine_pyridine,38.0,6.0,tetrahedral
+626,fe,3.0,ammonia_thiopyridine_thiopyridine_thiopyridine,41.0,6.0,tetrahedral
+627,fe,3.0,ammonia_ammonia_benzisc_benzisc,41.0,6.0,tetrahedral
+628,fe,3.0,ammonia_ammonia_cyanopyridine_cyanopyridine,33.0,6.0,tetrahedral
+629,fe,3.0,ammonia_ammonia_methylamine_methylamine,23.0,6.0,tetrahedral
+630,fe,3.0,ammonia_ammonia_pyridine_pyridine,31.0,6.0,tetrahedral
+631,fe,3.0,ammonia_ammonia_ammonia_benzisc,29.0,6.0,tetrahedral
+632,fe,3.0,ammonia_ammonia_ammonia_cyanopyridine,25.0,6.0,tetrahedral
+633,fe,3.0,ammonia_ammonia_ammonia_methylamine,20.0,6.0,tetrahedral
+635,fe,3.0,ammonia_ammonia_ammonia_thiopyridine,25.0,6.0,tetrahedral
+636,fe,3.0,benzisc_pyridine_pyridine_pyridine,50.0,6.0,tetrahedral
+637,fe,3.0,benzisc_benzisc_pyridine_pyridine,55.0,6.0,tetrahedral
+638,fe,3.0,benzisc_benzisc_benzisc_pyridine,60.0,6.0,tetrahedral
+639,fe,3.0,cyanopyridine_pyridine_pyridine_pyridine,46.0,6.0,tetrahedral
+640,fe,3.0,cyanopyridine_cyanopyridine_pyridine_pyridine,47.0,6.0,tetrahedral
+641,fe,3.0,cyanopyridine_cyanopyridine_cyanopyridine_pyridine,48.0,6.0,tetrahedral
+642,fe,3.0,methylamine_pyridine_pyridine_pyridine,41.0,6.0,tetrahedral
+643,fe,3.0,methylamine_methylamine_pyridine_pyridine,37.0,6.0,tetrahedral
+644,fe,3.0,methylamine_methylamine_methylamine_pyridine,33.0,6.0,tetrahedral
+645,fe,3.0,pyridine_thiopyridine_thiopyridine_thiopyridine,48.0,6.0,tetrahedral
+646,fe,3.0,pyridine_pyridine_thiopyridine_thiopyridine,47.0,6.0,tetrahedral
+647,fe,3.0,pyridine_pyridine_pyridine_thiopyridine,46.0,6.0,tetrahedral
+649,fe,3.0,scn_scn_ammonia_ammonia,15.0,6.0,tetrahedral
+650,fe,3.0,scn_scn_pyridine_pyridine,29.0,6.0,tetrahedral
+651,fe,3.0,scn_scn_scn_ammonia,14.0,6.0,tetrahedral
+652,fe,3.0,scn_scn_scn_pyridine,21.0,6.0,tetrahedral
+653,mn,2.0,cyanate_furan_furan_furan,31.0,6.0,tetrahedral
+654,mn,2.0,cyanate_hydroxyl_hydroxyl_hydroxyl,10.0,6.0,tetrahedral
+655,mn,2.0,cyanate_pph3_pph3_pph3,106.0,6.0,tetrahedral
+659,mn,2.0,cyanate_cyanate_thiopyridine_thiopyridine,31.0,6.0,tetrahedral
+660,mn,2.0,cyanate_cyanate_cyanate_furan,19.0,6.0,tetrahedral
+661,mn,2.0,cyanate_cyanate_cyanate_pph3,44.0,6.0,tetrahedral
+662,mn,2.0,cyanate_cyanate_cyanate_thiopyridine,22.0,6.0,tetrahedral
+663,mn,3.0,cyanopyridine_pyridine_pyridine_pyridine,46.0,5.0,tetrahedral
+664,mn,3.0,cyanopyridine_cyanopyridine_pyridine_pyridine,47.0,5.0,tetrahedral
+665,mn,3.0,cyanopyridine_cyanopyridine_cyanopyridine_pyridine,48.0,5.0,tetrahedral
+666,mn,3.0,pyridine_thiopyridine_thiopyridine_thiopyridine,48.0,5.0,tetrahedral
+667,mn,3.0,pyridine_pyridine_thiopyridine_thiopyridine,47.0,5.0,tetrahedral
+668,mn,3.0,pyridine_pyridine_pyridine_thiopyridine,46.0,5.0,tetrahedral
+669,ni,2.0,acetonitrile_pyridine_pyridine_pyridine,40.0,3.0,tetrahedral
+670,ni,2.0,acetonitrile_acetonitrile_pyridine_pyridine,35.0,3.0,tetrahedral
+671,ni,2.0,acetonitrile_acetonitrile_acetonitrile_pyridine,30.0,3.0,tetrahedral
+672,ni,2.0,cyanate_acetonitrile_acetonitrile_acetonitrile,22.0,3.0,tetrahedral
+673,ni,2.0,cyanate_thiopyridine_thiopyridine_thiopyridine,40.0,3.0,tetrahedral
+674,ni,2.0,cyanate_cyanate_acetonitrile_acetonitrile,19.0,3.0,tetrahedral
+676,ni,2.0,cyanate_cyanate_thiopyridine_thiopyridine,31.0,3.0,tetrahedral
+677,ni,2.0,cyanate_cyanate_cyanate_acetonitrile,16.0,3.0,tetrahedral
+678,ni,2.0,cyanate_cyanate_cyanate_pyridine,21.0,3.0,tetrahedral
+679,ni,2.0,cyanate_cyanate_cyanate_thiopyridine,22.0,3.0,tetrahedral
+680,ni,2.0,pyridine_thiopyridine_thiopyridine_thiopyridine,48.0,3.0,tetrahedral
+681,ni,2.0,pyridine_pyridine_thiopyridine_thiopyridine,47.0,3.0,tetrahedral
+682,ni,2.0,pyridine_pyridine_pyridine_thiopyridine,46.0,3.0,tetrahedral
+683,co,2.0,cn_acetonitrile_acetonitrile_acetonitrile,21.0,4.0,tetrahedral
+684,co,2.0,cn_cn_acetonitrile_acetonitrile,17.0,4.0,tetrahedral
+685,co,2.0,cn_cn_cn_acetonitrile,13.0,4.0,tetrahedral
+686,co,2.0,scn_acetonitrile_acetonitrile_acetonitrile,22.0,4.0,tetrahedral
+687,co,2.0,scn_cn_cn_cn,10.0,4.0,tetrahedral
+688,co,2.0,scn_scn_acetonitrile_acetonitrile,19.0,4.0,tetrahedral
+689,co,2.0,scn_scn_cn_cn,11.0,4.0,tetrahedral
+690,co,2.0,scn_scn_scn_acetonitrile,16.0,4.0,tetrahedral
+691,co,2.0,scn_scn_scn_cn,12.0,4.0,tetrahedral
+692,co,3.0,benzisc_methylamine_methylamine_methylamine,38.0,5.0,tetrahedral
+693,co,3.0,benzisc_thiopyridine_thiopyridine_thiopyridine,53.0,5.0,tetrahedral
+694,co,3.0,benzisc_benzisc_methylamine_methylamine,47.0,5.0,tetrahedral
+695,co,3.0,benzisc_benzisc_thiopyridine_thiopyridine,57.0,5.0,tetrahedral
+696,co,3.0,benzisc_benzisc_benzisc_methylamine,56.0,5.0,tetrahedral
+697,co,3.0,benzisc_benzisc_benzisc_thiopyridine,61.0,5.0,tetrahedral
+698,co,3.0,methylamine_thiopyridine_thiopyridine_thiopyridine,44.0,5.0,tetrahedral
+699,co,3.0,methylamine_methylamine_thiopyridine_thiopyridine,39.0,5.0,tetrahedral
+700,co,3.0,methylamine_methylamine_methylamine_thiopyridine,34.0,5.0,tetrahedral
+701,co,3.0,scn_benzisc_benzisc_benzisc,52.0,5.0,tetrahedral
+703,co,3.0,scn_thiopyridine_thiopyridine_thiopyridine,40.0,5.0,tetrahedral
+704,co,3.0,scn_scn_benzisc_benzisc,39.0,5.0,tetrahedral
+705,co,3.0,scn_scn_methylamine_methylamine,21.0,5.0,tetrahedral
+706,co,3.0,scn_scn_thiopyridine_thiopyridine,31.0,5.0,tetrahedral
+707,co,3.0,scn_scn_scn_benzisc,26.0,5.0,tetrahedral
+708,co,3.0,scn_scn_scn_methylamine,17.0,5.0,tetrahedral
+709,co,3.0,scn_scn_scn_thiopyridine,22.0,5.0,tetrahedral
+710,cr,2.0,hydroxyl_s2-_s2-_s2-,6.0,5.0,tetrahedral
+711,cr,2.0,hydroxyl_hydroxyl_s2-_s2-,7.0,5.0,tetrahedral
+712,cr,2.0,hydroxyl_hydroxyl_hydroxyl_s2-,8.0,5.0,tetrahedral
+714,cr,3.0,cyanopyridine_hydroxyl_hydroxyl_hydroxyl,19.0,4.0,tetrahedral
+718,cr,3.0,cyanopyridine_cyanopyridine_thiopyridine_thiopyridine,49.0,4.0,tetrahedral
+720,cr,3.0,cyanopyridine_cyanopyridine_cyanopyridine_hydroxyl,39.0,4.0,tetrahedral
+721,cr,3.0,cyanopyridine_cyanopyridine_cyanopyridine_thiopyridine,49.0,4.0,tetrahedral
+722,cr,3.0,hydroxyl_hydrogensulfide_hydrogensulfide_hydrogensulfide,12.0,4.0,tetrahedral
+725,cr,3.0,scn_cyanopyridine_cyanopyridine_cyanopyridine,40.0,4.0,tetrahedral
+728,cr,3.0,scn_thiopyridine_thiopyridine_thiopyridine,40.0,4.0,tetrahedral
+729,cr,3.0,scn_scn_cyanopyridine_cyanopyridine,31.0,4.0,tetrahedral
+730,cr,3.0,scn_scn_hydroxyl_hydroxyl,11.0,4.0,tetrahedral
+731,cr,3.0,scn_scn_thiopyridine_thiopyridine,31.0,4.0,tetrahedral
+732,cr,3.0,scn_scn_scn_cyanopyridine,22.0,4.0,tetrahedral
+734,cr,3.0,scn_scn_scn_hydroxyl,12.0,4.0,tetrahedral
+738,cr,3.0,thiopyridine_thiopyridine_hydroxyl_hydroxyl,29.0,4.0,tetrahedral
+740,cr,3.0,thiopyridine_thiopyridine_thiopyridine_hydroxyl,39.0,4.0,tetrahedral
+741,fe,2.0,furan_hydrogensulfide_hydrogensulfide_hydrogensulfide,19.0,5.0,tetrahedral
+742,fe,2.0,furan_furan_hydrogensulfide_hydrogensulfide,25.0,5.0,tetrahedral
+743,fe,2.0,furan_furan_furan_hydrogensulfide,31.0,5.0,tetrahedral
+744,fe,2.0,scn_furan_furan_furan,31.0,5.0,tetrahedral
+745,fe,2.0,scn_hydrogensulfide_hydrogensulfide_hydrogensulfide,13.0,5.0,tetrahedral
+746,fe,2.0,scn_scn_furan_furan,25.0,5.0,tetrahedral
+747,fe,2.0,scn_scn_hydrogensulfide_hydrogensulfide,13.0,5.0,tetrahedral
+748,fe,2.0,scn_scn_scn_furan,19.0,5.0,tetrahedral
+749,fe,2.0,scn_scn_scn_hydrogensulfide,13.0,5.0,tetrahedral
+750,fe,3.0,acetonitrile_benzisc_benzisc_benzisc,55.0,6.0,tetrahedral
+751,fe,3.0,acetonitrile_methylamine_methylamine_methylamine,28.0,6.0,tetrahedral
+752,fe,3.0,acetonitrile_thiopyridine_thiopyridine_thiopyridine,43.0,6.0,tetrahedral
+753,fe,3.0,acetonitrile_acetonitrile_benzisc_benzisc,45.0,6.0,tetrahedral
+754,fe,3.0,acetonitrile_acetonitrile_cyanopyridine_cyanopyridine,37.0,6.0,tetrahedral
+755,fe,3.0,acetonitrile_acetonitrile_methylamine_methylamine,27.0,6.0,tetrahedral
+756,fe,3.0,acetonitrile_acetonitrile_thiopyridine_thiopyridine,37.0,6.0,tetrahedral
+757,fe,3.0,acetonitrile_acetonitrile_acetonitrile_benzisc,35.0,6.0,tetrahedral
+758,fe,3.0,acetonitrile_acetonitrile_acetonitrile_cyanopyridine,31.0,6.0,tetrahedral
+759,fe,3.0,acetonitrile_acetonitrile_acetonitrile_methylamine,26.0,6.0,tetrahedral
+760,fe,3.0,acetonitrile_acetonitrile_acetonitrile_thiopyridine,31.0,6.0,tetrahedral
+761,fe,3.0,benzisc_cyanopyridine_cyanopyridine_cyanopyridine,53.0,6.0,tetrahedral
+762,fe,3.0,benzisc_methylamine_methylamine_methylamine,38.0,6.0,tetrahedral
+763,fe,3.0,benzisc_thiopyridine_thiopyridine_thiopyridine,53.0,6.0,tetrahedral
+764,fe,3.0,benzisc_benzisc_cyanopyridine_cyanopyridine,57.0,6.0,tetrahedral
+765,fe,3.0,benzisc_benzisc_methylamine_methylamine,47.0,6.0,tetrahedral
+766,fe,3.0,benzisc_benzisc_thiopyridine_thiopyridine,57.0,6.0,tetrahedral
+767,fe,3.0,benzisc_benzisc_benzisc_cyanopyridine,61.0,6.0,tetrahedral
+768,fe,3.0,benzisc_benzisc_benzisc_methylamine,56.0,6.0,tetrahedral
+769,fe,3.0,benzisc_benzisc_benzisc_thiopyridine,61.0,6.0,tetrahedral
+770,fe,3.0,cyanopyridine_methylamine_methylamine_methylamine,34.0,6.0,tetrahedral
+771,fe,3.0,cyanopyridine_thiopyridine_thiopyridine_thiopyridine,49.0,6.0,tetrahedral
+772,fe,3.0,cyanopyridine_cyanopyridine_methylamine_methylamine,39.0,6.0,tetrahedral
+773,fe,3.0,cyanopyridine_cyanopyridine_cyanopyridine_methylamine,44.0,6.0,tetrahedral
+774,fe,3.0,cyanopyridine_cyanopyridine_cyanopyridine_thiopyridine,49.0,6.0,tetrahedral
+775,fe,3.0,methylamine_thiopyridine_thiopyridine_thiopyridine,44.0,6.0,tetrahedral
+776,fe,3.0,methylamine_methylamine_thiopyridine_thiopyridine,39.0,6.0,tetrahedral
+777,fe,3.0,methylamine_methylamine_methylamine_thiopyridine,34.0,6.0,tetrahedral
+778,fe,3.0,scn_acetonitrile_acetonitrile_acetonitrile,22.0,6.0,tetrahedral
+779,fe,3.0,scn_benzisc_benzisc_benzisc,52.0,6.0,tetrahedral
+780,fe,3.0,scn_methylamine_methylamine_methylamine,25.0,6.0,tetrahedral
+781,fe,3.0,scn_thiopyridine_thiopyridine_thiopyridine,40.0,6.0,tetrahedral
+782,fe,3.0,scn_scn_acetonitrile_acetonitrile,19.0,6.0,tetrahedral
+783,fe,3.0,scn_scn_benzisc_benzisc,39.0,6.0,tetrahedral
+784,fe,3.0,scn_scn_cyanopyridine_cyanopyridine,31.0,6.0,tetrahedral
+785,fe,3.0,scn_scn_methylamine_methylamine,21.0,6.0,tetrahedral
+786,fe,3.0,scn_scn_thiopyridine_thiopyridine,31.0,6.0,tetrahedral
+787,fe,3.0,scn_scn_scn_acetonitrile,16.0,6.0,tetrahedral
+788,fe,3.0,scn_scn_scn_benzisc,26.0,6.0,tetrahedral
+789,fe,3.0,scn_scn_scn_cyanopyridine,22.0,6.0,tetrahedral
+790,fe,3.0,scn_scn_scn_methylamine,17.0,6.0,tetrahedral
+791,fe,3.0,scn_scn_scn_thiopyridine,22.0,6.0,tetrahedral
+793,mn,2.0,furan_pph3_pph3_pph3,112.0,6.0,tetrahedral
+794,mn,2.0,furan_thiopyridine_thiopyridine_thiopyridine,46.0,6.0,tetrahedral
+796,mn,2.0,furan_furan_pph3_pph3,87.0,6.0,tetrahedral
+797,mn,2.0,furan_furan_furan_hydroxyl,30.0,6.0,tetrahedral
+798,mn,2.0,furan_furan_furan_pph3,62.0,6.0,tetrahedral
+799,mn,2.0,pph3_hydroxyl_hydroxyl_hydroxyl,41.0,6.0,tetrahedral
+800,mn,2.0,pph3_thiopyridine_thiopyridine_thiopyridine,71.0,6.0,tetrahedral
+801,mn,2.0,pph3_pph3_hydroxyl_hydroxyl,73.0,6.0,tetrahedral
+802,mn,2.0,pph3_pph3_thiopyridine_thiopyridine,93.0,6.0,tetrahedral
+803,mn,2.0,pph3_pph3_pph3_hydroxyl,105.0,6.0,tetrahedral
+804,mn,2.0,pph3_pph3_pph3_thiopyridine,115.0,6.0,tetrahedral
+805,mn,2.0,thiopyridine_hydroxyl_hydroxyl_hydroxyl,19.0,6.0,tetrahedral
+807,mn,2.0,thiopyridine_thiopyridine_thiopyridine_hydroxyl,39.0,6.0,tetrahedral
+808,mn,3.0,cyanopyridine_thiopyridine_thiopyridine_thiopyridine,49.0,5.0,tetrahedral
+809,mn,3.0,cyanopyridine_cyanopyridine_thiopyridine_thiopyridine,49.0,5.0,tetrahedral
+810,ni,2.0,acetonitrile_thiopyridine_thiopyridine_thiopyridine,43.0,3.0,tetrahedral
+811,ni,2.0,acetonitrile_acetonitrile_thiopyridine_thiopyridine,37.0,3.0,tetrahedral
+812,ni,2.0,acetonitrile_acetonitrile_acetonitrile_thiopyridine,31.0,3.0,tetrahedral
+6,co,2.0,chloride_chloride_chloride_chloride_s_s,5.0,2.0,tetrahedral
+8,co,2.0,cyanate_cyanate_cyanate_cyanate_s_s,13.0,2.0,tetrahedral
+16,co,2.0,iodide_iodide_iodide_iodide_s_s,5.0,2.0,tetrahedral
+28,co,2.0,scn_scn_scn_scn_s_s,13.0,2.0,tetrahedral
+44,co,3.0,fluoride_fluoride_fluoride_fluoride_s,5.0,1.0,tetrahedral
+45,co,3.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s,17.0,1.0,tetrahedral
+48,co,3.0,iodide_iodide_iodide_iodide_s,5.0,1.0,tetrahedral
+65,cr,2.0,acac_acac_acac_acac_s,29.0,1.0,tetrahedral
+69,cr,2.0,benzisc_benzisc_benzisc_benzisc_s,65.0,1.0,tetrahedral
+77,cr,2.0,fluoride_fluoride_fluoride_fluoride_s,5.0,1.0,tetrahedral
+79,cr,2.0,furan_furan_furan_furan_s,37.0,1.0,tetrahedral
+81,cr,2.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s,9.0,1.0,tetrahedral
+84,cr,2.0,mec_mec_mec_mec_s,31.0,1.0,tetrahedral
+88,cr,2.0,ox_ox_ox_ox_s,13.0,1.0,tetrahedral
+95,cr,2.0,s2-_s2-_s2-_s2-_s,5.0,1.0,tetrahedral
+97,cr,2.0,tbuc_tbuc_tbuc_tbuc_s,49.0,1.0,tetrahedral
+100,cr,3.0,acac_acac_acac_acac_s_s,29.0,2.0,tetrahedral
+101,cr,3.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_s_s,65.0,2.0,tetrahedral
+102,cr,3.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s_s,25.0,2.0,tetrahedral
+103,cr,3.0,ammonia_ammonia_ammonia_ammonia_s_s,17.0,2.0,tetrahedral
+105,cr,3.0,bipy_bipy_bipy_bipy_s_s,41.0,2.0,tetrahedral
+107,cr,3.0,chloride_chloride_chloride_chloride_s_s,5.0,2.0,tetrahedral
+108,cr,3.0,cn_cn_cn_cn_s_s,9.0,2.0,tetrahedral
+110,cr,3.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine_s_s,49.0,2.0,tetrahedral
+111,cr,3.0,en_en_en_en_s_s,25.0,2.0,tetrahedral
+112,cr,3.0,fluoride_fluoride_fluoride_fluoride_s_s,5.0,2.0,tetrahedral
+113,cr,3.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s_s,17.0,2.0,tetrahedral
+114,cr,3.0,furan_furan_furan_furan_s_s,37.0,2.0,tetrahedral
+115,cr,3.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide_s_s,13.0,2.0,tetrahedral
+116,cr,3.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s_s,9.0,2.0,tetrahedral
+117,cr,3.0,iodide_iodide_iodide_iodide_s_s,5.0,2.0,tetrahedral
+118,cr,3.0,mebipy_mebipy_mebipy_mebipy_s_s,53.0,2.0,tetrahedral
+119,cr,3.0,mec_mec_mec_mec_s_s,31.0,2.0,tetrahedral
+120,cr,3.0,methylamine_methylamine_methylamine_methylamine_s_s,29.0,2.0,tetrahedral
+122,cr,3.0,ncs_ncs_ncs_ncs_s_s,13.0,2.0,tetrahedral
+123,cr,3.0,ox_ox_ox_ox_s_s,13.0,2.0,tetrahedral
+124,cr,3.0,phen_phen_phen_phen_s_s,45.0,2.0,tetrahedral
+125,cr,3.0,phenisc_phenisc_phenisc_phenisc_s_s,53.0,2.0,tetrahedral
+126,cr,3.0,phosphine_phosphine_phosphine_phosphine_s_s,17.0,2.0,tetrahedral
+127,cr,3.0,pisc_pisc_pisc_pisc_s_s,101.0,2.0,tetrahedral
+128,cr,3.0,pyridine_pyridine_pyridine_pyridine_s_s,45.0,2.0,tetrahedral
+129,cr,3.0,s2-_s2-_s2-_s2-_s_s,5.0,2.0,tetrahedral
+130,cr,3.0,scn_scn_scn_scn_s_s,13.0,2.0,tetrahedral
+131,cr,3.0,tbuc_tbuc_tbuc_tbuc_s_s,49.0,2.0,tetrahedral
+132,cr,3.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s_s,49.0,2.0,tetrahedral
+133,cr,3.0,water_water_water_water_s_s,13.0,2.0,tetrahedral
+168,fe,3.0,acac_acac_acac_acac_s_s,29.0,2.0,tetrahedral
+170,fe,3.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s_s,25.0,2.0,tetrahedral
+171,fe,3.0,ammonia_ammonia_ammonia_ammonia_s_s,17.0,2.0,tetrahedral
+173,fe,3.0,bipy_bipy_bipy_bipy_s_s,41.0,2.0,tetrahedral
+175,fe,3.0,chloride_chloride_chloride_chloride_s_s,5.0,2.0,tetrahedral
+178,fe,3.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine_s_s,49.0,2.0,tetrahedral
+180,fe,3.0,fluoride_fluoride_fluoride_fluoride_s_s,5.0,2.0,tetrahedral
+181,fe,3.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s_s,17.0,2.0,tetrahedral
+185,fe,3.0,iodide_iodide_iodide_iodide_s_s,5.0,2.0,tetrahedral
+188,fe,3.0,methylamine_methylamine_methylamine_methylamine_s_s,29.0,2.0,tetrahedral
+190,fe,3.0,ncs_ncs_ncs_ncs_s_s,13.0,2.0,tetrahedral
+191,fe,3.0,ox_ox_ox_ox_s_s,13.0,2.0,tetrahedral
+195,fe,3.0,pyridine_pyridine_pyridine_pyridine_s_s,45.0,2.0,tetrahedral
+197,fe,3.0,scn_scn_scn_scn_s_s,13.0,2.0,tetrahedral
+217,mn,2.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s_s,9.0,2.0,tetrahedral
+223,mn,2.0,ncs_ncs_ncs_ncs_s_s,13.0,2.0,tetrahedral
+231,mn,2.0,scn_scn_scn_scn_s_s,13.0,2.0,tetrahedral
+232,mn,2.0,tbuc_tbuc_tbuc_tbuc_s_s,49.0,2.0,tetrahedral
+233,mn,2.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s_s,49.0,2.0,tetrahedral
+235,mn,3.0,acac_acac_acac_acac_s,29.0,1.0,tetrahedral
+236,mn,3.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_s,65.0,1.0,tetrahedral
+237,mn,3.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s,25.0,1.0,tetrahedral
+238,mn,3.0,ammonia_ammonia_ammonia_ammonia_s,17.0,1.0,tetrahedral
+240,mn,3.0,bipy_bipy_bipy_bipy_s,41.0,1.0,tetrahedral
+243,mn,3.0,cn_cn_cn_cn_s,9.0,1.0,tetrahedral
+245,mn,3.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine_s,49.0,1.0,tetrahedral
+251,mn,3.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s,9.0,1.0,tetrahedral
+253,mn,3.0,mebipy_mebipy_mebipy_mebipy_s,53.0,1.0,tetrahedral
+254,mn,3.0,mec_mec_mec_mec_s,31.0,1.0,tetrahedral
+255,mn,3.0,methylamine_methylamine_methylamine_methylamine_s,29.0,1.0,tetrahedral
+256,mn,3.0,misc_misc_misc_misc_s,25.0,1.0,tetrahedral
+257,mn,3.0,ncs_ncs_ncs_ncs_s,13.0,1.0,tetrahedral
+259,mn,3.0,phen_phen_phen_phen_s,45.0,1.0,tetrahedral
+263,mn,3.0,pyridine_pyridine_pyridine_pyridine_s,45.0,1.0,tetrahedral
+265,mn,3.0,scn_scn_scn_scn_s,13.0,1.0,tetrahedral
+266,mn,3.0,tbuc_tbuc_tbuc_tbuc_s,49.0,1.0,tetrahedral
+267,mn,3.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s,49.0,1.0,tetrahedral
+276,ni,2.0,chloride_chloride_chloride_chloride_s,5.0,1.0,tetrahedral
+284,ni,2.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s,9.0,1.0,tetrahedral
+0,co,2.0,acetonitrile_chloride_chloride_chloride,10.0,2.0,tetrahedral
+1,co,2.0,acetonitrile_fluoride_fluoride_fluoride,10.0,2.0,tetrahedral
+2,co,2.0,acetonitrile_acetonitrile_chloride_chloride,15.0,2.0,tetrahedral
+3,co,2.0,acetonitrile_acetonitrile_fluoride_fluoride,15.0,2.0,tetrahedral
+4,co,2.0,acetonitrile_acetonitrile_acetonitrile_chloride,20.0,2.0,tetrahedral
+5,co,2.0,acetonitrile_acetonitrile_acetonitrile_fluoride,20.0,2.0,tetrahedral
+6,co,2.0,ammonia_fluoride_fluoride_fluoride,8.0,2.0,tetrahedral
+10,co,2.0,cn_chloride_chloride_chloride,6.0,2.0,tetrahedral
+11,co,2.0,cn_fluoride_fluoride_fluoride,6.0,2.0,tetrahedral
+14,co,2.0,fluoride_chloride_chloride_chloride,5.0,2.0,tetrahedral
+15,co,2.0,fluoride_iodide_iodide_iodide,5.0,2.0,tetrahedral
+16,co,2.0,fluoride_fluoride_chloride_chloride,5.0,2.0,tetrahedral
+19,co,2.0,formaldehyde_chloride_chloride_chloride,8.0,2.0,tetrahedral
+21,co,2.0,formaldehyde_formaldehyde_chloride_chloride,11.0,2.0,tetrahedral
+23,co,2.0,formaldehyde_formaldehyde_formaldehyde_chloride,14.0,2.0,tetrahedral
+27,co,2.0,scn_scn_chloride_chloride,9.0,2.0,tetrahedral
+29,co,2.0,scn_scn_scn_chloride,11.0,2.0,tetrahedral
+30,co,2.0,scn_scn_scn_fluoride,11.0,2.0,tetrahedral
+31,co,3.0,benzisc_chloride_chloride_chloride,20.0,1.0,tetrahedral
+32,co,3.0,formaldehyde_chloride_chloride_chloride,8.0,1.0,tetrahedral
+33,co,3.0,formaldehyde_formaldehyde_formaldehyde_chloride,14.0,1.0,tetrahedral
+35,co,3.0,ncs_chloride_chloride_chloride,7.0,1.0,tetrahedral
+36,co,3.0,ncs_ncs_chloride_chloride,9.0,1.0,tetrahedral
+40,co,3.0,thiopyridine_chloride_chloride_chloride,16.0,1.0,tetrahedral
+42,cr,2.0,fluoride_chloride_chloride_chloride,5.0,1.0,tetrahedral
+43,cr,2.0,fluoride_hydroxyl_hydroxyl_hydroxyl,8.0,1.0,tetrahedral
+44,cr,2.0,fluoride_iodide_iodide_iodide,5.0,1.0,tetrahedral
+46,cr,2.0,fluoride_fluoride_hydroxyl_hydroxyl,7.0,1.0,tetrahedral
+47,cr,2.0,fluoride_fluoride_iodide_iodide,5.0,1.0,tetrahedral
+49,cr,2.0,fluoride_fluoride_fluoride_hydroxyl,6.0,1.0,tetrahedral
+51,cr,2.0,fluoride_fluoride_fluoride_s2-,5.0,1.0,tetrahedral
+52,cr,3.0,chloride_chloride_hydroxyl_hydroxyl,7.0,2.0,tetrahedral
+53,cr,3.0,chloride_chloride_chloride_hydroxyl,6.0,2.0,tetrahedral
+54,cr,3.0,cyanopyridine_chloride_chloride_chloride,16.0,2.0,tetrahedral
+55,cr,3.0,cyanopyridine_fluoride_fluoride_fluoride,16.0,2.0,tetrahedral
+56,cr,3.0,cyanopyridine_cyanopyridine_chloride_chloride,27.0,2.0,tetrahedral
+57,cr,3.0,cyanopyridine_cyanopyridine_cyanopyridine_chloride,38.0,2.0,tetrahedral
+58,cr,3.0,cyanopyridine_cyanopyridine_cyanopyridine_fluoride,38.0,2.0,tetrahedral
+59,cr,3.0,fluoride_chloride_chloride_chloride,5.0,2.0,tetrahedral
+60,cr,3.0,fluoride_hydrogensulfide_hydrogensulfide_hydrogensulfide,11.0,2.0,tetrahedral
+61,cr,3.0,fluoride_hydroxyl_hydroxyl_hydroxyl,8.0,2.0,tetrahedral
+62,cr,3.0,fluoride_iodide_iodide_iodide,5.0,2.0,tetrahedral
+63,cr,3.0,fluoride_fluoride_chloride_chloride,5.0,2.0,tetrahedral
+65,cr,3.0,fluoride_fluoride_hydroxyl_hydroxyl,7.0,2.0,tetrahedral
+66,cr,3.0,fluoride_fluoride_iodide_iodide,5.0,2.0,tetrahedral
+67,cr,3.0,fluoride_fluoride_fluoride_chloride,5.0,2.0,tetrahedral
+69,cr,3.0,fluoride_fluoride_fluoride_hydroxyl,6.0,2.0,tetrahedral
+70,cr,3.0,fluoride_fluoride_fluoride_iodide,5.0,2.0,tetrahedral
+71,cr,3.0,formaldehyde_formaldehyde_fluoride_fluoride,11.0,2.0,tetrahedral
+72,cr,3.0,formaldehyde_formaldehyde_formaldehyde_fluoride,14.0,2.0,tetrahedral
+73,cr,3.0,ncs_chloride_chloride_chloride,7.0,2.0,tetrahedral
+74,cr,3.0,ncs_fluoride_fluoride_fluoride,7.0,2.0,tetrahedral
+75,cr,3.0,ncs_ncs_chloride_chloride,9.0,2.0,tetrahedral
+76,cr,3.0,ncs_ncs_fluoride_fluoride,9.0,2.0,tetrahedral
+77,cr,3.0,ncs_ncs_ncs_chloride,11.0,2.0,tetrahedral
+78,cr,3.0,ncs_ncs_ncs_fluoride,11.0,2.0,tetrahedral
+79,cr,3.0,pyridine_chloride_chloride_chloride,15.0,2.0,tetrahedral
+80,cr,3.0,pyridine_fluoride_fluoride_fluoride,15.0,2.0,tetrahedral
+81,cr,3.0,pyridine_pyridine_chloride_chloride,25.0,2.0,tetrahedral
+82,cr,3.0,pyridine_pyridine_fluoride_fluoride,25.0,2.0,tetrahedral
+83,cr,3.0,pyridine_pyridine_pyridine_chloride,35.0,2.0,tetrahedral
+84,cr,3.0,pyridine_pyridine_pyridine_fluoride,35.0,2.0,tetrahedral
+85,cr,3.0,scn_chloride_chloride_chloride,7.0,2.0,tetrahedral
+86,cr,3.0,scn_scn_chloride_chloride,9.0,2.0,tetrahedral
+87,cr,3.0,scn_scn_fluoride_fluoride,9.0,2.0,tetrahedral
+88,cr,3.0,scn_scn_scn_chloride,11.0,2.0,tetrahedral
+89,cr,3.0,scn_scn_scn_fluoride,11.0,2.0,tetrahedral
+90,cr,3.0,thiopyridine_chloride_chloride_chloride,16.0,2.0,tetrahedral
+91,cr,3.0,thiopyridine_fluoride_fluoride_fluoride,16.0,2.0,tetrahedral
+92,cr,3.0,thiopyridine_thiopyridine_chloride_chloride,27.0,2.0,tetrahedral
+93,cr,3.0,thiopyridine_thiopyridine_fluoride_fluoride,27.0,2.0,tetrahedral
+94,cr,3.0,thiopyridine_thiopyridine_thiopyridine_chloride,38.0,2.0,tetrahedral
+95,cr,3.0,thiopyridine_thiopyridine_thiopyridine_fluoride,38.0,2.0,tetrahedral
+104,fe,2.0,fluoride_iodide_iodide_iodide,5.0,1.0,tetrahedral
+133,fe,2.0,pyridine_chloride_chloride_chloride,15.0,1.0,tetrahedral
+139,fe,2.0,pyridine_pyridine_pyridine_chloride,35.0,1.0,tetrahedral
+154,fe,2.0,water_iodide_iodide_iodide,7.0,1.0,tetrahedral
+161,fe,2.0,water_water_water_iodide,11.0,1.0,tetrahedral
+162,fe,3.0,acetonitrile_chloride_chloride_chloride,10.0,2.0,tetrahedral
+163,fe,3.0,acetonitrile_fluoride_fluoride_fluoride,10.0,2.0,tetrahedral
+166,fe,3.0,ammonia_chloride_chloride_chloride,8.0,2.0,tetrahedral
+167,fe,3.0,ammonia_fluoride_fluoride_fluoride,8.0,2.0,tetrahedral
+170,fe,3.0,benzisc_fluoride_fluoride_fluoride,20.0,2.0,tetrahedral
+171,fe,3.0,benzisc_benzisc_fluoride_fluoride,35.0,2.0,tetrahedral
+173,fe,3.0,cyanopyridine_chloride_chloride_chloride,16.0,2.0,tetrahedral
+174,fe,3.0,cyanopyridine_fluoride_fluoride_fluoride,16.0,2.0,tetrahedral
+175,fe,3.0,cyanopyridine_cyanopyridine_cyanopyridine_chloride,38.0,2.0,tetrahedral
+176,fe,3.0,cyanopyridine_cyanopyridine_cyanopyridine_fluoride,38.0,2.0,tetrahedral
+177,fe,3.0,fluoride_chloride_chloride_chloride,5.0,2.0,tetrahedral
+178,fe,3.0,fluoride_iodide_iodide_iodide,5.0,2.0,tetrahedral
+179,fe,3.0,fluoride_fluoride_chloride_chloride,5.0,2.0,tetrahedral
+180,fe,3.0,fluoride_fluoride_iodide_iodide,5.0,2.0,tetrahedral
+181,fe,3.0,fluoride_fluoride_fluoride_chloride,5.0,2.0,tetrahedral
+182,fe,3.0,fluoride_fluoride_fluoride_iodide,5.0,2.0,tetrahedral
+183,fe,3.0,formaldehyde_fluoride_fluoride_fluoride,8.0,2.0,tetrahedral
+184,fe,3.0,formaldehyde_formaldehyde_chloride_chloride,11.0,2.0,tetrahedral
+186,fe,3.0,formaldehyde_formaldehyde_formaldehyde_chloride,14.0,2.0,tetrahedral
+188,fe,3.0,methylamine_fluoride_fluoride_fluoride,11.0,2.0,tetrahedral
+191,fe,3.0,ncs_chloride_chloride_chloride,7.0,2.0,tetrahedral
+192,fe,3.0,ncs_fluoride_fluoride_fluoride,7.0,2.0,tetrahedral
+193,fe,3.0,ncs_ncs_chloride_chloride,9.0,2.0,tetrahedral
+194,fe,3.0,ncs_ncs_fluoride_fluoride,9.0,2.0,tetrahedral
+195,fe,3.0,ncs_ncs_ncs_chloride,11.0,2.0,tetrahedral
+196,fe,3.0,ncs_ncs_ncs_fluoride,11.0,2.0,tetrahedral
+197,fe,3.0,pyridine_chloride_chloride_chloride,15.0,2.0,tetrahedral
+198,fe,3.0,pyridine_fluoride_fluoride_fluoride,15.0,2.0,tetrahedral
+200,fe,3.0,pyridine_pyridine_pyridine_chloride,35.0,2.0,tetrahedral
+201,fe,3.0,pyridine_pyridine_pyridine_fluoride,35.0,2.0,tetrahedral
+202,fe,3.0,scn_chloride_chloride_chloride,7.0,2.0,tetrahedral
+203,fe,3.0,scn_fluoride_fluoride_fluoride,7.0,2.0,tetrahedral
+204,fe,3.0,scn_scn_chloride_chloride,9.0,2.0,tetrahedral
+205,fe,3.0,scn_scn_fluoride_fluoride,9.0,2.0,tetrahedral
+206,fe,3.0,scn_scn_scn_chloride,11.0,2.0,tetrahedral
+208,fe,3.0,thiopyridine_chloride_chloride_chloride,16.0,2.0,tetrahedral
+209,fe,3.0,thiopyridine_fluoride_fluoride_fluoride,16.0,2.0,tetrahedral
+211,fe,3.0,thiopyridine_thiopyridine_thiopyridine_chloride,38.0,2.0,tetrahedral
+212,fe,3.0,thiopyridine_thiopyridine_thiopyridine_fluoride,38.0,2.0,tetrahedral
+213,mn,2.0,chloride_chloride_chloride_hydroxyl,6.0,2.0,tetrahedral
+219,mn,2.0,furan_furan_furan_chloride,29.0,2.0,tetrahedral
+224,mn,2.0,pph3_pph3_chloride_chloride,71.0,2.0,tetrahedral
+227,mn,2.0,thiopyridine_thiopyridine_chloride_chloride,27.0,2.0,tetrahedral
+228,mn,2.0,thiopyridine_thiopyridine_thiopyridine_chloride,38.0,2.0,tetrahedral
+229,mn,3.0,cyanopyridine_chloride_chloride_chloride,16.0,1.0,tetrahedral
+230,mn,3.0,cyanopyridine_cyanopyridine_chloride_chloride,27.0,1.0,tetrahedral
+231,mn,3.0,cyanopyridine_cyanopyridine_cyanopyridine_chloride,38.0,1.0,tetrahedral
+234,mn,3.0,pyridine_chloride_chloride_chloride,15.0,1.0,tetrahedral
+235,mn,3.0,pyridine_pyridine_chloride_chloride,25.0,1.0,tetrahedral
+236,mn,3.0,pyridine_pyridine_pyridine_chloride,35.0,1.0,tetrahedral
+237,mn,3.0,thiopyridine_chloride_chloride_chloride,16.0,1.0,tetrahedral
+238,mn,3.0,thiopyridine_thiopyridine_chloride_chloride,27.0,1.0,tetrahedral
+239,mn,3.0,thiopyridine_thiopyridine_thiopyridine_chloride,38.0,1.0,tetrahedral
+252,co,2.0,acetonitrile_iodide_iodide_iodide,10.0,2.0,tetrahedral
+254,co,2.0,acetonitrile_acetonitrile_acetonitrile_iodide,20.0,2.0,tetrahedral
+256,co,2.0,ammonia_ammonia_ammonia_iodide,14.0,2.0,tetrahedral
+257,co,2.0,cn_iodide_iodide_iodide,6.0,2.0,tetrahedral
+260,co,2.0,formaldehyde_iodide_iodide_iodide,8.0,2.0,tetrahedral
+261,co,2.0,formaldehyde_formaldehyde_iodide_iodide,11.0,2.0,tetrahedral
+262,co,2.0,formaldehyde_formaldehyde_formaldehyde_iodide,14.0,2.0,tetrahedral
+263,co,2.0,scn_iodide_iodide_iodide,7.0,2.0,tetrahedral
+264,co,2.0,scn_scn_iodide_iodide,9.0,2.0,tetrahedral
+265,co,2.0,scn_scn_scn_iodide,11.0,2.0,tetrahedral
+269,co,3.0,formaldehyde_iodide_iodide_iodide,8.0,1.0,tetrahedral
+274,co,3.0,methylamine_methylamine_methylamine_iodide,23.0,1.0,tetrahedral
+279,co,3.0,scn_scn_iodide_iodide,9.0,1.0,tetrahedral
+288,cr,2.0,iodide_iodide_iodide_hydroxyl,6.0,1.0,tetrahedral
+290,cr,3.0,cyanopyridine_iodide_iodide_iodide,16.0,2.0,tetrahedral
+291,cr,3.0,cyanopyridine_cyanopyridine_iodide_iodide,27.0,2.0,tetrahedral
+292,cr,3.0,cyanopyridine_cyanopyridine_cyanopyridine_iodide,38.0,2.0,tetrahedral
+293,cr,3.0,formaldehyde_iodide_iodide_iodide,8.0,2.0,tetrahedral
+295,cr,3.0,formaldehyde_formaldehyde_formaldehyde_iodide,14.0,2.0,tetrahedral
+296,cr,3.0,iodide_hydrogensulfide_hydrogensulfide_hydrogensulfide,11.0,2.0,tetrahedral
+298,cr,3.0,iodide_iodide_hydrogensulfide_hydrogensulfide,9.0,2.0,tetrahedral
+299,cr,3.0,iodide_iodide_hydroxyl_hydroxyl,7.0,2.0,tetrahedral
+300,cr,3.0,iodide_iodide_iodide_hydrogensulfide,7.0,2.0,tetrahedral
+301,cr,3.0,iodide_iodide_iodide_hydroxyl,6.0,2.0,tetrahedral
+302,cr,3.0,ncs_iodide_iodide_iodide,7.0,2.0,tetrahedral
+303,cr,3.0,ncs_ncs_iodide_iodide,9.0,2.0,tetrahedral
+304,cr,3.0,ncs_ncs_ncs_iodide,11.0,2.0,tetrahedral
+305,cr,3.0,pyridine_iodide_iodide_iodide,15.0,2.0,tetrahedral
+306,cr,3.0,pyridine_pyridine_iodide_iodide,25.0,2.0,tetrahedral
+307,cr,3.0,pyridine_pyridine_pyridine_iodide,35.0,2.0,tetrahedral
+308,cr,3.0,scn_iodide_iodide_iodide,7.0,2.0,tetrahedral
+309,cr,3.0,scn_scn_iodide_iodide,9.0,2.0,tetrahedral
+310,cr,3.0,scn_scn_scn_iodide,11.0,2.0,tetrahedral
+311,cr,3.0,thiopyridine_iodide_iodide_iodide,16.0,2.0,tetrahedral
+312,cr,3.0,thiopyridine_thiopyridine_iodide_iodide,27.0,2.0,tetrahedral
+313,cr,3.0,thiopyridine_thiopyridine_thiopyridine_iodide,38.0,2.0,tetrahedral
+314,fe,2.0,cyanate_iodide_iodide_iodide,7.0,1.0,tetrahedral
+315,fe,2.0,cyanate_cyanate_iodide_iodide,9.0,1.0,tetrahedral
+316,fe,2.0,cyanate_cyanate_cyanate_iodide,11.0,1.0,tetrahedral
+317,fe,2.0,formaldehyde_iodide_iodide_iodide,8.0,1.0,tetrahedral
+318,fe,2.0,formaldehyde_formaldehyde_iodide_iodide,11.0,1.0,tetrahedral
+321,fe,2.0,furan_furan_iodide_iodide,21.0,1.0,tetrahedral
+322,fe,2.0,furan_furan_furan_iodide,29.0,1.0,tetrahedral
+326,fe,2.0,ncs_iodide_iodide_iodide,7.0,1.0,tetrahedral
+327,fe,2.0,ncs_ncs_iodide_iodide,9.0,1.0,tetrahedral
+329,fe,2.0,pyridine_iodide_iodide_iodide,15.0,1.0,tetrahedral
+330,fe,2.0,pyridine_pyridine_iodide_iodide,25.0,1.0,tetrahedral
+332,fe,2.0,scn_iodide_iodide_iodide,7.0,1.0,tetrahedral
+333,fe,2.0,scn_scn_iodide_iodide,9.0,1.0,tetrahedral
+334,fe,2.0,scn_scn_scn_iodide,11.0,1.0,tetrahedral
+335,fe,3.0,acetonitrile_iodide_iodide_iodide,10.0,2.0,tetrahedral
+338,fe,3.0,ammonia_iodide_iodide_iodide,8.0,2.0,tetrahedral
+344,fe,3.0,cyanopyridine_iodide_iodide_iodide,16.0,2.0,tetrahedral
+346,fe,3.0,cyanopyridine_cyanopyridine_cyanopyridine_iodide,38.0,2.0,tetrahedral
+348,fe,3.0,formaldehyde_formaldehyde_iodide_iodide,11.0,2.0,tetrahedral
+349,fe,3.0,formaldehyde_formaldehyde_formaldehyde_iodide,14.0,2.0,tetrahedral
+353,fe,3.0,ncs_iodide_iodide_iodide,7.0,2.0,tetrahedral
+354,fe,3.0,ncs_ncs_iodide_iodide,9.0,2.0,tetrahedral
+355,fe,3.0,ncs_ncs_ncs_iodide,11.0,2.0,tetrahedral
+356,fe,3.0,pyridine_iodide_iodide_iodide,15.0,2.0,tetrahedral
+358,fe,3.0,pyridine_pyridine_pyridine_iodide,35.0,2.0,tetrahedral
+359,fe,3.0,scn_iodide_iodide_iodide,7.0,2.0,tetrahedral
+360,fe,3.0,scn_scn_iodide_iodide,9.0,2.0,tetrahedral
+361,fe,3.0,scn_scn_scn_iodide,11.0,2.0,tetrahedral
+362,fe,3.0,thiopyridine_iodide_iodide_iodide,16.0,2.0,tetrahedral
+364,fe,3.0,thiopyridine_thiopyridine_thiopyridine_iodide,38.0,2.0,tetrahedral
+370,mn,2.0,furan_furan_furan_iodide,29.0,2.0,tetrahedral
+374,mn,2.0,ncs_iodide_iodide_iodide,7.0,2.0,tetrahedral
+377,mn,2.0,pph3_iodide_iodide_iodide,38.0,2.0,tetrahedral
+378,mn,2.0,pph3_pph3_iodide_iodide,71.0,2.0,tetrahedral
+380,mn,2.0,thiopyridine_iodide_iodide_iodide,16.0,2.0,tetrahedral
+381,mn,2.0,thiopyridine_thiopyridine_iodide_iodide,27.0,2.0,tetrahedral
+382,mn,2.0,thiopyridine_thiopyridine_thiopyridine_iodide,38.0,2.0,tetrahedral
+384,mn,3.0,cyanopyridine_cyanopyridine_iodide_iodide,27.0,1.0,tetrahedral
+385,mn,3.0,cyanopyridine_cyanopyridine_cyanopyridine_iodide,38.0,1.0,tetrahedral
+390,mn,3.0,pyridine_pyridine_iodide_iodide,25.0,1.0,tetrahedral
+391,mn,3.0,pyridine_pyridine_pyridine_iodide,35.0,1.0,tetrahedral
+393,mn,3.0,thiopyridine_thiopyridine_iodide_iodide,27.0,1.0,tetrahedral
+394,mn,3.0,thiopyridine_thiopyridine_thiopyridine_iodide,38.0,1.0,tetrahedral
+398,co,2.0,ammonia_formaldehyde_formaldehyde_formaldehyde,17.0,2.0,tetrahedral
+405,co,2.0,scn_scn_formaldehyde_formaldehyde,15.0,2.0,tetrahedral
+414,co,3.0,formaldehyde_formaldehyde_formaldehyde_methylamine,20.0,1.0,tetrahedral
+417,co,3.0,ncs_formaldehyde_formaldehyde_formaldehyde,16.0,1.0,tetrahedral
+434,cr,3.0,cyanopyridine_formaldehyde_formaldehyde_formaldehyde,25.0,2.0,tetrahedral
+435,cr,3.0,cyanopyridine_cyanopyridine_formaldehyde_formaldehyde,33.0,2.0,tetrahedral
+436,cr,3.0,cyanopyridine_cyanopyridine_cyanopyridine_formaldehyde,41.0,2.0,tetrahedral
+437,cr,3.0,formaldehyde_hydrogensulfide_hydrogensulfide_hydrogensulfide,14.0,2.0,tetrahedral
+439,cr,3.0,formaldehyde_pyridine_pyridine_pyridine,38.0,2.0,tetrahedral
+440,cr,3.0,formaldehyde_thiopyridine_thiopyridine_thiopyridine,41.0,2.0,tetrahedral
+441,cr,3.0,formaldehyde_formaldehyde_hydrogensulfide_hydrogensulfide,15.0,2.0,tetrahedral
+442,cr,3.0,formaldehyde_formaldehyde_hydroxyl_hydroxyl,13.0,2.0,tetrahedral
+443,cr,3.0,formaldehyde_formaldehyde_pyridine_pyridine,31.0,2.0,tetrahedral
+445,cr,3.0,formaldehyde_formaldehyde_formaldehyde_hydrogensulfide,16.0,2.0,tetrahedral
+446,cr,3.0,formaldehyde_formaldehyde_formaldehyde_hydroxyl,15.0,2.0,tetrahedral
+447,cr,3.0,formaldehyde_formaldehyde_formaldehyde_pyridine,24.0,2.0,tetrahedral
+449,cr,3.0,ncs_cyanopyridine_cyanopyridine_cyanopyridine,40.0,2.0,tetrahedral
+450,cr,3.0,ncs_formaldehyde_formaldehyde_formaldehyde,16.0,2.0,tetrahedral
+451,cr,3.0,ncs_hydrogensulfide_hydrogensulfide_hydrogensulfide,13.0,2.0,tetrahedral
+452,cr,3.0,ncs_hydroxyl_hydroxyl_hydroxyl,10.0,2.0,tetrahedral
+453,cr,3.0,ncs_pyridine_pyridine_pyridine,37.0,2.0,tetrahedral
+454,cr,3.0,ncs_thiopyridine_thiopyridine_thiopyridine,40.0,2.0,tetrahedral
+455,cr,3.0,ncs_ncs_cyanopyridine_cyanopyridine,31.0,2.0,tetrahedral
+456,cr,3.0,ncs_ncs_formaldehyde_formaldehyde,15.0,2.0,tetrahedral
+458,cr,3.0,ncs_ncs_hydroxyl_hydroxyl,11.0,2.0,tetrahedral
+459,cr,3.0,ncs_ncs_pyridine_pyridine,29.0,2.0,tetrahedral
+460,cr,3.0,ncs_ncs_thiopyridine_thiopyridine,31.0,2.0,tetrahedral
+461,cr,3.0,ncs_ncs_ncs_cyanopyridine,22.0,2.0,tetrahedral
+462,cr,3.0,ncs_ncs_ncs_formaldehyde,14.0,2.0,tetrahedral
+463,cr,3.0,ncs_ncs_ncs_hydrogensulfide,13.0,2.0,tetrahedral
+464,cr,3.0,ncs_ncs_ncs_hydroxyl,12.0,2.0,tetrahedral
+465,cr,3.0,ncs_ncs_ncs_pyridine,21.0,2.0,tetrahedral
+466,cr,3.0,ncs_ncs_ncs_thiopyridine,22.0,2.0,tetrahedral
+467,cr,3.0,scn_formaldehyde_formaldehyde_formaldehyde,16.0,2.0,tetrahedral
+468,cr,3.0,scn_ncs_ncs_ncs,13.0,2.0,tetrahedral
+469,cr,3.0,scn_scn_formaldehyde_formaldehyde,15.0,2.0,tetrahedral
+470,cr,3.0,scn_scn_ncs_ncs,13.0,2.0,tetrahedral
+471,cr,3.0,scn_scn_scn_formaldehyde,14.0,2.0,tetrahedral
+472,cr,3.0,scn_scn_scn_ncs,13.0,2.0,tetrahedral
+503,fe,3.0,acetonitrile_formaldehyde_formaldehyde_formaldehyde,19.0,2.0,tetrahedral
+504,fe,3.0,acetonitrile_acetonitrile_formaldehyde_formaldehyde,21.0,2.0,tetrahedral
+505,fe,3.0,acetonitrile_acetonitrile_acetonitrile_formaldehyde,23.0,2.0,tetrahedral
+506,fe,3.0,ammonia_formaldehyde_formaldehyde_formaldehyde,17.0,2.0,tetrahedral
+507,fe,3.0,ammonia_ammonia_formaldehyde_formaldehyde,17.0,2.0,tetrahedral
+508,fe,3.0,ammonia_ammonia_ammonia_formaldehyde,17.0,2.0,tetrahedral
+514,fe,3.0,cyanopyridine_cyanopyridine_cyanopyridine_formaldehyde,41.0,2.0,tetrahedral
+515,fe,3.0,formaldehyde_methylamine_methylamine_methylamine,26.0,2.0,tetrahedral
+516,fe,3.0,formaldehyde_pyridine_pyridine_pyridine,38.0,2.0,tetrahedral
+517,fe,3.0,formaldehyde_thiopyridine_thiopyridine_thiopyridine,41.0,2.0,tetrahedral
+518,fe,3.0,formaldehyde_formaldehyde_methylamine_methylamine,23.0,2.0,tetrahedral
+520,fe,3.0,formaldehyde_formaldehyde_thiopyridine_thiopyridine,33.0,2.0,tetrahedral
+521,fe,3.0,formaldehyde_formaldehyde_formaldehyde_methylamine,20.0,2.0,tetrahedral
+527,fe,3.0,ncs_cyanopyridine_cyanopyridine_cyanopyridine,40.0,2.0,tetrahedral
+530,fe,3.0,ncs_pyridine_pyridine_pyridine,37.0,2.0,tetrahedral
+531,fe,3.0,ncs_thiopyridine_thiopyridine_thiopyridine,40.0,2.0,tetrahedral
+535,fe,3.0,ncs_ncs_cyanopyridine_cyanopyridine,31.0,2.0,tetrahedral
+538,fe,3.0,ncs_ncs_pyridine_pyridine,29.0,2.0,tetrahedral
+539,fe,3.0,ncs_ncs_thiopyridine_thiopyridine,31.0,2.0,tetrahedral
+540,fe,3.0,ncs_ncs_ncs_acetonitrile,16.0,2.0,tetrahedral
+541,fe,3.0,ncs_ncs_ncs_ammonia,14.0,2.0,tetrahedral
+542,fe,3.0,ncs_ncs_ncs_benzisc,26.0,2.0,tetrahedral
+543,fe,3.0,ncs_ncs_ncs_cyanopyridine,22.0,2.0,tetrahedral
+544,fe,3.0,ncs_ncs_ncs_formaldehyde,14.0,2.0,tetrahedral
+545,fe,3.0,ncs_ncs_ncs_methylamine,17.0,2.0,tetrahedral
+546,fe,3.0,ncs_ncs_ncs_pyridine,21.0,2.0,tetrahedral
+547,fe,3.0,ncs_ncs_ncs_thiopyridine,22.0,2.0,tetrahedral
+549,fe,3.0,scn_ncs_ncs_ncs,13.0,2.0,tetrahedral
+552,fe,3.0,scn_scn_scn_formaldehyde,14.0,2.0,tetrahedral
+553,fe,3.0,scn_scn_scn_ncs,13.0,2.0,tetrahedral
+557,mn,2.0,ncs_pph3_pph3_pph3,106.0,2.0,tetrahedral
+558,mn,2.0,ncs_thiopyridine_thiopyridine_thiopyridine,40.0,2.0,tetrahedral
+559,mn,2.0,ncs_ncs_cyanate_cyanate,13.0,2.0,tetrahedral
+566,mn,2.0,ncs_ncs_ncs_pph3,44.0,2.0,tetrahedral
+567,mn,2.0,ncs_ncs_ncs_thiopyridine,22.0,2.0,tetrahedral
+568,mn,3.0,cyanopyridine_formaldehyde_formaldehyde_formaldehyde,25.0,1.0,tetrahedral
+569,mn,3.0,cyanopyridine_cyanopyridine_formaldehyde_formaldehyde,33.0,1.0,tetrahedral
+570,mn,3.0,cyanopyridine_cyanopyridine_cyanopyridine_formaldehyde,41.0,1.0,tetrahedral
+571,mn,3.0,formaldehyde_pyridine_pyridine_pyridine,38.0,1.0,tetrahedral
+572,mn,3.0,formaldehyde_thiopyridine_thiopyridine_thiopyridine,41.0,1.0,tetrahedral
+584,co,2.0,scn_scn_scn_ammonia,14.0,2.0,tetrahedral
+585,cr,3.0,cyanopyridine_pyridine_pyridine_pyridine,46.0,2.0,tetrahedral
+586,cr,3.0,cyanopyridine_cyanopyridine_pyridine_pyridine,47.0,2.0,tetrahedral
+587,cr,3.0,cyanopyridine_cyanopyridine_cyanopyridine_pyridine,48.0,2.0,tetrahedral
+589,cr,3.0,pyridine_hydroxyl_hydroxyl_hydroxyl,18.0,2.0,tetrahedral
+590,cr,3.0,pyridine_thiopyridine_thiopyridine_thiopyridine,48.0,2.0,tetrahedral
+591,cr,3.0,pyridine_pyridine_hydrogensulfide_hydrogensulfide,29.0,2.0,tetrahedral
+592,cr,3.0,pyridine_pyridine_hydroxyl_hydroxyl,27.0,2.0,tetrahedral
+593,cr,3.0,pyridine_pyridine_pyridine_hydrogensulfide,37.0,2.0,tetrahedral
+594,cr,3.0,pyridine_pyridine_pyridine_thiopyridine,46.0,2.0,tetrahedral
+597,cr,3.0,scn_scn_scn_pyridine,21.0,2.0,tetrahedral
+605,fe,2.0,cyanate_cyanate_cyanate_pyridine,21.0,1.0,tetrahedral
+615,fe,2.0,scn_scn_scn_pyridine,21.0,1.0,tetrahedral
+616,fe,3.0,acetonitrile_ammonia_ammonia_ammonia,19.0,2.0,tetrahedral
+617,fe,3.0,acetonitrile_pyridine_pyridine_pyridine,40.0,2.0,tetrahedral
+620,fe,3.0,acetonitrile_acetonitrile_acetonitrile_ammonia,23.0,2.0,tetrahedral
+623,fe,3.0,ammonia_cyanopyridine_cyanopyridine_cyanopyridine,41.0,2.0,tetrahedral
+624,fe,3.0,ammonia_methylamine_methylamine_methylamine,26.0,2.0,tetrahedral
+625,fe,3.0,ammonia_pyridine_pyridine_pyridine,38.0,2.0,tetrahedral
+629,fe,3.0,ammonia_ammonia_methylamine_methylamine,23.0,2.0,tetrahedral
+633,fe,3.0,ammonia_ammonia_ammonia_methylamine,20.0,2.0,tetrahedral
+639,fe,3.0,cyanopyridine_pyridine_pyridine_pyridine,46.0,2.0,tetrahedral
+640,fe,3.0,cyanopyridine_cyanopyridine_pyridine_pyridine,47.0,2.0,tetrahedral
+641,fe,3.0,cyanopyridine_cyanopyridine_cyanopyridine_pyridine,48.0,2.0,tetrahedral
+643,fe,3.0,methylamine_methylamine_pyridine_pyridine,37.0,2.0,tetrahedral
+644,fe,3.0,methylamine_methylamine_methylamine_pyridine,33.0,2.0,tetrahedral
+650,fe,3.0,scn_scn_pyridine_pyridine,29.0,2.0,tetrahedral
+652,fe,3.0,scn_scn_scn_pyridine,21.0,2.0,tetrahedral
+655,mn,2.0,cyanate_pph3_pph3_pph3,106.0,2.0,tetrahedral
+657,mn,2.0,cyanate_cyanate_hydroxyl_hydroxyl,11.0,2.0,tetrahedral
+661,mn,2.0,cyanate_cyanate_cyanate_pph3,44.0,2.0,tetrahedral
+662,mn,2.0,cyanate_cyanate_cyanate_thiopyridine,22.0,2.0,tetrahedral
+663,mn,3.0,cyanopyridine_pyridine_pyridine_pyridine,46.0,1.0,tetrahedral
+664,mn,3.0,cyanopyridine_cyanopyridine_pyridine_pyridine,47.0,1.0,tetrahedral
+665,mn,3.0,cyanopyridine_cyanopyridine_cyanopyridine_pyridine,48.0,1.0,tetrahedral
+666,mn,3.0,pyridine_thiopyridine_thiopyridine_thiopyridine,48.0,1.0,tetrahedral
+667,mn,3.0,pyridine_pyridine_thiopyridine_thiopyridine,47.0,1.0,tetrahedral
+668,mn,3.0,pyridine_pyridine_pyridine_thiopyridine,46.0,1.0,tetrahedral
+708,co,3.0,scn_scn_scn_methylamine,17.0,1.0,tetrahedral
+711,cr,2.0,hydroxyl_hydroxyl_s2-_s2-,7.0,1.0,tetrahedral
+712,cr,2.0,hydroxyl_hydroxyl_hydroxyl_s2-,8.0,1.0,tetrahedral
+714,cr,3.0,cyanopyridine_hydroxyl_hydroxyl_hydroxyl,19.0,2.0,tetrahedral
+715,cr,3.0,cyanopyridine_thiopyridine_thiopyridine_thiopyridine,49.0,2.0,tetrahedral
+716,cr,3.0,cyanopyridine_cyanopyridine_hydrogensulfide_hydrogensulfide,31.0,2.0,tetrahedral
+717,cr,3.0,cyanopyridine_cyanopyridine_hydroxyl_hydroxyl,29.0,2.0,tetrahedral
+718,cr,3.0,cyanopyridine_cyanopyridine_thiopyridine_thiopyridine,49.0,2.0,tetrahedral
+719,cr,3.0,cyanopyridine_cyanopyridine_cyanopyridine_hydrogensulfide,40.0,2.0,tetrahedral
+720,cr,3.0,cyanopyridine_cyanopyridine_cyanopyridine_hydroxyl,39.0,2.0,tetrahedral
+721,cr,3.0,cyanopyridine_cyanopyridine_cyanopyridine_thiopyridine,49.0,2.0,tetrahedral
+722,cr,3.0,hydroxyl_hydrogensulfide_hydrogensulfide_hydrogensulfide,12.0,2.0,tetrahedral
+723,cr,3.0,hydroxyl_hydroxyl_hydrogensulfide_hydrogensulfide,11.0,2.0,tetrahedral
+730,cr,3.0,scn_scn_hydroxyl_hydroxyl,11.0,2.0,tetrahedral
+732,cr,3.0,scn_scn_scn_cyanopyridine,22.0,2.0,tetrahedral
+733,cr,3.0,scn_scn_scn_hydrogensulfide,13.0,2.0,tetrahedral
+734,cr,3.0,scn_scn_scn_hydroxyl,12.0,2.0,tetrahedral
+735,cr,3.0,scn_scn_scn_thiopyridine,22.0,2.0,tetrahedral
+736,cr,3.0,thiopyridine_hydroxyl_hydroxyl_hydroxyl,19.0,2.0,tetrahedral
+738,cr,3.0,thiopyridine_thiopyridine_hydroxyl_hydroxyl,29.0,2.0,tetrahedral
+739,cr,3.0,thiopyridine_thiopyridine_thiopyridine_hydrogensulfide,40.0,2.0,tetrahedral
+740,cr,3.0,thiopyridine_thiopyridine_thiopyridine_hydroxyl,39.0,2.0,tetrahedral
+751,fe,3.0,acetonitrile_methylamine_methylamine_methylamine,28.0,2.0,tetrahedral
+752,fe,3.0,acetonitrile_thiopyridine_thiopyridine_thiopyridine,43.0,2.0,tetrahedral
+755,fe,3.0,acetonitrile_acetonitrile_methylamine_methylamine,27.0,2.0,tetrahedral
+758,fe,3.0,acetonitrile_acetonitrile_acetonitrile_cyanopyridine,31.0,2.0,tetrahedral
+759,fe,3.0,acetonitrile_acetonitrile_acetonitrile_methylamine,26.0,2.0,tetrahedral
+772,fe,3.0,cyanopyridine_cyanopyridine_methylamine_methylamine,39.0,2.0,tetrahedral
+773,fe,3.0,cyanopyridine_cyanopyridine_cyanopyridine_methylamine,44.0,2.0,tetrahedral
+781,fe,3.0,scn_thiopyridine_thiopyridine_thiopyridine,40.0,2.0,tetrahedral
+783,fe,3.0,scn_scn_benzisc_benzisc,39.0,2.0,tetrahedral
+784,fe,3.0,scn_scn_cyanopyridine_cyanopyridine,31.0,2.0,tetrahedral
+786,fe,3.0,scn_scn_thiopyridine_thiopyridine,31.0,2.0,tetrahedral
+788,fe,3.0,scn_scn_scn_benzisc,26.0,2.0,tetrahedral
+789,fe,3.0,scn_scn_scn_cyanopyridine,22.0,2.0,tetrahedral
+790,fe,3.0,scn_scn_scn_methylamine,17.0,2.0,tetrahedral
+791,fe,3.0,scn_scn_scn_thiopyridine,22.0,2.0,tetrahedral
+793,mn,2.0,furan_pph3_pph3_pph3,112.0,2.0,tetrahedral
+794,mn,2.0,furan_thiopyridine_thiopyridine_thiopyridine,46.0,2.0,tetrahedral
+796,mn,2.0,furan_furan_pph3_pph3,87.0,2.0,tetrahedral
+798,mn,2.0,furan_furan_furan_pph3,62.0,2.0,tetrahedral
+799,mn,2.0,pph3_hydroxyl_hydroxyl_hydroxyl,41.0,2.0,tetrahedral
+800,mn,2.0,pph3_thiopyridine_thiopyridine_thiopyridine,71.0,2.0,tetrahedral
+801,mn,2.0,pph3_pph3_hydroxyl_hydroxyl,73.0,2.0,tetrahedral
+802,mn,2.0,pph3_pph3_thiopyridine_thiopyridine,93.0,2.0,tetrahedral
+803,mn,2.0,pph3_pph3_pph3_hydroxyl,105.0,2.0,tetrahedral
+804,mn,2.0,pph3_pph3_pph3_thiopyridine,115.0,2.0,tetrahedral
+805,mn,2.0,thiopyridine_hydroxyl_hydroxyl_hydroxyl,19.0,2.0,tetrahedral
+807,mn,2.0,thiopyridine_thiopyridine_thiopyridine_hydroxyl,39.0,2.0,tetrahedral
+808,mn,3.0,cyanopyridine_thiopyridine_thiopyridine_thiopyridine,49.0,1.0,tetrahedral
+809,mn,3.0,cyanopyridine_cyanopyridine_thiopyridine_thiopyridine,49.0,1.0,tetrahedral
+10,co,2.0,en_en_en_en_s_s,25.0,4.0,square planar
+65,cr,2.0,acac_acac_acac_acac_s,29.0,5.0,square planar
+66,cr,2.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_s,65.0,5.0,square planar
+67,cr,2.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s,25.0,5.0,square planar
+68,cr,2.0,ammonia_ammonia_ammonia_ammonia_s,17.0,5.0,square planar
+69,cr,2.0,benzisc_benzisc_benzisc_benzisc_s,65.0,5.0,square planar
+70,cr,2.0,bipy_bipy_bipy_bipy_s,41.0,5.0,square planar
+71,cr,2.0,carbonyl_carbonyl_carbonyl_carbonyl_s,9.0,5.0,square planar
+73,cr,2.0,cn_cn_cn_cn_s,9.0,5.0,square planar
+75,cr,2.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine_s,49.0,5.0,square planar
+76,cr,2.0,en_en_en_en_s,25.0,5.0,square planar
+78,cr,2.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s,17.0,5.0,square planar
+79,cr,2.0,furan_furan_furan_furan_s,37.0,5.0,square planar
+80,cr,2.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide_s,13.0,5.0,square planar
+83,cr,2.0,mebipy_mebipy_mebipy_mebipy_s,53.0,5.0,square planar
+84,cr,2.0,mec_mec_mec_mec_s,31.0,5.0,square planar
+85,cr,2.0,methylamine_methylamine_methylamine_methylamine_s,29.0,5.0,square planar
+86,cr,2.0,misc_misc_misc_misc_s,25.0,5.0,square planar
+87,cr,2.0,ncs_ncs_ncs_ncs_s,13.0,5.0,square planar
+88,cr,2.0,ox_ox_ox_ox_s,13.0,5.0,square planar
+89,cr,2.0,phen_phen_phen_phen_s,45.0,5.0,square planar
+90,cr,2.0,phenisc_phenisc_phenisc_phenisc_s,53.0,5.0,square planar
+91,cr,2.0,phosphine_phosphine_phosphine_phosphine_s,17.0,5.0,square planar
+92,cr,2.0,pisc_pisc_pisc_pisc_s,101.0,5.0,square planar
+94,cr,2.0,pyridine_pyridine_pyridine_pyridine_s,45.0,5.0,square planar
+97,cr,2.0,tbuc_tbuc_tbuc_tbuc_s,49.0,5.0,square planar
+98,cr,2.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s,49.0,5.0,square planar
+99,cr,2.0,water_water_water_water_s,13.0,5.0,square planar
+104,cr,3.0,benzisc_benzisc_benzisc_benzisc_s_s,65.0,4.0,square planar
+114,cr,3.0,furan_furan_furan_furan_s_s,37.0,4.0,square planar
+125,cr,3.0,phenisc_phenisc_phenisc_phenisc_s_s,53.0,4.0,square planar
+127,cr,3.0,pisc_pisc_pisc_pisc_s_s,101.0,4.0,square planar
+235,mn,3.0,acac_acac_acac_acac_s,29.0,5.0,square planar
+237,mn,3.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s,25.0,5.0,square planar
+238,mn,3.0,ammonia_ammonia_ammonia_ammonia_s,17.0,5.0,square planar
+239,mn,3.0,benzisc_benzisc_benzisc_benzisc_s,65.0,5.0,square planar
+241,mn,3.0,carbonyl_carbonyl_carbonyl_carbonyl_s,9.0,5.0,square planar
+243,mn,3.0,cn_cn_cn_cn_s,9.0,5.0,square planar
+246,mn,3.0,en_en_en_en_s,25.0,5.0,square planar
+247,mn,3.0,fluoride_fluoride_fluoride_fluoride_s,5.0,5.0,square planar
+251,mn,3.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s,9.0,5.0,square planar
+254,mn,3.0,mec_mec_mec_mec_s,31.0,5.0,square planar
+255,mn,3.0,methylamine_methylamine_methylamine_methylamine_s,29.0,5.0,square planar
+256,mn,3.0,misc_misc_misc_misc_s,25.0,5.0,square planar
+258,mn,3.0,ox_ox_ox_ox_s,13.0,5.0,square planar
+261,mn,3.0,phosphine_phosphine_phosphine_phosphine_s,17.0,5.0,square planar
+266,mn,3.0,tbuc_tbuc_tbuc_tbuc_s,49.0,5.0,square planar
+268,mn,3.0,water_water_water_water_s,13.0,5.0,square planar
+274,ni,2.0,bipy_bipy_bipy_bipy_s,41.0,3.0,square planar
+279,ni,2.0,en_en_en_en_s,25.0,3.0,square planar
+250,ni,2.0,thiopyridine_thiopyridine_fluoride_fluoride,27.0,3.0,square planar
+295,cr,3.0,formaldehyde_formaldehyde_formaldehyde_iodide,14.0,4.0,square planar
+296,cr,3.0,iodide_hydrogensulfide_hydrogensulfide_hydrogensulfide,11.0,4.0,square planar
+434,cr,3.0,cyanopyridine_formaldehyde_formaldehyde_formaldehyde,25.0,4.0,square planar
+440,cr,3.0,formaldehyde_thiopyridine_thiopyridine_thiopyridine,41.0,4.0,square planar
+444,cr,3.0,formaldehyde_formaldehyde_thiopyridine_thiopyridine,33.0,4.0,square planar
+448,cr,3.0,formaldehyde_formaldehyde_formaldehyde_thiopyridine,25.0,4.0,square planar
+450,cr,3.0,ncs_formaldehyde_formaldehyde_formaldehyde,16.0,4.0,square planar
+451,cr,3.0,ncs_hydrogensulfide_hydrogensulfide_hydrogensulfide,13.0,4.0,square planar
+456,cr,3.0,ncs_ncs_formaldehyde_formaldehyde,15.0,4.0,square planar
+457,cr,3.0,ncs_ncs_hydrogensulfide_hydrogensulfide,13.0,4.0,square planar
+467,cr,3.0,scn_formaldehyde_formaldehyde_formaldehyde,16.0,4.0,square planar
+588,cr,3.0,pyridine_hydrogensulfide_hydrogensulfide_hydrogensulfide,21.0,4.0,square planar
+675,ni,2.0,cyanate_cyanate_pyridine_pyridine,29.0,3.0,square planar
+713,cr,3.0,cyanopyridine_hydrogensulfide_hydrogensulfide_hydrogensulfide,22.0,4.0,square planar
+715,cr,3.0,cyanopyridine_thiopyridine_thiopyridine_thiopyridine,49.0,4.0,square planar
+716,cr,3.0,cyanopyridine_cyanopyridine_hydrogensulfide_hydrogensulfide,31.0,4.0,square planar
+726,cr,3.0,scn_hydrogensulfide_hydrogensulfide_hydrogensulfide,13.0,4.0,square planar
+737,cr,3.0,thiopyridine_thiopyridine_hydrogensulfide_hydrogensulfide,31.0,4.0,square planar
+739,cr,3.0,thiopyridine_thiopyridine_thiopyridine_hydrogensulfide,40.0,4.0,square planar
+0,co,2.0,acac_acac_acac_acac_s_s,29.0,2.0,square planar
+2,co,2.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s_s,25.0,2.0,square planar
+3,co,2.0,ammonia_ammonia_ammonia_ammonia_s_s,17.0,2.0,square planar
+5,co,2.0,carbonyl_carbonyl_carbonyl_carbonyl_s_s,9.0,2.0,square planar
+7,co,2.0,cn_cn_cn_cn_s_s,9.0,2.0,square planar
+9,co,2.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine_s_s,49.0,2.0,square planar
+10,co,2.0,en_en_en_en_s_s,25.0,2.0,square planar
+11,co,2.0,fluoride_fluoride_fluoride_fluoride_s_s,5.0,2.0,square planar
+12,co,2.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s_s,17.0,2.0,square planar
+14,co,2.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide_s_s,13.0,2.0,square planar
+15,co,2.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s_s,9.0,2.0,square planar
+18,co,2.0,mec_mec_mec_mec_s_s,31.0,2.0,square planar
+19,co,2.0,methylamine_methylamine_methylamine_methylamine_s_s,29.0,2.0,square planar
+20,co,2.0,misc_misc_misc_misc_s_s,25.0,2.0,square planar
+21,co,2.0,ncs_ncs_ncs_ncs_s_s,13.0,2.0,square planar
+22,co,2.0,ox_ox_ox_ox_s_s,13.0,2.0,square planar
+24,co,2.0,phenisc_phenisc_phenisc_phenisc_s_s,53.0,2.0,square planar
+25,co,2.0,phosphine_phosphine_phosphine_phosphine_s_s,17.0,2.0,square planar
+26,co,2.0,pisc_pisc_pisc_pisc_s_s,101.0,2.0,square planar
+27,co,2.0,pyridine_pyridine_pyridine_pyridine_s_s,45.0,2.0,square planar
+29,co,2.0,tbuc_tbuc_tbuc_tbuc_s_s,49.0,2.0,square planar
+30,co,2.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s_s,49.0,2.0,square planar
+31,co,2.0,water_water_water_water_s_s,13.0,2.0,square planar
+34,co,3.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s,25.0,1.0,square planar
+36,co,3.0,benzisc_benzisc_benzisc_benzisc_s,65.0,1.0,square planar
+38,co,3.0,carbonyl_carbonyl_carbonyl_carbonyl_s,9.0,1.0,square planar
+42,co,3.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine_s,49.0,1.0,square planar
+47,co,3.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s,9.0,1.0,square planar
+50,co,3.0,mec_mec_mec_mec_s,31.0,1.0,square planar
+52,co,3.0,misc_misc_misc_misc_s,25.0,1.0,square planar
+54,co,3.0,ox_ox_ox_ox_s,13.0,1.0,square planar
+56,co,3.0,phenisc_phenisc_phenisc_phenisc_s,53.0,1.0,square planar
+58,co,3.0,pisc_pisc_pisc_pisc_s,101.0,1.0,square planar
+59,co,3.0,pyridine_pyridine_pyridine_pyridine_s,45.0,1.0,square planar
+62,co,3.0,tbuc_tbuc_tbuc_tbuc_s,49.0,1.0,square planar
+134,fe,2.0,acac_acac_acac_acac_s,29.0,1.0,square planar
+136,fe,2.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s,25.0,1.0,square planar
+137,fe,2.0,ammonia_ammonia_ammonia_ammonia_s,17.0,1.0,square planar
+138,fe,2.0,benzisc_benzisc_benzisc_benzisc_s,65.0,1.0,square planar
+139,fe,2.0,bipy_bipy_bipy_bipy_s,41.0,1.0,square planar
+140,fe,2.0,carbonyl_carbonyl_carbonyl_carbonyl_s,9.0,1.0,square planar
+142,fe,2.0,cn_cn_cn_cn_s,9.0,1.0,square planar
+145,fe,2.0,en_en_en_en_s,25.0,1.0,square planar
+152,fe,2.0,mebipy_mebipy_mebipy_mebipy_s,53.0,1.0,square planar
+153,fe,2.0,mec_mec_mec_mec_s,31.0,1.0,square planar
+154,fe,2.0,methylamine_methylamine_methylamine_methylamine_s,29.0,1.0,square planar
+155,fe,2.0,misc_misc_misc_misc_s,25.0,1.0,square planar
+156,fe,2.0,ncs_ncs_ncs_ncs_s,13.0,1.0,square planar
+158,fe,2.0,phen_phen_phen_phen_s,45.0,1.0,square planar
+159,fe,2.0,phenisc_phenisc_phenisc_phenisc_s,53.0,1.0,square planar
+160,fe,2.0,phosphine_phosphine_phosphine_phosphine_s,17.0,1.0,square planar
+161,fe,2.0,pisc_pisc_pisc_pisc_s,101.0,1.0,square planar
+165,fe,2.0,tbuc_tbuc_tbuc_tbuc_s,49.0,1.0,square planar
+167,fe,2.0,water_water_water_water_s,13.0,1.0,square planar
+169,fe,3.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_s_s,65.0,2.0,square planar
+186,fe,3.0,mebipy_mebipy_mebipy_mebipy_s_s,53.0,2.0,square planar
+187,fe,3.0,mec_mec_mec_mec_s_s,31.0,2.0,square planar
+192,fe,3.0,phenisc_phenisc_phenisc_phenisc_s_s,53.0,2.0,square planar
+194,fe,3.0,pisc_pisc_pisc_pisc_s_s,101.0,2.0,square planar
+198,fe,3.0,tbuc_tbuc_tbuc_tbuc_s_s,49.0,2.0,square planar
+199,fe,3.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s_s,49.0,2.0,square planar
+202,mn,2.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_s_s,65.0,2.0,square planar
+203,mn,2.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s_s,25.0,2.0,square planar
+204,mn,2.0,ammonia_ammonia_ammonia_ammonia_s_s,17.0,2.0,square planar
+205,mn,2.0,benzisc_benzisc_benzisc_benzisc_s_s,65.0,2.0,square planar
+206,mn,2.0,bipy_bipy_bipy_bipy_s_s,41.0,2.0,square planar
+207,mn,2.0,carbonyl_carbonyl_carbonyl_carbonyl_s_s,9.0,2.0,square planar
+209,mn,2.0,cn_cn_cn_cn_s_s,9.0,2.0,square planar
+212,mn,2.0,en_en_en_en_s_s,25.0,2.0,square planar
+214,mn,2.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s_s,17.0,2.0,square planar
+216,mn,2.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide_s_s,13.0,2.0,square planar
+219,mn,2.0,mebipy_mebipy_mebipy_mebipy_s_s,53.0,2.0,square planar
+220,mn,2.0,mec_mec_mec_mec_s_s,31.0,2.0,square planar
+222,mn,2.0,misc_misc_misc_misc_s_s,25.0,2.0,square planar
+224,mn,2.0,ox_ox_ox_ox_s_s,13.0,2.0,square planar
+225,mn,2.0,phen_phen_phen_phen_s_s,45.0,2.0,square planar
+226,mn,2.0,phenisc_phenisc_phenisc_phenisc_s_s,53.0,2.0,square planar
+227,mn,2.0,phosphine_phosphine_phosphine_phosphine_s_s,17.0,2.0,square planar
+228,mn,2.0,pisc_pisc_pisc_pisc_s_s,101.0,2.0,square planar
+234,mn,2.0,water_water_water_water_s_s,13.0,2.0,square planar
+269,ni,2.0,acac_acac_acac_acac_s,29.0,1.0,square planar
+270,ni,2.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_s,65.0,1.0,square planar
+271,ni,2.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s,25.0,1.0,square planar
+272,ni,2.0,ammonia_ammonia_ammonia_ammonia_s,17.0,1.0,square planar
+273,ni,2.0,benzisc_benzisc_benzisc_benzisc_s,65.0,1.0,square planar
+277,ni,2.0,cn_cn_cn_cn_s,9.0,1.0,square planar
+278,ni,2.0,cyanate_cyanate_cyanate_cyanate_s,13.0,1.0,square planar
+279,ni,2.0,en_en_en_en_s,25.0,1.0,square planar
+280,ni,2.0,fluoride_fluoride_fluoride_fluoride_s,5.0,1.0,square planar
+281,ni,2.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s,17.0,1.0,square planar
+282,ni,2.0,furan_furan_furan_furan_s,37.0,1.0,square planar
+283,ni,2.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide_s,13.0,1.0,square planar
+285,ni,2.0,iodide_iodide_iodide_iodide_s,5.0,1.0,square planar
+286,ni,2.0,mebipy_mebipy_mebipy_mebipy_s,53.0,1.0,square planar
+287,ni,2.0,mec_mec_mec_mec_s,31.0,1.0,square planar
+288,ni,2.0,methylamine_methylamine_methylamine_methylamine_s,29.0,1.0,square planar
+289,ni,2.0,misc_misc_misc_misc_s,25.0,1.0,square planar
+290,ni,2.0,ncs_ncs_ncs_ncs_s,13.0,1.0,square planar
+291,ni,2.0,ox_ox_ox_ox_s,13.0,1.0,square planar
+292,ni,2.0,phen_phen_phen_phen_s,45.0,1.0,square planar
+293,ni,2.0,phenisc_phenisc_phenisc_phenisc_s,53.0,1.0,square planar
+294,ni,2.0,phosphine_phosphine_phosphine_phosphine_s,17.0,1.0,square planar
+295,ni,2.0,pisc_pisc_pisc_pisc_s,101.0,1.0,square planar
+297,ni,2.0,pyridine_pyridine_pyridine_pyridine_s,45.0,1.0,square planar
+299,ni,2.0,tbuc_tbuc_tbuc_tbuc_s,49.0,1.0,square planar
+300,ni,2.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s,49.0,1.0,square planar
+301,ni,2.0,water_water_water_water_s,13.0,1.0,square planar
+7,co,2.0,ammonia_ammonia_fluoride_fluoride,11.0,2.0,square planar
+8,co,2.0,ammonia_ammonia_ammonia_chloride,14.0,2.0,square planar
+9,co,2.0,ammonia_ammonia_ammonia_fluoride,14.0,2.0,square planar
+12,co,2.0,cn_cn_fluoride_fluoride,7.0,2.0,square planar
+24,co,2.0,formaldehyde_formaldehyde_formaldehyde_fluoride,14.0,2.0,square planar
+106,fe,2.0,fluoride_fluoride_hydrogensulfide_hydrogensulfide,9.0,1.0,square planar
+116,fe,2.0,formaldehyde_formaldehyde_formaldehyde_fluoride,14.0,1.0,square planar
+117,fe,2.0,formaldehyde_formaldehyde_formaldehyde_water,16.0,1.0,square planar
+119,fe,2.0,furan_water_water_water,19.0,1.0,square planar
+121,fe,2.0,furan_furan_fluoride_fluoride,21.0,1.0,square planar
+122,fe,2.0,furan_furan_water_water,25.0,1.0,square planar
+137,fe,2.0,pyridine_pyridine_fluoride_fluoride,25.0,1.0,square planar
+138,fe,2.0,pyridine_pyridine_water_water,29.0,1.0,square planar
+141,fe,2.0,pyridine_pyridine_pyridine_water,37.0,1.0,square planar
+144,fe,2.0,scn_water_water_water,13.0,1.0,square planar
+147,fe,2.0,scn_scn_water_water,13.0,1.0,square planar
+155,fe,2.0,water_water_fluoride_fluoride,9.0,1.0,square planar
+158,fe,2.0,water_water_water_chloride,11.0,1.0,square planar
+159,fe,2.0,water_water_water_fluoride,11.0,1.0,square planar
+172,fe,3.0,benzisc_benzisc_benzisc_fluoride,50.0,2.0,square planar
+185,fe,3.0,formaldehyde_formaldehyde_fluoride_fluoride,11.0,2.0,square planar
+241,ni,2.0,acetonitrile_acetonitrile_fluoride_fluoride,15.0,1.0,square planar
+242,ni,2.0,acetonitrile_acetonitrile_acetonitrile_fluoride,20.0,1.0,square planar
+245,ni,2.0,cyanate_cyanate_cyanate_fluoride,11.0,1.0,square planar
+247,ni,2.0,pyridine_pyridine_fluoride_fluoride,25.0,1.0,square planar
+248,ni,2.0,pyridine_pyridine_pyridine_fluoride,35.0,1.0,square planar
+249,ni,2.0,thiopyridine_fluoride_fluoride_fluoride,16.0,1.0,square planar
+250,ni,2.0,thiopyridine_thiopyridine_fluoride_fluoride,27.0,1.0,square planar
+251,ni,2.0,thiopyridine_thiopyridine_thiopyridine_fluoride,38.0,1.0,square planar
+255,co,2.0,ammonia_ammonia_iodide_iodide,11.0,2.0,square planar
+258,co,2.0,cn_cn_iodide_iodide,7.0,2.0,square planar
+259,co,2.0,cn_cn_cn_iodide,8.0,2.0,square planar
+267,co,3.0,benzisc_benzisc_iodide_iodide,35.0,1.0,square planar
+270,co,3.0,formaldehyde_formaldehyde_iodide_iodide,11.0,1.0,square planar
+272,co,3.0,methylamine_iodide_iodide_iodide,11.0,1.0,square planar
+273,co,3.0,methylamine_methylamine_iodide_iodide,17.0,1.0,square planar
+282,co,3.0,thiopyridine_thiopyridine_iodide_iodide,27.0,1.0,square planar
+283,co,3.0,thiopyridine_thiopyridine_thiopyridine_iodide,38.0,1.0,square planar
+336,fe,3.0,acetonitrile_acetonitrile_iodide_iodide,15.0,2.0,square planar
+337,fe,3.0,acetonitrile_acetonitrile_acetonitrile_iodide,20.0,2.0,square planar
+339,fe,3.0,ammonia_ammonia_iodide_iodide,11.0,2.0,square planar
+340,fe,3.0,ammonia_ammonia_ammonia_iodide,14.0,2.0,square planar
+341,fe,3.0,benzisc_iodide_iodide_iodide,20.0,2.0,square planar
+342,fe,3.0,benzisc_benzisc_iodide_iodide,35.0,2.0,square planar
+343,fe,3.0,benzisc_benzisc_benzisc_iodide,50.0,2.0,square planar
+345,fe,3.0,cyanopyridine_cyanopyridine_iodide_iodide,27.0,2.0,square planar
+347,fe,3.0,formaldehyde_iodide_iodide_iodide,8.0,2.0,square planar
+350,fe,3.0,methylamine_iodide_iodide_iodide,11.0,2.0,square planar
+351,fe,3.0,methylamine_methylamine_iodide_iodide,17.0,2.0,square planar
+357,fe,3.0,pyridine_pyridine_iodide_iodide,25.0,2.0,square planar
+363,fe,3.0,thiopyridine_thiopyridine_iodide_iodide,27.0,2.0,square planar
+395,co,2.0,acetonitrile_formaldehyde_formaldehyde_formaldehyde,19.0,2.0,square planar
+397,co,2.0,acetonitrile_acetonitrile_acetonitrile_formaldehyde,23.0,2.0,square planar
+399,co,2.0,ammonia_ammonia_formaldehyde_formaldehyde,17.0,2.0,square planar
+400,co,2.0,ammonia_ammonia_ammonia_formaldehyde,17.0,2.0,square planar
+401,co,2.0,cn_formaldehyde_formaldehyde_formaldehyde,15.0,2.0,square planar
+402,co,2.0,cn_cn_formaldehyde_formaldehyde,13.0,2.0,square planar
+403,co,2.0,cn_cn_cn_formaldehyde,11.0,2.0,square planar
+406,co,2.0,scn_scn_scn_formaldehyde,14.0,2.0,square planar
+407,co,3.0,benzisc_formaldehyde_formaldehyde_formaldehyde,29.0,1.0,square planar
+408,co,3.0,benzisc_benzisc_formaldehyde_formaldehyde,41.0,1.0,square planar
+409,co,3.0,benzisc_benzisc_benzisc_formaldehyde,53.0,1.0,square planar
+416,co,3.0,ncs_benzisc_benzisc_benzisc,52.0,1.0,square planar
+418,co,3.0,ncs_methylamine_methylamine_methylamine,25.0,1.0,square planar
+419,co,3.0,ncs_thiopyridine_thiopyridine_thiopyridine,40.0,1.0,square planar
+422,co,3.0,ncs_ncs_methylamine_methylamine,21.0,1.0,square planar
+423,co,3.0,ncs_ncs_thiopyridine_thiopyridine,31.0,1.0,square planar
+424,co,3.0,ncs_ncs_ncs_benzisc,26.0,1.0,square planar
+431,co,3.0,scn_scn_ncs_ncs,13.0,1.0,square planar
+491,fe,2.0,ncs_ncs_hydrogensulfide_hydrogensulfide,13.0,1.0,square planar
+497,fe,2.0,scn_formaldehyde_formaldehyde_formaldehyde,16.0,1.0,square planar
+499,fe,2.0,scn_scn_formaldehyde_formaldehyde,15.0,1.0,square planar
+501,fe,2.0,scn_scn_scn_formaldehyde,14.0,1.0,square planar
+509,fe,3.0,benzisc_formaldehyde_formaldehyde_formaldehyde,29.0,2.0,square planar
+510,fe,3.0,benzisc_benzisc_formaldehyde_formaldehyde,41.0,2.0,square planar
+522,fe,3.0,formaldehyde_formaldehyde_formaldehyde_pyridine,24.0,2.0,square planar
+524,fe,3.0,ncs_acetonitrile_acetonitrile_acetonitrile,22.0,2.0,square planar
+525,fe,3.0,ncs_ammonia_ammonia_ammonia,16.0,2.0,square planar
+526,fe,3.0,ncs_benzisc_benzisc_benzisc,52.0,2.0,square planar
+529,fe,3.0,ncs_methylamine_methylamine_methylamine,25.0,2.0,square planar
+532,fe,3.0,ncs_ncs_acetonitrile_acetonitrile,19.0,2.0,square planar
+533,fe,3.0,ncs_ncs_ammonia_ammonia,15.0,2.0,square planar
+536,fe,3.0,ncs_ncs_formaldehyde_formaldehyde,15.0,2.0,square planar
+537,fe,3.0,ncs_ncs_methylamine_methylamine,21.0,2.0,square planar
+548,fe,3.0,scn_formaldehyde_formaldehyde_formaldehyde,16.0,2.0,square planar
+563,mn,2.0,ncs_ncs_thiopyridine_thiopyridine,31.0,2.0,square planar
+577,co,2.0,acetonitrile_acetonitrile_ammonia_ammonia,21.0,2.0,square planar
+578,co,2.0,acetonitrile_acetonitrile_acetonitrile_ammonia,23.0,2.0,square planar
+579,co,2.0,cn_ammonia_ammonia_ammonia,15.0,2.0,square planar
+580,co,2.0,cn_cn_ammonia_ammonia,13.0,2.0,square planar
+581,co,2.0,cn_cn_cn_ammonia,11.0,2.0,square planar
+583,co,2.0,scn_scn_ammonia_ammonia,15.0,2.0,square planar
+609,fe,2.0,pyridine_hydrogensulfide_hydrogensulfide_hydrogensulfide,21.0,1.0,square planar
+619,fe,3.0,acetonitrile_acetonitrile_pyridine_pyridine,35.0,2.0,square planar
+622,fe,3.0,ammonia_benzisc_benzisc_benzisc,53.0,2.0,square planar
+626,fe,3.0,ammonia_thiopyridine_thiopyridine_thiopyridine,41.0,2.0,square planar
+627,fe,3.0,ammonia_ammonia_benzisc_benzisc,41.0,2.0,square planar
+628,fe,3.0,ammonia_ammonia_cyanopyridine_cyanopyridine,33.0,2.0,square planar
+630,fe,3.0,ammonia_ammonia_pyridine_pyridine,31.0,2.0,square planar
+631,fe,3.0,ammonia_ammonia_ammonia_benzisc,29.0,2.0,square planar
+632,fe,3.0,ammonia_ammonia_ammonia_cyanopyridine,25.0,2.0,square planar
+634,fe,3.0,ammonia_ammonia_ammonia_pyridine,24.0,2.0,square planar
+635,fe,3.0,ammonia_ammonia_ammonia_thiopyridine,25.0,2.0,square planar
+636,fe,3.0,benzisc_pyridine_pyridine_pyridine,50.0,2.0,square planar
+637,fe,3.0,benzisc_benzisc_pyridine_pyridine,55.0,2.0,square planar
+638,fe,3.0,benzisc_benzisc_benzisc_pyridine,60.0,2.0,square planar
+645,fe,3.0,pyridine_thiopyridine_thiopyridine_thiopyridine,48.0,2.0,square planar
+646,fe,3.0,pyridine_pyridine_thiopyridine_thiopyridine,47.0,2.0,square planar
+648,fe,3.0,scn_ammonia_ammonia_ammonia,16.0,2.0,square planar
+649,fe,3.0,scn_scn_ammonia_ammonia,15.0,2.0,square planar
+669,ni,2.0,acetonitrile_pyridine_pyridine_pyridine,40.0,1.0,square planar
+670,ni,2.0,acetonitrile_acetonitrile_pyridine_pyridine,35.0,1.0,square planar
+671,ni,2.0,acetonitrile_acetonitrile_acetonitrile_pyridine,30.0,1.0,square planar
+672,ni,2.0,cyanate_acetonitrile_acetonitrile_acetonitrile,22.0,1.0,square planar
+673,ni,2.0,cyanate_thiopyridine_thiopyridine_thiopyridine,40.0,1.0,square planar
+674,ni,2.0,cyanate_cyanate_acetonitrile_acetonitrile,19.0,1.0,square planar
+675,ni,2.0,cyanate_cyanate_pyridine_pyridine,29.0,1.0,square planar
+678,ni,2.0,cyanate_cyanate_cyanate_pyridine,21.0,1.0,square planar
+679,ni,2.0,cyanate_cyanate_cyanate_thiopyridine,22.0,1.0,square planar
+680,ni,2.0,pyridine_thiopyridine_thiopyridine_thiopyridine,48.0,1.0,square planar
+681,ni,2.0,pyridine_pyridine_thiopyridine_thiopyridine,47.0,1.0,square planar
+682,ni,2.0,pyridine_pyridine_pyridine_thiopyridine,46.0,1.0,square planar
+683,co,2.0,cn_acetonitrile_acetonitrile_acetonitrile,21.0,2.0,square planar
+684,co,2.0,cn_cn_acetonitrile_acetonitrile,17.0,2.0,square planar
+685,co,2.0,cn_cn_cn_acetonitrile,13.0,2.0,square planar
+687,co,2.0,scn_cn_cn_cn,10.0,2.0,square planar
+688,co,2.0,scn_scn_acetonitrile_acetonitrile,19.0,2.0,square planar
+689,co,2.0,scn_scn_cn_cn,11.0,2.0,square planar
+690,co,2.0,scn_scn_scn_acetonitrile,16.0,2.0,square planar
+691,co,2.0,scn_scn_scn_cn,12.0,2.0,square planar
+692,co,3.0,benzisc_methylamine_methylamine_methylamine,38.0,1.0,square planar
+693,co,3.0,benzisc_thiopyridine_thiopyridine_thiopyridine,53.0,1.0,square planar
+696,co,3.0,benzisc_benzisc_benzisc_methylamine,56.0,1.0,square planar
+697,co,3.0,benzisc_benzisc_benzisc_thiopyridine,61.0,1.0,square planar
+698,co,3.0,methylamine_thiopyridine_thiopyridine_thiopyridine,44.0,1.0,square planar
+699,co,3.0,methylamine_methylamine_thiopyridine_thiopyridine,39.0,1.0,square planar
+700,co,3.0,methylamine_methylamine_methylamine_thiopyridine,34.0,1.0,square planar
+702,co,3.0,scn_methylamine_methylamine_methylamine,25.0,1.0,square planar
+703,co,3.0,scn_thiopyridine_thiopyridine_thiopyridine,40.0,1.0,square planar
+704,co,3.0,scn_scn_benzisc_benzisc,39.0,1.0,square planar
+706,co,3.0,scn_scn_thiopyridine_thiopyridine,31.0,1.0,square planar
+707,co,3.0,scn_scn_scn_benzisc,26.0,1.0,square planar
+750,fe,3.0,acetonitrile_benzisc_benzisc_benzisc,55.0,2.0,square planar
+753,fe,3.0,acetonitrile_acetonitrile_benzisc_benzisc,45.0,2.0,square planar
+754,fe,3.0,acetonitrile_acetonitrile_cyanopyridine_cyanopyridine,37.0,2.0,square planar
+756,fe,3.0,acetonitrile_acetonitrile_thiopyridine_thiopyridine,37.0,2.0,square planar
+757,fe,3.0,acetonitrile_acetonitrile_acetonitrile_benzisc,35.0,2.0,square planar
+760,fe,3.0,acetonitrile_acetonitrile_acetonitrile_thiopyridine,31.0,2.0,square planar
+762,fe,3.0,benzisc_methylamine_methylamine_methylamine,38.0,2.0,square planar
+763,fe,3.0,benzisc_thiopyridine_thiopyridine_thiopyridine,53.0,2.0,square planar
+764,fe,3.0,benzisc_benzisc_cyanopyridine_cyanopyridine,57.0,2.0,square planar
+765,fe,3.0,benzisc_benzisc_methylamine_methylamine,47.0,2.0,square planar
+766,fe,3.0,benzisc_benzisc_thiopyridine_thiopyridine,57.0,2.0,square planar
+767,fe,3.0,benzisc_benzisc_benzisc_cyanopyridine,61.0,2.0,square planar
+768,fe,3.0,benzisc_benzisc_benzisc_methylamine,56.0,2.0,square planar
+769,fe,3.0,benzisc_benzisc_benzisc_thiopyridine,61.0,2.0,square planar
+770,fe,3.0,cyanopyridine_methylamine_methylamine_methylamine,34.0,2.0,square planar
+771,fe,3.0,cyanopyridine_thiopyridine_thiopyridine_thiopyridine,49.0,2.0,square planar
+774,fe,3.0,cyanopyridine_cyanopyridine_cyanopyridine_thiopyridine,49.0,2.0,square planar
+775,fe,3.0,methylamine_thiopyridine_thiopyridine_thiopyridine,44.0,2.0,square planar
+776,fe,3.0,methylamine_methylamine_thiopyridine_thiopyridine,39.0,2.0,square planar
+777,fe,3.0,methylamine_methylamine_methylamine_thiopyridine,34.0,2.0,square planar
+778,fe,3.0,scn_acetonitrile_acetonitrile_acetonitrile,22.0,2.0,square planar
+780,fe,3.0,scn_methylamine_methylamine_methylamine,25.0,2.0,square planar
+782,fe,3.0,scn_scn_acetonitrile_acetonitrile,19.0,2.0,square planar
+806,mn,2.0,thiopyridine_thiopyridine_hydroxyl_hydroxyl,29.0,2.0,square planar
+810,ni,2.0,acetonitrile_thiopyridine_thiopyridine_thiopyridine,43.0,1.0,square planar
+811,ni,2.0,acetonitrile_acetonitrile_thiopyridine_thiopyridine,37.0,1.0,square planar
+812,ni,2.0,acetonitrile_acetonitrile_acetonitrile_thiopyridine,31.0,1.0,square planar
