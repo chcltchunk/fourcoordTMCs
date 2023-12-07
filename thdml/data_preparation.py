@@ -2,6 +2,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
+# in DOI: 10.1039/c7sc01247k cutoff is <= 1 (gives 242 less datapoints)
+S2_CUTOFF = 1.5
+# SSE lower than -110 kcal/mol is not reasonable for this dataset
+SSE_CUTOFF = -110
+
 # load raw data
 raw_data_dir = "../data/"
 df_hetero = pd.read_csv(raw_data_dir + "heteroleptic_thd_sses_bl_homo_with_validation_data_exchange_sensitivity.ssv", sep=";")
@@ -16,15 +21,17 @@ sse_colum_list = ['geom.ls', 'geom.hs', 'ls.spin', 'hs.spin', 'b3lyp.energy.ls (
 # select relevant properties from dataset
 # TODO(jonas): remove up until pd.to_csv and pd.load_csv instead
 df = pd.concat([df_homo, df_hetero])
-df_homo = df[[*column_list, *sse_colum_list,
+df = df[[*column_list, *sse_colum_list,
               's2_is.ls', 's2_is.hs', 's2_expect.ls', 's2_expect.hs']]
 
 df = df[((df["geom.hs"] == "tetrahedral") | (df["geom.hs"] == "square planar")) | ((df["geom.ls"] == "tetrahedral") | (df["geom.ls"] == "square planar"))]
 # df = df[(np.abs(df["b3lyp.sse (kcal/mol)"]) < 110)]
 
-# TODO(jonas): remove everything above and replace by pd.load_csv
-# df = pd.load_csv("thd_geom_sse.csv")
-df[[*column_list, *sse_colum_list]].to_csv("thd_geom_sse.csv")
+# TODO(jonas): remove everything above and replace by pd.read_csv
+df.to_csv(raw_data_dir + "thd_tmcs_geom_sse.csv")
+
+# TODO(ralf): we might want to remove the calculations with large S2 deviation from the "raw" dataset?
+df = pd.read_csv(raw_data_dir + "thd_tmcs_geom_sse.csv")
 
 ###########################
 # prepare classifier data #
@@ -39,8 +46,6 @@ count_square_planar += np.count_nonzero(df["geom.hs"] == "square planar")
 print("count tetrahedral complexes: ", count_tetrahedral)
 print("count square planar complexes: ", count_square_planar)
 
-# in DOI: 10.1039/c7sc01247k cutoff is <= 1 (gives 242 less datapoints)
-S2_CUTOFF = 1.5
 
 # create dataset for classifier
 df_classifier = pd.concat([df[(df["geom.hs"] == "tetrahedral")
@@ -60,7 +65,7 @@ df_classifier = df_classifier.rename(columns={"hs.spin": "spin", "geom.hs": "geo
 df_classifier = df_classifier[[*column_list, "spin", "geom"]]
 
 print(df_classifier)
-df_classifier.to_csv("thd_geom_classifier.csv")
+df_classifier.to_csv(raw_data_dir + "thd_geom_classifier.csv")
 
 ###############################
 # prepare SSE prediction data #
@@ -71,7 +76,6 @@ df_sse_prediction = df[(df["geom.hs"] == "tetrahedral")
                        & ((np.abs(df["s2_is.hs"] - df["s2_expect.hs"])) <= S2_CUTOFF)][[*column_list, *sse_colum_list]]
 
 # remove unreasonably high SSEs
-SSE_CUTOFF = -110
 df_sse_prediction = df_sse_prediction[df_sse_prediction["b3lyp.sse (kcal/mol)"] > SSE_CUTOFF]
 print(df_sse_prediction)
 
@@ -83,7 +87,7 @@ print("count SSEs: ", len(sse_n), " max SSE: ", np.max(sse_n), "; min SSE: ", np
 # TODO(jonas): move to dataset analysis
 # visualize SSE distribution in dataset
 plt.hist(sse_n, bins=50)
-plt.savefig("SSE distribution.png", dpi=300, bbox_inches="tight")
+plt.savefig(raw_data_dir + "SSE distribution.png", dpi=300, bbox_inches="tight")
 
 # count HS and LS preferences
 print("HS preference", np.count_nonzero(sse_n >= 0))
