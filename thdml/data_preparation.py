@@ -76,6 +76,7 @@ sse_n = df_sse_prediction["b3lyp.sse (kcal/mol)"].to_numpy()
 
 print("count SSEs: ", len(sse_n), " max SSE: ", np.max(sse_n), "; min SSE: ", np.min(sse_n))
 
+# TODO(jonas): move to dataset analysis 
 # visualize SSE distribution in dataset
 plt.hist(sse_n, bins=50)
 plt.savefig("SSE distribution.png", dpi=300, bbox_inches="tight")
