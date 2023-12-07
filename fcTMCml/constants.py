@@ -1,4 +1,5 @@
 import numpy as np
+from ase.data import chemical_symbols, atomic_numbers, covalent_radii
 
 ##############################
 # PROJECT SPECIFIC CONSTANTS #
@@ -19,7 +20,17 @@ sse_colum_list = ['geom.ls', 'geom.hs', 'ls.spin', 'hs.spin', 'b3lyp.energy.ls (
 # GENERAL CONSTANTS #
 #####################
 
+__all__ = [
+    "chemical_symbols",
+    "atomic_numbers",
+    "atomic_masses",
+    "covalent_radii",
+]
+
 roman_numerals = {"I": 1, "II": 2, "III": 3, "IV": 4, "V": 5}
+
+metal_list_symbolic = ["Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn"]
+metal_list = np.array(list(range(21, 30))+list(range(39, 48))+list(range(72, 80)))
 
 # Consistent with the definition in molSimplify:
 # http://www.webelements.com/ (last accessed May 13th 2015)

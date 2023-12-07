@@ -2,23 +2,49 @@ import re
 import ast
 import numpy as np
 import networkx as nx
-#from tmc_tools.graphs.mol_graph_tools import  get_metal_id
 
-from ..constants import electronegativity
+from fcTMCml.constants import electronegativity
+from fcTMCml.featurizer.mol_graph_tools import  get_metal_id
+
+"""
+This class builds MCDL25 feauteres as described in DOI: 10.1039/c7sc01247k. 
+    - the exchange sensitivity is removed.
+    - the ligand identity is removed
+We add multiplicity, spin-state, the full Kier index, and (truncated) atom
+counts to arrive at a MCDL46 feature vector.
+
+---------------------------------------------------------
+Scope   | Feature                   | Abbreviation      |
+---------------------------------------------------------
+Metal   | Identitiy                 | I(M)              |
+        | Oxidation State           | Ox                |
+        | Pauling Electronegativity | min/max/sum(\chi) |
+        | Multiplicity              | S                 |*new
+        | Spin State (HS vs. LS)    | SS                |*new
+---------------------------------------------------------
+Ligand  | Connection Atom           | CA                |
+        | Charge                    | LC                |
+        | Denticity                 | LD                |
+        | Number of Atoms           | L#A               |
+        | Bond Order                | max(LBO)          |
+        | Kier Index                | K                 |*new
+        | Truncated Kier Index      | TK                |
+---------------------------------------------------------
+Counts  | Atom Counts               | #                 |*new
+        | Truncated Atom Counts     | T#                |*new
+---------------------------------------------------------
+"""
 
 
-
-
-
-
-ligand_dict = np.loadtxt("../../data/ligands.dict", delimiter=',')
-
-print(ligand_dict)
-quit()
+# load molSimplify ligand dict from ligands.dict
+# TODO(ralf): is there a simpler way of doing this w/o using molSimplify?
+ligand_dict = {x.split(":")[0]: x.split(":")[1][:-1].split(",") for x in open("ligands.dict").readlines()[2:]}
 
 class MCDL46():
-    def __init__(self) -> None:
-        pass
+    def __init__(self, graph) -> None:
+        self.graph = graph
+        self.metal_id = get_metal_id()
+        self.metal_identity = graph.nodes[self.metal_id]["atomic_number"]
 
     def get_electronegativity_diffs(self, graph, metal_id):
         delta_ens = []

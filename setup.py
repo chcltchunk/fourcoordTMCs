@@ -10,6 +10,9 @@ setup(
    install_requires=[
        'matplotlib==3.8.2', 
        'networkx==3.2.1', 
-       'numpy==1.26.2'
+       'numpy==1.26.2',
+       'pandas==2.8.2',
+       'ase==3.22.1',
+       'scipy==1.11.4'
       ],
 )
