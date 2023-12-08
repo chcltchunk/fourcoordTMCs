@@ -2,7 +2,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from constants import column_list, sse_colum_list
-from constants import SSE_CUTOFF
 
 raw_data_dir = "../data/"
 df = pd.read_csv(raw_data_dir + "thd_tmcs_geom_sse.csv")
@@ -33,10 +32,11 @@ df_classifier["geom.hs"] = df_classifier["geom.hs"].fillna(df_classifier["geom.l
 df_classifier = df_classifier.rename(columns={"hs.spin": "spin", "geom.hs": "geom"})
 df_classifier = df_classifier[[*column_list, "spin", "geom"]]
 
-print(df_classifier)
 df_classifier.reset_index(drop=True).to_csv(raw_data_dir + "thd_geom_classifier.csv")
 
-print("duplicates in dataset: ", np.count_nonzero(df.duplicated(["metal", "ox", "ligstr"]).to_numpy()))
+
+# make sure there are no duplicates in the dataset
+assert 0==np.count_nonzero(df.duplicated(["metal", "ox", "ligstr"]).to_numpy())
 
 
 ###############################
@@ -48,22 +48,12 @@ print("duplicates in dataset: ", np.count_nonzero(df.duplicated(["metal", "ox", 
 df_sse_prediction = df[(df["geom.hs"] == "square planar")
                        & (df["geom.ls"] == "square planar")][[*column_list, *sse_colum_list]]
 
-# remove unreasonably high SSEs
-SSE_CUTOFF = -110
-df_sse_prediction = df_sse_prediction[df_sse_prediction["b3lyp.sse (kcal/mol)"] > SSE_CUTOFF]
-print(df_sse_prediction)
-
 df_sse_prediction.reset_index(drop=True).to_csv(raw_data_dir + "sqp_sse_prediction.csv")
 
 # prepare tetrahedral dataset
 
 df_sse_prediction = df[(df["geom.hs"] == "tetrahedral")
                        & (df["geom.ls"] == "tetrahedral")][[*column_list, *sse_colum_list]]
-
-# remove unreasonably high SSEs
-SSE_CUTOFF = -110
-df_sse_prediction = df_sse_prediction[df_sse_prediction["b3lyp.sse (kcal/mol)"] > SSE_CUTOFF]
-print(df_sse_prediction)
 
 df_sse_prediction.reset_index(drop=True).to_csv(raw_data_dir + "thd_sse_prediction.csv")
 
