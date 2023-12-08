@@ -57,8 +57,6 @@ class CrystalFieldFeatures():
         }
 
     def calculate_enes(self, occ, dqs):
-        print(occ)
-        print(dqs) 
         conf_ene = np.dot(occ, dqs)
         return conf_ene
 
@@ -69,12 +67,8 @@ class CrystalFieldFeatures():
         ind = [0] + deg
         ind = np.cumsum(ind)
         for i in range(1, len(ind)):
-            # print("occup: ", occupation[ind[i-1]:ind[i]])
-            # print("indices", ind[i-1], ind[i])
             alpha_curr_deg_level = occupation[ind[i-1]:ind[i]] == 1
-            # print("n_alpha: ", alpha_curr_deg_level)
             comb_factors[i-1] = np.sum(alpha_curr_deg_level.astype(int))
-        #print("comb facs: ", comb_factors)
         return np.array(comb_factors)
 
 
@@ -157,10 +151,10 @@ occ = cff.occupy_d_orbitals()
 assert abs(cff.calculate_enes(occ, cff.geometry_diff_of_quanta["tetrahedral"]) - (-7.12)) <= EPS 
 cff = CrystalFieldFeatures("ni", 2, 1)
 occ = cff.occupy_d_orbitals()
-assert abs(cff.calculate_enes(occ, cff.geometry_degeneracies["square planar"]) - (-24.56)) <= EPS 
+assert abs(cff.calculate_enes(occ, cff.geometry_diff_of_quanta["square planar"]) - (-24.56)) <= EPS 
 cff = CrystalFieldFeatures("cr", 2, 1)
 occ = cff.occupy_d_orbitals()
-assert abs(cff.calculate_enes(occ, cff.geometry_degeneracies["square planar"]) - (-20.56)) <= EPS 
+assert abs(cff.calculate_enes(occ, cff.geometry_diff_of_quanta["square planar"]) - (-20.56)) <= EPS 
 
 
 
