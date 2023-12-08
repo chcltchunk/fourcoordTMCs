@@ -19,18 +19,18 @@ Scope   | Feature                   | Abbreviation      |
 Metal   | Identitiy                 | I(M)              |
         | Oxidation State           | Ox                |
         | Pauling Electronegativity | min/max/sum(\chi) |
-        | Multiplicity              | S                 |*new
-        | Spin State (HS vs. LS)    | SS                |*new
+        | Multiplicity              | S                 |*new(classifier only)
+        | Spin State (HS vs. LS)    | SS                |*new(classifier only)
 ---------------------------------------------------------
 Ligand  | Connection Atom           | CA                |
         | Charge                    | LC                |
         | Denticity                 | LD                |
         | Number of Atoms           | L#A               |
-        | Bond Order                | max(LBO)          |
+        | Bond Order                | max(LBO)          |*(openbabel only)
         | Kier Index                | K                 |*new
         | Truncated Kier Index      | TK                |
 ---------------------------------------------------------
-Counts  | Atom Counts               | #                 |*new
+Counts  | Individual Atom Counts    | #                 |*new
         | Truncated Atom Counts     | T#                |*new
 ---------------------------------------------------------
 """
@@ -41,10 +41,31 @@ Counts  | Atom Counts               | #                 |*new
 ligand_dict = {x.split(":")[0]: x.split(":")[1][:-1].split(",") for x in open("ligands.dict").readlines()[2:]}
 
 class MCDL46():
-    def __init__(self, graph) -> None:
+    def __init__(self, graph, oxidation_state, multiplicity) -> None:
+        # sub_n denotes a non-scalar value
         self.graph = graph
+        self.feature_dict = {}
         self.metal_id = get_metal_id()
         self.metal_identity = graph.nodes[self.metal_id]["atomic_number"]
+        self.oxidation_state = oxidation_state
+        self.electronegativity = np.nan
+        # only for classifier where you do NOT use a pair of HS/LS TMCs
+        self.multiplicity = multiplicity
+        # spin state one-hot encoding (LS: 0; HS: 1)
+        self.spin_state = 0 if multiplicity < 2 else 1
+        # TODO: this is an 4 array
+        self.connection_atom_n = self.get_coordinating_atom_numbers()
+        self.charge
+
+
+    def get_classifier_features(self):
+        pass
+
+    def get_SSE_prediction_features(self):
+        pass
+
+
+        
 
     def get_electronegativity_diffs(self, graph, metal_id):
         delta_ens = []
@@ -55,11 +76,12 @@ class MCDL46():
         return delta_ens
 
 
-    def get_coordinating_atom_numbers(graph, metal_id):
+    def get_coordinating_atom_numbers(self):
+        # this returns the atomic number of the metal coordinating atoms
         coord_atomic_numbers = []
-        this_atoms_neighbors = graph.neighbors(metal_id)
+        this_atoms_neighbors = self.graph.neighbors(self.metal_id)
         for bound_atoms in this_atoms_neighbors:
-            coord_atomic_numbers += [graph.nodes[bound_atoms]["atomic_number"]]
+            coord_atomic_numbers += [self.graph.nodes[bound_atoms]["atomic_number"]]
         return coord_atomic_numbers
 
     def get_kier_index(graph, truncation=None, metal_id=0):
