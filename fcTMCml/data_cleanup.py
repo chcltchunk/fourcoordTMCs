@@ -3,6 +3,15 @@ import numpy as np
 from constants import column_list, sse_colum_list
 from constants import S2_CUTOFF, SSE_CUTOFF
 
+######################################################################
+# DISCLAIMER                                                         #
+# -------------------------------------------------------------------#                              
+# This script is for reference only!                                 #
+# It provides insight on how calculations were presorted             #
+# by applying an S2 cutoff and eliminating unreasonably low SSEs.    #
+######################################################################
+
+
 # load raw data
 raw_data_dir = "../data/"
 df_hetero = pd.read_csv(raw_data_dir + "heteroleptic_thd_sses_bl_homo_with_validation_data_exchange_sensitivity.ssv", sep=";")
