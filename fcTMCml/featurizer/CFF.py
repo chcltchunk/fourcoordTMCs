@@ -29,10 +29,7 @@ from fcTMCml.constants import EPS, deg_sqp, dqs_sqp, deg_thd, dqs_thd
 
 
 class CrystalFieldFeatures():
-    def __init__(self, metal, ox, mult, lig_list=None, EPS=1e-6, fac=0.621, lambda_a=2, lambda_b=4):
-        self.factor = fac
-        self.lambda_a = 2
-        self.lambda_b = 2
+    def __init__(self, metal, ox, mult, lig_list=None, EPS=1e-6):
         self.metal = metal.lower()
         self.ox = int(ox)
         self.mult = int(mult)
@@ -137,11 +134,6 @@ assert np.all(dbloc.calculate_comb_factors([2,2,1,1,1], dbloc.thd_deg) == [0, 3]
 assert np.all(dbloc.calculate_comb_factors([2,2,2,1,1], dbloc.thd_deg) == [0, 2])
 assert np.all(dbloc.calculate_comb_factors([2,2,1,1,1], dbloc.sqp_deg) == [0, 1, 1, 1])
 
-# assert dbloc.calculate_exchange_mimic([1,0,1,0]) == 1
-# assert dbloc.calculate_exchange_mimic([2,1,0,0]) == 2
-# assert (dbloc.calculate_exchange_mimic_relative_energies([2,1,2,0], dbloc.sqp_dqs) - 3.169543) <= EPS 
-# assert dbloc.calculate_exchange_mimic_single_energy_level([2,1,2,0]) == 4*0.5
-# assert dbloc.calculate_exchange_mimic_single_energy_level([2,3,2,0]) == 10*0.5
 
 
 
