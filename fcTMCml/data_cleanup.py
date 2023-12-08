@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from constants import column_list, sse_colum_list
-from constants import S2_CUTOFF
+from constants import S2_CUTOFF, SSE_CUTOFF
 
 # load raw data
 raw_data_dir = "../data/"
@@ -14,7 +14,10 @@ df = pd.concat([df_homo, df_hetero])
 # remove everything where neither LS or HS is tetrahedral or square planar
 df = df[((df["geom.hs"] == "tetrahedral") | (df["geom.hs"] == "square planar")) | ((df["geom.ls"] == "tetrahedral") | (df["geom.ls"] == "square planar"))]
 
+# remove calculation with an <S2> deviation larger S2_CUTOFF 
 df = df[((np.abs(df["s2_is.hs"] - df["s2_expect.hs"])) <= S2_CUTOFF)]
+# remove calculation with an SSE lower than SSE_CUTOFF
+df = df[df["b3lyp.energy.ls (Ha)"] < SSE_CUTOFF]
 
 # mask only the relevant property columns from the dataset
 df = df[[*column_list, *sse_colum_list]]
