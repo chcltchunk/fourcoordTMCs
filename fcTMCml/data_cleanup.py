@@ -13,8 +13,7 @@ df = pd.concat([df_homo, df_hetero])
 
 # remove everything where neither LS or HS is tetrahedral or square planar
 df = df[((df["geom.hs"] == "tetrahedral") | (df["geom.hs"] == "square planar")) | ((df["geom.ls"] == "tetrahedral") | (df["geom.ls"] == "square planar"))]
-# TODO(ralf): I'd remove any detailed results for <S2> from the dataset before preparing it for the ML tasks?
-# otherwise we can move this to the data_preparation script
+
 df = df[((np.abs(df["s2_is.hs"] - df["s2_expect.hs"])) <= S2_CUTOFF)]
 
 # mask only the relevant property columns from the dataset
