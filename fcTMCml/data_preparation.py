@@ -36,7 +36,7 @@ df_classifier.reset_index(drop=True).to_csv(raw_data_dir + "thd_geom_classifier.
 
 
 # make sure there are no duplicates in the dataset
-assert 0==np.count_nonzero(df.duplicated(["metal", "ox", "ligstr"]).to_numpy())
+assert 0==np.count_nonzero(df.duplicated(["metal", "ox", "ligstr"]).to_numpy()))
 
 
 ###############################
