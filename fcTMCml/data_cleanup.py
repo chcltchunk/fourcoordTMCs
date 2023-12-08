@@ -21,4 +21,4 @@ df = df[((np.abs(df["s2_is.hs"] - df["s2_expect.hs"])) <= S2_CUTOFF)]
 df = df[[*column_list, *sse_colum_list]]
 
 # store dataset that is supplied with SI
-df.to_csv(raw_data_dir + "thd_tmcs_geom_sse.csv")
+df.reset_index(drop=True).to_csv(raw_data_dir + "thd_tmcs_geom_sse.csv")

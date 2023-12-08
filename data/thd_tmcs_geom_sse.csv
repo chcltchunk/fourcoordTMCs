@@ -1,293 +1,291 @@
 ,metal,ox,ligstr,complex.size,geom.ls,geom.hs,ls.spin,hs.spin,b3lyp.energy.ls (Ha),b3lyp.energy.hs (Ha),b3lyp.sse (kcal/mol)
-0,co,2.0,acac_acac_acac_acac_s_s,29.0,square planar,tetrahedral,2.0,4.0,-835.5807906905043,-835.6000596422587,-12.09126722587598
-1,co,2.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_s_s,65.0,seesaw,tetrahedral,2.0,4.0,-2046.9664197038564,-2046.976098687363,-6.07356215035793
-2,co,2.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s_s,25.0,square planar,tetrahedral,2.0,4.0,-675.6266971336001,-675.6913286336313,-40.55626626955842
-3,co,2.0,ammonia_ammonia_ammonia_ammonia_s_s,17.0,square planar,tetrahedral,2.0,4.0,-370.83046781640167,-370.8341379517329,-2.303009920340316
-4,co,2.0,bipy_bipy_bipy_bipy_s_s,41.0,seesaw,tetrahedral,2.0,4.0,-1135.4584935347646,-1135.4677582818429,-5.813628791636347
-5,co,2.0,carbonyl_carbonyl_carbonyl_carbonyl_s_s,9.0,square planar,seesaw,2.0,4.0,-597.667855602278,-597.6489430876222,11.86760294649389
-6,co,2.0,chloride_chloride_chloride_chloride_s_s,5.0,tetrahedral,tetrahedral,2.0,4.0,-1986.0852891831648,-1986.1257465552887,-25.38700100803908
-7,co,2.0,cn_cn_cn_cn_s_s,9.0,square planar,tetrahedral,2.0,4.0,-516.5235132194687,-516.533795075997,-6.451864971513714
-8,co,2.0,cyanate_cyanate_cyanate_cyanate_s_s,13.0,tetrahedral,tetrahedral,2.0,4.0,-817.5002605607542,-817.5432270113807,-26.96144776814293
-9,co,2.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine_s_s,49.0,square planar,tetrahedral,2.0,4.0,-1506.7382144914027,-1506.7334839627715,2.96840671591724
-10,co,2.0,en_en_en_en_s_s,25.0,square planar,square planar,2.0,4.0,-525.6757697171596,-525.6725040345394,2.0492158441550146
-11,co,2.0,fluoride_fluoride_fluoride_fluoride_s_s,5.0,square planar,tetrahedral,2.0,4.0,-544.4404085923002,-544.4679178887737,-17.262083537163733
-12,co,2.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s_s,17.0,square planar,tetrahedral,2.0,4.0,-602.5673496916447,-602.5856139074313,-11.460795406047737
-13,co,2.0,furan_furan_furan_furan_s_s,37.0,seesaw,tetrahedral,2.0,4.0,-1064.5921214578184,-1064.619584938359,-17.233334039032684
-14,co,2.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide_s_s,13.0,square planar,tetrahedral,2.0,4.0,-1742.0200404660482,-1742.0516816944032,-19.854870792797783
-15,co,2.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s_s,9.0,square planar,tetrahedral,2.0,4.0,-448.29856099969976,-448.3173509303017,-11.790681452717564
-16,co,2.0,iodide_iodide_iodide_iodide_s_s,5.0,tetrahedral,tetrahedral,2.0,4.0,-190.8325112967139,-190.916612878378,-52.773742494223015
-17,co,2.0,mebipy_mebipy_mebipy_mebipy_s_s,53.0,seesaw,tetrahedral,2.0,4.0,-1292.7590647889997,-1292.768196563769,-5.730188667691891
-18,co,2.0,mec_mec_mec_mec_s_s,31.0,square planar,tetrahedral,2.0,4.0,-986.78560548417,-986.800603630792,-9.411337005388702
-19,co,2.0,methylamine_methylamine_methylamine_methylamine_s_s,29.0,square planar,tetrahedral,2.0,4.0,-528.071789483859,-528.077803308594,-3.7736750211900016
-20,co,2.0,misc_misc_misc_misc_s_s,25.0,square planar,tetrahedral,2.0,4.0,-675.5614155416768,-675.5717819265384,-6.50490650067951
-21,co,2.0,ncs_ncs_ncs_ncs_s_s,13.0,square planar,tetrahedral,2.0,4.0,-2109.4743454399427,-2109.498555745871,-15.19196696990548
-22,co,2.0,ox_ox_ox_ox_s_s,13.0,square planar,tetrahedral,2.0,4.0,-899.4814085057831,-899.4922802645908,-6.822028651864684
-23,co,2.0,phen_phen_phen_phen_s_s,45.0,seesaw,tetrahedral,2.0,4.0,-1287.9284670470406,-1287.940204084795,-7.364991190823957
-24,co,2.0,phenisc_phenisc_phenisc_phenisc_s_s,53.0,square planar,tetrahedral,2.0,4.0,-1442.5611497873424,-1442.5691260056783,-5.005077005776002
-25,co,2.0,phosphine_phosphine_phosphine_phosphine_s_s,17.0,square planar,tetrahedral,2.0,4.0,-1517.0937659244453,-1517.1121834006085,-11.556966292421862
-26,co,2.0,pisc_pisc_pisc_pisc_s_s,101.0,square planar,tetrahedral,2.0,4.0,-2071.604318536576,-2071.6118107232933,-4.701347165311063
-27,co,2.0,pyridine_pyridine_pyridine_pyridine_s_s,45.0,square planar,tetrahedral,2.0,4.0,-1137.8522125231914,-1137.8466742268988,3.4752809235880022
-28,co,2.0,scn_scn_scn_scn_s_s,13.0,tetrahedral,tetrahedral,2.0,4.0,-2109.4065859533584,-2109.439105545453,-20.406044039621065
-29,co,2.0,tbuc_tbuc_tbuc_tbuc_s_s,49.0,square planar,tetrahedral,2.0,4.0,-1222.6672233551458,-1222.6824495449544,-9.554434104879306
-30,co,2.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s_s,49.0,square planar,tetrahedral,2.0,4.0,-2730.6076246665134,-2730.60441769472,2.012374800476664
-31,co,2.0,water_water_water_water_s_s,13.0,square planar,tetrahedral,2.0,4.0,-450.18819516195873,-450.2175393618653,-18.41348544137574
-32,co,3.0,acac_acac_acac_acac_s,29.0,seesaw,tetrahedral,1.0,5.0,-835.3085605435325,-835.3178325194544,-5.818164891013282
-33,co,3.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_s,65.0,seesaw,tetrahedral,1.0,5.0,-2046.4853136133772,-2046.49802169082,-7.974318595336172
-34,co,3.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s,25.0,square planar,tetrahedral,1.0,5.0,-675.0317291376281,-675.0573963440704,-16.10617204256556
-35,co,3.0,ammonia_ammonia_ammonia_ammonia_s,17.0,seesaw,tetrahedral,1.0,5.0,-370.1433892219002,-370.15226566257735,-5.569966524924297
-36,co,3.0,benzisc_benzisc_benzisc_benzisc_s,65.0,square planar,tetrahedral,1.0,5.0,-1599.3072354591152,-1599.354394426868,-29.59225226481521
-37,co,3.0,bipy_bipy_bipy_bipy_s,41.0,seesaw,tetrahedral,1.0,5.0,-1134.9260669631312,-1134.9415479870263,-9.714342494152106
-38,co,3.0,carbonyl_carbonyl_carbonyl_carbonyl_s,9.0,square planar,tetrahedral,1.0,5.0,-596.8085929931658,-596.811354098588,-1.732593652445189
-39,co,3.0,chloride_chloride_chloride_chloride_s,5.0,tetrahedral,tetrahedral,1.0,5.0,-1986.0786875392864,-1986.108304573824,-18.58468917258108
-40,co,3.0,cn_cn_cn_cn_s,9.0,seesaw,tetrahedral,1.0,5.0,-516.5032392404948,-516.4862562822909,10.656806272963308
-42,co,3.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine_s,49.0,square planar,tetrahedral,1.0,5.0,-1506.1812782164766,-1506.1997939159178,-11.618601399350156
-43,co,3.0,en_en_en_en_s,25.0,seesaw,tetrahedral,1.0,5.0,-525.0340027237667,-525.0256842752838,5.219826423017366
-44,co,3.0,fluoride_fluoride_fluoride_fluoride_s,5.0,tetrahedral,tetrahedral,1.0,5.0,-544.5302049132468,-544.5883454318661,-36.483175433555175
-45,co,3.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s,17.0,tetrahedral,tetrahedral,1.0,5.0,-601.8829468671595,-601.9319785260406,-30.76736594786695
-46,co,3.0,furan_furan_furan_furan_s,37.0,T shape,tetrahedral,1.0,5.0,-1064.235938636278,-1064.091631547551,90.55269817614146
-47,co,3.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s,9.0,square planar,tetrahedral,1.0,5.0,-448.4307725090485,-448.4389769353308,-5.148277492181848
-48,co,3.0,iodide_iodide_iodide_iodide_s,5.0,tetrahedral,tetrahedral,1.0,5.0,-190.838852943404,-190.8809445421708,-26.41247822615071
-49,co,3.0,mebipy_mebipy_mebipy_mebipy_s,53.0,seesaw,tetrahedral,1.0,5.0,-1292.2450531349994,-1292.25974972086,-9.222107627618923
-50,co,3.0,mec_mec_mec_mec_s,31.0,square planar,tetrahedral,1.0,5.0,-986.8378476465056,-986.8383821770234,-0.3354179000066892
-51,co,3.0,methylamine_methylamine_methylamine_methylamine_s,29.0,seesaw,tetrahedral,1.0,5.0,-527.4520336279193,-527.4534392007762,-0.8819969677202266
-52,co,3.0,misc_misc_misc_misc_s,25.0,square planar,tetrahedral,1.0,5.0,-674.941485708642,-674.9303843157301,6.96612405220634
-53,co,3.0,ncs_ncs_ncs_ncs_s,13.0,seesaw,tetrahedral,1.0,5.0,-2109.406417856949,-2109.455751384383,-30.956788464612828
-54,co,3.0,ox_ox_ox_ox_s,13.0,square planar,tetrahedral,1.0,5.0,-899.4703094482796,-899.4800569413782,-6.116551919327549
-55,co,3.0,phen_phen_phen_phen_s,45.0,seesaw,tetrahedral,1.0,5.0,-1287.4183776604195,-1287.4340307329576,-9.82230301762229
-56,co,3.0,phenisc_phenisc_phenisc_phenisc_s,53.0,square planar,tetrahedral,1.0,5.0,-1442.095398188409,-1442.0939975417682,0.878905767121978
-57,co,3.0,phosphine_phosphine_phosphine_phosphine_s,17.0,seesaw,tetrahedral,1.0,5.0,-1516.4587884518794,-1516.4634532457685,-2.9271581654137435
-58,co,3.0,pisc_pisc_pisc_pisc_s,101.0,square planar,tetrahedral,1.0,5.0,-2071.1746409606594,-2071.173005804441,1.0260605271253098
-59,co,3.0,pyridine_pyridine_pyridine_pyridine_s,45.0,square planar,tetrahedral,1.0,5.0,-1137.3099599968189,-1137.3215752491603,-7.288570844273181
-61,co,3.0,scn_scn_scn_scn_s,13.0,seesaw,tetrahedral,1.0,5.0,-2109.3521516914107,-2109.379452505966,-17.131261133559974
-62,co,3.0,tbuc_tbuc_tbuc_tbuc_s,49.0,square planar,tetrahedral,1.0,5.0,-1222.7139013806925,-1222.7134924301497,0.2566164657531544
-63,co,3.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s,49.0,seesaw,tetrahedral,1.0,5.0,-2730.0897762972177,-2730.1480744272226,-36.582076578083615
-64,co,3.0,water_water_water_water_s,13.0,seesaw,tetrahedral,1.0,5.0,-449.429442683038,-449.47753430458016,-30.17749251769388
-65,cr,2.0,acac_acac_acac_acac_s,29.0,tetrahedral,square planar,1.0,5.0,-776.7985684478451,-776.8677281061607,-43.39768559302911
-66,cr,2.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_s,65.0,square planar,square planar,1.0,5.0,-1988.178758857052,-1988.236740343036,-36.38338245516593
-67,cr,2.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s,25.0,square planar,square planar,1.0,5.0,-616.8975707854694,-616.9554479946087,-36.31794873490577
-68,cr,2.0,ammonia_ammonia_ammonia_ammonia_s,17.0,square planar,square planar,1.0,5.0,-312.05052658200464,-312.1142896307843,-40.01131310923839
-69,cr,2.0,benzisc_benzisc_benzisc_benzisc_s,65.0,tetrahedral,square planar,1.0,5.0,-1540.98388874396,-1541.058043143293,-46.531885581384245
-70,cr,2.0,bipy_bipy_bipy_bipy_s,41.0,seesaw,square planar,1.0,5.0,-1076.670922839514,-1076.729258952142,-36.60591067393512
-71,cr,2.0,carbonyl_carbonyl_carbonyl_carbonyl_s,9.0,square planar,square planar,1.0,5.0,-538.8760302718243,-538.9298633062372,-33.78022909405246
-72,cr,2.0,chloride_chloride_chloride_chloride_s,5.0,tetrahedral,tetrahedral,1.0,5.0,-1927.3091070702144,-1927.365323542212,-35.27583617826281
-73,cr,2.0,cn_cn_cn_cn_s,9.0,square planar,square planar,1.0,5.0,-457.72136429936654,-457.7799564147342,-36.76655239321519
-74,cr,2.0,cyanate_cyanate_cyanate_cyanate_s,13.0,square planar,square planar,1.0,5.0,-757.6176994371356,-757.6738323414629,-35.22339746540695
-75,cr,2.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine_s,49.0,square planar,square planar,1.0,5.0,-1447.938382544821,-1448.0047371799603,-41.637533549914
-76,cr,2.0,en_en_en_en_s,25.0,square planar,square planar,1.0,5.0,-466.8883785993045,-466.9502369606454,-38.81612174138539
-77,cr,2.0,fluoride_fluoride_fluoride_fluoride_s,5.0,tetrahedral,tetrahedral,1.0,5.0,-485.6747496692562,-485.7538914706536,-49.66148037689408
-78,cr,2.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s,17.0,square planar,square planar,1.0,5.0,-543.7947248902678,-543.8575155176482,-39.401118681144
-79,cr,2.0,furan_furan_furan_furan_s,37.0,tetrahedral,square planar,1.0,5.0,-1005.8167185443706,-1005.8961828199324,-49.86383291496082
-80,cr,2.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide_s,13.0,square planar,square planar,1.0,5.0,-1683.2358012189643,-1683.2983352613403,-39.24011159108318
-81,cr,2.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s,9.0,tetrahedral,tetrahedral,1.0,5.0,-389.5225980396089,-389.58945819533176,-41.95474771608829
-82,cr,2.0,iodide_iodide_iodide_iodide_s,5.0,tetrahedral,tetrahedral,1.0,5.0,-132.09487691991163,-132.15405048818843,-37.131414093694914
-83,cr,2.0,mebipy_mebipy_mebipy_mebipy_s,53.0,seesaw,square planar,1.0,5.0,-1233.971945393115,-1234.02969193359,-36.23595414800548
-84,cr,2.0,mec_mec_mec_mec_s,31.0,tetrahedral,square planar,1.0,5.0,-927.975995605775,-928.0713995421232,-59.86597005852559
-85,cr,2.0,methylamine_methylamine_methylamine_methylamine_s,29.0,tetrahedral,square planar,1.0,5.0,-469.272036159874,-469.34557127319374,-46.143283608169696
-86,cr,2.0,misc_misc_misc_misc_s,25.0,square planar,square planar,1.0,5.0,-616.7695431131228,-616.8261134115526,-35.49786226465756
-87,cr,2.0,ncs_ncs_ncs_ncs_s,13.0,seesaw,square planar,1.0,5.0,-2050.710871666241,-2050.768121088909,-35.92401272421057
-88,cr,2.0,ox_ox_ox_ox_s,13.0,tetrahedral,square planar,1.0,5.0,-840.6641327977112,-840.7665246291226,-64.25087421065967
-89,cr,2.0,phen_phen_phen_phen_s,45.0,square planar,square planar,1.0,5.0,-1229.1437007996576,-1229.2020952259395,-36.64250249203064
-90,cr,2.0,phenisc_phenisc_phenisc_phenisc_s,53.0,square planar,square planar,1.0,5.0,-1383.7667939262587,-1383.8220002817247,-34.64198805491378
-91,cr,2.0,phosphine_phosphine_phosphine_phosphine_s,17.0,square planar,square planar,1.0,5.0,-1458.2924772763458,-1458.3539170112097,-38.55343362705014
-92,cr,2.0,pisc_pisc_pisc_pisc_s,101.0,square planar,square planar,1.0,5.0,-2012.808194261925,-2012.8638230213053,-34.90704651105659
-94,cr,2.0,pyridine_pyridine_pyridine_pyridine_s,45.0,tetrahedral,square planar,1.0,5.0,-1079.0418324120255,-1079.117258871842,-47.33010353487032
-95,cr,2.0,s2-_s2-_s2-_s2-_s,5.0,tetrahedral,tetrahedral,1.0,5.0,-1677.6025209735844,-1677.6000553286565,1.547192192432476
-97,cr,2.0,tbuc_tbuc_tbuc_tbuc_s,49.0,tetrahedral,square planar,1.0,5.0,-1163.8578623473584,-1163.9528881138413,-59.62866846800523
-98,cr,2.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s,49.0,seesaw,square planar,1.0,5.0,-2671.80814325024,-2671.873355645492,-40.92077802051677
-99,cr,2.0,water_water_water_water_s,13.0,square planar,square planar,1.0,5.0,-391.4314165781274,-391.49252989149153,-38.34860413597482
-100,cr,3.0,acac_acac_acac_acac_s_s,29.0,tetrahedral,tetrahedral,2.0,4.0,-776.6009357712472,-776.630250766379,-18.395159445212528
-101,cr,3.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_s_s,65.0,tetrahedral,seesaw,2.0,4.0,-1987.723990815844,-1987.758613186357,-21.725537497071628
-102,cr,3.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s_s,25.0,tetrahedral,seesaw,2.0,4.0,-616.3383298265369,-616.3710845715241,-20.553602479459983
-103,cr,3.0,ammonia_ammonia_ammonia_ammonia_s_s,17.0,tetrahedral,seesaw,2.0,4.0,-311.42525030209134,-311.46314840190587,-23.78105763361546
-104,cr,3.0,benzisc_benzisc_benzisc_benzisc_s_s,65.0,square planar,square planar,2.0,4.0,-1540.5501332380682,-1540.6067525445685,-35.52861482897072
-105,cr,3.0,bipy_bipy_bipy_bipy_s_s,41.0,tetrahedral,seesaw,2.0,4.0,-1076.1861639361043,-1076.2202314640977,-21.37737381567149
-107,cr,3.0,chloride_chloride_chloride_chloride_s_s,5.0,tetrahedral,tetrahedral,2.0,4.0,-1927.361662281402,-1927.3916652535263,-18.82686500799423
-108,cr,3.0,cn_cn_cn_cn_s_s,9.0,tetrahedral,seesaw,2.0,4.0,-457.75257471972793,-457.7826776092001,-18.889563143790014
-110,cr,3.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine_s_s,49.0,tetrahedral,tetrahedral,2.0,4.0,-1447.3583791061833,-1447.4663506138756,-67.75212107695268
-111,cr,3.0,en_en_en_en_s_s,25.0,tetrahedral,seesaw,2.0,4.0,-466.29484792060987,-466.33492069131455,-25.145663617188347
-112,cr,3.0,fluoride_fluoride_fluoride_fluoride_s_s,5.0,tetrahedral,tetrahedral,2.0,4.0,-485.8695117989362,-485.90587287974745,-22.81657820907526
-113,cr,3.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s_s,17.0,tetrahedral,tetrahedral,2.0,4.0,-543.1932784966161,-543.2260859507661,-20.586677479109028
-114,cr,3.0,furan_furan_furan_furan_s_s,37.0,tetrahedral,square planar,2.0,4.0,-1005.2629267346558,-1005.3590371974776,-60.30931542067833
-115,cr,3.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide_s_s,13.0,tetrahedral,tetrahedral,2.0,4.0,-1682.5961317005947,-1682.643561068768,-29.761928528824345
-116,cr,3.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s_s,9.0,tetrahedral,tetrahedral,2.0,4.0,-389.7075825856381,-389.7416614023441,-21.38445748299702
-117,cr,3.0,iodide_iodide_iodide_iodide_s_s,5.0,tetrahedral,tetrahedral,2.0,4.0,-132.09008111854192,-132.14031467042764,-31.52155380829249
-118,cr,3.0,mebipy_mebipy_mebipy_mebipy_s_s,53.0,tetrahedral,seesaw,2.0,4.0,-1233.5099217442005,-1233.5428433062416,-20.658280180939528
-119,cr,3.0,mec_mec_mec_mec_s_s,31.0,tetrahedral,tetrahedral,2.0,4.0,-928.1037900981536,-928.1355792889888,-19.947717249077925
-120,cr,3.0,methylamine_methylamine_methylamine_methylamine_s_s,29.0,tetrahedral,seesaw,2.0,4.0,-468.7176230924678,-468.7512373931664,-21.092973688381704
-122,cr,3.0,ncs_ncs_ncs_ncs_s_s,13.0,tetrahedral,tetrahedral,2.0,4.0,-2050.706001522519,-2050.73608937012,-18.880124369883333
-123,cr,3.0,ox_ox_ox_ox_s_s,13.0,tetrahedral,tetrahedral,2.0,4.0,-840.7623746776353,-840.7934673883576,-19.510675978246468
-124,cr,3.0,phen_phen_phen_phen_s_s,45.0,tetrahedral,seesaw,2.0,4.0,-1228.662322627132,-1228.69816777583,-22.492830808103008
-125,cr,3.0,phenisc_phenisc_phenisc_phenisc_s_s,53.0,tetrahedral,square planar,2.0,4.0,-1383.2932527888292,-1383.3461062421104,-33.16554193392733
-126,cr,3.0,phosphine_phosphine_phosphine_phosphine_s_s,17.0,tetrahedral,seesaw,2.0,4.0,-1457.6847685233383,-1457.7308780657102,-28.93373783831919
-127,cr,3.0,pisc_pisc_pisc_pisc_s_s,101.0,tetrahedral,square planar,2.0,4.0,-2012.3677847995573,-2012.4225140666092,-34.342615075083245
-128,cr,3.0,pyridine_pyridine_pyridine_pyridine_s_s,45.0,tetrahedral,tetrahedral,2.0,4.0,-1078.5721143206104,-1078.6079215778511,-22.46905391858718
-129,cr,3.0,s2-_s2-_s2-_s2-_s_s,5.0,tetrahedral,tetrahedral,2.0,4.0,-1678.133159958154,-1678.1387118477144,-3.4838106991293216
-130,cr,3.0,scn_scn_scn_scn_s_s,13.0,tetrahedral,tetrahedral,2.0,4.0,-2050.612144920026,-2050.6424705257755,-19.0293176078535
-131,cr,3.0,tbuc_tbuc_tbuc_tbuc_s_s,49.0,tetrahedral,tetrahedral,2.0,4.0,-1163.979763821447,-1164.011565943312,-19.95583147027787
-132,cr,3.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s_s,49.0,tetrahedral,tetrahedral,2.0,4.0,-2671.364525742883,-2671.392995725273,-17.8649139497918
-133,cr,3.0,water_water_water_water_s_s,13.0,tetrahedral,seesaw,2.0,4.0,-390.7529899920242,-390.7859480864972,-20.68120428179128
-134,fe,2.0,acac_acac_acac_acac_s,29.0,square planar,tetrahedral,1.0,5.0,-813.9296252861293,-813.9711969239175,-26.086202712128
-135,fe,2.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_s,65.0,seesaw,tetrahedral,1.0,5.0,-2025.3123565992487,-2025.340764258557,-17.825806216029605
-136,fe,2.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s,25.0,square planar,tetrahedral,1.0,5.0,-654.0140573011151,-654.0584660721429,-27.86650381991137
-137,fe,2.0,ammonia_ammonia_ammonia_ammonia_s,17.0,square planar,tetrahedral,1.0,5.0,-349.17783172050565,-349.2231673178171,-28.44808731294364
-138,fe,2.0,benzisc_benzisc_benzisc_benzisc_s,65.0,square planar,tetrahedral,1.0,5.0,-1578.1367615469578,-1578.163554805195,-16.81276954381076
-139,fe,2.0,bipy_bipy_bipy_bipy_s,41.0,square planar,tetrahedral,1.0,5.0,-1113.8054525857754,-1113.8317808093918,-16.52096031933752
-140,fe,2.0,carbonyl_carbonyl_carbonyl_carbonyl_s,9.0,square planar,tetrahedral,1.0,5.0,-576.0042561419103,-576.0279412599835,-14.862411590943909
-141,fe,2.0,chloride_chloride_chloride_chloride_s,5.0,tetrahedral,tetrahedral,1.0,5.0,-1964.4380617663928,-1964.4945848619168,-35.46824244157733
-142,fe,2.0,cn_cn_cn_cn_s,9.0,square planar,tetrahedral,1.0,5.0,-494.8654975575327,-494.8933600834948,-17.4837350412308
-143,fe,2.0,cyanate_cyanate_cyanate_cyanate_s,13.0,seesaw,tetrahedral,1.0,5.0,-795.8244757376476,-795.9133267879013,-55.75403403416658
-144,fe,2.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine_s,49.0,seesaw,tetrahedral,1.0,5.0,-1485.0564304935376,-1485.1128180284195,-35.38317813837864
-145,fe,2.0,en_en_en_en_s,25.0,square planar,tetrahedral,1.0,5.0,-504.0210442673347,-504.0498121282668,-18.051832734878843
-146,fe,2.0,fluoride_fluoride_fluoride_fluoride_s,5.0,seesaw,tetrahedral,1.0,5.0,-522.7628474384144,-522.852733515721,-56.40351350987487
-147,fe,2.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s,17.0,seesaw,tetrahedral,1.0,5.0,-580.8873848582699,-580.9577379072055,-44.14653820705411
-148,fe,2.0,furan_furan_furan_furan_s,37.0,sandwich,tetrahedral,1.0,5.0,-1042.9382067277586,-1043.0019454375597,-39.99604040019051
-149,fe,2.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide_s,13.0,seesaw,tetrahedral,1.0,5.0,-1720.3481105395629,-1720.4156932756575,-42.40816689940175
-150,fe,2.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s,9.0,seesaw,tetrahedral,1.0,5.0,-426.6432341856171,-426.6869251632325,-27.416088453644534
-151,fe,2.0,iodide_iodide_iodide_iodide_s,5.0,tetrahedral,tetrahedral,1.0,5.0,-169.22938571835422,-169.28398631370044,-34.261873579750315
-152,fe,2.0,mebipy_mebipy_mebipy_mebipy_s,53.0,square planar,tetrahedral,1.0,5.0,-1271.1067613642758,-1271.1318379947754,-15.735585638497582
-153,fe,2.0,mec_mec_mec_mec_s,31.0,square planar,tetrahedral,1.0,5.0,-965.1413051618472,-965.1721225587283,-19.337916543000237
-154,fe,2.0,methylamine_methylamine_methylamine_methylamine_s,29.0,square planar,tetrahedral,1.0,5.0,-506.4142764654508,-506.4577029577973,-27.250123947463152
-155,fe,2.0,misc_misc_misc_misc_s,25.0,square planar,tetrahedral,1.0,5.0,-653.9126904946429,-653.9319042300893,-12.056618992642427
-156,fe,2.0,ncs_ncs_ncs_ncs_s,13.0,square planar,tetrahedral,1.0,5.0,-2087.7934805772466,-2087.882675006498,-55.96950435567692
-157,fe,2.0,ox_ox_ox_ox_s,13.0,seesaw,tetrahedral,1.0,5.0,-877.797024862156,-877.864815686185,-42.538742078182
-158,fe,2.0,phen_phen_phen_phen_s,45.0,square planar,tetrahedral,1.0,5.0,-1266.2770397637871,-1266.302612770078,-16.04706144737804
-159,fe,2.0,phenisc_phenisc_phenisc_phenisc_s,53.0,square planar,tetrahedral,1.0,5.0,-1420.9137257514546,-1420.9315586101218,-11.190118813626668
-160,fe,2.0,phosphine_phosphine_phosphine_phosphine_s,17.0,square planar,tetrahedral,1.0,5.0,-1495.4345144429478,-1495.4688393099536,-21.538854046144134
-161,fe,2.0,pisc_pisc_pisc_pisc_s,101.0,square planar,tetrahedral,1.0,5.0,-2049.957279971467,-2049.9748502353145,-11.025340564352746
-163,fe,2.0,pyridine_pyridine_pyridine_pyridine_s,45.0,seesaw,tetrahedral,1.0,5.0,-1116.1703474471003,-1116.225924915284,-34.87486128508408
-164,fe,2.0,scn_scn_scn_scn_s,13.0,seesaw,tetrahedral,1.0,5.0,-2087.7320099753183,-2087.803674381266,-44.9694147320929
-165,fe,2.0,tbuc_tbuc_tbuc_tbuc_s,49.0,square planar,tetrahedral,1.0,5.0,-1201.011076640858,-1201.05409936375,-26.996758614822056
-166,fe,2.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s,49.0,seesaw,tetrahedral,1.0,5.0,-2708.9263978123267,-2708.9832646746318,-35.68395609611116
-167,fe,2.0,water_water_water_water_s,13.0,square planar,tetrahedral,1.0,5.0,-428.5078808117531,-428.5994313086703,-57.44793681553887
-168,fe,3.0,acac_acac_acac_acac_s_s,29.0,tetrahedral,tetrahedral,2.0,6.0,-813.6892093266503,-813.7144035010479,-15.809344434492516
-169,fe,3.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_s_s,65.0,square planar,tetrahedral,2.0,6.0,-2024.851303988563,-2024.8644198849609,-8.23022498957016
-170,fe,3.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s_s,25.0,tetrahedral,tetrahedral,2.0,6.0,-653.4132292595332,-653.4754919998708,-39.069869561836015
-171,fe,3.0,ammonia_ammonia_ammonia_ammonia_s_s,17.0,tetrahedral,tetrahedral,2.0,6.0,-348.51989933006195,-348.5575533523181,-23.62789896574228
-172,fe,3.0,benzisc_benzisc_benzisc_benzisc_s_s,65.0,tetrahedral,tetrahedral,2.0,6.0,-1577.579554886483,-1577.715542993872,-85.3325373866221
-173,fe,3.0,bipy_bipy_bipy_bipy_s_s,41.0,tetrahedral,tetrahedral,2.0,6.0,-1113.2916463168283,-1113.3098873081549,-11.446222057151658
-174,fe,3.0,carbonyl_carbonyl_carbonyl_carbonyl_s_s,9.0,seesaw,tetrahedral,2.0,6.0,-575.188082830454,-575.2208190813413,-20.54199743177861
-175,fe,3.0,chloride_chloride_chloride_chloride_s_s,5.0,tetrahedral,tetrahedral,2.0,6.0,-1964.4513334069331,-1964.515674034076,-40.37374353201642
-176,fe,3.0,cn_cn_cn_cn_s_s,9.0,seesaw,tetrahedral,2.0,6.0,-494.875451645003,-494.8857113682031,-6.437976308049542
-178,fe,3.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine_s_s,49.0,tetrahedral,tetrahedral,2.0,6.0,-1484.5387528483536,-1484.5761861995943,-23.48942790366891
-179,fe,3.0,en_en_en_en_s_s,25.0,seesaw,tetrahedral,2.0,6.0,-503.399395729618,-503.42626251163546,-16.85890571595877
-180,fe,3.0,fluoride_fluoride_fluoride_fluoride_s_s,5.0,tetrahedral,tetrahedral,2.0,6.0,-522.9387195995208,-523.0138095060328,-47.1189163362476
-181,fe,3.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s_s,17.0,tetrahedral,tetrahedral,2.0,6.0,-580.2712353463261,-580.332199086346,-38.25474686250544
-182,fe,3.0,furan_furan_furan_furan_s_s,37.0,unknown,tetrahedral,2.0,6.0,-1042.4451720167274,-1042.4636217107236,-11.577182982626368
-184,fe,3.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s_s,9.0,seesaw,tetrahedral,2.0,6.0,-426.8050990074488,-426.8444320039263,-24.681455289647687
-185,fe,3.0,iodide_iodide_iodide_iodide_s_s,5.0,tetrahedral,tetrahedral,2.0,6.0,-169.24671550128005,-169.27473416858354,-17.581713732936706
-186,fe,3.0,mebipy_mebipy_mebipy_mebipy_s_s,53.0,square planar,tetrahedral,2.0,6.0,-1270.611446365957,-1270.6340494271217,-14.183420880895028
-187,fe,3.0,mec_mec_mec_mec_s_s,31.0,square planar,tetrahedral,2.0,6.0,-965.2126641000764,-965.2210596854416,-5.268229816649637
-188,fe,3.0,methylamine_methylamine_methylamine_methylamine_s_s,29.0,tetrahedral,tetrahedral,2.0,6.0,-505.8203310196403,-505.85023223795497,-18.763014492442096
-189,fe,3.0,misc_misc_misc_misc_s_s,25.0,seesaw,tetrahedral,2.0,6.0,-653.3114428681786,-653.3352249800901,-14.923275224458052
-190,fe,3.0,ncs_ncs_ncs_ncs_s_s,13.0,tetrahedral,tetrahedral,2.0,6.0,-2087.7943653540965,-2087.856490216632,-38.98335124115874
-191,fe,3.0,ox_ox_ox_ox_s_s,13.0,tetrahedral,tetrahedral,2.0,6.0,-877.8411359034407,-877.8816057556651,-25.39483227082286
-192,fe,3.0,phenisc_phenisc_phenisc_phenisc_s_s,53.0,square planar,tetrahedral,2.0,6.0,-1420.435406564564,-1420.457432760245,-13.821437789725335
-193,fe,3.0,phosphine_phosphine_phosphine_phosphine_s_s,17.0,seesaw,tetrahedral,2.0,6.0,-1494.814947783933,-1494.844455087001,-18.515832675269053
-194,fe,3.0,pisc_pisc_pisc_pisc_s_s,101.0,square planar,tetrahedral,2.0,6.0,-2049.530026353839,-2049.5368051517157,-4.253695667472357
-195,fe,3.0,pyridine_pyridine_pyridine_pyridine_s_s,45.0,tetrahedral,tetrahedral,2.0,6.0,-1115.6770686509558,-1115.7100442454166,-20.692185524166007
-196,fe,3.0,s2-_s2-_s2-_s2-_s_s,5.0,unknown,tetrahedral,2.0,6.0,-1715.8986919226445,-1715.2159569808384,428.416175983312
-197,fe,3.0,scn_scn_scn_scn_s_s,13.0,tetrahedral,tetrahedral,2.0,6.0,-2087.7277017400147,-2087.76187132586,-21.441415117812998
-198,fe,3.0,tbuc_tbuc_tbuc_tbuc_s_s,49.0,square planar,tetrahedral,2.0,6.0,-1201.0864600288126,-1201.0969987992555,-6.613078452959371
-199,fe,3.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s_s,49.0,square planar,tetrahedral,2.0,6.0,-2708.350007107138,-2708.510746064602,-100.8636958085117
-200,fe,3.0,water_water_water_water_s_s,13.0,seesaw,tetrahedral,2.0,6.0,-427.8217275803396,-427.8894132074423,-42.47273100692056
-201,mn,2.0,acac_acac_acac_acac_s_s,29.0,seesaw,tetrahedral,2.0,6.0,-794.4051949616799,-794.4737214913284,-43.00039735448365
-202,mn,2.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_s_s,65.0,square planar,tetrahedral,2.0,6.0,-2005.7894368460447,-2005.850513664636,-38.325703665498736
-203,mn,2.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s_s,25.0,square planar,tetrahedral,2.0,6.0,-634.4984346238122,-634.5764747941371,-48.97020687889068
-204,mn,2.0,ammonia_ammonia_ammonia_ammonia_s_s,17.0,square planar,tetrahedral,2.0,6.0,-329.6546535909744,-329.7363548778556,-51.2675575179432
-205,mn,2.0,benzisc_benzisc_benzisc_benzisc_s_s,65.0,square planar,tetrahedral,2.0,6.0,-1558.6198146508134,-1558.6731735086662,-33.48268330263181
-206,mn,2.0,bipy_bipy_bipy_bipy_s_s,41.0,square planar,tetrahedral,2.0,6.0,-1094.2820011418787,-1094.3424899002848,-37.956695899833335
-207,mn,2.0,carbonyl_carbonyl_carbonyl_carbonyl_s_s,9.0,square planar,tetrahedral,2.0,6.0,-556.4845365838838,-556.5473299759727,-39.40285353578872
-208,mn,2.0,chloride_chloride_chloride_chloride_s_s,5.0,tetrahedral,tetrahedral,2.0,6.0,-1944.9210482541632,-1945.015695806376,-59.39133901352648
-209,mn,2.0,cn_cn_cn_cn_s_s,9.0,square planar,tetrahedral,2.0,6.0,-475.3363658703196,-475.4025683481681,-41.54205484992872
-210,mn,2.0,cyanate_cyanate_cyanate_cyanate_s_s,13.0,tetrahedral,tetrahedral,2.0,6.0,-775.2360895348604,-775.3022656621349,-41.52551986475032
-211,mn,2.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine_s_s,49.0,seesaw,tetrahedral,2.0,6.0,-1465.5436202237825,-1465.6229188527827,-49.759889697674
-212,mn,2.0,en_en_en_en_s_s,25.0,square planar,tetrahedral,2.0,6.0,-484.4938436711589,-484.5590086419895,-40.8910191962066
-213,mn,2.0,fluoride_fluoride_fluoride_fluoride_s_s,5.0,seesaw,tetrahedral,2.0,6.0,-503.3040838218093,-503.3700771096928,-41.41078814688783
-214,mn,2.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s_s,17.0,square planar,tetrahedral,2.0,6.0,-561.3965271464294,-561.4756789624321,-49.66776454166279
-215,mn,2.0,furan_furan_furan_furan_s_s,37.0,seesaw,tetrahedral,2.0,6.0,-1023.3681216998618,-1023.5174607311912,-93.71024215913876
-216,mn,2.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide_s_s,13.0,square planar,tetrahedral,2.0,6.0,-1700.8456209419558,-1700.9262951747298,-50.62308106573028
-217,mn,2.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s_s,9.0,tetrahedral,tetrahedral,2.0,6.0,-407.1493872710748,-407.19720715976473,-30.00698015291277
-218,mn,2.0,iodide_iodide_iodide_iodide_s_s,5.0,tetrahedral,tetrahedral,2.0,6.0,-149.71031982054754,-149.80351651957716,-58.48092864108587
-219,mn,2.0,mebipy_mebipy_mebipy_mebipy_s_s,53.0,square planar,tetrahedral,2.0,6.0,-1251.5825319153498,-1251.64205372669,-37.34993661592455
-220,mn,2.0,mec_mec_mec_mec_s_s,31.0,square planar,tetrahedral,2.0,6.0,-945.610586246028,-945.6788024631952,-42.80567627235854
-221,mn,2.0,methylamine_methylamine_methylamine_methylamine_s_s,29.0,seesaw,tetrahedral,2.0,6.0,-486.8869361649474,-486.9681185885444,-50.94197080711709
-222,mn,2.0,misc_misc_misc_misc_s_s,25.0,square planar,tetrahedral,2.0,6.0,-634.3868872405448,-634.442542872227,-34.92390888062488
-223,mn,2.0,ncs_ncs_ncs_ncs_s_s,13.0,tetrahedral,tetrahedral,2.0,6.0,-2068.167661884026,-2068.399167480487,-145.26976177922734
-224,mn,2.0,ox_ox_ox_ox_s_s,13.0,square planar,tetrahedral,2.0,6.0,-858.3120677221905,-858.3734563462759,-38.521361613621536
-225,mn,2.0,phen_phen_phen_phen_s_s,45.0,square planar,tetrahedral,2.0,6.0,-1246.753354288253,-1246.8172354111846,-40.08540463961765
-226,mn,2.0,phenisc_phenisc_phenisc_phenisc_s_s,53.0,square planar,tetrahedral,2.0,6.0,-1401.38757177562,-1401.4381158021265,-31.71637663267745
-227,mn,2.0,phosphine_phosphine_phosphine_phosphine_s_s,17.0,square planar,tetrahedral,2.0,6.0,-1475.905657070022,-1475.9794596878137,-46.31114266427346
-228,mn,2.0,pisc_pisc_pisc_pisc_s_s,101.0,square planar,tetrahedral,2.0,6.0,-2030.4316050290236,-2030.4803748533163,-30.603064743859814
-229,mn,2.0,pph3_pph3_pph3_pph3_s_s,137.0,tetrahedral,tetrahedral,2.0,6.0,-4248.664392723758,-4248.768005924553,-65.01728349875293
-230,mn,2.0,pyridine_pyridine_pyridine_pyridine_s_s,45.0,seesaw,tetrahedral,2.0,6.0,-1096.6572737180768,-1096.7354831561045,-49.07642236236313
-231,mn,2.0,scn_scn_scn_scn_s_s,13.0,tetrahedral,tetrahedral,2.0,6.0,-2068.15428638151,-2068.314204544458,-100.3486472499253
-232,mn,2.0,tbuc_tbuc_tbuc_tbuc_s_s,49.0,tetrahedral,tetrahedral,2.0,6.0,-1181.4843944137235,-1181.5606376799292,-47.84264954391233
-233,mn,2.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s_s,49.0,tetrahedral,tetrahedral,2.0,6.0,-2689.2596848068792,-2689.4924649341638,-146.06952987074692
-234,mn,2.0,water_water_water_water_s_s,13.0,square planar,tetrahedral,2.0,6.0,-409.0260404115618,-409.1173629500321,-57.30489289008276
-235,mn,3.0,acac_acac_acac_acac_s,29.0,tetrahedral,square planar,1.0,5.0,-794.1746288674943,-794.234059983206,-37.29302510904034
-236,mn,3.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_s,65.0,tetrahedral,tetrahedral,1.0,5.0,-2005.3175415060537,-2005.373946646624,-35.394225707786404
-237,mn,3.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s,25.0,tetrahedral,square planar,1.0,5.0,-633.9167386426343,-633.9804670322859,-39.98956450637962
-238,mn,3.0,ammonia_ammonia_ammonia_ammonia_s,17.0,tetrahedral,square planar,1.0,5.0,-329.00853480350906,-329.0748745591428,-41.62819666017725
-239,mn,3.0,benzisc_benzisc_benzisc_benzisc_s,65.0,square planar,square planar,1.0,5.0,-1558.1665539609105,-1558.1958077443255,-18.356749092922087
-240,mn,3.0,bipy_bipy_bipy_bipy_s,41.0,tetrahedral,tetrahedral,1.0,5.0,-1093.7781400292831,-1093.8188033823567,-25.516254053521838
-241,mn,3.0,carbonyl_carbonyl_carbonyl_carbonyl_s,9.0,square planar,square planar,1.0,5.0,-555.6823633678741,-555.757586012778,-47.2022096771812
-242,mn,3.0,chloride_chloride_chloride_chloride_s,5.0,tetrahedral,tetrahedral,1.0,5.0,-1944.9443128010828,-1944.9995067253776,-34.63418749500363
-243,mn,3.0,cn_cn_cn_cn_s,9.0,tetrahedral,square planar,1.0,5.0,-475.35337308588896,-475.40891108589744,-34.850095005322714
-245,mn,3.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine_s,49.0,tetrahedral,tetrahedral,1.0,5.0,-1465.0270679929815,-1465.0712090444422,-27.698509791561605
-246,mn,3.0,en_en_en_en_s,25.0,seesaw,square planar,1.0,5.0,-483.8792756146384,-483.9560980745826,-48.20609361501894
-247,mn,3.0,fluoride_fluoride_fluoride_fluoride_s,5.0,tetrahedral,square planar,1.0,5.0,-503.44989767119193,-503.509876748614,-37.63687108233157
-248,mn,3.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s,17.0,tetrahedral,tetrahedral,1.0,5.0,-560.7643537443778,-560.8280234021457,-39.95271024938603
-249,mn,3.0,furan_furan_furan_furan_s,37.0,seesaw,tetrahedral,1.0,5.0,-1022.8903429992074,-1022.9829952238738,-58.139270978153945
-250,mn,3.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide_s,13.0,tetrahedral,trigonal planar,1.0,5.0,-1700.1852568795448,-1700.478253877276,-183.85561607637783
-251,mn,3.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s,9.0,tetrahedral,square planar,1.0,5.0,-407.2961061509252,-407.3565137505178,-37.905768744370505
-252,mn,3.0,iodide_iodide_iodide_iodide_s,5.0,tetrahedral,tetrahedral,1.0,5.0,-149.69513731936175,-149.76633410551176,-44.67598330913212
-253,mn,3.0,mebipy_mebipy_mebipy_mebipy_s,53.0,tetrahedral,tetrahedral,1.0,5.0,-1251.1027574890034,-1251.1358757710047,-20.781721955876264
-254,mn,3.0,mec_mec_mec_mec_s,31.0,tetrahedral,square planar,1.0,5.0,-945.6820952624948,-945.7396656638316,-36.12542683888904
-255,mn,3.0,methylamine_methylamine_methylamine_methylamine_s,29.0,tetrahedral,square planar,1.0,5.0,-486.3048002851082,-486.3640243738367,-37.16311567714186
-256,mn,3.0,misc_misc_misc_misc_s,25.0,tetrahedral,square planar,1.0,5.0,-633.7898913666279,-633.8624491065597,-45.5299818071839
-257,mn,3.0,ncs_ncs_ncs_ncs_s,13.0,tetrahedral,seesaw,1.0,5.0,-2068.292603050465,-2068.344479541439,-32.55249808611097
-258,mn,3.0,ox_ox_ox_ox_s,13.0,square planar,square planar,1.0,5.0,-858.3400751438193,-858.4000549266202,-37.637313707597
-259,mn,3.0,phen_phen_phen_phen_s,45.0,tetrahedral,tetrahedral,1.0,5.0,-1246.253840892801,-1246.3146011317267,-38.12704992587385
-260,mn,3.0,phenisc_phenisc_phenisc_phenisc_s,53.0,square planar,tetrahedral,1.0,5.0,-1400.9069249926788,-1400.963390032724,-35.431812628343096
-261,mn,3.0,phosphine_phosphine_phosphine_phosphine_s,17.0,square planar,square planar,1.0,5.0,-1475.2832250261326,-1475.3630330176024,-50.07951464730354
-262,mn,3.0,pisc_pisc_pisc_pisc_s,101.0,square planar,tetrahedral,1.0,5.0,-2029.9872402401231,-2030.0407409268785,-33.571680938977124
-263,mn,3.0,pyridine_pyridine_pyridine_pyridine_s,45.0,tetrahedral,tetrahedral,1.0,5.0,-1096.1645115841172,-1096.1969158423192,-20.333672021723714
-265,mn,3.0,scn_scn_scn_scn_s,13.0,tetrahedral,seesaw,1.0,5.0,-2068.2067478346244,-2068.259735361597,-33.24967317561004
-266,mn,3.0,tbuc_tbuc_tbuc_tbuc_s,49.0,tetrahedral,square planar,1.0,5.0,-1181.557734244784,-1181.6136044749765,-35.05856944569359
-267,mn,3.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s,49.0,tetrahedral,tetrahedral,1.0,5.0,-2688.9551811220413,-2689.0177817028543,-39.281864460200495
-268,mn,3.0,water_water_water_water_s,13.0,seesaw,square planar,1.0,5.0,-408.3247597889503,-408.38839005423927,-39.92799146886057
-269,ni,2.0,acac_acac_acac_acac_s,29.0,square planar,tetrahedral,1.0,3.0,-859.8088776855886,-859.809480523534,-0.3782808107345659
-270,ni,2.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_s,65.0,square planar,seesaw,1.0,3.0,-2071.1927082322354,-2071.196366654764,-2.2956601366888663
-271,ni,2.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile_s,25.0,square planar,tetrahedral,1.0,3.0,-699.8820549337739,-699.8921156824605,-6.313119800813638
-272,ni,2.0,ammonia_ammonia_ammonia_ammonia_s,17.0,square planar,tetrahedral,1.0,3.0,-395.0645584952922,-395.067345967554,-1.7491388442711298
-273,ni,2.0,benzisc_benzisc_benzisc_benzisc_s,65.0,square planar,tetrahedral,1.0,3.0,-1624.0381911759223,-1624.0111912637155,16.942444909734036
-274,ni,2.0,bipy_bipy_bipy_bipy_s,41.0,seesaw,square planar,1.0,3.0,-1159.66518316149,-1159.6783941039505,-8.289866393849934
-275,ni,2.0,carbonyl_carbonyl_carbonyl_carbonyl_s,9.0,seesaw,tetrahedral,1.0,3.0,-621.8479500390173,-621.8556759177393,-4.847988898054325
-276,ni,2.0,chloride_chloride_chloride_chloride_s,5.0,tetrahedral,tetrahedral,1.0,3.0,-2010.3040584919047,-2010.3283581115943,-15.248011355081417
-277,ni,2.0,cn_cn_cn_cn_s,9.0,square planar,tetrahedral,1.0,3.0,-540.7668116311697,-540.7379818144185,18.09071001139472
-278,ni,2.0,cyanate_cyanate_cyanate_cyanate_s,13.0,square planar,tetrahedral,1.0,3.0,-841.7229975530792,-841.7419576377711,-11.89745314417479
-279,ni,2.0,en_en_en_en_s,25.0,square planar,square planar,1.0,3.0,-549.9129706346957,-549.8955621462221,10.923826517196744
-280,ni,2.0,fluoride_fluoride_fluoride_fluoride_s,5.0,square planar,tetrahedral,1.0,3.0,-568.6592219484181,-568.6785959646425,-12.157195180768952
-281,ni,2.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde_s,17.0,square planar,tetrahedral,1.0,3.0,-626.7820886910299,-626.7892908451938,-4.519351737851025
-282,ni,2.0,furan_furan_furan_furan_s,37.0,square planar,tetrahedral,1.0,3.0,-1088.830998418194,-1088.8341331912625,-1.9670701004810096
-283,ni,2.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide_s,13.0,square planar,seesaw,1.0,3.0,-1766.2547156058126,-1766.264978527844,-6.439983574713324
-284,ni,2.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl_s,9.0,tetrahedral,seesaw,1.0,3.0,-472.50034954387166,-472.5262558703397,-16.256219858690173
-285,ni,2.0,iodide_iodide_iodide_iodide_s,5.0,square planar,tetrahedral,1.0,3.0,-215.08175490029697,-215.12445917219983,-26.796930619064625
-286,ni,2.0,mebipy_mebipy_mebipy_mebipy_s,53.0,square planar,seesaw,1.0,3.0,-1316.9854453910652,-1316.988391807703,-1.848876440200229
-287,ni,2.0,mec_mec_mec_mec_s,31.0,square planar,tetrahedral,1.0,3.0,-1011.0104291336456,-1011.0148962554103,-2.803118907432633
-288,ni,2.0,methylamine_methylamine_methylamine_methylamine_s,29.0,square planar,tetrahedral,1.0,3.0,-552.3067820482128,-552.3044209603995,1.4815826028180368
-289,ni,2.0,misc_misc_misc_misc_s,25.0,square planar,seesaw,1.0,3.0,-699.8022744652732,-699.7789939391911,14.608530116511249
-290,ni,2.0,ncs_ncs_ncs_ncs_s,13.0,square planar,tetrahedral,1.0,3.0,-2133.698315852977,-2133.712342876675,-8.801957370471882
-291,ni,2.0,ox_ox_ox_ox_s,13.0,square planar,tetrahedral,1.0,3.0,-923.7100137291528,-923.7053315936324,2.9380400389780448
-292,ni,2.0,phen_phen_phen_phen_s,45.0,square planar,seesaw,1.0,3.0,-1312.1540242411004,-1312.1600257354896,-3.765937729247071
-293,ni,2.0,phenisc_phenisc_phenisc_phenisc_s,53.0,square planar,tetrahedral,1.0,3.0,-1466.799252616258,-1466.7759161908657,14.643606933633464
-294,ni,2.0,phosphine_phosphine_phosphine_phosphine_s,17.0,square planar,tetrahedral,1.0,3.0,-1541.338652074482,-1541.3272932961258,7.127633418531332
-295,ni,2.0,pisc_pisc_pisc_pisc_s,101.0,square planar,tetrahedral,1.0,3.0,-2095.842557437483,-2095.8191705329173,14.675282614877004
-297,ni,2.0,pyridine_pyridine_pyridine_pyridine_s,45.0,square planar,tetrahedral,1.0,3.0,-1162.0779953382842,-1162.072149020042,3.668564696993144
-298,ni,2.0,scn_scn_scn_scn_s,13.0,seesaw,tetrahedral,1.0,3.0,-2133.6337674691595,-2133.6499812058487,-10.174119772487984
-299,ni,2.0,tbuc_tbuc_tbuc_tbuc_s,49.0,square planar,tetrahedral,1.0,3.0,-1246.892609974091,-1246.896663232851,-2.5434198718971857
-300,ni,2.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine_s,49.0,square planar,tetrahedral,1.0,3.0,-2754.833576685713,-2754.8296060108837,2.49159845599479
-301,ni,2.0,water_water_water_water_s,13.0,square planar,seesaw,1.0,3.0,-474.4080485879809,-474.4248296167812,-10.53009557216754
+0,co,2.0,acac_acac_acac_acac,29.0,square planar,tetrahedral,2.0,4.0,-835.5807906905043,-835.6000596422587,-12.09126722587598
+1,co,2.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine,65.0,seesaw,tetrahedral,2.0,4.0,-2046.9664197038564,-2046.976098687363,-6.07356215035793
+2,co,2.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile,25.0,square planar,tetrahedral,2.0,4.0,-675.6266971336001,-675.6913286336313,-40.55626626955842
+3,co,2.0,ammonia_ammonia_ammonia_ammonia,17.0,square planar,tetrahedral,2.0,4.0,-370.83046781640167,-370.8341379517329,-2.303009920340316
+4,co,2.0,bipy_bipy_bipy_bipy,41.0,seesaw,tetrahedral,2.0,4.0,-1135.4584935347646,-1135.4677582818429,-5.813628791636347
+5,co,2.0,carbonyl_carbonyl_carbonyl_carbonyl,9.0,square planar,seesaw,2.0,4.0,-597.667855602278,-597.6489430876222,11.86760294649389
+6,co,2.0,chloride_chloride_chloride_chloride,5.0,tetrahedral,tetrahedral,2.0,4.0,-1986.0852891831648,-1986.1257465552887,-25.38700100803908
+7,co,2.0,cn_cn_cn_cn,9.0,square planar,tetrahedral,2.0,4.0,-516.5235132194687,-516.533795075997,-6.451864971513714
+8,co,2.0,cyanate_cyanate_cyanate_cyanate,13.0,tetrahedral,tetrahedral,2.0,4.0,-817.5002605607542,-817.5432270113807,-26.96144776814293
+9,co,2.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine,49.0,square planar,tetrahedral,2.0,4.0,-1506.7382144914027,-1506.7334839627715,2.96840671591724
+10,co,2.0,en_en_en_en,25.0,square planar,square planar,2.0,4.0,-525.6757697171596,-525.6725040345394,2.0492158441550146
+11,co,2.0,fluoride_fluoride_fluoride_fluoride,5.0,square planar,tetrahedral,2.0,4.0,-544.4404085923002,-544.4679178887737,-17.262083537163733
+12,co,2.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde,17.0,square planar,tetrahedral,2.0,4.0,-602.5673496916447,-602.5856139074313,-11.460795406047737
+13,co,2.0,furan_furan_furan_furan,37.0,seesaw,tetrahedral,2.0,4.0,-1064.5921214578184,-1064.619584938359,-17.233334039032684
+14,co,2.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide,13.0,square planar,tetrahedral,2.0,4.0,-1742.0200404660482,-1742.0516816944032,-19.854870792797783
+15,co,2.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl,9.0,square planar,tetrahedral,2.0,4.0,-448.29856099969976,-448.3173509303017,-11.790681452717564
+16,co,2.0,iodide_iodide_iodide_iodide,5.0,tetrahedral,tetrahedral,2.0,4.0,-190.8325112967139,-190.916612878378,-52.773742494223015
+17,co,2.0,mebipy_mebipy_mebipy_mebipy,53.0,seesaw,tetrahedral,2.0,4.0,-1292.7590647889997,-1292.768196563769,-5.730188667691891
+18,co,2.0,mec_mec_mec_mec,31.0,square planar,tetrahedral,2.0,4.0,-986.78560548417,-986.800603630792,-9.411337005388702
+19,co,2.0,methylamine_methylamine_methylamine_methylamine,29.0,square planar,tetrahedral,2.0,4.0,-528.071789483859,-528.077803308594,-3.7736750211900016
+20,co,2.0,misc_misc_misc_misc,25.0,square planar,tetrahedral,2.0,4.0,-675.5614155416768,-675.5717819265384,-6.50490650067951
+21,co,2.0,ncs_ncs_ncs_ncs,13.0,square planar,tetrahedral,2.0,4.0,-2109.4743454399427,-2109.498555745871,-15.19196696990548
+22,co,2.0,ox_ox_ox_ox,13.0,square planar,tetrahedral,2.0,4.0,-899.4814085057831,-899.4922802645908,-6.822028651864684
+23,co,2.0,phen_phen_phen_phen,45.0,seesaw,tetrahedral,2.0,4.0,-1287.9284670470406,-1287.940204084795,-7.364991190823957
+24,co,2.0,phenisc_phenisc_phenisc_phenisc,53.0,square planar,tetrahedral,2.0,4.0,-1442.5611497873424,-1442.5691260056783,-5.005077005776002
+25,co,2.0,phosphine_phosphine_phosphine_phosphine,17.0,square planar,tetrahedral,2.0,4.0,-1517.0937659244453,-1517.1121834006085,-11.556966292421862
+26,co,2.0,pisc_pisc_pisc_pisc,101.0,square planar,tetrahedral,2.0,4.0,-2071.604318536576,-2071.6118107232933,-4.701347165311063
+27,co,2.0,pyridine_pyridine_pyridine_pyridine,45.0,square planar,tetrahedral,2.0,4.0,-1137.8522125231914,-1137.8466742268988,3.4752809235880022
+28,co,2.0,scn_scn_scn_scn,13.0,tetrahedral,tetrahedral,2.0,4.0,-2109.4065859533584,-2109.439105545453,-20.406044039621065
+29,co,2.0,tbuc_tbuc_tbuc_tbuc,49.0,square planar,tetrahedral,2.0,4.0,-1222.6672233551458,-1222.6824495449544,-9.554434104879306
+30,co,2.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine,49.0,square planar,tetrahedral,2.0,4.0,-2730.6076246665134,-2730.60441769472,2.012374800476664
+31,co,2.0,water_water_water_water,13.0,square planar,tetrahedral,2.0,4.0,-450.18819516195873,-450.2175393618653,-18.41348544137574
+32,co,3.0,acac_acac_acac_acac,29.0,seesaw,tetrahedral,1.0,5.0,-835.3085605435325,-835.3178325194544,-5.818164891013282
+33,co,3.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine,65.0,seesaw,tetrahedral,1.0,5.0,-2046.4853136133772,-2046.49802169082,-7.974318595336172
+34,co,3.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile,25.0,square planar,tetrahedral,1.0,5.0,-675.0317291376281,-675.0573963440704,-16.10617204256556
+35,co,3.0,ammonia_ammonia_ammonia_ammonia,17.0,seesaw,tetrahedral,1.0,5.0,-370.1433892219002,-370.15226566257735,-5.569966524924297
+36,co,3.0,benzisc_benzisc_benzisc_benzisc,65.0,square planar,tetrahedral,1.0,5.0,-1599.3072354591152,-1599.354394426868,-29.59225226481521
+37,co,3.0,bipy_bipy_bipy_bipy,41.0,seesaw,tetrahedral,1.0,5.0,-1134.9260669631312,-1134.9415479870263,-9.714342494152106
+38,co,3.0,carbonyl_carbonyl_carbonyl_carbonyl,9.0,square planar,tetrahedral,1.0,5.0,-596.8085929931658,-596.811354098588,-1.732593652445189
+39,co,3.0,chloride_chloride_chloride_chloride,5.0,tetrahedral,tetrahedral,1.0,5.0,-1986.0786875392864,-1986.108304573824,-18.58468917258108
+40,co,3.0,cn_cn_cn_cn,9.0,seesaw,tetrahedral,1.0,5.0,-516.5032392404948,-516.4862562822909,10.656806272963308
+42,co,3.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine,49.0,square planar,tetrahedral,1.0,5.0,-1506.1812782164766,-1506.1997939159178,-11.618601399350156
+43,co,3.0,en_en_en_en,25.0,seesaw,tetrahedral,1.0,5.0,-525.0340027237667,-525.0256842752838,5.219826423017366
+44,co,3.0,fluoride_fluoride_fluoride_fluoride,5.0,tetrahedral,tetrahedral,1.0,5.0,-544.5302049132468,-544.5883454318661,-36.483175433555175
+45,co,3.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde,17.0,tetrahedral,tetrahedral,1.0,5.0,-601.8829468671595,-601.9319785260406,-30.76736594786695
+46,co,3.0,furan_furan_furan_furan,37.0,T shape,tetrahedral,1.0,5.0,-1064.235938636278,-1064.091631547551,90.55269817614146
+47,co,3.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl,9.0,square planar,tetrahedral,1.0,5.0,-448.4307725090485,-448.4389769353308,-5.148277492181848
+48,co,3.0,iodide_iodide_iodide_iodide,5.0,tetrahedral,tetrahedral,1.0,5.0,-190.838852943404,-190.8809445421708,-26.41247822615071
+49,co,3.0,mebipy_mebipy_mebipy_mebipy,53.0,seesaw,tetrahedral,1.0,5.0,-1292.2450531349994,-1292.25974972086,-9.222107627618923
+50,co,3.0,mec_mec_mec_mec,31.0,square planar,tetrahedral,1.0,5.0,-986.8378476465056,-986.8383821770234,-0.3354179000066892
+51,co,3.0,methylamine_methylamine_methylamine_methylamine,29.0,seesaw,tetrahedral,1.0,5.0,-527.4520336279193,-527.4534392007762,-0.8819969677202266
+52,co,3.0,misc_misc_misc_misc,25.0,square planar,tetrahedral,1.0,5.0,-674.941485708642,-674.9303843157301,6.96612405220634
+53,co,3.0,ncs_ncs_ncs_ncs,13.0,seesaw,tetrahedral,1.0,5.0,-2109.406417856949,-2109.455751384383,-30.956788464612828
+54,co,3.0,ox_ox_ox_ox,13.0,square planar,tetrahedral,1.0,5.0,-899.4703094482796,-899.4800569413782,-6.116551919327549
+55,co,3.0,phen_phen_phen_phen,45.0,seesaw,tetrahedral,1.0,5.0,-1287.4183776604195,-1287.4340307329576,-9.82230301762229
+56,co,3.0,phenisc_phenisc_phenisc_phenisc,53.0,square planar,tetrahedral,1.0,5.0,-1442.095398188409,-1442.0939975417682,0.878905767121978
+57,co,3.0,phosphine_phosphine_phosphine_phosphine,17.0,seesaw,tetrahedral,1.0,5.0,-1516.4587884518794,-1516.4634532457685,-2.9271581654137435
+58,co,3.0,pisc_pisc_pisc_pisc,101.0,square planar,tetrahedral,1.0,5.0,-2071.1746409606594,-2071.173005804441,1.0260605271253098
+59,co,3.0,pyridine_pyridine_pyridine_pyridine,45.0,square planar,tetrahedral,1.0,5.0,-1137.3099599968189,-1137.3215752491603,-7.288570844273181
+61,co,3.0,scn_scn_scn_scn,13.0,seesaw,tetrahedral,1.0,5.0,-2109.3521516914107,-2109.379452505966,-17.131261133559974
+62,co,3.0,tbuc_tbuc_tbuc_tbuc,49.0,square planar,tetrahedral,1.0,5.0,-1222.7139013806925,-1222.7134924301497,0.2566164657531544
+63,co,3.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine,49.0,seesaw,tetrahedral,1.0,5.0,-2730.0897762972177,-2730.1480744272226,-36.582076578083615
+64,co,3.0,water_water_water_water,13.0,seesaw,tetrahedral,1.0,5.0,-449.429442683038,-449.47753430458016,-30.17749251769388
+65,cr,2.0,acac_acac_acac_acac,29.0,tetrahedral,square planar,1.0,5.0,-776.7985684478451,-776.8677281061607,-43.39768559302911
+66,cr,2.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine,65.0,square planar,square planar,1.0,5.0,-1988.178758857052,-1988.236740343036,-36.38338245516593
+67,cr,2.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile,25.0,square planar,square planar,1.0,5.0,-616.8975707854694,-616.9554479946087,-36.31794873490577
+68,cr,2.0,ammonia_ammonia_ammonia_ammonia,17.0,square planar,square planar,1.0,5.0,-312.05052658200464,-312.1142896307843,-40.01131310923839
+69,cr,2.0,benzisc_benzisc_benzisc_benzisc,65.0,tetrahedral,square planar,1.0,5.0,-1540.98388874396,-1541.058043143293,-46.531885581384245
+70,cr,2.0,bipy_bipy_bipy_bipy,41.0,seesaw,square planar,1.0,5.0,-1076.670922839514,-1076.729258952142,-36.60591067393512
+71,cr,2.0,carbonyl_carbonyl_carbonyl_carbonyl,9.0,square planar,square planar,1.0,5.0,-538.8760302718243,-538.9298633062372,-33.78022909405246
+72,cr,2.0,chloride_chloride_chloride_chloride,5.0,tetrahedral,tetrahedral,1.0,5.0,-1927.3091070702144,-1927.365323542212,-35.27583617826281
+73,cr,2.0,cn_cn_cn_cn,9.0,square planar,square planar,1.0,5.0,-457.72136429936654,-457.7799564147342,-36.76655239321519
+75,cr,2.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine,49.0,square planar,square planar,1.0,5.0,-1447.938382544821,-1448.0047371799603,-41.637533549914
+76,cr,2.0,en_en_en_en,25.0,square planar,square planar,1.0,5.0,-466.8883785993045,-466.9502369606454,-38.81612174138539
+77,cr,2.0,fluoride_fluoride_fluoride_fluoride,5.0,tetrahedral,tetrahedral,1.0,5.0,-485.6747496692562,-485.7538914706536,-49.66148037689408
+78,cr,2.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde,17.0,square planar,square planar,1.0,5.0,-543.7947248902678,-543.8575155176482,-39.401118681144
+79,cr,2.0,furan_furan_furan_furan,37.0,tetrahedral,square planar,1.0,5.0,-1005.8167185443706,-1005.8961828199324,-49.86383291496082
+80,cr,2.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide,13.0,square planar,square planar,1.0,5.0,-1683.2358012189643,-1683.2983352613403,-39.24011159108318
+81,cr,2.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl,9.0,tetrahedral,tetrahedral,1.0,5.0,-389.5225980396089,-389.58945819533176,-41.95474771608829
+82,cr,2.0,iodide_iodide_iodide_iodide,5.0,tetrahedral,tetrahedral,1.0,5.0,-132.09487691991163,-132.15405048818843,-37.131414093694914
+83,cr,2.0,mebipy_mebipy_mebipy_mebipy,53.0,seesaw,square planar,1.0,5.0,-1233.971945393115,-1234.02969193359,-36.23595414800548
+84,cr,2.0,mec_mec_mec_mec,31.0,tetrahedral,square planar,1.0,5.0,-927.975995605775,-928.0713995421232,-59.86597005852559
+85,cr,2.0,methylamine_methylamine_methylamine_methylamine,29.0,tetrahedral,square planar,1.0,5.0,-469.272036159874,-469.34557127319374,-46.143283608169696
+86,cr,2.0,misc_misc_misc_misc,25.0,square planar,square planar,1.0,5.0,-616.7695431131228,-616.8261134115526,-35.49786226465756
+87,cr,2.0,ncs_ncs_ncs_ncs,13.0,seesaw,square planar,1.0,5.0,-2050.710871666241,-2050.768121088909,-35.92401272421057
+88,cr,2.0,ox_ox_ox_ox,13.0,tetrahedral,square planar,1.0,5.0,-840.6641327977112,-840.7665246291226,-64.25087421065967
+89,cr,2.0,phen_phen_phen_phen,45.0,square planar,square planar,1.0,5.0,-1229.1437007996576,-1229.2020952259395,-36.64250249203064
+90,cr,2.0,phenisc_phenisc_phenisc_phenisc,53.0,square planar,square planar,1.0,5.0,-1383.7667939262587,-1383.8220002817247,-34.64198805491378
+91,cr,2.0,phosphine_phosphine_phosphine_phosphine,17.0,square planar,square planar,1.0,5.0,-1458.2924772763458,-1458.3539170112097,-38.55343362705014
+92,cr,2.0,pisc_pisc_pisc_pisc,101.0,square planar,square planar,1.0,5.0,-2012.808194261925,-2012.8638230213053,-34.90704651105659
+94,cr,2.0,pyridine_pyridine_pyridine_pyridine,45.0,tetrahedral,square planar,1.0,5.0,-1079.0418324120255,-1079.117258871842,-47.33010353487032
+95,cr,2.0,s2-_s2-_s2-_s2-,5.0,tetrahedral,tetrahedral,1.0,5.0,-1677.6025209735844,-1677.6000553286565,1.547192192432476
+97,cr,2.0,tbuc_tbuc_tbuc_tbuc,49.0,tetrahedral,square planar,1.0,5.0,-1163.8578623473584,-1163.9528881138413,-59.62866846800523
+98,cr,2.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine,49.0,seesaw,square planar,1.0,5.0,-2671.80814325024,-2671.873355645492,-40.92077802051677
+99,cr,2.0,water_water_water_water,13.0,square planar,square planar,1.0,5.0,-391.4314165781274,-391.49252989149153,-38.34860413597482
+100,cr,3.0,acac_acac_acac_acac,29.0,tetrahedral,tetrahedral,2.0,4.0,-776.6009357712472,-776.630250766379,-18.395159445212528
+101,cr,3.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine,65.0,tetrahedral,seesaw,2.0,4.0,-1987.723990815844,-1987.758613186357,-21.725537497071628
+102,cr,3.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile,25.0,tetrahedral,seesaw,2.0,4.0,-616.3383298265369,-616.3710845715241,-20.553602479459983
+103,cr,3.0,ammonia_ammonia_ammonia_ammonia,17.0,tetrahedral,seesaw,2.0,4.0,-311.42525030209134,-311.46314840190587,-23.78105763361546
+104,cr,3.0,benzisc_benzisc_benzisc_benzisc,65.0,square planar,square planar,2.0,4.0,-1540.5501332380682,-1540.6067525445685,-35.52861482897072
+105,cr,3.0,bipy_bipy_bipy_bipy,41.0,tetrahedral,seesaw,2.0,4.0,-1076.1861639361043,-1076.2202314640977,-21.37737381567149
+107,cr,3.0,chloride_chloride_chloride_chloride,5.0,tetrahedral,tetrahedral,2.0,4.0,-1927.361662281402,-1927.3916652535263,-18.82686500799423
+108,cr,3.0,cn_cn_cn_cn,9.0,tetrahedral,seesaw,2.0,4.0,-457.75257471972793,-457.7826776092001,-18.889563143790014
+110,cr,3.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine,49.0,tetrahedral,tetrahedral,2.0,4.0,-1447.3583791061833,-1447.4663506138756,-67.75212107695268
+111,cr,3.0,en_en_en_en,25.0,tetrahedral,seesaw,2.0,4.0,-466.29484792060987,-466.33492069131455,-25.145663617188347
+112,cr,3.0,fluoride_fluoride_fluoride_fluoride,5.0,tetrahedral,tetrahedral,2.0,4.0,-485.8695117989362,-485.90587287974745,-22.81657820907526
+113,cr,3.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde,17.0,tetrahedral,tetrahedral,2.0,4.0,-543.1932784966161,-543.2260859507661,-20.586677479109028
+114,cr,3.0,furan_furan_furan_furan,37.0,tetrahedral,square planar,2.0,4.0,-1005.2629267346558,-1005.3590371974776,-60.30931542067833
+115,cr,3.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide,13.0,tetrahedral,tetrahedral,2.0,4.0,-1682.5961317005947,-1682.643561068768,-29.761928528824345
+116,cr,3.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl,9.0,tetrahedral,tetrahedral,2.0,4.0,-389.7075825856381,-389.7416614023441,-21.38445748299702
+117,cr,3.0,iodide_iodide_iodide_iodide,5.0,tetrahedral,tetrahedral,2.0,4.0,-132.09008111854192,-132.14031467042764,-31.52155380829249
+118,cr,3.0,mebipy_mebipy_mebipy_mebipy,53.0,tetrahedral,seesaw,2.0,4.0,-1233.5099217442005,-1233.5428433062416,-20.658280180939528
+119,cr,3.0,mec_mec_mec_mec,31.0,tetrahedral,tetrahedral,2.0,4.0,-928.1037900981536,-928.1355792889888,-19.947717249077925
+120,cr,3.0,methylamine_methylamine_methylamine_methylamine,29.0,tetrahedral,seesaw,2.0,4.0,-468.7176230924678,-468.7512373931664,-21.092973688381704
+122,cr,3.0,ncs_ncs_ncs_ncs,13.0,tetrahedral,tetrahedral,2.0,4.0,-2050.706001522519,-2050.73608937012,-18.880124369883333
+123,cr,3.0,ox_ox_ox_ox,13.0,tetrahedral,tetrahedral,2.0,4.0,-840.7623746776353,-840.7934673883576,-19.510675978246468
+124,cr,3.0,phen_phen_phen_phen,45.0,tetrahedral,seesaw,2.0,4.0,-1228.662322627132,-1228.69816777583,-22.492830808103008
+125,cr,3.0,phenisc_phenisc_phenisc_phenisc,53.0,tetrahedral,square planar,2.0,4.0,-1383.2932527888292,-1383.3461062421104,-33.16554193392733
+126,cr,3.0,phosphine_phosphine_phosphine_phosphine,17.0,tetrahedral,seesaw,2.0,4.0,-1457.6847685233383,-1457.7308780657102,-28.93373783831919
+127,cr,3.0,pisc_pisc_pisc_pisc,101.0,tetrahedral,square planar,2.0,4.0,-2012.3677847995573,-2012.4225140666092,-34.342615075083245
+128,cr,3.0,pyridine_pyridine_pyridine_pyridine,45.0,tetrahedral,tetrahedral,2.0,4.0,-1078.5721143206104,-1078.6079215778511,-22.46905391858718
+129,cr,3.0,s2-_s2-_s2-_s2-,5.0,tetrahedral,tetrahedral,2.0,4.0,-1678.133159958154,-1678.1387118477144,-3.4838106991293216
+130,cr,3.0,scn_scn_scn_scn,13.0,tetrahedral,tetrahedral,2.0,4.0,-2050.612144920026,-2050.6424705257755,-19.0293176078535
+131,cr,3.0,tbuc_tbuc_tbuc_tbuc,49.0,tetrahedral,tetrahedral,2.0,4.0,-1163.979763821447,-1164.011565943312,-19.95583147027787
+132,cr,3.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine,49.0,tetrahedral,tetrahedral,2.0,4.0,-2671.364525742883,-2671.392995725273,-17.8649139497918
+133,cr,3.0,water_water_water_water,13.0,tetrahedral,seesaw,2.0,4.0,-390.7529899920242,-390.7859480864972,-20.68120428179128
+134,fe,2.0,acac_acac_acac_acac,29.0,square planar,tetrahedral,1.0,5.0,-813.9296252861293,-813.9711969239175,-26.086202712128
+135,fe,2.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine,65.0,seesaw,tetrahedral,1.0,5.0,-2025.3123565992487,-2025.340764258557,-17.825806216029605
+136,fe,2.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile,25.0,square planar,tetrahedral,1.0,5.0,-654.0140573011151,-654.0584660721429,-27.86650381991137
+137,fe,2.0,ammonia_ammonia_ammonia_ammonia,17.0,square planar,tetrahedral,1.0,5.0,-349.17783172050565,-349.2231673178171,-28.44808731294364
+138,fe,2.0,benzisc_benzisc_benzisc_benzisc,65.0,square planar,tetrahedral,1.0,5.0,-1578.1367615469578,-1578.163554805195,-16.81276954381076
+139,fe,2.0,bipy_bipy_bipy_bipy,41.0,square planar,tetrahedral,1.0,5.0,-1113.8054525857754,-1113.8317808093918,-16.52096031933752
+140,fe,2.0,carbonyl_carbonyl_carbonyl_carbonyl,9.0,square planar,tetrahedral,1.0,5.0,-576.0042561419103,-576.0279412599835,-14.862411590943909
+141,fe,2.0,chloride_chloride_chloride_chloride,5.0,tetrahedral,tetrahedral,1.0,5.0,-1964.4380617663928,-1964.4945848619168,-35.46824244157733
+142,fe,2.0,cn_cn_cn_cn,9.0,square planar,tetrahedral,1.0,5.0,-494.8654975575327,-494.8933600834948,-17.4837350412308
+143,fe,2.0,cyanate_cyanate_cyanate_cyanate,13.0,seesaw,tetrahedral,1.0,5.0,-795.8244757376476,-795.9133267879013,-55.75403403416658
+144,fe,2.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine,49.0,seesaw,tetrahedral,1.0,5.0,-1485.0564304935376,-1485.1128180284195,-35.38317813837864
+145,fe,2.0,en_en_en_en,25.0,square planar,tetrahedral,1.0,5.0,-504.0210442673347,-504.0498121282668,-18.051832734878843
+146,fe,2.0,fluoride_fluoride_fluoride_fluoride,5.0,seesaw,tetrahedral,1.0,5.0,-522.7628474384144,-522.852733515721,-56.40351350987487
+147,fe,2.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde,17.0,seesaw,tetrahedral,1.0,5.0,-580.8873848582699,-580.9577379072055,-44.14653820705411
+148,fe,2.0,furan_furan_furan_furan,37.0,sandwich,tetrahedral,1.0,5.0,-1042.9382067277586,-1043.0019454375597,-39.99604040019051
+149,fe,2.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide,13.0,seesaw,tetrahedral,1.0,5.0,-1720.3481105395629,-1720.4156932756575,-42.40816689940175
+150,fe,2.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl,9.0,seesaw,tetrahedral,1.0,5.0,-426.6432341856171,-426.6869251632325,-27.416088453644534
+151,fe,2.0,iodide_iodide_iodide_iodide,5.0,tetrahedral,tetrahedral,1.0,5.0,-169.22938571835422,-169.28398631370044,-34.261873579750315
+152,fe,2.0,mebipy_mebipy_mebipy_mebipy,53.0,square planar,tetrahedral,1.0,5.0,-1271.1067613642758,-1271.1318379947754,-15.735585638497582
+153,fe,2.0,mec_mec_mec_mec,31.0,square planar,tetrahedral,1.0,5.0,-965.1413051618472,-965.1721225587283,-19.337916543000237
+154,fe,2.0,methylamine_methylamine_methylamine_methylamine,29.0,square planar,tetrahedral,1.0,5.0,-506.4142764654508,-506.4577029577973,-27.250123947463152
+155,fe,2.0,misc_misc_misc_misc,25.0,square planar,tetrahedral,1.0,5.0,-653.9126904946429,-653.9319042300893,-12.056618992642427
+156,fe,2.0,ncs_ncs_ncs_ncs,13.0,square planar,tetrahedral,1.0,5.0,-2087.7934805772466,-2087.882675006498,-55.96950435567692
+157,fe,2.0,ox_ox_ox_ox,13.0,seesaw,tetrahedral,1.0,5.0,-877.797024862156,-877.864815686185,-42.538742078182
+158,fe,2.0,phen_phen_phen_phen,45.0,square planar,tetrahedral,1.0,5.0,-1266.2770397637871,-1266.302612770078,-16.04706144737804
+159,fe,2.0,phenisc_phenisc_phenisc_phenisc,53.0,square planar,tetrahedral,1.0,5.0,-1420.9137257514546,-1420.9315586101218,-11.190118813626668
+160,fe,2.0,phosphine_phosphine_phosphine_phosphine,17.0,square planar,tetrahedral,1.0,5.0,-1495.4345144429478,-1495.4688393099536,-21.538854046144134
+161,fe,2.0,pisc_pisc_pisc_pisc,101.0,square planar,tetrahedral,1.0,5.0,-2049.957279971467,-2049.9748502353145,-11.025340564352746
+163,fe,2.0,pyridine_pyridine_pyridine_pyridine,45.0,seesaw,tetrahedral,1.0,5.0,-1116.1703474471003,-1116.225924915284,-34.87486128508408
+164,fe,2.0,scn_scn_scn_scn,13.0,seesaw,tetrahedral,1.0,5.0,-2087.7320099753183,-2087.803674381266,-44.9694147320929
+165,fe,2.0,tbuc_tbuc_tbuc_tbuc,49.0,square planar,tetrahedral,1.0,5.0,-1201.011076640858,-1201.05409936375,-26.996758614822056
+166,fe,2.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine,49.0,seesaw,tetrahedral,1.0,5.0,-2708.9263978123267,-2708.9832646746318,-35.68395609611116
+167,fe,2.0,water_water_water_water,13.0,square planar,tetrahedral,1.0,5.0,-428.5078808117531,-428.5994313086703,-57.44793681553887
+168,fe,3.0,acac_acac_acac_acac,29.0,tetrahedral,tetrahedral,2.0,6.0,-813.6892093266503,-813.7144035010479,-15.809344434492516
+169,fe,3.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine,65.0,square planar,tetrahedral,2.0,6.0,-2024.851303988563,-2024.8644198849609,-8.23022498957016
+170,fe,3.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile,25.0,tetrahedral,tetrahedral,2.0,6.0,-653.4132292595332,-653.4754919998708,-39.069869561836015
+171,fe,3.0,ammonia_ammonia_ammonia_ammonia,17.0,tetrahedral,tetrahedral,2.0,6.0,-348.51989933006195,-348.5575533523181,-23.62789896574228
+172,fe,3.0,benzisc_benzisc_benzisc_benzisc,65.0,tetrahedral,tetrahedral,2.0,6.0,-1577.579554886483,-1577.715542993872,-85.3325373866221
+173,fe,3.0,bipy_bipy_bipy_bipy,41.0,tetrahedral,tetrahedral,2.0,6.0,-1113.2916463168283,-1113.3098873081549,-11.446222057151658
+174,fe,3.0,carbonyl_carbonyl_carbonyl_carbonyl,9.0,seesaw,tetrahedral,2.0,6.0,-575.188082830454,-575.2208190813413,-20.54199743177861
+175,fe,3.0,chloride_chloride_chloride_chloride,5.0,tetrahedral,tetrahedral,2.0,6.0,-1964.4513334069331,-1964.515674034076,-40.37374353201642
+176,fe,3.0,cn_cn_cn_cn,9.0,seesaw,tetrahedral,2.0,6.0,-494.875451645003,-494.8857113682031,-6.437976308049542
+178,fe,3.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine,49.0,tetrahedral,tetrahedral,2.0,6.0,-1484.5387528483536,-1484.5761861995943,-23.48942790366891
+179,fe,3.0,en_en_en_en,25.0,seesaw,tetrahedral,2.0,6.0,-503.399395729618,-503.42626251163546,-16.85890571595877
+180,fe,3.0,fluoride_fluoride_fluoride_fluoride,5.0,tetrahedral,tetrahedral,2.0,6.0,-522.9387195995208,-523.0138095060328,-47.1189163362476
+181,fe,3.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde,17.0,tetrahedral,tetrahedral,2.0,6.0,-580.2712353463261,-580.332199086346,-38.25474686250544
+182,fe,3.0,furan_furan_furan_furan,37.0,unknown,tetrahedral,2.0,6.0,-1042.4451720167274,-1042.4636217107236,-11.577182982626368
+184,fe,3.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl,9.0,seesaw,tetrahedral,2.0,6.0,-426.8050990074488,-426.8444320039263,-24.681455289647687
+185,fe,3.0,iodide_iodide_iodide_iodide,5.0,tetrahedral,tetrahedral,2.0,6.0,-169.24671550128005,-169.27473416858354,-17.581713732936706
+186,fe,3.0,mebipy_mebipy_mebipy_mebipy,53.0,square planar,tetrahedral,2.0,6.0,-1270.611446365957,-1270.6340494271217,-14.183420880895028
+187,fe,3.0,mec_mec_mec_mec,31.0,square planar,tetrahedral,2.0,6.0,-965.2126641000764,-965.2210596854416,-5.268229816649637
+188,fe,3.0,methylamine_methylamine_methylamine_methylamine,29.0,tetrahedral,tetrahedral,2.0,6.0,-505.8203310196403,-505.85023223795497,-18.763014492442096
+189,fe,3.0,misc_misc_misc_misc,25.0,seesaw,tetrahedral,2.0,6.0,-653.3114428681786,-653.3352249800901,-14.923275224458052
+190,fe,3.0,ncs_ncs_ncs_ncs,13.0,tetrahedral,tetrahedral,2.0,6.0,-2087.7943653540965,-2087.856490216632,-38.98335124115874
+191,fe,3.0,ox_ox_ox_ox,13.0,tetrahedral,tetrahedral,2.0,6.0,-877.8411359034407,-877.8816057556651,-25.39483227082286
+192,fe,3.0,phenisc_phenisc_phenisc_phenisc,53.0,square planar,tetrahedral,2.0,6.0,-1420.435406564564,-1420.457432760245,-13.821437789725335
+193,fe,3.0,phosphine_phosphine_phosphine_phosphine,17.0,seesaw,tetrahedral,2.0,6.0,-1494.814947783933,-1494.844455087001,-18.515832675269053
+194,fe,3.0,pisc_pisc_pisc_pisc,101.0,square planar,tetrahedral,2.0,6.0,-2049.530026353839,-2049.5368051517157,-4.253695667472357
+195,fe,3.0,pyridine_pyridine_pyridine_pyridine,45.0,tetrahedral,tetrahedral,2.0,6.0,-1115.6770686509558,-1115.7100442454166,-20.692185524166007
+196,fe,3.0,s2-_s2-_s2-_s2-,5.0,unknown,tetrahedral,2.0,6.0,-1715.8986919226445,-1715.2159569808384,428.416175983312
+197,fe,3.0,scn_scn_scn_scn,13.0,tetrahedral,tetrahedral,2.0,6.0,-2087.7277017400147,-2087.76187132586,-21.441415117812998
+198,fe,3.0,tbuc_tbuc_tbuc_tbuc,49.0,square planar,tetrahedral,2.0,6.0,-1201.0864600288126,-1201.0969987992555,-6.613078452959371
+199,fe,3.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine,49.0,square planar,tetrahedral,2.0,6.0,-2708.350007107138,-2708.510746064602,-100.8636958085117
+200,fe,3.0,water_water_water_water,13.0,seesaw,tetrahedral,2.0,6.0,-427.8217275803396,-427.8894132074423,-42.47273100692056
+201,mn,2.0,acac_acac_acac_acac,29.0,seesaw,tetrahedral,2.0,6.0,-794.4051949616799,-794.4737214913284,-43.00039735448365
+202,mn,2.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine,65.0,square planar,tetrahedral,2.0,6.0,-2005.7894368460447,-2005.850513664636,-38.325703665498736
+203,mn,2.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile,25.0,square planar,tetrahedral,2.0,6.0,-634.4984346238122,-634.5764747941371,-48.97020687889068
+204,mn,2.0,ammonia_ammonia_ammonia_ammonia,17.0,square planar,tetrahedral,2.0,6.0,-329.6546535909744,-329.7363548778556,-51.2675575179432
+205,mn,2.0,benzisc_benzisc_benzisc_benzisc,65.0,square planar,tetrahedral,2.0,6.0,-1558.6198146508134,-1558.6731735086662,-33.48268330263181
+206,mn,2.0,bipy_bipy_bipy_bipy,41.0,square planar,tetrahedral,2.0,6.0,-1094.2820011418787,-1094.3424899002848,-37.956695899833335
+207,mn,2.0,carbonyl_carbonyl_carbonyl_carbonyl,9.0,square planar,tetrahedral,2.0,6.0,-556.4845365838838,-556.5473299759727,-39.40285353578872
+208,mn,2.0,chloride_chloride_chloride_chloride,5.0,tetrahedral,tetrahedral,2.0,6.0,-1944.9210482541632,-1945.015695806376,-59.39133901352648
+209,mn,2.0,cn_cn_cn_cn,9.0,square planar,tetrahedral,2.0,6.0,-475.3363658703196,-475.4025683481681,-41.54205484992872
+211,mn,2.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine,49.0,seesaw,tetrahedral,2.0,6.0,-1465.5436202237825,-1465.6229188527827,-49.759889697674
+212,mn,2.0,en_en_en_en,25.0,square planar,tetrahedral,2.0,6.0,-484.4938436711589,-484.5590086419895,-40.8910191962066
+213,mn,2.0,fluoride_fluoride_fluoride_fluoride,5.0,seesaw,tetrahedral,2.0,6.0,-503.3040838218093,-503.3700771096928,-41.41078814688783
+214,mn,2.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde,17.0,square planar,tetrahedral,2.0,6.0,-561.3965271464294,-561.4756789624321,-49.66776454166279
+215,mn,2.0,furan_furan_furan_furan,37.0,seesaw,tetrahedral,2.0,6.0,-1023.3681216998618,-1023.5174607311912,-93.71024215913876
+216,mn,2.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide,13.0,square planar,tetrahedral,2.0,6.0,-1700.8456209419558,-1700.9262951747298,-50.62308106573028
+217,mn,2.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl,9.0,tetrahedral,tetrahedral,2.0,6.0,-407.1493872710748,-407.19720715976473,-30.00698015291277
+218,mn,2.0,iodide_iodide_iodide_iodide,5.0,tetrahedral,tetrahedral,2.0,6.0,-149.71031982054754,-149.80351651957716,-58.48092864108587
+219,mn,2.0,mebipy_mebipy_mebipy_mebipy,53.0,square planar,tetrahedral,2.0,6.0,-1251.5825319153498,-1251.64205372669,-37.34993661592455
+220,mn,2.0,mec_mec_mec_mec,31.0,square planar,tetrahedral,2.0,6.0,-945.610586246028,-945.6788024631952,-42.80567627235854
+221,mn,2.0,methylamine_methylamine_methylamine_methylamine,29.0,seesaw,tetrahedral,2.0,6.0,-486.8869361649474,-486.9681185885444,-50.94197080711709
+222,mn,2.0,misc_misc_misc_misc,25.0,square planar,tetrahedral,2.0,6.0,-634.3868872405448,-634.442542872227,-34.92390888062488
+223,mn,2.0,ncs_ncs_ncs_ncs,13.0,tetrahedral,tetrahedral,2.0,6.0,-2068.167661884026,-2068.399167480487,-145.26976177922734
+224,mn,2.0,ox_ox_ox_ox,13.0,square planar,tetrahedral,2.0,6.0,-858.3120677221905,-858.3734563462759,-38.521361613621536
+225,mn,2.0,phen_phen_phen_phen,45.0,square planar,tetrahedral,2.0,6.0,-1246.753354288253,-1246.8172354111846,-40.08540463961765
+226,mn,2.0,phenisc_phenisc_phenisc_phenisc,53.0,square planar,tetrahedral,2.0,6.0,-1401.38757177562,-1401.4381158021265,-31.71637663267745
+227,mn,2.0,phosphine_phosphine_phosphine_phosphine,17.0,square planar,tetrahedral,2.0,6.0,-1475.905657070022,-1475.9794596878137,-46.31114266427346
+228,mn,2.0,pisc_pisc_pisc_pisc,101.0,square planar,tetrahedral,2.0,6.0,-2030.4316050290236,-2030.4803748533163,-30.603064743859814
+229,mn,2.0,pph3_pph3_pph3_pph3,137.0,tetrahedral,tetrahedral,2.0,6.0,-4248.664392723758,-4248.768005924553,-65.01728349875293
+230,mn,2.0,pyridine_pyridine_pyridine_pyridine,45.0,seesaw,tetrahedral,2.0,6.0,-1096.6572737180768,-1096.7354831561045,-49.07642236236313
+231,mn,2.0,scn_scn_scn_scn,13.0,tetrahedral,tetrahedral,2.0,6.0,-2068.15428638151,-2068.314204544458,-100.3486472499253
+232,mn,2.0,tbuc_tbuc_tbuc_tbuc,49.0,tetrahedral,tetrahedral,2.0,6.0,-1181.4843944137235,-1181.5606376799292,-47.84264954391233
+233,mn,2.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine,49.0,tetrahedral,tetrahedral,2.0,6.0,-2689.2596848068792,-2689.4924649341638,-146.06952987074692
+234,mn,2.0,water_water_water_water,13.0,square planar,tetrahedral,2.0,6.0,-409.0260404115618,-409.1173629500321,-57.30489289008276
+235,mn,3.0,acac_acac_acac_acac,29.0,tetrahedral,square planar,1.0,5.0,-794.1746288674943,-794.234059983206,-37.29302510904034
+236,mn,3.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine,65.0,tetrahedral,tetrahedral,1.0,5.0,-2005.3175415060537,-2005.373946646624,-35.394225707786404
+237,mn,3.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile,25.0,tetrahedral,square planar,1.0,5.0,-633.9167386426343,-633.9804670322859,-39.98956450637962
+238,mn,3.0,ammonia_ammonia_ammonia_ammonia,17.0,tetrahedral,square planar,1.0,5.0,-329.00853480350906,-329.0748745591428,-41.62819666017725
+239,mn,3.0,benzisc_benzisc_benzisc_benzisc,65.0,square planar,square planar,1.0,5.0,-1558.1665539609105,-1558.1958077443255,-18.356749092922087
+240,mn,3.0,bipy_bipy_bipy_bipy,41.0,tetrahedral,tetrahedral,1.0,5.0,-1093.7781400292831,-1093.8188033823567,-25.516254053521838
+241,mn,3.0,carbonyl_carbonyl_carbonyl_carbonyl,9.0,square planar,square planar,1.0,5.0,-555.6823633678741,-555.757586012778,-47.2022096771812
+242,mn,3.0,chloride_chloride_chloride_chloride,5.0,tetrahedral,tetrahedral,1.0,5.0,-1944.9443128010828,-1944.9995067253776,-34.63418749500363
+243,mn,3.0,cn_cn_cn_cn,9.0,tetrahedral,square planar,1.0,5.0,-475.35337308588896,-475.40891108589744,-34.850095005322714
+245,mn,3.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine,49.0,tetrahedral,tetrahedral,1.0,5.0,-1465.0270679929815,-1465.0712090444422,-27.698509791561605
+246,mn,3.0,en_en_en_en,25.0,seesaw,square planar,1.0,5.0,-483.8792756146384,-483.9560980745826,-48.20609361501894
+247,mn,3.0,fluoride_fluoride_fluoride_fluoride,5.0,tetrahedral,square planar,1.0,5.0,-503.44989767119193,-503.509876748614,-37.63687108233157
+248,mn,3.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde,17.0,tetrahedral,tetrahedral,1.0,5.0,-560.7643537443778,-560.8280234021457,-39.95271024938603
+249,mn,3.0,furan_furan_furan_furan,37.0,seesaw,tetrahedral,1.0,5.0,-1022.8903429992074,-1022.9829952238738,-58.139270978153945
+250,mn,3.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide,13.0,tetrahedral,trigonal planar,1.0,5.0,-1700.1852568795448,-1700.478253877276,-183.85561607637783
+251,mn,3.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl,9.0,tetrahedral,square planar,1.0,5.0,-407.2961061509252,-407.3565137505178,-37.905768744370505
+252,mn,3.0,iodide_iodide_iodide_iodide,5.0,tetrahedral,tetrahedral,1.0,5.0,-149.69513731936175,-149.76633410551176,-44.67598330913212
+253,mn,3.0,mebipy_mebipy_mebipy_mebipy,53.0,tetrahedral,tetrahedral,1.0,5.0,-1251.1027574890034,-1251.1358757710047,-20.781721955876264
+254,mn,3.0,mec_mec_mec_mec,31.0,tetrahedral,square planar,1.0,5.0,-945.6820952624948,-945.7396656638316,-36.12542683888904
+255,mn,3.0,methylamine_methylamine_methylamine_methylamine,29.0,tetrahedral,square planar,1.0,5.0,-486.3048002851082,-486.3640243738367,-37.16311567714186
+256,mn,3.0,misc_misc_misc_misc,25.0,tetrahedral,square planar,1.0,5.0,-633.7898913666279,-633.8624491065597,-45.5299818071839
+257,mn,3.0,ncs_ncs_ncs_ncs,13.0,tetrahedral,seesaw,1.0,5.0,-2068.292603050465,-2068.344479541439,-32.55249808611097
+258,mn,3.0,ox_ox_ox_ox,13.0,square planar,square planar,1.0,5.0,-858.3400751438193,-858.4000549266202,-37.637313707597
+259,mn,3.0,phen_phen_phen_phen,45.0,tetrahedral,tetrahedral,1.0,5.0,-1246.253840892801,-1246.3146011317267,-38.12704992587385
+260,mn,3.0,phenisc_phenisc_phenisc_phenisc,53.0,square planar,tetrahedral,1.0,5.0,-1400.9069249926788,-1400.963390032724,-35.431812628343096
+261,mn,3.0,phosphine_phosphine_phosphine_phosphine,17.0,square planar,square planar,1.0,5.0,-1475.2832250261326,-1475.3630330176024,-50.07951464730354
+262,mn,3.0,pisc_pisc_pisc_pisc,101.0,square planar,tetrahedral,1.0,5.0,-2029.9872402401231,-2030.0407409268785,-33.571680938977124
+263,mn,3.0,pyridine_pyridine_pyridine_pyridine,45.0,tetrahedral,tetrahedral,1.0,5.0,-1096.1645115841172,-1096.1969158423192,-20.333672021723714
+265,mn,3.0,scn_scn_scn_scn,13.0,tetrahedral,seesaw,1.0,5.0,-2068.2067478346244,-2068.259735361597,-33.24967317561004
+266,mn,3.0,tbuc_tbuc_tbuc_tbuc,49.0,tetrahedral,square planar,1.0,5.0,-1181.557734244784,-1181.6136044749765,-35.05856944569359
+267,mn,3.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine,49.0,tetrahedral,tetrahedral,1.0,5.0,-2688.9551811220413,-2689.0177817028543,-39.281864460200495
+268,mn,3.0,water_water_water_water,13.0,seesaw,square planar,1.0,5.0,-408.3247597889503,-408.38839005423927,-39.92799146886057
+269,ni,2.0,acac_acac_acac_acac,29.0,square planar,tetrahedral,1.0,3.0,-859.8088776855886,-859.809480523534,-0.3782808107345659
+270,ni,2.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine,65.0,square planar,seesaw,1.0,3.0,-2071.1927082322354,-2071.196366654764,-2.2956601366888663
+271,ni,2.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile,25.0,square planar,tetrahedral,1.0,3.0,-699.8820549337739,-699.8921156824605,-6.313119800813638
+272,ni,2.0,ammonia_ammonia_ammonia_ammonia,17.0,square planar,tetrahedral,1.0,3.0,-395.0645584952922,-395.067345967554,-1.7491388442711298
+273,ni,2.0,benzisc_benzisc_benzisc_benzisc,65.0,square planar,tetrahedral,1.0,3.0,-1624.0381911759223,-1624.0111912637155,16.942444909734036
+274,ni,2.0,bipy_bipy_bipy_bipy,41.0,seesaw,square planar,1.0,3.0,-1159.66518316149,-1159.6783941039505,-8.289866393849934
+275,ni,2.0,carbonyl_carbonyl_carbonyl_carbonyl,9.0,seesaw,tetrahedral,1.0,3.0,-621.8479500390173,-621.8556759177393,-4.847988898054325
+276,ni,2.0,chloride_chloride_chloride_chloride,5.0,tetrahedral,tetrahedral,1.0,3.0,-2010.3040584919047,-2010.3283581115943,-15.248011355081417
+277,ni,2.0,cn_cn_cn_cn,9.0,square planar,tetrahedral,1.0,3.0,-540.7668116311697,-540.7379818144185,18.09071001139472
+278,ni,2.0,cyanate_cyanate_cyanate_cyanate,13.0,square planar,tetrahedral,1.0,3.0,-841.7229975530792,-841.7419576377711,-11.89745314417479
+279,ni,2.0,en_en_en_en,25.0,square planar,square planar,1.0,3.0,-549.9129706346957,-549.8955621462221,10.923826517196744
+280,ni,2.0,fluoride_fluoride_fluoride_fluoride,5.0,square planar,tetrahedral,1.0,3.0,-568.6592219484181,-568.6785959646425,-12.157195180768952
+281,ni,2.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde,17.0,square planar,tetrahedral,1.0,3.0,-626.7820886910299,-626.7892908451938,-4.519351737851025
+282,ni,2.0,furan_furan_furan_furan,37.0,square planar,tetrahedral,1.0,3.0,-1088.830998418194,-1088.8341331912625,-1.9670701004810096
+283,ni,2.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide,13.0,square planar,seesaw,1.0,3.0,-1766.2547156058126,-1766.264978527844,-6.439983574713324
+284,ni,2.0,hydroxyl_hydroxyl_hydroxyl_hydroxyl,9.0,tetrahedral,seesaw,1.0,3.0,-472.50034954387166,-472.5262558703397,-16.256219858690173
+285,ni,2.0,iodide_iodide_iodide_iodide,5.0,square planar,tetrahedral,1.0,3.0,-215.08175490029697,-215.12445917219983,-26.796930619064625
+286,ni,2.0,mebipy_mebipy_mebipy_mebipy,53.0,square planar,seesaw,1.0,3.0,-1316.9854453910652,-1316.988391807703,-1.848876440200229
+287,ni,2.0,mec_mec_mec_mec,31.0,square planar,tetrahedral,1.0,3.0,-1011.0104291336456,-1011.0148962554103,-2.803118907432633
+288,ni,2.0,methylamine_methylamine_methylamine_methylamine,29.0,square planar,tetrahedral,1.0,3.0,-552.3067820482128,-552.3044209603995,1.4815826028180368
+289,ni,2.0,misc_misc_misc_misc,25.0,square planar,seesaw,1.0,3.0,-699.8022744652732,-699.7789939391911,14.608530116511249
+290,ni,2.0,ncs_ncs_ncs_ncs,13.0,square planar,tetrahedral,1.0,3.0,-2133.698315852977,-2133.712342876675,-8.801957370471882
+291,ni,2.0,ox_ox_ox_ox,13.0,square planar,tetrahedral,1.0,3.0,-923.7100137291528,-923.7053315936324,2.9380400389780448
+292,ni,2.0,phen_phen_phen_phen,45.0,square planar,seesaw,1.0,3.0,-1312.1540242411004,-1312.1600257354896,-3.765937729247071
+293,ni,2.0,phenisc_phenisc_phenisc_phenisc,53.0,square planar,tetrahedral,1.0,3.0,-1466.799252616258,-1466.7759161908657,14.643606933633464
+294,ni,2.0,phosphine_phosphine_phosphine_phosphine,17.0,square planar,tetrahedral,1.0,3.0,-1541.338652074482,-1541.3272932961258,7.127633418531332
+295,ni,2.0,pisc_pisc_pisc_pisc,101.0,square planar,tetrahedral,1.0,3.0,-2095.842557437483,-2095.8191705329173,14.675282614877004
+297,ni,2.0,pyridine_pyridine_pyridine_pyridine,45.0,square planar,tetrahedral,1.0,3.0,-1162.0779953382842,-1162.072149020042,3.668564696993144
+298,ni,2.0,scn_scn_scn_scn,13.0,seesaw,tetrahedral,1.0,3.0,-2133.6337674691595,-2133.6499812058487,-10.174119772487984
+299,ni,2.0,tbuc_tbuc_tbuc_tbuc,49.0,square planar,tetrahedral,1.0,3.0,-1246.892609974091,-1246.896663232851,-2.5434198718971857
+300,ni,2.0,thiopyridine_thiopyridine_thiopyridine_thiopyridine,49.0,square planar,tetrahedral,1.0,3.0,-2754.833576685713,-2754.8296060108837,2.49159845599479
+301,ni,2.0,water_water_water_water,13.0,square planar,seesaw,1.0,3.0,-474.4080485879809,-474.4248296167812,-10.53009557216754
 0,co,2.0,acetonitrile_chloride_chloride_chloride,10.0,tetrahedral,trigonal planar,2.0,4.0,-1658.6475167520705,-1658.676297348059,-18.05982398282424
 1,co,2.0,acetonitrile_fluoride_fluoride_fluoride,10.0,tetrahedral,trigonal planar,2.0,4.0,-577.4575600520304,-577.5256805771517,-42.74562951357211
 2,co,2.0,acetonitrile_acetonitrile_chloride_chloride,15.0,tetrahedral,tetrahedral,2.0,4.0,-1331.0945208449452,-1331.1294254996992,-21.90267085811797
