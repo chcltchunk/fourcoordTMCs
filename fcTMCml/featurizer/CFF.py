@@ -60,18 +60,6 @@ class CrystalFieldFeatures():
         conf_ene = np.dot(occ, dqs)
         return conf_ene
 
-    # TODO: what was that used for?
-    def calculate_comb_factors(self, occupation, deg):
-        occupation = np.array(occupation)
-        comb_factors = [0] * len(deg)
-        ind = [0] + deg
-        ind = np.cumsum(ind)
-        for i in range(1, len(ind)):
-            alpha_curr_deg_level = occupation[ind[i-1]:ind[i]] == 1
-            comb_factors[i-1] = np.sum(alpha_curr_deg_level.astype(int))
-        return np.array(comb_factors)
-
-
     def occupy_d_orbitals(self):
         single_es = self.mult-1 # for spin 1/2
         num_es = self.cores_d_conf[self.metal][self.ox]
@@ -120,19 +108,6 @@ cff = CrystalFieldFeatures("ni", 2, 1)
 assert np.all(cff.occupy_d_orbitals() == [2,2,2,2,0])
 cff = CrystalFieldFeatures("ni", 2, 3)
 assert np.all(cff.occupy_d_orbitals() == [2,2,2,1,1])
-
-
-cff = CrystalFieldFeatures("cr", 3, 4)
-assert np.all(cff.calculate_comb_factors([1,0,0,0,0], cff.geometry_degeneracies["tetrahedral"]) == [1, 0])
-assert np.all(cff.calculate_comb_factors([1,1,0,0,0], cff.geometry_degeneracies["tetrahedral"]) == [2, 0])
-assert np.all(cff.calculate_comb_factors([1,1,1,0,0], cff.geometry_degeneracies["tetrahedral"]) == [2, 1])
-assert np.all(cff.calculate_comb_factors([1,1,1,1,0], cff.geometry_degeneracies["tetrahedral"]) == [2, 2])
-assert np.all(cff.calculate_comb_factors([1,1,1,1,1], cff.geometry_degeneracies["tetrahedral"]) == [2, 3])
-assert np.all(cff.calculate_comb_factors([2,1,1,1,1], cff.geometry_degeneracies["tetrahedral"]) == [1, 3])
-assert np.all(cff.calculate_comb_factors([2,2,1,1,1], cff.geometry_degeneracies["tetrahedral"]) == [0, 3])
-assert np.all(cff.calculate_comb_factors([2,2,2,1,1], cff.geometry_degeneracies["tetrahedral"]) == [0, 2])
-assert np.all(cff.calculate_comb_factors([2,2,1,1,1], cff.geometry_degeneracies["square planar"]) == [0, 1, 1, 1])
-
 
 cff = CrystalFieldFeatures("cr", 3, 4)
 occ = cff.occupy_d_orbitals()
