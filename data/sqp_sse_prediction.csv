@@ -1,0 +1,27 @@
+,metal,ox,ligstr,complex.size,geom.ls,geom.hs,ls.spin,hs.spin,b3lyp.energy.ls (Ha),b3lyp.energy.hs (Ha),b3lyp.sse (kcal/mol)
+0,co,2.0,en_en_en_en,25.0,square planar,square planar,2.0,4.0,-525.6757697171596,-525.6725040345394,2.0492158441550146
+1,cr,2.0,aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine_aceticacidbipyridine,65.0,square planar,square planar,1.0,5.0,-1988.178758857052,-1988.236740343036,-36.38338245516593
+2,cr,2.0,acetonitrile_acetonitrile_acetonitrile_acetonitrile,25.0,square planar,square planar,1.0,5.0,-616.8975707854694,-616.9554479946087,-36.31794873490577
+3,cr,2.0,ammonia_ammonia_ammonia_ammonia,17.0,square planar,square planar,1.0,5.0,-312.05052658200464,-312.1142896307843,-40.01131310923839
+4,cr,2.0,carbonyl_carbonyl_carbonyl_carbonyl,9.0,square planar,square planar,1.0,5.0,-538.8760302718243,-538.9298633062372,-33.78022909405246
+5,cr,2.0,cn_cn_cn_cn,9.0,square planar,square planar,1.0,5.0,-457.72136429936654,-457.7799564147342,-36.76655239321519
+6,cr,2.0,cyanopyridine_cyanopyridine_cyanopyridine_cyanopyridine,49.0,square planar,square planar,1.0,5.0,-1447.938382544821,-1448.0047371799603,-41.637533549914
+7,cr,2.0,en_en_en_en,25.0,square planar,square planar,1.0,5.0,-466.8883785993045,-466.9502369606454,-38.81612174138539
+8,cr,2.0,formaldehyde_formaldehyde_formaldehyde_formaldehyde,17.0,square planar,square planar,1.0,5.0,-543.7947248902678,-543.8575155176482,-39.401118681144
+9,cr,2.0,hydrogensulfide_hydrogensulfide_hydrogensulfide_hydrogensulfide,13.0,square planar,square planar,1.0,5.0,-1683.2358012189643,-1683.2983352613403,-39.24011159108318
+10,cr,2.0,misc_misc_misc_misc,25.0,square planar,square planar,1.0,5.0,-616.7695431131228,-616.8261134115526,-35.49786226465756
+11,cr,2.0,phen_phen_phen_phen,45.0,square planar,square planar,1.0,5.0,-1229.1437007996576,-1229.2020952259395,-36.64250249203064
+12,cr,2.0,phenisc_phenisc_phenisc_phenisc,53.0,square planar,square planar,1.0,5.0,-1383.7667939262587,-1383.8220002817247,-34.64198805491378
+13,cr,2.0,phosphine_phosphine_phosphine_phosphine,17.0,square planar,square planar,1.0,5.0,-1458.2924772763458,-1458.3539170112097,-38.55343362705014
+14,cr,2.0,pisc_pisc_pisc_pisc,101.0,square planar,square planar,1.0,5.0,-2012.808194261925,-2012.8638230213053,-34.90704651105659
+15,cr,2.0,water_water_water_water,13.0,square planar,square planar,1.0,5.0,-391.4314165781274,-391.49252989149153,-38.34860413597482
+16,cr,3.0,benzisc_benzisc_benzisc_benzisc,65.0,square planar,square planar,2.0,4.0,-1540.5501332380682,-1540.6067525445685,-35.52861482897072
+17,mn,3.0,benzisc_benzisc_benzisc_benzisc,65.0,square planar,square planar,1.0,5.0,-1558.1665539609105,-1558.1958077443255,-18.356749092922087
+18,mn,3.0,carbonyl_carbonyl_carbonyl_carbonyl,9.0,square planar,square planar,1.0,5.0,-555.6823633678741,-555.757586012778,-47.2022096771812
+19,mn,3.0,ox_ox_ox_ox,13.0,square planar,square planar,1.0,5.0,-858.3400751438193,-858.4000549266202,-37.637313707597
+20,mn,3.0,phosphine_phosphine_phosphine_phosphine,17.0,square planar,square planar,1.0,5.0,-1475.2832250261326,-1475.3630330176024,-50.07951464730354
+21,ni,2.0,en_en_en_en,25.0,square planar,square planar,1.0,3.0,-549.9129706346957,-549.8955621462221,10.923826517196744
+22,ni,2.0,thiopyridine_thiopyridine_fluoride_fluoride,27.0,square planar,square planar,1.0,3.0,-1662.053773427475,-1662.0463686732817,4.646483256520355
+23,cr,3.0,pyridine_hydrogensulfide_hydrogensulfide_hydrogensulfide,21.0,square planar,square planar,2.0,4.0,-1531.611433554945,-1531.6624731868142,-32.02736899787055
+24,ni,2.0,cyanate_cyanate_pyridine_pyridine,29.0,square planar,square planar,1.0,3.0,-1001.3609935894016,-1001.3610944888692,-0.0633144157833953
+25,cr,3.0,scn_hydrogensulfide_hydrogensulfide_hydrogensulfide,13.0,square planar,square planar,2.0,4.0,-1774.8286522567898,-1774.8755226448486,-29.41116850688332
