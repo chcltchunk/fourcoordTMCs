@@ -36,9 +36,26 @@ df_classifier = df_classifier[[*column_list, "spin", "geom"]]
 print(df_classifier)
 df_classifier.reset_index(drop=True).to_csv(raw_data_dir + "thd_geom_classifier.csv")
 
+print("duplicates in dataset: ", np.count_nonzero(df.duplicated(["metal", "ox", "ligstr"]).to_numpy()))
+
+
 ###############################
 # prepare SSE prediction data #
 ###############################
+
+# prepare square planar dataset
+
+df_sse_prediction = df[(df["geom.hs"] == "square planar")
+                       & (df["geom.ls"] == "square planar")][[*column_list, *sse_colum_list]]
+
+# remove unreasonably high SSEs
+SSE_CUTOFF = -110
+df_sse_prediction = df_sse_prediction[df_sse_prediction["b3lyp.sse (kcal/mol)"] > SSE_CUTOFF]
+print(df_sse_prediction)
+
+df_sse_prediction.reset_index(drop=True).to_csv(raw_data_dir + "sqp_sse_prediction.csv")
+
+# prepare tetrahedral dataset
 
 df_sse_prediction = df[(df["geom.hs"] == "tetrahedral")
                        & (df["geom.ls"] == "tetrahedral")][[*column_list, *sse_colum_list]]
