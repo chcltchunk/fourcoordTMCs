@@ -1,5 +1,3 @@
-<<<<<<< HEAD:thdml/constants.py
-=======
 import numpy as np
 from ase.data import chemical_symbols, atomic_numbers, covalent_radii
 
@@ -7,7 +5,6 @@ from ase.data import chemical_symbols, atomic_numbers, covalent_radii
 # PROJECT SPECIFIC CONSTANTS #
 ##############################
 
->>>>>>> data_cleanup:fcTMCml/constants.py
 # in DOI: 10.1039/c7sc01247k cutoff is <= 1 (gives 242 less datapoints)
 S2_CUTOFF = 1.5
 # SSE lower than -110 kcal/mol is not reasonable for this dataset
@@ -18,8 +15,6 @@ SSE_CUTOFF = -110
 # TODO(ralf): should we have the formal charge in the final dataset?
 column_list = ['metal', 'ox', 'ligstr', 'complex.size']  # , 'charge'
 sse_colum_list = ['geom.ls', 'geom.hs', 'ls.spin', 'hs.spin', 'b3lyp.energy.ls (Ha)', 'b3lyp.energy.hs (Ha)', 'b3lyp.sse (kcal/mol)']
-<<<<<<< HEAD:thdml/constants.py
-=======
 
 #####################
 # GENERAL CONSTANTS #
@@ -253,4 +248,3 @@ electronegativity = np.array(
         1.30,  # No
     ]
 )
->>>>>>> data_cleanup:fcTMCml/constants.py

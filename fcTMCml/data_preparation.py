@@ -4,8 +4,8 @@ import numpy as np
 from constants import column_list, sse_colum_list
 from constants import SSE_CUTOFF
 
-
-df = pd.read_csv("thd_geom_sse.csv")
+raw_data_dir = "../data/"
+df = pd.read_csv(raw_data_dir + "thd_tmcs_geom_sse.csv")
 
 ###########################
 # prepare classifier data #
@@ -34,11 +34,28 @@ df_classifier = df_classifier.rename(columns={"hs.spin": "spin", "geom.hs": "geo
 df_classifier = df_classifier[[*column_list, "spin", "geom"]]
 
 print(df_classifier)
-df_classifier.to_csv("thd_geom_classifier.csv")
+df_classifier.reset_index(drop=True).to_csv(raw_data_dir + "thd_geom_classifier.csv")
+
+print("duplicates in dataset: ", np.count_nonzero(df.duplicated(["metal", "ox", "ligstr"]).to_numpy()))
+
 
 ###############################
 # prepare SSE prediction data #
 ###############################
+
+# prepare square planar dataset
+
+df_sse_prediction = df[(df["geom.hs"] == "square planar")
+                       & (df["geom.ls"] == "square planar")][[*column_list, *sse_colum_list]]
+
+# remove unreasonably high SSEs
+SSE_CUTOFF = -110
+df_sse_prediction = df_sse_prediction[df_sse_prediction["b3lyp.sse (kcal/mol)"] > SSE_CUTOFF]
+print(df_sse_prediction)
+
+df_sse_prediction.reset_index(drop=True).to_csv(raw_data_dir + "sqp_sse_prediction.csv")
+
+# prepare tetrahedral dataset
 
 df_sse_prediction = df[(df["geom.hs"] == "tetrahedral")
                        & (df["geom.ls"] == "tetrahedral")][[*column_list, *sse_colum_list]]
@@ -48,6 +65,8 @@ SSE_CUTOFF = -110
 df_sse_prediction = df_sse_prediction[df_sse_prediction["b3lyp.sse (kcal/mol)"] > SSE_CUTOFF]
 print(df_sse_prediction)
 
+df_sse_prediction.reset_index(drop=True).to_csv(raw_data_dir + "thd_sse_prediction.csv")
+
 # create numpy array with SSE for masking
 sse_n = df_sse_prediction["b3lyp.sse (kcal/mol)"].to_numpy()
 
@@ -56,7 +75,7 @@ print("count SSEs: ", len(sse_n), " max SSE: ", np.max(sse_n), "; min SSE: ", np
 # TODO(jonas): move to dataset analysis
 # visualize SSE distribution in dataset
 plt.hist(sse_n, bins=50)
-plt.savefig("SSE distribution.png", dpi=300, bbox_inches="tight")
+plt.savefig(raw_data_dir + "SSE distribution.png", dpi=300, bbox_inches="tight")
 
 # count HS and LS preferences
 print("HS preference", np.count_nonzero(sse_n >= 0))
