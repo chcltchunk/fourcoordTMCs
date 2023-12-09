@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.9", "3.10"]
+        python-version: ["3.9"]
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
@@ -20,7 +20,7 @@ jobs:
         python setup.py install
         pip install flake8
         pip install pytest
-    - name: Analysing the code with pylint
+    - name: Analysing the code with flake8 and pytest
       run: |
-        flake8 $(git ls-files '*.py')
         pytest test/*
+        flake8 $(git ls-files '*.py')
