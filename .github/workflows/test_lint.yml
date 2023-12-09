@@ -22,5 +22,5 @@ jobs:
         pip install pytest
     - name: Analysing the code with flake8 and pytest
       run: |
-        pytest test/*
+        pytest tests/*
         flake8 $(git ls-files '*.py')
