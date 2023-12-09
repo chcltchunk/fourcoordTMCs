@@ -11,7 +11,7 @@ setup(
        'matplotlib==3.8.2', 
        'networkx==3.2.1', 
        'numpy==1.26.2',
-       'pandas==2.8',
+       'pandas==2.1.4',
        'ase==3.22.1',
        'scipy==1.11.4',
       ],
