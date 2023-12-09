@@ -4,7 +4,7 @@ import numpy as np
 from constants import column_list, sse_colum_list
 from constants import SSE_CUTOFF
 
-raw_data_dir = "../data/"
+raw_data_dir = "data/"
 df = pd.read_csv(raw_data_dir + "thd_tmcs_geom_sse.csv")
 
 ###########################
