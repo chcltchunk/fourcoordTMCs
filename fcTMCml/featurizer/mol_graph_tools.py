@@ -16,9 +16,11 @@ def graph_from_ase_atoms(atoms, threshold=1.2, covalent_radii=covalent_radii):
                 g.add_edge(i, j + i + 1)
     return g
 
+
 def graph_from_xyz_file(file, **kwargs):
     atoms = read(file)
     return graph_from_ase_atoms(atoms, **kwargs)
+
 
 def get_metal_id(graph):
     for node in graph.nodes():
