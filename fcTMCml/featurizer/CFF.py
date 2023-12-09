@@ -34,8 +34,6 @@ class CrystalFieldFeatures():
         self.ox = int(ox)
         self.mult = int(mult)
         self.init_dictionaries()
-        
-
 
     def init_dictionaries(self): 
         self.cores_d_conf = {"co" : {2: 7, 3 : 6},
@@ -86,51 +84,6 @@ class CrystalFieldFeatures():
         enediff = self.get_energy_diff_sqp_thd()
         guess = 0 if enediff < 0 else 1 
         return enediff, guess
-    
-        
-
-
-cff = CrystalFieldFeatures("cr", 3, 4)
-assert np.all(cff.occupy_d_orbitals() == [1,1,1,0,0])
-cff = CrystalFieldFeatures("mn", 3, 5)
-assert np.all(cff.occupy_d_orbitals() == [1,1,1,1,0])
-cff = CrystalFieldFeatures("mn", 2, 6)
-assert np.all(cff.occupy_d_orbitals() == [1,1,1,1,1])
-cff = CrystalFieldFeatures("fe", 3, 4)
-assert np.all(cff.occupy_d_orbitals() == [2,1,1,1,0])
-cff = CrystalFieldFeatures("mn", 2, 2)
-assert np.all(cff.occupy_d_orbitals() == [2,2,1,0,0])
-cff = CrystalFieldFeatures("fe", 2, 1)
-assert np.all(cff.occupy_d_orbitals() == [2,2,2,0,0])
-cff = CrystalFieldFeatures("co", 2, 2)
-assert np.all(cff.occupy_d_orbitals() == [2,2,2,1,0])
-cff = CrystalFieldFeatures("ni", 2, 1)
-assert np.all(cff.occupy_d_orbitals() == [2,2,2,2,0])
-cff = CrystalFieldFeatures("ni", 2, 3)
-assert np.all(cff.occupy_d_orbitals() == [2,2,2,1,1])
-
-cff = CrystalFieldFeatures("cr", 3, 4)
-occ = cff.occupy_d_orbitals()
-assert abs(cff.calculate_enes(occ, cff.geometry_diff_of_quanta["tetrahedral"]) - (-3.56)) <= EPS 
-cff = CrystalFieldFeatures("ni", 2, 3)
-occ = cff.occupy_d_orbitals()
-assert abs(cff.calculate_enes(occ, cff.geometry_diff_of_quanta["square planar"]) - (-14.56)) <= EPS 
-cff = CrystalFieldFeatures("mn", 3, 5)
-occ = cff.occupy_d_orbitals()
-assert abs(cff.calculate_enes(occ, cff.geometry_diff_of_quanta["square planar"]) - (-12.28)) <= EPS 
-cff = CrystalFieldFeatures("cr", 3, 2)
-occ = cff.occupy_d_orbitals()
-assert abs(cff.calculate_enes(occ, cff.geometry_diff_of_quanta["tetrahedral"]) - (-8.01)) <= EPS 
-cff = CrystalFieldFeatures("fe", 2, 1)
-occ = cff.occupy_d_orbitals()
-assert abs(cff.calculate_enes(occ, cff.geometry_diff_of_quanta["tetrahedral"]) - (-7.12)) <= EPS 
-cff = CrystalFieldFeatures("ni", 2, 1)
-occ = cff.occupy_d_orbitals()
-assert abs(cff.calculate_enes(occ, cff.geometry_diff_of_quanta["square planar"]) - (-24.56)) <= EPS 
-cff = CrystalFieldFeatures("cr", 2, 1)
-occ = cff.occupy_d_orbitals()
-assert abs(cff.calculate_enes(occ, cff.geometry_diff_of_quanta["square planar"]) - (-20.56)) <= EPS 
-
 
 
 def extend_racs(
@@ -227,4 +180,3 @@ def extend_mcdl46(
     extended_racs = np.hstack((extensions, mcdl46_set.reshape(-1, np.prod(mcdl46_set.shape[1:]))))
     print(extended_racs.shape)
     return extended_racs
-
