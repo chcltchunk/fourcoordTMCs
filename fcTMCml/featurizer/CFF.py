@@ -25,7 +25,6 @@
 # Imports
 # =============================================================================
 import numpy as np
-from fcTMCml.constants import EPS
 
 
 class CrystalFieldFeatures():
@@ -35,14 +34,14 @@ class CrystalFieldFeatures():
         self.mult = int(mult)
         self.init_dictionaries()
 
-    def init_dictionaries(self): 
+    def init_dictionaries(self):
         self.cores_d_conf = {"co" : {2: 7, 3 : 6},
-                 "ni" : {2 : 8},
-                 "cr" : {2 : 4, 3 : 3},
-                 "fe" : {2 : 6, 3 : 5},
-                 "mn" : {2 : 5, 3 : 4}
-                    }
-        
+                             "ni" : {2 : 8},
+                             "cr" : {2 : 4, 3 : 3},
+                             "fe" : {2 : 6, 3 : 5},
+                             "mn" : {2 : 5, 3 : 4}
+                             }
+
         # define geometry based degeneracy patterns
         self.geometry_degeneracies = {
             "square planar" : [2, 1, 1, 1],
@@ -59,124 +58,28 @@ class CrystalFieldFeatures():
         return conf_ene
 
     def occupy_d_orbitals(self):
-        single_es = self.mult-1 # for spin 1/2
+        single_es = self.mult - 1  # for spin 1/2
         num_es = self.cores_d_conf[self.metal][self.ox]
         if num_es == 10:
             if single_es == 0:
                 double_occ = 10
             else:
                 raise "electron config and multiplicity do not match"
-        double_occ = (num_es - single_es)//2
-        occ = [0]*5
+        double_occ = (num_es - single_es) // 2
+        occ = [0] * 5
         for i in range(double_occ):
             occ[i] = 2
-        for i in range(double_occ, double_occ+single_es):
+        for i in range(double_occ, double_occ + single_es):
             occ[i] = 1
-        return occ    
+        return occ
 
     def get_energy_diff_sqp_thd(self):
         occ = self.occupy_d_orbitals()
         thd_ene = self.calculate_enes(occ, self.geometry_diff_of_quanta["tetrahedral"])
         sqp_ene = self.calculate_enes(occ, self.geometry_diff_of_quanta["square planar"])
-        return thd_ene-sqp_ene
+        return thd_ene - sqp_ene
 
     def get_energy_diff_sqp_thd_and_geom_guess(self):
         enediff = self.get_energy_diff_sqp_thd()
-        guess = 0 if enediff < 0 else 1 
+        guess = 0 if enediff < 0 else 1
         return enediff, guess
-
-
-def extend_racs(
-    rac_set,
-    per_rack_identifiers,
-    extension_type='default'
-):
-    """
-    works for identifiers of the format:
-        metal_co_ox_2_spin_2_ligstr_ligand1_ligand2_ligand3_ligand4_*
-    adds 9 additional elements to feature vector
-    extension_type : str
-        type of extension: 'default', 'phys_ediffs', 'phys_ediffs_only' 'dbloc_ediffs'
-    """
-    extensions = []
-    for index, name in enumerate(per_rack_identifiers):
-        split = name.split("_") 
-        metal = str(split[1])
-        ox = int(split[3]) 
-        mult = int(split[5]) 
-        lig_list = split[7:11]
-        dents = []
-        lig_charges = []
-        for lig in lig_list:
-            dent_info = molsimplify_ligand_dict[lig][2]
-            dents += [1 if (type(dent_info) == str) else len(dent_info)]
-            lig_charges += [int(molsimplify_ligand_dict[lig][5][0])]
-        if extension_type == 'default':
-            extensions += [[ox, mult, *dents]]
-        elif extension_type == 'phys_ediffs':
-            dbloc = CrystalFieldFeatures(metal, ox, mult)
-            occ = dbloc.occupy_d_orbitals()
-            #ediff = dbloc.get_energy_diff_sqp_thd(dbloc=False)
-            ediff, guess = dbloc.get_energy_diff_sqp_thd_and_geom_guess(dbloc=False)
-            extensions += [[ox, ediff, guess, *lig_charges, *dents]]
-        elif extension_type == 'phys_ediffs_only':
-            dbloc = CrystalFieldFeatures(metal, ox, mult)
-            occ = dbloc.occupy_d_orbitals()
-            #ediff = dbloc.get_energy_diff_sqp_thd(dbloc=False)
-            ediff, guess = dbloc.get_energy_diff_sqp_thd_and_geom_guess(dbloc=False)
-            extensions += [[ediff, guess]]
-        elif extension_type == 'dbloc_ediffs':
-            dbloc = CrystalFieldFeatures(metal, ox, mult, lig_list)
-            occ = dbloc.occupy_d_orbitals()
-            ediff, guess = dbloc.get_energy_diff_sqp_thd_and_geom_guess(dbloc=True)
-            extensions += [[ox, ediff, guess, *lig_charges, *dents]]
-        else:
-            raise ValueError("define a proper extension type: default, phys_ediffs, 'phys_ediffs_only', dbloc_ediffs")
-    extensions = np.vstack(extensions)
-    rac_set = rac_set.reshape(-1, np.prod(rac_set.shape[1:]))
-    extended_racs = np.hstack((extensions, rac_set))
-    return extended_racs
-
-
-def extend_mcdl46(
-    mcdl46_set,
-    per_mcdl46_identifiers,
-    extension_type='phys_ediffs'
-):
-    """
-    works for identifiers of the format:
-        metal_co_ox_2_spin_2_ligstr_ligand1_ligand2_ligand3_ligand4_*
-    adds 9 additional elements to feature vector
-    extension_type : str
-        type of extension: 'phys_ediffs', 'dbloc_ediffs'
-    """
-    extensions = []
-    for index, name in enumerate(per_mcdl46_identifiers):
-        split = name.split("_") 
-        metal = str(split[1])
-        ox = int(split[3]) 
-        mult = int(split[5]) 
-        lig_list = split[7:11]
-        dents = []
-        lig_charges = []
-        for lig in lig_list:
-            dent_info = molsimplify_ligand_dict[lig][2]
-            dents += [1 if (type(dent_info) == str) else len(dent_info)]
-            lig_charges += [int(molsimplify_ligand_dict[lig][5][0])]
-        if extension_type == 'phys_ediffs':
-            dbloc = CrystalFieldFeatures(metal, ox, mult)
-            occ = dbloc.occupy_d_orbitals()
-            #ediff = dbloc.get_energy_diff_sqp_thd(dbloc=False)
-            ediff, guess = dbloc.get_energy_diff_sqp_thd_and_geom_guess(dbloc=False)
-            extensions += [[ediff, guess]]
-        elif extension_type == 'dbloc_ediffs':
-            dbloc = CrystalFieldFeatures(metal, ox, mult, lig_list)
-            occ = dbloc.occupy_d_orbitals()
-            ediff, guess = dbloc.get_energy_diff_sqp_thd_and_geom_guess(dbloc=True)
-            extensions += [[ediff, guess]]
-        else:
-            raise ValueError("define a proper extension type: phys_ediffs, dbloc_ediffs")
-    extensions = np.vstack(extensions)
-    extended_racs = np.hstack((extensions, mcdl46_set.reshape(-1, np.prod(mcdl46_set.shape[1:]))))
-    print(extended_racs.shape)
-    return extended_racs
