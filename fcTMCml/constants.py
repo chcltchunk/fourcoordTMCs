@@ -32,7 +32,7 @@ __all__ = [
 roman_numerals = {"I": 1, "II": 2, "III": 3, "IV": 4, "V": 5}
 
 metal_list_symbolic = ["Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn"]
-metal_list = np.array(list(range(21, 30))+list(range(39, 48))+list(range(72, 80)))
+metal_list = np.array(list(range(21, 30)) + list(range(39, 48)) + list(range(72, 80)))
 
 # Consistent with the definition in molSimplify:
 # http://www.webelements.com/ (last accessed May 13th 2015)
