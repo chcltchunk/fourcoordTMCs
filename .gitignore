@@ -5,7 +5,6 @@ __pycache__/
 
 # other
 *.png
-*.xyz
 .DS_Store
 
 # C extensions
@@ -30,6 +29,8 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+# remove unpacked geometries from git
+data/geometries/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
