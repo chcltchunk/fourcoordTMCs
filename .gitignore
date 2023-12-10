@@ -6,7 +6,6 @@ __pycache__/
 # other
 *.png
 *.xyz
-cleanup_geometries.py
 .DS_Store
 
 # C extensions
