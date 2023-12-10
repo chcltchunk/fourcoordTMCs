@@ -20,7 +20,7 @@
 # MA 02110-1301, USA.
 #
 # =============================================================================
-# implements ligand field features
+# implements crystal field features
 # =============================================================================
 # Imports
 # =============================================================================
@@ -48,7 +48,7 @@ class CrystalFieldFeatures():
             "tetrahedral" : [2, 3]
         }
         # define geometry based differential of quanta energy schemes
-        self.geometry_diff_of_quanta = {
+        self.geometry_diff_of_quanta_values = {
             "tetrahedral" : np.array([-2.67, -2.67, 1.78, 1.78, 1.78]),
             "square planar" : np.array([-5.14, -5.14, -4.28, 2.28, 12.28])
         }
@@ -66,22 +66,27 @@ class CrystalFieldFeatures():
             else:
                 raise "electron config and multiplicity do not match"
         double_occ = (num_es - single_es) // 2
-        occ = [0] * 5
+        self.occ = [0] * 5
         for i in range(double_occ):
-            occ[i] = 2
+            self.occ[i] = 2
         for i in range(double_occ, double_occ + single_es):
-            occ[i] = 1
-        return occ
+            self.occ[i] = 1
 
-    # TODO: maked these two functions generic
-    # TODO: add back SSE feature
-    def get_energy_diff_sqp_thd(self):
-        occ = self.occupy_d_orbitals()
-        thd_ene = self.calculate_enes(occ, self.geometry_diff_of_quanta["tetrahedral"])
-        sqp_ene = self.calculate_enes(occ, self.geometry_diff_of_quanta["square planar"])
-        return thd_ene - sqp_ene
+    def get_energy_diff(self, geometryA="tetrahedral", geometryB="square planar"):
+        """
+        calculate energy difference between two geometries
+        - used as continous CFF (regression)
+        """
+        self.occupy_d_orbitals()
+        geomA_energy = self.calculate_enes(self.occ, self.geometry_diff_of_quanta_values[geometryA])
+        geomB_energy = self.calculate_enes(self.occ, self.geometry_diff_of_quanta_values[geometryB])
+        return geomA_energy - geomB_energy
 
-    def get_energy_diff_sqp_thd_and_geom_guess(self):
-        enediff = self.get_energy_diff_sqp_thd()
-        guess = 0 if enediff < 0 else 1
-        return enediff, guess
+    def get_geometry_guess(self, geometryA="tetrahedral", geometryB="square planar"):
+        """
+        returns 0 if geometryA is favored else 1
+        - used as binary CFF (classification)
+        """
+        energy_diff = self.get_energy_diff(geometryA, geometryB)
+        guess = 0 if energy_diff < 0 else 1
+        return guess
