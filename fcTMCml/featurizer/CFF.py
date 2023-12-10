@@ -73,6 +73,8 @@ class CrystalFieldFeatures():
             occ[i] = 1
         return occ
 
+    # TODO: maked these two functions generic
+    # TODO: add back SSE feature
     def get_energy_diff_sqp_thd(self):
         occ = self.occupy_d_orbitals()
         thd_ene = self.calculate_enes(occ, self.geometry_diff_of_quanta["tetrahedral"])
