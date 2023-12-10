@@ -25,23 +25,23 @@ def test_CFF_d_orbital_occupation():
 
 def test_CFF_energy_features():
     cff = CrystalFieldFeatures("cr", 3, 4)
-    occ = cff.occupy_d_orbitals()
-    assert abs(cff.calculate_enes(occ, cff.geometry_diff_of_quanta_values["tetrahedral"]) - (-3.56)) <= EPS 
+    cff.occupy_d_orbitals()
+    assert abs(cff.calculate_enes(cff.occ, cff.geometry_diff_of_quanta_values["tetrahedral"]) - (-3.56)) <= EPS 
     cff = CrystalFieldFeatures("ni", 2, 3)
-    occ = cff.occupy_d_orbitals()
-    assert abs(cff.calculate_enes(occ, cff.geometry_diff_of_quanta_values["square planar"]) - (-14.56)) <= EPS 
+    cff.occupy_d_orbitals()
+    assert abs(cff.calculate_enes(cff.occ, cff.geometry_diff_of_quanta_values["square planar"]) - (-14.56)) <= EPS 
     cff = CrystalFieldFeatures("mn", 3, 5)
-    occ = cff.occupy_d_orbitals()
-    assert abs(cff.calculate_enes(occ, cff.geometry_diff_of_quanta_values["square planar"]) - (-12.28)) <= EPS 
+    cff.occupy_d_orbitals()
+    assert abs(cff.calculate_enes(cff.occ, cff.geometry_diff_of_quanta_values["square planar"]) - (-12.28)) <= EPS 
     cff = CrystalFieldFeatures("cr", 3, 2)
-    occ = cff.occupy_d_orbitals()
-    assert abs(cff.calculate_enes(occ, cff.geometry_diff_of_quanta_values["tetrahedral"]) - (-8.01)) <= EPS 
+    cff.occupy_d_orbitals()
+    assert abs(cff.calculate_enes(cff.occ, cff.geometry_diff_of_quanta_values["tetrahedral"]) - (-8.01)) <= EPS 
     cff = CrystalFieldFeatures("fe", 2, 1)
-    occ = cff.occupy_d_orbitals()
-    assert abs(cff.calculate_enes(occ, cff.geometry_diff_of_quanta_values["tetrahedral"]) - (-7.12)) <= EPS 
+    cff.occupy_d_orbitals()
+    assert abs(cff.calculate_enes(cff.occ, cff.geometry_diff_of_quanta_values["tetrahedral"]) - (-7.12)) <= EPS 
     cff = CrystalFieldFeatures("ni", 2, 1)
-    occ = cff.occupy_d_orbitals()
-    assert abs(cff.calculate_enes(occ, cff.geometry_diff_of_quanta_values["square planar"]) - (-24.56)) <= EPS 
+    cff.occupy_d_orbitals()
+    assert abs(cff.calculate_enes(cff.occ, cff.geometry_diff_of_quanta_values["square planar"]) - (-24.56)) <= EPS 
     cff = CrystalFieldFeatures("cr", 2, 1)
-    occ = cff.occupy_d_orbitals()
-    assert abs(cff.calculate_enes(occ, cff.geometry_diff_of_quanta_values["square planar"]) - (-20.56)) <= EPS 
+    cff.occupy_d_orbitals()
+    assert abs(cff.calculate_enes(cff.occ, cff.geometry_diff_of_quanta_values["square planar"]) - (-20.56)) <= EPS 
