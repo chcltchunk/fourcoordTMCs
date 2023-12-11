@@ -7,6 +7,11 @@ from networkx import graph
 def get_dummy_graph():
     g = graph.Graph()
     g.add_node(0, atomic_number=26)
+    g.add_node(1, atomic_number=7)
+    g.add_node(2, atomic_number=8)
+    g.add_node(3, atomic_number=19)
+    g.add_node(4, atomic_number=8)
+    g.add_edges_from([(0, 1), (0, 2), (0, 3), (0, 4)])
     return g
     
 
@@ -18,3 +23,7 @@ def test_get_ligand_denticities():
 def test_get_ligand_charges():
     mcdlf = MCDL46(get_dummy_graph(), None, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
     assert mcdlf.get_ligand_charges() == [0, -1, -1, 0 , 0, -1, -2]
+
+def test_get_coordinating_atom_numbers():
+    mcdlf = MCDL46(get_dummy_graph(), None, None)
+    assert mcdlf.get_coordinating_atom_numbers() == [7, 8, 19, 8]

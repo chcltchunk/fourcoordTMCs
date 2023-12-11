@@ -47,9 +47,9 @@ class MCDL46():
         self.graph = graph
         self.ligand_list = ligand_list
         self.feature_dict = {}
-        metal_node_id = get_metal_node_id(self.graph)
-        if metal_node_id == None: raise TypeError("Can not generate MCDL46 features without central metal")
-        self.metal_identity = graph.nodes[metal_node_id]["atomic_number"]
+        self.metal_node_id = get_metal_node_id(self.graph)
+        if self.metal_node_id == None: raise TypeError("Can not generate MCDL46 features without central metal")
+        self.metal_identity = graph.nodes[self.metal_node_id]["atomic_number"]
         self.oxidation_state = oxidation_state
         self.electronegativity = electronegativity[self.metal_identity]
         # only for classifier where you do NOT use a pair of HS/LS TMCs (with two different multiplicities)
@@ -61,7 +61,7 @@ class MCDL46():
             self.multiplicity = np.nan
             self.spin_state = np.nan
         # TODO: this is an 4 array
-        # self.connection_atom_n = self.get_coordinating_atom_numbers()
+        self.connection_atom_n = self.get_coordinating_atom_numbers()
         # self.ligand_charge_n = self.get_ligand_charges()
         # self.ligand_denticity_n = self.get_ligand_denticities()
         # self.ligand_number_of_atoms_n = self.get_ligand_number_of_atoms()
@@ -90,7 +90,7 @@ class MCDL46():
     def get_coordinating_atom_numbers(self):
         # this returns the atomic number of the metal coordinating atoms
         coord_atomic_numbers = []
-        this_atoms_neighbors = self.graph.neighbors(self.metal_identity)
+        this_atoms_neighbors = self.graph.neighbors(self.metal_node_id)
         for bound_atoms in this_atoms_neighbors:
             coord_atomic_numbers += [self.graph.nodes[bound_atoms]["atomic_number"]]
         return coord_atomic_numbers
