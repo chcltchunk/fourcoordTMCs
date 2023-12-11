@@ -22,7 +22,7 @@ def graph_from_xyz_file(file, **kwargs):
     return graph_from_ase_atoms(atoms, **kwargs)
 
 
-def get_metal_id(graph):
+def get_metal_node_id(graph):
     for node in graph.nodes():
         if graph.nodes[node]['atomic_number'] in metal_list:
             return node
