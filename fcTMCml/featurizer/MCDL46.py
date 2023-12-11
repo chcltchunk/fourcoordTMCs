@@ -4,10 +4,10 @@ import numpy as np
 import networkx as nx
 
 from fcTMCml.constants import electronegativity
-from fcTMCml.featurizer.mol_graph_tools import  get_metal_node_id
+from fcTMCml.featurizer.mol_graph_tools import get_metal_node_id
 
 """
-This class builds MCDL25 feauteres as described in DOI: 10.1039/c7sc01247k. 
+This class builds MCDL25 feauteres as described in DOI: 10.1039/c7sc01247k.
     - the exchange sensitivity is removed.
     - the ligand identity is removed
 We add multiplicity, spin-state, the full Kier index, and (truncated) atom
@@ -18,7 +18,7 @@ Scope   | Feature                   | Abbreviation      |
 ---------------------------------------------------------
 Metal   | Identitiy                 | I(M)              |
         | Oxidation State           | Ox                |
-        | Pauling Electronegativity | min/max/sum(\chi) |
+        | Pauling Electronegativity | min/max/sum(chi)  |
         | Multiplicity              | S                 |*new(classifier only)
         | Spin State (HS vs. LS)    | SS                |*new(classifier only)
 ---------------------------------------------------------
@@ -38,15 +38,17 @@ Counts  | Individual Atom Counts    | #                 |*new
 
 # load molSimplify ligand dict from ligands.dict
 # TODO(ralf): is there a simpler way of doing this w/o using molSimplify?
-ligand_dict = {x.split(":")[0]: x.split(":")[1][:-1].split(",") for x in open("ligands.dict").readlines()[2:]}
+ligand_dict = {x.split(":")[0]: x.split(":")[1][:-1].split(",") for x in open("fcTMCml/featurizer/ligands.dict").readlines()[2:]}
+
 
 class MCDL46():
-    def __init__(self, graph: nx.graph, oxidation_state: int, ligand_list: list, multiplicity: int=None, truncation: int=3) -> None:
+    def __init__(self, graph: nx.graph, oxidation_state: int, ligand_list: list, multiplicity: int = None, truncation: int = 3) -> None:
         # sub_n denotes a non-scalar value
         self.graph = graph
         self.ligand_list = ligand_list
         self.feature_dict = {}
-        metal_node_id = get_metal_node_id(graph)
+        metal_node_id = get_metal_node_id(self.graph)
+        if metal_node_id == None: raise TypeError("Can not generate MCDL46 features without central metal")
         self.metal_identity = graph.nodes[metal_node_id]["atomic_number"]
         self.oxidation_state = oxidation_state
         self.electronegativity = electronegativity[self.metal_identity]
@@ -59,20 +61,30 @@ class MCDL46():
             self.multiplicity = np.nan
             self.spin_state = np.nan
         # TODO: this is an 4 array
-        self.connection_atom_n = self.get_coordinating_atom_numbers()
-        self.ligand_charge_n = self.get_ligand_charges()
-        self.ligand_denticity_n = self.get_ligand_denticities()
-        self.ligand_number_of_atoms_n = self.get_ligand_number_of_atoms()
-        self.ligand_max_bond_order_n = self.get_ligand_max_bond_order()
-        self.kier_index = self.get_kier_index()
-        self.truncated_kier_index = self.get_kier_index(truncation)
-        self.individual_atom_counts_n = self.get_all_ligands_atom_counts()
-        self.truncated_individual_atom_counts_n = self.get_all_ligands_atom_counts(truncation)
+        # self.connection_atom_n = self.get_coordinating_atom_numbers()
+        # self.ligand_charge_n = self.get_ligand_charges()
+        # self.ligand_denticity_n = self.get_ligand_denticities()
+        # self.ligand_number_of_atoms_n = self.get_ligand_number_of_atoms()
+        # self.ligand_max_bond_order_n = self.get_ligand_max_bond_order()
+        # self.kier_index = self.get_kier_index()
+        # self.truncated_kier_index = self.get_kier_index(truncation)
+        # self.individual_atom_counts_n = self.get_all_ligands_atom_counts()
+        # self.truncated_individual_atom_counts_n = self.get_all_ligands_atom_counts(truncation)
 
 
 
-    def get_ligand_charges(self, ligands: list=[]):
-        self.ligand_list
+    def get_ligand_charges(self):
+        charges_n = []
+        for ligand in self.ligand_list:
+            charges_n += [int(ligand_dict[ligand][5])]
+        return charges_n
+
+
+    def get_ligand_denticity(self):
+        denticity_n = []
+        for ligand in self.ligand_list:
+            denticity_n += [int(len(ligand_dict[ligand][2].split(" ")))]
+        return denticity_n
 
 
     def get_coordinating_atom_numbers(self):
@@ -84,7 +96,7 @@ class MCDL46():
         return coord_atomic_numbers
 
 
-    def get_classifier_features(self, additional_featurizer: list=[]):
+    def get_classifier_features(self, additional_featurizer: list = []):
         """
         get features for a classifier task
 
@@ -201,7 +213,7 @@ class MCDL46():
         # return counts of elements for those of interest
         return counts_of_elements[mask]
 
-    def get_mcdl46_features(graph, name, BO_graph=None):
+    def get_mcdl46_features(self, graph, name, BO_graph=None):
         """returns mcdl46 (mcdl25) (10.1039/C7SC01247K) features for given TMC graph
             TODO: we leave out the bond order for now to avoid dependency on openbabe for now
         """
@@ -229,10 +241,10 @@ class MCDL46():
         max_delEN = np.amax(delta_ENs)
 
 
-        coord_atomic_numbers = get_coordinating_atom_numbers(graph, metal_id)
+        coord_atomic_numbers = self.get_coordinating_atom_numbers(graph, metal_id)
 
-        kier_index = get_kier_index(graph)
-        trunc_kier = get_kier_index(graph, 3, metal_id)
+        kier_index = self.get_kier_index(graph)
+        trunc_kier = self.get_kier_index(graph, 3, metal_id)
         
         num_atoms = graph.number_of_nodes() 
         
