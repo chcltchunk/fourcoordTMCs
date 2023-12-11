@@ -15,15 +15,15 @@ def get_dummy_graph():
     return g
     
 
-def test_get_ligand_denticities():
-    mcdlf = MCDL46(get_dummy_graph(), None, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac"])
+def test_get_ligand_denticity():
+    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac"])
     assert mcdlf.get_ligand_denticity() == [4, 1, 1, 1, 1, 2]
 
 
 def test_get_ligand_charges():
-    mcdlf = MCDL46(get_dummy_graph(), None, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
+    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
     assert mcdlf.get_ligand_charges() == [0, -1, -1, 0 , 0, -1, -2]
 
 def test_get_coordinating_atom_numbers():
-    mcdlf = MCDL46(get_dummy_graph(), None, None)
+    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
     assert mcdlf.get_coordinating_atom_numbers() == [7, 8, 19, 8]

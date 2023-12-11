@@ -25,7 +25,7 @@ Metal   | Identitiy                 | I(M)              |
 Ligand  | Connection Atom           | CA                |
         | Charge                    | LC                |
         | Denticity                 | LD                |
-        | Number of Atoms           | L#A               |
+        | Number of Atoms           | #A                |
         | Bond Order                | max(LBO)          |*(openbabel only)
         | Kier Index                | K                 |*new
         | Truncated Kier Index      | TK                |
@@ -62,32 +62,33 @@ class MCDL46():
             self.spin_state = np.nan
         # TODO: this is an 4 array
         self.connection_atom_n = self.get_coordinating_atom_numbers()
-        # self.ligand_charge_n = self.get_ligand_charges()
-        # self.ligand_denticity_n = self.get_ligand_denticities()
-        # self.ligand_number_of_atoms_n = self.get_ligand_number_of_atoms()
+        self.ligand_charge_n = self.get_ligand_charges()
+        self.ligand_denticity_n = self.get_ligand_denticity()
+        self.ligands_as_subgraph_n = self.get_ligands_as_subgraph()
+        self.ligand_number_of_atoms_n = self.get_number_of_atoms()
         # self.ligand_max_bond_order_n = self.get_ligand_max_bond_order()
-        # self.kier_index = self.get_kier_index()
+        self.kier_index = self.get_kier_index()
         # self.truncated_kier_index = self.get_kier_index(truncation)
         # self.individual_atom_counts_n = self.get_all_ligands_atom_counts()
         # self.truncated_individual_atom_counts_n = self.get_all_ligands_atom_counts(truncation)
 
 
 
-    def get_ligand_charges(self):
+    def get_ligand_charges(self) -> list:
         charges_n = []
         for ligand in self.ligand_list:
             charges_n += [int(ligand_dict[ligand][5])]
         return charges_n
 
 
-    def get_ligand_denticity(self):
+    def get_ligand_denticity(self) -> list:
         denticity_n = []
         for ligand in self.ligand_list:
             denticity_n += [int(len(ligand_dict[ligand][2].split(" ")))]
         return denticity_n
 
 
-    def get_coordinating_atom_numbers(self):
+    def get_coordinating_atom_numbers(self) -> int:
         # this returns the atomic number of the metal coordinating atoms
         coord_atomic_numbers = []
         this_atoms_neighbors = self.graph.neighbors(self.metal_node_id)
@@ -96,7 +97,7 @@ class MCDL46():
         return coord_atomic_numbers
 
 
-    def get_classifier_features(self, additional_featurizer: list = []):
+    def get_classifier_features(self, additional_featurizer: list = []) -> np.ndarray:
         """
         get features for a classifier task
 
@@ -115,7 +116,7 @@ class MCDL46():
         pass
 
 
-    def get_SSE_prediction_features(self, additional_featurizer: list=[]):
+    def get_SSE_prediction_features(self, additional_featurizer: list=[]) -> np.ndarray:
         """
         get features for a prediction task
 
@@ -163,10 +164,10 @@ class MCDL46():
         else:
             return 0.0
 
-    def get_ligands_as_subgraph(self):
-        if self.metal_identity == None:
+    def get_ligands_as_subgraph(self) -> list:
+        if self.metal_node_id == None:
             raise Exception("Could not find metal in complex.")
-        connecting_atoms = list(self.graph.neighbors(self.metal_identity))
+        connecting_atoms = list(self.graph.neighbors(self.metal_node_id))
         # Then cut the graph by removing all connections to the first atom
         subgraphs = self.graph.copy()
         subgraphs.remove_edges_from([(0, c) for c in connecting_atoms])
@@ -180,7 +181,7 @@ class MCDL46():
         ]
         return ligands
 
-    def get_all_ligands_atom_counts(self, truncation: int=None) -> list:
+    def get_all_ligands_atom_counts(self, truncation: int = None) -> list:
         """
         counts B, C, N, O, F, P, S, Cl, Br, I for all ligands
         
@@ -213,6 +214,17 @@ class MCDL46():
         # return counts of elements for those of interest
         return counts_of_elements[mask]
 
+
+    def get_number_of_atoms(self) -> int:
+        return self.graph.number_of_nodes() 
+        
+
+    def get_ligand_number_of_atoms(self) -> list:
+        ligand_sizes_n = [ligand[1].number_of_nodes() for ligand in self.ligands_as_subgraph_n]
+        return ligand_sizes_n
+        
+
+
     def get_mcdl46_features(self, graph, name, BO_graph=None):
         """returns mcdl46 (mcdl25) (10.1039/C7SC01247K) features for given TMC graph
             TODO: we leave out the bond order for now to avoid dependency on openbabe for now
@@ -232,10 +244,10 @@ class MCDL46():
         
         print(split, ox_state, dents, lig_charges, spin)
 
-        metal_id = get_metal_id(graph)
+        metal_id = self.get_metal_id(graph)
         metal_identity = graph.nodes[metal_id]["atomic_number"]
     
-        delta_ENs = get_electronegativity_diffs(graph, metal_id)
+        delta_ENs = self.get_electronegativity_diffs(graph, metal_id)
         sum_delEN = np.sum(delta_ENs)
         min_delEN = np.amin(delta_ENs)
         max_delEN = np.amax(delta_ENs)
@@ -248,13 +260,10 @@ class MCDL46():
         
         num_atoms = graph.number_of_nodes() 
         
-        ligands = get_ligands_as_subgraph(graph) 
+        ligands = self.get_ligands_as_subgraph(graph) 
         ligand_sizes = [ligand[1].number_of_nodes() for ligand in ligands] 
-        ligand_bincount = get_ligand_atom_type_bincounts(graph)
-        ligand_bincount_trunc = get_ligand_atom_type_bincounts(graph, 3, metal_id)
-        #print(ligand_bincount)
-        #print(ligand_bincount_trunc)
-        #print(name)
+        ligand_bincount = self.get_ligand_atom_type_bincounts(graph)
+        ligand_bincount_trunc = self.get_ligand_atom_type_bincounts(graph, 3, metal_id)
 
     
         spin_state = 0 if spin < 2 else 1
