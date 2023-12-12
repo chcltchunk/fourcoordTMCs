@@ -1,5 +1,6 @@
 import re
 import ast
+import scipy
 import numpy as np
 import networkx as nx
 
@@ -26,7 +27,8 @@ Ligand  | Connection Atom           | CA                |
         | Charge                    | LC                |
         | Denticity                 | LD                |
         | Number of Atoms           | #A                |
-        | Bond Order                | max(LBO)          |*(openbabel only)
+        | Ligand Number of Atoms    | L#A               |*new
+        | Bond Order                | max(LBO)          |(openbabel only)
         | Kier Index                | K                 |*new
         | Truncated Kier Index      | TK                |
 ---------------------------------------------------------
@@ -65,7 +67,8 @@ class MCDL46():
         self.ligand_charge_n = self.get_ligand_charges()
         self.ligand_denticity_n = self.get_ligand_denticity()
         self.ligands_as_subgraph_n = self.get_ligands_as_subgraph()
-        self.ligand_number_of_atoms_n = self.get_number_of_atoms()
+        self.total_number_of_atoms = self.get_number_of_atoms()
+        self.ligand_number_of_atoms_n = self.get_ligand_number_of_atoms()
         # self.ligand_max_bond_order_n = self.get_ligand_max_bond_order()
         self.kier_index = self.get_kier_index()
         # self.truncated_kier_index = self.get_kier_index(truncation)
@@ -137,11 +140,11 @@ class MCDL46():
 
     def get_electronegativity_diffs(self) -> list:
         delta_ens = []
-        this_atoms_neighbors = self.graph.neighbors(self.metal_identity)
+        this_atoms_neighbors = self.graph.neighbors(self.metal_node_id)
         for bound_atoms in this_atoms_neighbors:
-            en_metal = electronegativity[self.graph.nodes[self.metal_identity]["atomic_number"]]
+            en_metal = electronegativity[self.graph.nodes[self.metal_node_id]["atomic_number"]]
             en_bound = electronegativity[self.graph.nodes[bound_atoms]["atomic_number"]]
-            this_delEN =  en_bound -  en_metal
+            this_delEN =  en_bound - en_metal
             delta_ens += [this_delEN]
         return delta_ens
 
@@ -149,10 +152,10 @@ class MCDL46():
 
     def get_kier_index(self, truncation=None) -> float:
         if truncation is not None:
-            graph = nx.generators.ego.ego_graph(self.graph, self.metal_identity, truncation)
+            graph = nx.generators.ego.ego_graph(self.graph, self.metal_node_id, truncation)
         else:
             graph = self.graph
-        A = nx.linalg.graphmatrix.adjacency_matrix(graph)
+        A = scipy.sparse.lil_matrix(nx.linalg.graphmatrix.adjacency_matrix(graph))
         n = A.shape[0]
         A *= A
         A.setdiag(0)
@@ -195,7 +198,7 @@ class MCDL46():
             counts 
         """
         if truncation is not None:
-            graph = nx.generators.ego.ego_graph(self.graph, self.metal_identity, truncation)
+            graph = nx.generators.ego.ego_graph(self.graph, self.metal_node_id, truncation)
         else:
             graph = self.graph
         ligands = self.get_ligands_as_subgraph(graph)
