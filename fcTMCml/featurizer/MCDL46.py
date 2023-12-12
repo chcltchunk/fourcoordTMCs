@@ -88,20 +88,17 @@ class MCDL46():
         self.individual_atom_counts_n = self.get_all_ligands_atom_counts()
         self.truncated_individual_atom_counts_n = self.get_all_ligands_atom_counts(truncation)
 
-
     def get_ligand_charges(self) -> list:
         charges_n = []
         for ligand in self.ligand_list:
             charges_n += [int(ligand_dict[ligand][5])]
         return charges_n
 
-
     def get_ligand_denticity(self) -> list:
         denticity_n = []
         for ligand in self.ligand_list:
             denticity_n += [int(len(ligand_dict[ligand][2].split(" ")))]
         return denticity_n
-
 
     def get_coordinating_atom_numbers(self) -> int:
         # this returns the atomic number of the metal coordinating atoms
@@ -113,8 +110,9 @@ class MCDL46():
 
     def get_classifier_feature_names():
         pass
+
     def get_regression_feature_names():
-        # TODO: make that for all feuturizer 
+        # TODO: make that for all feuturizer
         # build superclass to enforce this behavior
         pass
 
@@ -128,7 +126,7 @@ class MCDL46():
         additional_featurizer: list
             list of featurizers; features will be appended
             to feature vector in given order
-        
+
         Returns
         -------
         feature_vector: np.array
@@ -137,13 +135,19 @@ class MCDL46():
         # TODO: for loop additional features
 
         # TODO: use a multiline notation
-        feature_names = np.array(["I(M)", "Ox", r"sum($\chi$)", r"min($\chi$)", r"max($\chi$)", "S", "SS", *["CA"] * len(coord_atomic_numbers), *["LC"] * len(lig_charges), *["LD"]*len(dents), *["L#A"]*len(ligand_sizes), "K", "TK", "#B", "#C", "#N", "#O", "#F", "#P", "#S", "#Cl", "#Br", "#I", "T#B", "T#C", "T#N", "T#O", "T#F", "T#P", "T#S", "T#Cl", "T#Br", "T#I"])
-        feature_names = np.array(["I(M)", "Ox", r"sum($\chi$)", r"min($\chi$)", r"max($\chi$)", "S", "SS", *["CA"] * len(coord_atomic_numbers), *["LC"] *  len(lig_charges), *["LD"]*len(dents), *["L#A"]*len(ligand_sizes), "max(LBO)", "K", "TK", "#B", "#C", "#N", "#O", "#F", "#P", "#S", "#Cl", "#Br", "#I", "T#B", "T#C", "T#N", "T#O", "T#F", "T#P", "T#S", "T#Cl", "T#Br", "T#I"])
-    
+        # feature_names = np.array(["I(M)", "Ox", r"sum($\chi$)", r"min($\chi$)",
+        #                           r"max($\chi$)", "S", "SS", *["CA"] * len(coord_atomic_numbers),
+        #                           *["LC"] * len(lig_charges), *["LD"]*len(dents), *["L#A"]*len(ligand_sizes), "K",
+        #                           "TK", "#B", "#C", "#N", "#O", "#F", "#P", "#S", "#Cl", "#Br", "#I", "T#B", "T#C", "T#N",
+        #                           "T#O", "T#F", "T#P", "T#S", "T#Cl", "T#Br", "T#I"])
+        # feature_names = np.array(["I(M)", "Ox", r"sum($\chi$)", r"min($\chi$)", r"max($\chi$)", "S", "SS", *["CA"] * len(coord_atomic_numbers),
+        #                           *["LC"] *  len(lig_charges), *["LD"]*len(dents), *["L#A"]*len(ligand_sizes), "max(LBO)", "K", "TK", "#B",
+        #                           "#C", "#N", "#O", "#F", "#P", "#S", "#Cl", "#Br", "#I", "T#B", "T#C", "T#N", "T#O", "T#F", "T#P", "T#S",
+        #                           "T#Cl", "T#Br", "T#I"])
+
         pass
 
-
-    def get_SSE_prediction_features(self, additional_featurizer: list=[]) -> np.ndarray:
+    def get_SSE_prediction_features(self, additional_featurizer: list = []) -> np.ndarray:
         """
         get features for a prediction task
 
@@ -152,7 +156,7 @@ class MCDL46():
         additional_featurizer: list
             list of featurizers; features will be appended
             to feature vector in given order
-        
+
         Returns
         -------
         feature_vector: np.array
@@ -161,17 +165,15 @@ class MCDL46():
         # TODO: for loop additional features
         pass
 
-
     def get_electronegativity_diffs(self) -> list:
         delta_ens = []
         this_atoms_neighbors = self.graph.neighbors(self.metal_node_id)
         for bound_atoms in this_atoms_neighbors:
             en_metal = electronegativity[self.graph.nodes[self.metal_node_id]["atomic_number"]]
             en_bound = electronegativity[self.graph.nodes[bound_atoms]["atomic_number"]]
-            this_delEN =  en_bound - en_metal
+            this_delEN = en_bound - en_metal
             delta_ens += [this_delEN]
         return delta_ens
-    
 
     def get_kier_index(self, truncation: int = None) -> float:
         if truncation is not None:
@@ -184,15 +186,14 @@ class MCDL46():
         A.setdiag(0)
         p2 = A.sum() / 2
         n2 = n * n
-        n3 = n2 * n 
+        n3 = n2 * n
         if p2 != 0:
-            return ((n3 - 5 * n2 + 8 * n - 4) / (p2 * p2)) 
+            return ((n3 - 5 * n2 + 8 * n - 4) / (p2 * p2))
         else:
             return 0.0
 
-
     def get_ligands_as_subgraph(self) -> list:
-        if self.metal_node_id == None:
+        if self.metal_node_id is None:
             raise Exception("Could not find metal in complex.")
         connecting_atoms = list(self.graph.neighbors(self.metal_node_id))
         # Then cut the graph by removing all connections to the first atom
@@ -211,7 +212,7 @@ class MCDL46():
     def get_all_ligands_atom_counts(self, truncation: int = None) -> list:
         """
         counts B, C, N, O, F, P, S, Cl, Br, I for all ligands
-        
+
         Parameters
         ----------
         truncation: int
@@ -219,13 +220,13 @@ class MCDL46():
         Returns
         -------
         individual_atom_counts: list
-            counts 
+            counts
         """
         if truncation is not None:
             graph = nx.generators.ego.ego_graph(self.graph, self.metal_node_id, truncation)
         else:
             graph = self.graph
-        ligands = self.get_ligands_as_subgraph()
+        ligands = self.get_ligands_as_subgraph(graph)
         ligands_atom_list = []
         # store list of all atomic numbers of every ligand in ligands_atom_list
         for _, ligand in ligands:
@@ -241,15 +242,12 @@ class MCDL46():
         # return counts of elements for those of interest
         return counts_of_elements[mask]
 
-
     def get_number_of_atoms(self) -> int:
-        return self.graph.number_of_nodes() 
-
+        return self.graph.number_of_nodes()
 
     def get_ligand_number_of_atoms(self) -> list:
         ligand_sizes_n = [ligand[1].number_of_nodes() for ligand in self.ligands_as_subgraph_n]
         return ligand_sizes_n
-
 
     # modified from molSimplify (https://github.com/hjkgrp/molSimplify/blob/07dffb1fa4a061a6645c2e4030fd82ea9a0f81e6/molSimplify/Classes/mol3D.py#L2472)
     def get_ligand_max_bond_order(self, input_file: str):
@@ -259,7 +257,7 @@ class MCDL46():
         Parameters
         ----------
         input_file: str
-            path of input mol or 
+            path of input mol or xyz
 
         Returns
         -------
