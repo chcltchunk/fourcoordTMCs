@@ -28,6 +28,7 @@ def test_graph_from_xyz_file():
     assert g.nodes == g_ref.nodes
     assert g.edges == g_ref.edges
 
+
 def test_get_metal_node_id():
-    #TODO:
-    pass
+    g = graph_from_xyz_file(resource_dir + "dummy.xyz")
+    assert get_metal_node_id(g) == 1

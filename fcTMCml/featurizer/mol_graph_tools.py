@@ -7,7 +7,7 @@ from fcTMCml.constants import covalent_radii, metal_list
 def graph_from_ase_atoms(atoms, threshold=1.2, covalent_radii=covalent_radii):
     g = nx.Graph()
     for i, atom in enumerate(atoms):
-        g.add_node(i, symbol=atom.symbol)
+        g.add_node(i, atomic_number=atom.number)
 
     for i, ai in enumerate(atoms):
         for j, aj in enumerate(atoms[i + 1 :]):
