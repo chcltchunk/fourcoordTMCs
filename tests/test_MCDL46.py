@@ -13,7 +13,7 @@ def get_dummy_graph():
     g.add_node(4, atomic_number=8)
     g.add_edges_from([(0, 1), (0, 2), (0, 3), (0, 4)])
     return g
-    
+
 
 def test_get_ligand_denticity():
     mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac"])
@@ -36,4 +36,12 @@ def test_get_ligand_max_bond_order():
     assert int(np.max(mcdlf.get_ligand_max_bond_order(test_resource_dir + "furan.mol"))) == 2
     assert int(np.max(mcdlf.get_ligand_max_bond_order(test_resource_dir + "water.xyz"))) == 1
 
-    
+
+def test_get_classifier_features():
+    # TODO:
+    assert (1 - 1) < EPS
+
+
+def test_get_regression_features():
+    # TODO:
+    assert (1 - 1) < EPS

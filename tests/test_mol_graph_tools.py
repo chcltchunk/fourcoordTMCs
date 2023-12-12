@@ -1,8 +1,7 @@
-import numpy as np
-from fcTMCml.constants import EPS, test_resource_dir
-from fcTMCml.featurizer.mol_graph_tools import graph_from_ase_atoms, graph_from_xyz_file, get_metal_node_id
-from networkx import graph
 from ase.io import read
+from networkx import graph
+from fcTMCml.constants import test_resource_dir
+from fcTMCml.featurizer.mol_graph_tools import graph_from_ase_atoms, graph_from_xyz_file, get_metal_node_id
 
 
 def get_water_graph():
@@ -12,6 +11,7 @@ def get_water_graph():
     )
     g_ref.add_edges_from([(0, 1), (0, 2)])
     return g_ref
+
 
 def test_graph_from_ase_atoms():
     g_ref = get_water_graph()

@@ -1,5 +1,3 @@
-import re
-import ast
 import scipy
 import numpy as np
 import networkx as nx
@@ -59,7 +57,8 @@ class MCDL46():
         self.ligand_list = ligand_list
         self.feature_dict = {}
         self.metal_node_id = get_metal_node_id(self.graph)
-        if self.metal_node_id == None: raise TypeError("Can not generate MCDL46 features without central metal")
+        if self.metal_node_id is None:
+            raise TypeError("Can not generate MCDL46 features without central metal")
         self.metal_identity = graph.nodes[self.metal_node_id]["atomic_number"]
         self.oxidation_state = oxidation_state
         self.electronegativity = electronegativity[self.metal_identity]
@@ -88,7 +87,6 @@ class MCDL46():
         self.truncated_kier_index = self.get_kier_index(truncation)
         self.individual_atom_counts_n = self.get_all_ligands_atom_counts()
         self.truncated_individual_atom_counts_n = self.get_all_ligands_atom_counts(truncation)
-
 
 
     def get_ligand_charges(self) -> list:
@@ -139,8 +137,8 @@ class MCDL46():
         # TODO: for loop additional features
 
         # TODO: use a multiline notation
-        feature_names = np.array(["I(M)", "Ox", r"sum($\chi$)", r"min($\chi$)", r"max($\chi$)", "S", "SS", *["CA"]*len(coord_atomic_numbers), *["LC"]*len(lig_charges), *["LD"]*len(dents), *["L#A"]*len(ligand_sizes), "K", "TK", "#B", "#C", "#N", "#O", "#F", "#P", "#S", "#Cl", "#Br", "#I", "T#B", "T#C", "T#N", "T#O", "T#F", "T#P", "T#S", "T#Cl", "T#Br", "T#I"])
-        feature_names = np.array(["I(M)", "Ox", r"sum($\chi$)", r"min($\chi$)", r"max($\chi$)", "S", "SS", *["CA"]*len(coord_atomic_numbers), *["LC"]*len(lig_charges), *["LD"]*len(dents), *["L#A"]*len(ligand_sizes), "max(LBO)", "K", "TK", "#B", "#C", "#N", "#O", "#F", "#P", "#S", "#Cl", "#Br", "#I", "T#B", "T#C", "T#N", "T#O", "T#F", "T#P", "T#S", "T#Cl", "T#Br", "T#I"])
+        feature_names = np.array(["I(M)", "Ox", r"sum($\chi$)", r"min($\chi$)", r"max($\chi$)", "S", "SS", *["CA"] * len(coord_atomic_numbers), *["LC"] * len(lig_charges), *["LD"]*len(dents), *["L#A"]*len(ligand_sizes), "K", "TK", "#B", "#C", "#N", "#O", "#F", "#P", "#S", "#Cl", "#Br", "#I", "T#B", "T#C", "T#N", "T#O", "T#F", "T#P", "T#S", "T#Cl", "T#Br", "T#I"])
+        feature_names = np.array(["I(M)", "Ox", r"sum($\chi$)", r"min($\chi$)", r"max($\chi$)", "S", "SS", *["CA"] * len(coord_atomic_numbers), *["LC"] *  len(lig_charges), *["LD"]*len(dents), *["L#A"]*len(ligand_sizes), "max(LBO)", "K", "TK", "#B", "#C", "#N", "#O", "#F", "#P", "#S", "#Cl", "#Br", "#I", "T#B", "T#C", "T#N", "T#O", "T#F", "T#P", "T#S", "T#Cl", "T#Br", "T#I"])
     
         pass
 
@@ -173,10 +171,9 @@ class MCDL46():
             this_delEN =  en_bound - en_metal
             delta_ens += [this_delEN]
         return delta_ens
+    
 
-
-
-    def get_kier_index(self, truncation=None) -> float:
+    def get_kier_index(self, truncation: int = None) -> float:
         if truncation is not None:
             graph = nx.generators.ego.ego_graph(self.graph, self.metal_node_id, truncation)
         else:
@@ -186,12 +183,13 @@ class MCDL46():
         A *= A
         A.setdiag(0)
         p2 = A.sum() / 2
-        n2 = n*n
-        n3 = n2*n 
+        n2 = n * n
+        n3 = n2 * n 
         if p2 != 0:
-            return ((n3 - 5 * n2 + 8 * n - 4) / (p2*p2)) 
+            return ((n3 - 5 * n2 + 8 * n - 4) / (p2 * p2)) 
         else:
             return 0.0
+
 
     def get_ligands_as_subgraph(self) -> list:
         if self.metal_node_id == None:
@@ -246,17 +244,15 @@ class MCDL46():
 
     def get_number_of_atoms(self) -> int:
         return self.graph.number_of_nodes() 
-        
+
 
     def get_ligand_number_of_atoms(self) -> list:
         ligand_sizes_n = [ligand[1].number_of_nodes() for ligand in self.ligands_as_subgraph_n]
         return ligand_sizes_n
-        
 
 
-   
     # modified from molSimplify (https://github.com/hjkgrp/molSimplify/blob/07dffb1fa4a061a6645c2e4030fd82ea9a0f81e6/molSimplify/Classes/mol3D.py#L2472)
-    def get_ligand_max_bond_order(self, input_file: str, bonddict: bool = False):
+    def get_ligand_max_bond_order(self, input_file: str):
         """
         Populate the bond order matrix using openbabel.
 
@@ -264,8 +260,6 @@ class MCDL46():
         ----------
         input_file: str
             path of input mol or 
-        bonddict : bool
-            Flag for if the obmol bond dictionary should be saved. Default is False.
 
         Returns
         -------
@@ -273,26 +267,16 @@ class MCDL46():
             Numpy array for bond order matrix.
 
         """
-        
+
         from openbabel import openbabel as ob
         from openbabel import pybel as pb
-        
-            
+
         mol = next(pb.readfile(input_file.split(".")[-1], input_file))
-        obmol = mol.OBMol
-        obiter = ob.OBMolBondIter(obmol)
         n = len(mol.atoms)
         molBOMat = np.zeros((n, n))
-        bond_dict = dict()
-        for bond in obiter:
+        for bond in ob.OBMolBondIter(mol.OBMol):
             these_inds = [bond.GetBeginAtomIdx(), bond.GetEndAtomIdx()]
             this_order = bond.GetBondOrder()
             molBOMat[these_inds[0] - 1, these_inds[1] - 1] = this_order
             molBOMat[these_inds[1] - 1, these_inds[0] - 1] = this_order
-            bond_dict[tuple(
-                sorted([these_inds[0]-1, these_inds[1]-1]))] = this_order
-        if not bonddict:
-            return (molBOMat)
-        else:
-            self.bo_dict = bond_dict
-            return (molBOMat)
+        return (molBOMat)
