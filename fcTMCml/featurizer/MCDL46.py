@@ -84,7 +84,7 @@ class MCDL46():
         if openbabel_available is not None and pybel_available is not None and input_file is not None:
             import openbabel
             import pybel
-            self.ligand_max_bond_order_n = self.get_ligand_max_bond_order()
+            self.ligand_max_bond_order_n = self.get_ligand_max_bond_order(input_file)
         self.kier_index = self.get_kier_index()
         self.truncated_kier_index = self.get_kier_index(truncation)
         self.individual_atom_counts_n = self.get_all_ligands_atom_counts()
@@ -307,24 +307,26 @@ class MCDL46():
         mcdl46 = np.array([metal_identity, ox_state, sum_delEN, min_delEN, max_delEN, spin, spin_state, *coord_atomic_numbers, *lig_charges, *dents, *ligand_sizes, kier_index, trunc_kier, *ligand_bincount, *ligand_bincount_trunc])
         return mcdl46
     
-    # taken from molSimplify (https://github.com/hjkgrp/molSimplify/blob/07dffb1fa4a061a6645c2e4030fd82ea9a0f81e6/molSimplify/Classes/mol3D.py#L2472)
-    def populateBOMatrix(self, bonddict=False):
+    # modified from molSimplify (https://github.com/hjkgrp/molSimplify/blob/07dffb1fa4a061a6645c2e4030fd82ea9a0f81e6/molSimplify/Classes/mol3D.py#L2472)
+    def get_ligand_max_bond_order(self, input_file: str, bonddict: bool = False):
         """
         Populate the bond order matrix using openbabel.
 
         Parameters
         ----------
-            bonddict : bool
-                Flag for if the obmol bond dictionary should be saved. Default is False.
+        input_file: str
+            path of input mol or 
+        bonddict : bool
+            Flag for if the obmol bond dictionary should be saved. Default is False.
 
         Returns
         -------
-            molBOMat : np.array
-                Numpy array for bond order matrix.
+        molBOMat : np.array
+            Numpy array for bond order matrix.
 
         """
-
-        obiter = openbabel.OBMolBondIter(self.OBMol)
+        obmol = next(pybel.readfile(input_file.split(".")[-1], input_file)).OBMol
+        obiter = openbabel.OBMolBondIter(obmol)
         n = self.natoms
         molBOMat = np.zeros((n, n))
         bond_dict = dict()
