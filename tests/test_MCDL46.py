@@ -28,3 +28,7 @@ def test_get_coordinating_atom_numbers():
     mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
     print(mcdlf.get_coordinating_atom_numbers())
     assert mcdlf.get_coordinating_atom_numbers() == [7, 8, 17, 8]
+
+
+def test_get_ligand_max_bond_order():
+    pass

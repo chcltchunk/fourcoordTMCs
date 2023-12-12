@@ -3,6 +3,7 @@ import ast
 import scipy
 import numpy as np
 import networkx as nx
+import importlib.util
 
 from fcTMCml.constants import electronegativity
 from fcTMCml.featurizer.mol_graph_tools import get_metal_node_id
@@ -44,7 +45,15 @@ ligand_dict = {x.split(":")[0]: x.split(":")[1][:-1].split(",") for x in open("f
 
 
 class MCDL46():
-    def __init__(self, graph: nx.graph, oxidation_state: int, ligand_list: list, multiplicity: int = None, truncation: int = 3) -> None:
+    def __init__(self, graph: nx.graph, oxidation_state: int, ligand_list: list, multiplicity: int = None, truncation: int = 3, input_file: str = None) -> None:
+        """
+        initialize MCDL46 features
+
+        Parameters
+        ----------
+        input_file: str
+            specify xyz file to construct OBMol for BOMatrix
+        """
         # sub_n denotes a non-scalar value
         self.graph = graph
         self.ligand_list = ligand_list
@@ -69,11 +78,17 @@ class MCDL46():
         self.ligands_as_subgraph_n = self.get_ligands_as_subgraph()
         self.total_number_of_atoms = self.get_number_of_atoms()
         self.ligand_number_of_atoms_n = self.get_ligand_number_of_atoms()
-        # self.ligand_max_bond_order_n = self.get_ligand_max_bond_order()
+        # import openbabel only if available
+        openbabel_available = importlib.util.find_spec("openbabel")
+        pybel_available = importlib.util.find_spec("pybel")
+        if openbabel_available is not None and pybel_available is not None and input_file is not None:
+            import openbabel
+            import pybel
+            self.ligand_max_bond_order_n = self.get_ligand_max_bond_order()
         self.kier_index = self.get_kier_index()
-        # self.truncated_kier_index = self.get_kier_index(truncation)
-        # self.individual_atom_counts_n = self.get_all_ligands_atom_counts()
-        # self.truncated_individual_atom_counts_n = self.get_all_ligands_atom_counts(truncation)
+        self.truncated_kier_index = self.get_kier_index(truncation)
+        self.individual_atom_counts_n = self.get_all_ligands_atom_counts()
+        self.truncated_individual_atom_counts_n = self.get_all_ligands_atom_counts(truncation)
 
 
 
@@ -201,7 +216,7 @@ class MCDL46():
             graph = nx.generators.ego.ego_graph(self.graph, self.metal_node_id, truncation)
         else:
             graph = self.graph
-        ligands = self.get_ligands_as_subgraph(graph)
+        ligands = self.get_ligands_as_subgraph()
         ligands_atom_list = []
         # store list of all atomic numbers of every ligand in ligands_atom_list
         for _, ligand in ligands:
@@ -291,6 +306,41 @@ class MCDL46():
         feature_names = np.array(["I(M)", "Ox", r"sum($\chi$)", r"min($\chi$)", r"max($\chi$)", "S", "SS", *["CA"]*len(coord_atomic_numbers), *["LC"]*len(lig_charges), *["LD"]*len(dents), *["L#A"]*len(ligand_sizes), "K", "TK", "#B", "#C", "#N", "#O", "#F", "#P", "#S", "#Cl", "#Br", "#I", "T#B", "T#C", "T#N", "T#O", "T#F", "T#P", "T#S", "T#Cl", "T#Br", "T#I"])
         mcdl46 = np.array([metal_identity, ox_state, sum_delEN, min_delEN, max_delEN, spin, spin_state, *coord_atomic_numbers, *lig_charges, *dents, *ligand_sizes, kier_index, trunc_kier, *ligand_bincount, *ligand_bincount_trunc])
         return mcdl46
+    
+    # taken from molSimplify (https://github.com/hjkgrp/molSimplify/blob/07dffb1fa4a061a6645c2e4030fd82ea9a0f81e6/molSimplify/Classes/mol3D.py#L2472)
+    def populateBOMatrix(self, bonddict=False):
+        """
+        Populate the bond order matrix using openbabel.
+
+        Parameters
+        ----------
+            bonddict : bool
+                Flag for if the obmol bond dictionary should be saved. Default is False.
+
+        Returns
+        -------
+            molBOMat : np.array
+                Numpy array for bond order matrix.
+
+        """
+
+        obiter = openbabel.OBMolBondIter(self.OBMol)
+        n = self.natoms
+        molBOMat = np.zeros((n, n))
+        bond_dict = dict()
+        for bond in obiter:
+            these_inds = [bond.GetBeginAtomIdx(), bond.GetEndAtomIdx()]
+            this_order = bond.GetBondOrder()
+            molBOMat[these_inds[0] - 1, these_inds[1] - 1] = this_order
+            molBOMat[these_inds[1] - 1, these_inds[0] - 1] = this_order
+            bond_dict[tuple(
+                sorted([these_inds[0]-1, these_inds[1]-1]))] = this_order
+        if not bonddict:
+            return (molBOMat)
+        else:
+            self.bo_dict = bond_dict
+            return (molBOMat)
+
 
 
 def get_target_property_from_row(row, target_props):
