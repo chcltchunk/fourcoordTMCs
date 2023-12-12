@@ -42,6 +42,12 @@ Counts  | Individual Atom Counts    | #                 |*new
 ligand_dict = {x.split(":")[0]: x.split(":")[1][:-1].split(",") for x in open("fcTMCml/featurizer/ligands.dict").readlines()[2:]}
 
 
+def openbabel_available() -> bool:
+    # checks if openbabel is installed
+    openbabel_available = importlib.util.find_spec("openbabel")
+    return openbabel_available is not None
+
+
 class MCDL46():
     def __init__(self, graph: nx.graph, oxidation_state: int, ligand_list: list, multiplicity: int = None, truncation: int = 3, input_file: str = None) -> None:
         """
@@ -53,65 +59,47 @@ class MCDL46():
             specify xyz file to construct OBMol for BOMatrix
         """
         # sub_n denotes a non-scalar value
+        # following steps are preprocessing for actual feature extraction
+        # (not included in the final features)
         self.graph = graph
         self.ligand_list = ligand_list
-        self.feature_dict = {}
         self.metal_node_id = get_metal_node_id(self.graph)
         if self.metal_node_id is None:
             raise TypeError("Can not generate MCDL46 features without central metal")
+        # start of feature extraction
+        # metal (related) features
         self.metal_identity = graph.nodes[self.metal_node_id]["atomic_number"]
         self.oxidation_state = oxidation_state
-        self.electronegativity = electronegativity[self.metal_identity]
+        self.electronegativity_features_n = self.get_electronegativity_features()
         # only for classifier where you do NOT use a pair of HS/LS TMCs (with two different multiplicities)
+        self.multiplicity = np.nan
+        self.spin_state = np.nan
         if multiplicity:
             self.multiplicity = multiplicity
             # spin state one-hot encoding (LS: 0; HS: 1)
             self.spin_state = 0 if multiplicity < 2 else 1
-        else:
-            self.multiplicity = np.nan
-            self.spin_state = np.nan
-        # TODO: this is an 4 array
+        # ligand (related) features
         self.connection_atom_n = self.get_coordinating_atom_numbers()
         self.ligand_charge_n = self.get_ligand_charges()
         self.ligand_denticity_n = self.get_ligand_denticity()
-        self.ligands_as_subgraph_n = self.get_ligands_as_subgraph()
         self.total_number_of_atoms = self.get_number_of_atoms()
         self.ligand_number_of_atoms_n = self.get_ligand_number_of_atoms()
-        # import openbabel only if available
-        openbabel_available = importlib.util.find_spec("openbabel")
-        pybel_available = importlib.util.find_spec("pybel")
-        if openbabel_available is not None and pybel_available is not None and input_file is not None:
-            print("going for openbabel")
+        if openbabel_available() and input_file is not None:
             self.ligand_max_bond_order_n = self.get_ligand_max_bond_order(input_file)
         self.kier_index = self.get_kier_index()
         self.truncated_kier_index = self.get_kier_index(truncation)
+        # count features
         self.individual_atom_counts_n = self.get_all_ligands_atom_counts()
         self.truncated_individual_atom_counts_n = self.get_all_ligands_atom_counts(truncation)
 
-    def get_ligand_charges(self) -> list:
-        charges_n = []
-        for ligand in self.ligand_list:
-            charges_n += [int(ligand_dict[ligand][5])]
-        return charges_n
+    ##################################
+    # Feature Construction Functions #
+    ##################################
 
-    def get_ligand_denticity(self) -> list:
-        denticity_n = []
-        for ligand in self.ligand_list:
-            denticity_n += [int(len(ligand_dict[ligand][2].split(" ")))]
-        return denticity_n
-
-    def get_coordinating_atom_numbers(self) -> int:
-        # this returns the atomic number of the metal coordinating atoms
-        coord_atomic_numbers = []
-        this_atoms_neighbors = self.graph.neighbors(self.metal_node_id)
-        for bound_atoms in this_atoms_neighbors:
-            coord_atomic_numbers += [self.graph.nodes[bound_atoms]["atomic_number"]]
-        return coord_atomic_numbers
-
-    def get_classifier_feature_names():
+    def get_classifier_feature_names(self):
         pass
 
-    def get_regression_feature_names():
+    def get_regression_feature_names(self):
         # TODO: make that for all feuturizer
         # build superclass to enforce this behavior
         pass
@@ -165,6 +153,38 @@ class MCDL46():
         # TODO: for loop additional features
         pass
 
+    ####################
+    # Helper Functions #
+    ####################
+
+    def get_truncated_graph(self, truncation: int = None):
+        if truncation is not None:
+            return nx.generators.ego.ego_graph(self.graph, self.metal_node_id, truncation)
+        else:
+            return self.graph
+
+    def get_ligands_as_subgraph(self, truncation: int = None) -> list:
+        graph = self.get_truncated_graph()
+        if self.metal_node_id is None:
+            raise Exception("Could not find metal in complex.")
+        connecting_atoms = list(graph.neighbors(self.metal_node_id))
+        # Then cut the graph by removing all connections to the first atom
+        subgraphs = graph.copy()
+        subgraphs.remove_edges_from([(0, c) for c in connecting_atoms])
+        # Build lists of connecting atom and ligand
+        # subgraph tuples by first finding set of nodes for the component that the
+        # connecting atom c comes from (using nx.node_conncted_component()) and
+        # then constructing a subgraph using this node set.
+        ligands = [
+            (c, subgraphs.subgraph(nx.node_connected_component(subgraphs, c)))
+            for c in connecting_atoms
+        ]
+        return ligands
+
+    ################################
+    # Feature Extraction Functions #
+    ################################
+
     def get_electronegativity_diffs(self) -> list:
         delta_ens = []
         this_atoms_neighbors = self.graph.neighbors(self.metal_node_id)
@@ -175,11 +195,69 @@ class MCDL46():
             delta_ens += [this_delEN]
         return delta_ens
 
+    def get_electronegativity_features(self) -> list:
+        delta_ens = self.get_electronegativity_diffs()
+        return [np.sum(delta_ens), np.min(delta_ens), np.max(delta_ens)]
+
+    def get_coordinating_atom_numbers(self) -> int:
+        # this returns the atomic number of the metal coordinating atoms
+        coord_atomic_numbers = []
+        this_atoms_neighbors = self.graph.neighbors(self.metal_node_id)
+        for bound_atoms in this_atoms_neighbors:
+            coord_atomic_numbers += [self.graph.nodes[bound_atoms]["atomic_number"]]
+        return coord_atomic_numbers
+
+    def get_ligand_charges(self) -> list:
+        charges_n = []
+        for ligand in self.ligand_list:
+            charges_n += [int(ligand_dict[ligand][5])]
+        return charges_n
+
+    def get_ligand_denticity(self) -> list:
+        denticity_n = []
+        for ligand in self.ligand_list:
+            denticity_n += [int(len(ligand_dict[ligand][2].split(" ")))]
+        return denticity_n
+
+    def get_number_of_atoms(self) -> int:
+        return self.graph.number_of_nodes()
+
+    def get_ligand_number_of_atoms(self) -> list:
+        self.ligands_as_subgraph_n = self.get_ligands_as_subgraph()
+        ligand_sizes_n = [ligand[1].number_of_nodes() for ligand in self.ligands_as_subgraph_n]
+        return ligand_sizes_n
+
+    # modified from molSimplify (https://github.com/hjkgrp/molSimplify/blob/07dffb1fa4a061a6645c2e4030fd82ea9a0f81e6/molSimplify/Classes/mol3D.py#L2472)
+    def get_ligand_max_bond_order(self, input_file: str) -> int:
+        """
+        Populate the bond order matrix using openbabel.
+
+        Parameters
+        ----------
+        input_file: str
+            path of input mol or xyz
+
+        Returns
+        -------
+        max_bond_order : int
+            maximal bond order in molecule (for TMCs this is the maximal bond order of all ligands)
+        """
+
+        from openbabel import openbabel as ob
+        from openbabel import pybel as pb
+
+        mol = next(pb.readfile(input_file.split(".")[-1], input_file))
+        n = len(mol.atoms)
+        molBOMat = np.zeros((n, n))
+        for bond in ob.OBMolBondIter(mol.OBMol):
+            these_inds = [bond.GetBeginAtomIdx(), bond.GetEndAtomIdx()]
+            this_order = bond.GetBondOrder()
+            molBOMat[these_inds[0] - 1, these_inds[1] - 1] = this_order
+            molBOMat[these_inds[1] - 1, these_inds[0] - 1] = this_order
+        return int(np.max(molBOMat))
+
     def get_kier_index(self, truncation: int = None) -> float:
-        if truncation is not None:
-            graph = nx.generators.ego.ego_graph(self.graph, self.metal_node_id, truncation)
-        else:
-            graph = self.graph
+        graph = self.get_truncated_graph()
         A = scipy.sparse.lil_matrix(nx.linalg.graphmatrix.adjacency_matrix(graph))
         n = A.shape[0]
         A *= A
@@ -191,23 +269,6 @@ class MCDL46():
             return ((n3 - 5 * n2 + 8 * n - 4) / (p2 * p2))
         else:
             return 0.0
-
-    def get_ligands_as_subgraph(self) -> list:
-        if self.metal_node_id is None:
-            raise Exception("Could not find metal in complex.")
-        connecting_atoms = list(self.graph.neighbors(self.metal_node_id))
-        # Then cut the graph by removing all connections to the first atom
-        subgraphs = self.graph.copy()
-        subgraphs.remove_edges_from([(0, c) for c in connecting_atoms])
-        # Build lists of connecting atom and ligand
-        # subgraph tuples by first finding set of nodes for the component that the
-        # connecting atom c comes from (using nx.node_conncted_component()) and
-        # then constructing a subgraph using this node set.
-        ligands = [
-            (c, subgraphs.subgraph(nx.node_connected_component(subgraphs, c)))
-            for c in connecting_atoms
-        ]
-        return ligands
 
     def get_all_ligands_atom_counts(self, truncation: int = None) -> list:
         """
@@ -222,11 +283,7 @@ class MCDL46():
         individual_atom_counts: list
             counts
         """
-        if truncation is not None:
-            graph = nx.generators.ego.ego_graph(self.graph, self.metal_node_id, truncation)
-        else:
-            graph = self.graph
-        ligands = self.get_ligands_as_subgraph(graph)
+        ligands = self.get_ligands_as_subgraph(truncation)
         ligands_atom_list = []
         # store list of all atomic numbers of every ligand in ligands_atom_list
         for _, ligand in ligands:
@@ -241,40 +298,3 @@ class MCDL46():
         counts_of_elements[:len(counts)] = counts
         # return counts of elements for those of interest
         return counts_of_elements[mask]
-
-    def get_number_of_atoms(self) -> int:
-        return self.graph.number_of_nodes()
-
-    def get_ligand_number_of_atoms(self) -> list:
-        ligand_sizes_n = [ligand[1].number_of_nodes() for ligand in self.ligands_as_subgraph_n]
-        return ligand_sizes_n
-
-    # modified from molSimplify (https://github.com/hjkgrp/molSimplify/blob/07dffb1fa4a061a6645c2e4030fd82ea9a0f81e6/molSimplify/Classes/mol3D.py#L2472)
-    def get_ligand_max_bond_order(self, input_file: str):
-        """
-        Populate the bond order matrix using openbabel.
-
-        Parameters
-        ----------
-        input_file: str
-            path of input mol or xyz
-
-        Returns
-        -------
-        molBOMat : np.array
-            Numpy array for bond order matrix.
-
-        """
-
-        from openbabel import openbabel as ob
-        from openbabel import pybel as pb
-
-        mol = next(pb.readfile(input_file.split(".")[-1], input_file))
-        n = len(mol.atoms)
-        molBOMat = np.zeros((n, n))
-        for bond in ob.OBMolBondIter(mol.OBMol):
-            these_inds = [bond.GetBeginAtomIdx(), bond.GetEndAtomIdx()]
-            this_order = bond.GetBondOrder()
-            molBOMat[these_inds[0] - 1, these_inds[1] - 1] = this_order
-            molBOMat[these_inds[1] - 1, these_inds[0] - 1] = this_order
-        return (molBOMat)
