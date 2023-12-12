@@ -1,5 +1,5 @@
 import numpy as np
-from fcTMCml.constants import EPS
+from fcTMCml.constants import EPS, test_resource_dir
 from fcTMCml.featurizer.MCDL46 import MCDL46
 from networkx import graph
 
@@ -24,6 +24,7 @@ def test_get_ligand_charges():
     mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
     assert mcdlf.get_ligand_charges() == [0, -1, -1, 0 , 0, -1, -2]
 
+
 def test_get_coordinating_atom_numbers():
     mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
     print(mcdlf.get_coordinating_atom_numbers())
@@ -31,4 +32,8 @@ def test_get_coordinating_atom_numbers():
 
 
 def test_get_ligand_max_bond_order():
-    pass
+    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
+    assert int(np.max(mcdlf.get_ligand_max_bond_order(test_resource_dir + "furan.mol"))) == 2
+    assert int(np.max(mcdlf.get_ligand_max_bond_order(test_resource_dir + "water.xyz"))) == 1
+
+    

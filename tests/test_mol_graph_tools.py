@@ -1,10 +1,9 @@
 import numpy as np
-from fcTMCml.constants import EPS
+from fcTMCml.constants import EPS, test_resource_dir
 from fcTMCml.featurizer.mol_graph_tools import graph_from_ase_atoms, graph_from_xyz_file, get_metal_node_id
 from networkx import graph
 from ase.io import read
 
-resource_dir = "tests/testresources/"
 
 def get_water_graph():
     g_ref = graph.Graph()
@@ -16,7 +15,7 @@ def get_water_graph():
 
 def test_graph_from_ase_atoms():
     g_ref = get_water_graph()
-    atoms = read(resource_dir + "water.mol")
+    atoms = read(test_resource_dir + "water.mol")
     g = graph_from_ase_atoms(atoms)
     assert g.nodes == g_ref.nodes
     assert g.edges == g_ref.edges
@@ -24,11 +23,11 @@ def test_graph_from_ase_atoms():
 
 def test_graph_from_xyz_file():
     g_ref = get_water_graph()
-    g = graph_from_xyz_file(resource_dir + "water.xyz")
+    g = graph_from_xyz_file(test_resource_dir + "water.xyz")
     assert g.nodes == g_ref.nodes
     assert g.edges == g_ref.edges
 
 
 def test_get_metal_node_id():
-    g = graph_from_xyz_file(resource_dir + "dummy.xyz")
+    g = graph_from_xyz_file(test_resource_dir + "dummy.xyz")
     assert get_metal_node_id(g) == 1

@@ -82,8 +82,7 @@ class MCDL46():
         openbabel_available = importlib.util.find_spec("openbabel")
         pybel_available = importlib.util.find_spec("pybel")
         if openbabel_available is not None and pybel_available is not None and input_file is not None:
-            import openbabel
-            import pybel
+            print("going for openbabel")
             self.ligand_max_bond_order_n = self.get_ligand_max_bond_order(input_file)
         self.kier_index = self.get_kier_index()
         self.truncated_kier_index = self.get_kier_index(truncation)
@@ -114,10 +113,17 @@ class MCDL46():
             coord_atomic_numbers += [self.graph.nodes[bound_atoms]["atomic_number"]]
         return coord_atomic_numbers
 
+    def get_classifier_feature_names():
+        pass
+    def get_regression_feature_names():
+        # TODO: make that for all feuturizer 
+        # build superclass to enforce this behavior
+        pass
 
     def get_classifier_features(self, additional_featurizer: list = []) -> np.ndarray:
         """
         get features for a classifier task
+        returns mcdl46 (mcdl25) (10.1039/C7SC01247K) features for given TMC graph
 
         Parameters
         ----------
@@ -131,6 +137,11 @@ class MCDL46():
             array with features for given transition metal complex
         """
         # TODO: for loop additional features
+
+        # TODO: use a multiline notation
+        feature_names = np.array(["I(M)", "Ox", r"sum($\chi$)", r"min($\chi$)", r"max($\chi$)", "S", "SS", *["CA"]*len(coord_atomic_numbers), *["LC"]*len(lig_charges), *["LD"]*len(dents), *["L#A"]*len(ligand_sizes), "K", "TK", "#B", "#C", "#N", "#O", "#F", "#P", "#S", "#Cl", "#Br", "#I", "T#B", "T#C", "T#N", "T#O", "T#F", "T#P", "T#S", "T#Cl", "T#Br", "T#I"])
+        feature_names = np.array(["I(M)", "Ox", r"sum($\chi$)", r"min($\chi$)", r"max($\chi$)", "S", "SS", *["CA"]*len(coord_atomic_numbers), *["LC"]*len(lig_charges), *["LD"]*len(dents), *["L#A"]*len(ligand_sizes), "max(LBO)", "K", "TK", "#B", "#C", "#N", "#O", "#F", "#P", "#S", "#Cl", "#Br", "#I", "T#B", "T#C", "T#N", "T#O", "T#F", "T#P", "T#S", "T#Cl", "T#Br", "T#I"])
+    
         pass
 
 
@@ -243,70 +254,7 @@ class MCDL46():
         
 
 
-    def get_mcdl46_features(self, graph, name, BO_graph=None):
-        """returns mcdl46 (mcdl25) (10.1039/C7SC01247K) features for given TMC graph
-            TODO: we leave out the bond order for now to avoid dependency on openbabe for now
-        """
-        # extract string based descriptors
-        split = name.split("_") 
-        ox_state = int(split[3]) 
-        dents = []
-        lig_charges = []
-        lig_idents = []
-        for lig in split[7:11]:
-            lig_idents += [lig]
-            dent_info = ligand_dict[lig][2]
-            dents += [1 if (type(dent_info) == str) else len(dent_info)]
-            lig_charges += [int(ligand_dict[lig][5][0])]
-        spin = int(split[5]) 
-        
-        print(split, ox_state, dents, lig_charges, spin)
-
-        metal_id = self.get_metal_id(graph)
-        metal_identity = graph.nodes[metal_id]["atomic_number"]
-    
-        delta_ENs = self.get_electronegativity_diffs(graph, metal_id)
-        sum_delEN = np.sum(delta_ENs)
-        min_delEN = np.amin(delta_ENs)
-        max_delEN = np.amax(delta_ENs)
-
-
-        coord_atomic_numbers = self.get_coordinating_atom_numbers(graph, metal_id)
-
-        kier_index = self.get_kier_index(graph)
-        trunc_kier = self.get_kier_index(graph, 3, metal_id)
-        
-        num_atoms = graph.number_of_nodes() 
-        
-        ligands = self.get_ligands_as_subgraph(graph) 
-        ligand_sizes = [ligand[1].number_of_nodes() for ligand in ligands] 
-        ligand_bincount = self.get_ligand_atom_type_bincounts(graph)
-        ligand_bincount_trunc = self.get_ligand_atom_type_bincounts(graph, 3, metal_id)
-
-    
-        spin_state = 0 if spin < 2 else 1
-
-        if BO_graph != None:
-            # this tedious procedure is necessary because we can not guarantee that nx_graph and molSimplify have the same properties
-            metal = BO_graph.findMetal(transition_metals_only=True)
-            A = BO_graph.getBondedAtoms(metal[0])
-            # print(A)
-            coord_atoms =  np.array(A)#.nonzero()[0]
-            BO_graph.convert2OBMol()
-            BOMatrix = BO_graph.populateBOMatrix()
-            print(BOMatrix)
-            # TODO: fix for some molecules
-            max_bond_order = np.amax(BOMatrix[A])
-
-            #feature_names = np.array(["metal_ident", "ox_state", "sum_dipole", "min_dipole", "max_dipole", "spin", "spin_state", "coord_atom", "lig_charge", "lig_denticity", "lig_#atoms", "lig_BO", "kier", "trunc_kier", "mul_metal", "mul_coord_atom"])
-            feature_names = np.array(["I(M)", "Ox", r"sum($\chi$)", r"min($\chi$)", r"max($\chi$)", "S", "SS", *["CA"]*len(coord_atomic_numbers), *["LC"]*len(lig_charges), *["LD"]*len(dents), *["L#A"]*len(ligand_sizes), "max(LBO)", "K", "TK", "#B", "#C", "#N", "#O", "#F", "#P", "#S", "#Cl", "#Br", "#I", "T#B", "T#C", "T#N", "T#O", "T#F", "T#P", "T#S", "T#Cl", "T#Br", "T#I"])
-            mcdl46 =  np.array([metal_identity, ox_state, sum_delEN, min_delEN, max_delEN, spin, spin_state, *coord_atomic_numbers, *lig_charges, *dents, *ligand_sizes, max_bond_order, kier_index, trunc_kier, *ligand_bincount, *ligand_bincount_trunc])
-            return mcdl46
-
-        feature_names = np.array(["I(M)", "Ox", r"sum($\chi$)", r"min($\chi$)", r"max($\chi$)", "S", "SS", *["CA"]*len(coord_atomic_numbers), *["LC"]*len(lig_charges), *["LD"]*len(dents), *["L#A"]*len(ligand_sizes), "K", "TK", "#B", "#C", "#N", "#O", "#F", "#P", "#S", "#Cl", "#Br", "#I", "T#B", "T#C", "T#N", "T#O", "T#F", "T#P", "T#S", "T#Cl", "T#Br", "T#I"])
-        mcdl46 = np.array([metal_identity, ox_state, sum_delEN, min_delEN, max_delEN, spin, spin_state, *coord_atomic_numbers, *lig_charges, *dents, *ligand_sizes, kier_index, trunc_kier, *ligand_bincount, *ligand_bincount_trunc])
-        return mcdl46
-    
+   
     # modified from molSimplify (https://github.com/hjkgrp/molSimplify/blob/07dffb1fa4a061a6645c2e4030fd82ea9a0f81e6/molSimplify/Classes/mol3D.py#L2472)
     def get_ligand_max_bond_order(self, input_file: str, bonddict: bool = False):
         """
@@ -325,9 +273,15 @@ class MCDL46():
             Numpy array for bond order matrix.
 
         """
-        obmol = next(pybel.readfile(input_file.split(".")[-1], input_file)).OBMol
-        obiter = openbabel.OBMolBondIter(obmol)
-        n = self.natoms
+        
+        from openbabel import openbabel as ob
+        from openbabel import pybel as pb
+        
+            
+        mol = next(pb.readfile(input_file.split(".")[-1], input_file))
+        obmol = mol.OBMol
+        obiter = ob.OBMolBondIter(obmol)
+        n = len(mol.atoms)
         molBOMat = np.zeros((n, n))
         bond_dict = dict()
         for bond in obiter:
