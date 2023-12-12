@@ -92,9 +92,9 @@ class MCDL46():
         self.individual_atom_counts_n = self.get_all_ligands_atom_counts()
         self.truncated_individual_atom_counts_n = self.get_all_ligands_atom_counts(truncation)
 
-    ##################################
-    # Feature Construction Functions #
-    ##################################
+    ##############################
+    # Feature Assembly Functions #
+    ##############################
 
     def get_classifier_feature_names(self):
         pass
