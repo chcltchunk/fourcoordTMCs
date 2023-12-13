@@ -164,7 +164,7 @@ class MCDL46():
             return self.graph
 
     def get_ligands_as_subgraph(self, truncation: int = None) -> list:
-        graph = self.get_truncated_graph()
+        graph = self.get_truncated_graph(truncation)
         if self.metal_node_id is None:
             raise Exception("Could not find metal in complex.")
         connecting_atoms = list(graph.neighbors(self.metal_node_id))
@@ -257,7 +257,7 @@ class MCDL46():
         return int(np.max(molBOMat))
 
     def get_kier_index(self, truncation: int = None) -> float:
-        graph = self.get_truncated_graph()
+        graph = self.get_truncated_graph(truncation)
         A = scipy.sparse.lil_matrix(nx.linalg.graphmatrix.adjacency_matrix(graph))
         n = A.shape[0]
         A *= A
@@ -266,7 +266,7 @@ class MCDL46():
         n2 = n * n
         n3 = n2 * n
         if p2 != 0:
-            return ((n3 - 5 * n2 + 8 * n - 4) / (p2 * p2))
+            return np.round(((n3 - 5 * n2 + 8 * n - 4) / (p2 * p2)), 2)
         else:
             return 0.0
 
@@ -297,4 +297,4 @@ class MCDL46():
         # assign counts to general full array
         counts_of_elements[:len(counts)] = counts
         # return counts of elements for those of interest
-        return counts_of_elements[mask]
+        return list(counts_of_elements[mask])
