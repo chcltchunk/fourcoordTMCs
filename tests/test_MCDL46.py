@@ -28,7 +28,10 @@ def test_get_classifier_features():
     mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"],
                    multiplicity=2, input_file=test_resource_dir + "dummy.xyz")
     features = mcdlf.get_classifier_features()
-    assert len(features) == 53
+    if openbabel_available():
+        assert len(features) == 53
+    else:
+        assert len(features) == 52
     assert np.all(np.array(features) - np.array([26, 3, 5.76, 1.21, 1.61, 2, 1, 7, 8, 17, 8, 0, -1, -1,
                                                  0, 0, -1, -2, 4, 1, 1, 1, 1, 2, 1, 8, 2, 2, 1, 2, 1, 3.11, 3.11,
                                                  0, 0, 2, 2, 0, 0, 0, 1, 0, 0, 0, 0, 2, 2, 0, 0, 0, 1, 0, 0]) < EPS)
@@ -38,8 +41,10 @@ def test_get_regression_features():
     mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"],
                    multiplicity=2, input_file=test_resource_dir + "dummy.xyz")
     features = mcdlf.get_regression_features()
-    assert len(features) == 51
-    print(features)
+    if openbabel_available():
+        assert len(features) == 51
+    else:
+        assert len(features) == 50
     assert np.all(np.array(features) - np.array([26, 3, 5.76, 1.21, 1.61, 7, 8, 17, 8, 0, -1, -1,
                                                  0, 0, -1, -2, 4, 1, 1, 1, 1, 2, 1, 8, 2, 2, 1, 2, 1, 3.11, 3.11,
                                                  0, 0, 2, 2, 0, 0, 0, 1, 0, 0, 0, 0, 2, 2, 0, 0, 0, 1, 0, 0]) < EPS)
@@ -67,11 +72,16 @@ def test_get_feature_dict():
     features = mcdlf.get_regression_features()
     names = mcdlf.get_regression_feature_names()
     feature_dict = mcdlf.get_feature_dict(names, features)
-    print(feature_dict)
-    assert feature_dict == {'I(M)': 26, 'Ox': 3, 'sum($\\chi$)': 5.76, 'min($\\chi$)': 1.21, 'max($\\chi$)': 1.6099999999999999,
-                            'CA': 8, 'LC': -2, 'LD': 1, '#A': 8, 'L#A': 2, 'max_LBO': 1, 'K': 3.11, 'TK': 3.11,
-                            '#B': 0, '#C': 0, '#N': 2, '#O': 2, '#F': 0, '#P': 0, '#S': 0, '#Cl': 1, '#Br': 0, '#I': 0,
-                            'T#B': 0, 'T#C': 0, 'T#N': 2, 'T#O': 2, 'T#F': 0, 'T#P': 0, 'T#S': 0, 'T#Cl': 1, 'T#Br': 0, 'T#I': 0}
+    if openbabel_available():
+        assert feature_dict == {'I(M)': 26, 'Ox': 3, 'sum($\\chi$)': 5.76, 'min($\\chi$)': 1.21, 'max($\\chi$)': 1.6099999999999999,
+                                'CA': 8, 'LC': -2, 'LD': 1, '#A': 8, 'L#A': 2, 'max_LBO': 1, 'K': 3.11, 'TK': 3.11,
+                                '#B': 0, '#C': 0, '#N': 2, '#O': 2, '#F': 0, '#P': 0, '#S': 0, '#Cl': 1, '#Br': 0, '#I': 0,
+                                'T#B': 0, 'T#C': 0, 'T#N': 2, 'T#O': 2, 'T#F': 0, 'T#P': 0, 'T#S': 0, 'T#Cl': 1, 'T#Br': 0, 'T#I': 0}
+    else:
+        assert feature_dict == {'I(M)': 26, 'Ox': 3, 'sum($\\chi$)': 5.76, 'min($\\chi$)': 1.21, 'max($\\chi$)': 1.6099999999999999,
+                                'CA': 8, 'LC': -2, 'LD': 1, '#A': 8, 'L#A': 2, 'K': 3.11, 'TK': 3.11,
+                                '#B': 0, '#C': 0, '#N': 2, '#O': 2, '#F': 0, '#P': 0, '#S': 0, '#Cl': 1, '#Br': 0, '#I': 0,
+                                'T#B': 0, 'T#C': 0, 'T#N': 2, 'T#O': 2, 'T#F': 0, 'T#P': 0, 'T#S': 0, 'T#Cl': 1, 'T#Br': 0, 'T#I': 0}
 
 
 def test_get_truncated_graph():
