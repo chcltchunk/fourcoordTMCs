@@ -1,7 +1,9 @@
 import numpy as np
+from networkx import graph
+
 from fcTMCml.constants import EPS, test_resource_dir
 from fcTMCml.featurizer.MCDL53 import MCDL53
-from networkx import graph
+from fcTMCml.tools import openbabel_available
 
 
 def get_dummy_graph():
@@ -150,9 +152,12 @@ def test_get_ligand_number_of_atoms():
 
 
 def test_get_ligand_max_bond_order():
-    mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
-    assert int(np.max(mcdlf.get_ligand_max_bond_order(test_resource_dir + "furan.mol"))) == 2
-    assert int(np.max(mcdlf.get_ligand_max_bond_order(test_resource_dir + "water.xyz"))) == 1
+    if openbabel_available():
+        mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
+        assert int(np.max(mcdlf.get_ligand_max_bond_order(test_resource_dir + "furan.mol"))) == 2
+        assert int(np.max(mcdlf.get_ligand_max_bond_order(test_resource_dir + "water.xyz"))) == 1
+    else:
+        pass
 
 
 def test_get_kier_index():
