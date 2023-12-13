@@ -1,6 +1,6 @@
 import numpy as np
 from fcTMCml.constants import EPS, test_resource_dir
-from fcTMCml.featurizer.MCDL46 import MCDL46
+from fcTMCml.featurizer.MCDL53 import MCDL53
 from networkx import graph
 
 
@@ -23,7 +23,7 @@ def get_dummy_graph():
 
 
 def test_get_classifier_features():
-    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"],
+    mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"],
                    multiplicity=2, input_file=test_resource_dir + "dummy.xyz")
     features = mcdlf.get_classifier_features()
     assert len(features) == 53
@@ -33,7 +33,7 @@ def test_get_classifier_features():
 
 
 def test_get_regression_features():
-    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"],
+    mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"],
                    multiplicity=2, input_file=test_resource_dir + "dummy.xyz")
     features = mcdlf.get_regression_features()
     assert len(features) == 51
@@ -44,7 +44,7 @@ def test_get_regression_features():
 
 
 def test_get_classifier_feature_names():
-    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"],
+    mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"],
                    multiplicity=2, input_file=test_resource_dir + "dummy.xyz")
     features = mcdlf.get_classifier_features()
     names = mcdlf.get_classifier_feature_names()
@@ -52,7 +52,7 @@ def test_get_classifier_feature_names():
 
 
 def test_get_regression_feature_names():
-    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"],
+    mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"],
                    multiplicity=2, input_file=test_resource_dir + "dummy.xyz")
     features = mcdlf.get_regression_features()
     names = mcdlf.get_regression_feature_names()
@@ -60,7 +60,7 @@ def test_get_regression_feature_names():
 
 
 def test_get_feature_dict():
-    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"],
+    mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"],
                    multiplicity=2, input_file=test_resource_dir + "dummy.xyz")
     features = mcdlf.get_regression_features()
     names = mcdlf.get_regression_feature_names()
@@ -73,13 +73,13 @@ def test_get_feature_dict():
 
 
 def test_get_truncated_graph():
-    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
+    mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
     graph = mcdlf.get_truncated_graph(1)
     assert len(graph.nodes) == 5
 
 
 def test_get_ligands_as_subgraph():
-    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
+    mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
     ligands_as_subgraph = mcdlf.get_ligands_as_subgraph()
     print(ligands_as_subgraph)
     for i, an in [[[1, 5], [7, 7]], [[2, 6], [8, 1]], [3, 17], [[4, 7], [8, 1]]]:
@@ -99,7 +99,7 @@ def test_get_ligands_as_subgraph():
 
 
 def test_get_ligands_as_subgraph_truncated():
-    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
+    mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
     ligands_as_subgraph = mcdlf.get_ligands_as_subgraph(truncation=1)
     print(ligands_as_subgraph)
     for i, an in [[1, 7], [2, 8], [3, 17], [4, 8]]:
@@ -110,70 +110,70 @@ def test_get_ligands_as_subgraph_truncated():
 
 
 def test_get_electronegativity_diffs():
-    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
+    mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
     en_diffs = mcdlf.get_electronegativity_diffs()
     print(en_diffs)
     assert np.all(np.array(en_diffs) - np.array([1.21, 1.61, 1.33, 1.61]) < EPS)
 
 
 def test_get_electronegativity_features():
-    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
+    mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
     en_features = mcdlf.get_electronegativity_features()
     assert np.all(np.array(en_features) - np.array([5.76, 1.21, 1.61]) < EPS)
 
 
 def test_get_coordinating_atom_numbers():
-    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
+    mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
     print(mcdlf.get_coordinating_atom_numbers())
     assert mcdlf.get_coordinating_atom_numbers() == [7, 8, 17, 8]
 
 
 def test_get_ligand_charges():
-    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
+    mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
     assert mcdlf.get_ligand_charges() == [0, -1, -1, 0 , 0, -1, -2]
 
 
 def test_get_ligand_denticity():
-    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac"])
+    mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac"])
     assert mcdlf.get_ligand_denticity() == [4, 1, 1, 1, 1, 2]
 
 
 def test_get_number_of_atoms():
-    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac"])
+    mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac"])
     assert mcdlf.get_number_of_atoms() == 8
 
 
 def test_get_ligand_number_of_atoms():
-    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
+    mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
     ligand_number_of_atoms = mcdlf.get_ligand_number_of_atoms()
     assert ligand_number_of_atoms == [2, 2, 1, 2]
 
 
 def test_get_ligand_max_bond_order():
-    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
+    mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
     assert int(np.max(mcdlf.get_ligand_max_bond_order(test_resource_dir + "furan.mol"))) == 2
     assert int(np.max(mcdlf.get_ligand_max_bond_order(test_resource_dir + "water.xyz"))) == 1
 
 
 def test_get_kier_index():
-    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
+    mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
     ki = mcdlf.get_kier_index()
     assert ki - 3.11 < EPS
 
 
 def test_get_kier_index_truncated():
-    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
+    mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
     ki = mcdlf.get_kier_index(1)
     assert ki - 1.0 < EPS
 
 
 def test_get_all_ligands_atom_counts():
-    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
+    mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
     ligand_atom_counts = mcdlf.get_all_ligands_atom_counts()
     assert ligand_atom_counts == [0, 0, 2, 2, 0, 0, 0, 1, 0, 0]
 
 
 def test_get_all_ligands_atom_counts_truncated():
-    mcdlf = MCDL46(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
+    mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"])
     ligand_atom_counts = mcdlf.get_all_ligands_atom_counts(1)
     assert ligand_atom_counts == [0, 0, 1, 2, 0, 0, 0, 1, 0, 0]
