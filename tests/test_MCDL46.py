@@ -32,9 +32,14 @@ def test_get_classifier_features():
         assert len(features) == 53
     else:
         assert len(features) == 52
-    assert np.all(np.array(features) - np.array([26, 3, 5.76, 1.21, 1.61, 2, 1, 7, 8, 17, 8, 0, -1, -1,
-                                                 0, 0, -1, -2, 4, 1, 1, 1, 1, 2, 1, 8, 2, 2, 1, 2, 1, 3.11, 3.11,
-                                                 0, 0, 2, 2, 0, 0, 0, 1, 0, 0, 0, 0, 2, 2, 0, 0, 0, 1, 0, 0]) < EPS)
+    if openbabel_available():
+        assert np.all(np.array(features) - np.array([26, 3, 5.76, 1.21, 1.61, 2, 1, 7, 8, 17, 8, 0, -1, -1,
+                                                    0, 0, -1, -2, 4, 1, 1, 1, 1, 2, 1, 8, 2, 2, 1, 2, 1, 3.11, 3.11,
+                                                    0, 0, 2, 2, 0, 0, 0, 1, 0, 0, 0, 0, 2, 2, 0, 0, 0, 1, 0, 0]) < EPS)
+    else:
+        assert np.all(np.array(features) - np.array([26, 3, 5.76, 1.21, 1.61, 2, 1, 7, 8, 17, 8, 0, -1, -1,
+                                                    0, 0, -1, -2, 4, 1, 1, 1, 1, 2, 1, 8, 2, 2, 1, 2, 3.11, 3.11,
+                                                    0, 0, 2, 2, 0, 0, 0, 1, 0, 0, 0, 0, 2, 2, 0, 0, 0, 1, 0, 0]) < EPS)
 
 
 def test_get_regression_features():
@@ -45,9 +50,15 @@ def test_get_regression_features():
         assert len(features) == 51
     else:
         assert len(features) == 50
-    assert np.all(np.array(features) - np.array([26, 3, 5.76, 1.21, 1.61, 7, 8, 17, 8, 0, -1, -1,
-                                                 0, 0, -1, -2, 4, 1, 1, 1, 1, 2, 1, 8, 2, 2, 1, 2, 1, 3.11, 3.11,
-                                                 0, 0, 2, 2, 0, 0, 0, 1, 0, 0, 0, 0, 2, 2, 0, 0, 0, 1, 0, 0]) < EPS)
+    if openbabel_available():
+        assert np.all(np.array(features) - np.array([26, 3, 5.76, 1.21, 1.61, 7, 8, 17, 8, 0, -1, -1,
+                                                    0, 0, -1, -2, 4, 1, 1, 1, 1, 2, 1, 8, 2, 2, 1, 2, 1, 3.11, 3.11,
+                                                    0, 0, 2, 2, 0, 0, 0, 1, 0, 0, 0, 0, 2, 2, 0, 0, 0, 1, 0, 0]) < EPS)
+    else:
+        assert np.all(np.array(features) - np.array([26, 3, 5.76, 1.21, 1.61, 7, 8, 17, 8, 0, -1, -1,
+                                                    0, 0, -1, -2, 4, 1, 1, 1, 1, 2, 1, 8, 2, 2, 1, 2, 3.11, 3.11,
+                                                    0, 0, 2, 2, 0, 0, 0, 1, 0, 0, 0, 0, 2, 2, 0, 0, 0, 1, 0, 0]) < EPS)
+
 
 
 def test_get_classifier_feature_names():
