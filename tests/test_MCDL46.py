@@ -60,7 +60,6 @@ def test_get_regression_features():
                                                     0, 0, 2, 2, 0, 0, 0, 1, 0, 0, 0, 0, 2, 2, 0, 0, 0, 1, 0, 0]) < EPS)
 
 
-
 def test_get_classifier_feature_names():
     mcdlf = MCDL53(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"],
                    multiplicity=2, input_file=test_resource_dir + "dummy.xyz")
