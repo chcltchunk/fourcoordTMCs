@@ -164,20 +164,20 @@ class MCDL46():
                          # only for classifier where you do NOT use a pair of HS/LS TMCs (with two different multiplicities)
                          self.multiplicity,
                          self.spin_state,
-                         self.connection_atom_n,
-                         self.ligand_charge_n,
-                         self.ligand_denticity_n,
+                         *self.connection_atom_n,
+                         *self.ligand_charge_n,
+                         *self.ligand_denticity_n,
                          self.total_number_of_atoms,
-                         self.ligand_number_of_atoms_n
+                         *self.ligand_number_of_atoms_n
                          ]
         if openbabel_available():
-            feature_array += self.ligand_max_bond_order
+            feature_array += [self.ligand_max_bond_order]
         feature_array += [self.kier_index,
                           self.truncated_kier_index,
                           *self.individual_atom_counts_n,
                           *self.truncated_individual_atom_counts_n
                           ]
-        
+
         for featurizer in additional_featurizer:
             feature_array += featurizer.get_classifier_features()
 
@@ -202,24 +202,27 @@ class MCDL46():
                          self.oxidation_state,
                          *self.electronegativity_features_n,
                          # only for classifier where you do NOT use a pair of HS/LS TMCs (with two different multiplicities)
-                         self.connection_atom_n,
-                         self.ligand_charge_n,
-                         self.ligand_denticity_n,
+                         *self.connection_atom_n,
+                         *self.ligand_charge_n,
+                         *self.ligand_denticity_n,
                          self.total_number_of_atoms,
-                         self.ligand_number_of_atoms_n
+                         *self.ligand_number_of_atoms_n
                          ]
         if openbabel_available():
-            feature_array += self.ligand_max_bond_order
-        feature_array += [self.kier_index, 
+            feature_array += [self.ligand_max_bond_order]
+        feature_array += [self.kier_index,
                           self.truncated_kier_index,
                           *self.individual_atom_counts_n,
                           *self.truncated_individual_atom_counts_n
                           ]
-        
+
         for featurizer in additional_featurizer:
             feature_array += featurizer.get_regression_features()
 
         return feature_array
+
+    def get_feature_dict(self, feature_names: list, feature_array: list) -> dict:
+        return {n: f for n, f in zip(feature_names, feature_array)}
 
     ####################
     # Helper Functions #
