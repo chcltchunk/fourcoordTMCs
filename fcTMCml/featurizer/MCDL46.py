@@ -85,7 +85,7 @@ class MCDL46():
         self.total_number_of_atoms = self.get_number_of_atoms()
         self.ligand_number_of_atoms_n = self.get_ligand_number_of_atoms()
         if openbabel_available() and input_file is not None:
-            self.ligand_max_bond_order_n = self.get_ligand_max_bond_order(input_file)
+            self.ligand_max_bond_order = self.get_ligand_max_bond_order(input_file)
         self.kier_index = self.get_kier_index()
         self.truncated_kier_index = self.get_kier_index(truncation)
         # count features
@@ -96,15 +96,53 @@ class MCDL46():
     # Feature Assembly Functions #
     ##############################
 
-    def get_classifier_feature_names(self):
-        pass
+    def get_classifier_feature_names(self, additional_featurizer: list = []) -> list:
+        feature_names = ["I(M)",
+                         "Ox",
+                         r"sum($\chi$)", r"min($\chi$)", r"max($\chi$)",
+                         "S",
+                         "SS",
+                         *["CA"] * len(self.connection_atom_n),
+                         *["LC"] * len(self.ligand_charge_n),
+                         *["LD"] * len(self.ligand_denticity_n),
+                         "#A",
+                         *["L#A"] * len(self.ligand_number_of_atoms_n),
+                         ]
+        if openbabel_available():
+            feature_names += ["max_LBO"]
+        feature_names += ["K",
+                          "TK",
+                          "#B", "#C", "#N", "#O", "#F", "#P", "#S", "#Cl", "#Br", "#I",
+                          "T#B", "T#C", "T#N", "T#O", "T#F", "T#P", "T#S", "T#Cl", "T#Br", "T#I"
+                          ]
+        for featurizer in additional_featurizer:
+            feature_names += featurizer.get_classifier_feature_names()
 
-    def get_regression_feature_names(self):
-        # TODO: make that for all feuturizer
-        # build superclass to enforce this behavior
-        pass
+        return feature_names
 
-    def get_classifier_features(self, additional_featurizer: list = []) -> np.ndarray:
+    def get_regression_feature_names(self, additional_featurizer: list = []) -> list:
+        feature_names = ["I(M)",
+                         "Ox",
+                         r"sum($\chi$)", r"min($\chi$)", r"max($\chi$)",
+                         *["CA"] * len(self.connection_atom_n),
+                         *["LC"] * len(self.ligand_charge_n),
+                         *["LD"] * len(self.ligand_denticity_n),
+                         "#A",
+                         *["L#A"] * len(self.ligand_number_of_atoms_n)
+                         ]
+        if openbabel_available():
+            feature_names += ["max_LBO"]
+        feature_names += ["K",
+                          "TK",
+                          "#B", "#C", "#N", "#O", "#F", "#P", "#S", "#Cl", "#Br", "#I",
+                          "T#B", "T#C", "T#N", "T#O", "T#F", "T#P", "T#S", "T#Cl", "T#Br", "T#I"
+                          ]
+        for featurizer in additional_featurizer:
+            feature_names += featurizer.get_classifier_feature_names()
+
+        return feature_names
+
+    def get_classifier_features(self, additional_featurizer: list = []) -> list:
         """
         get features for a classifier task
         returns mcdl46 (mcdl25) (10.1039/C7SC01247K) features for given TMC graph
@@ -120,22 +158,32 @@ class MCDL46():
         feature_vector: np.array
             array with features for given transition metal complex
         """
-        # TODO: for loop additional features
+        feature_array = [self.metal_identity,
+                         self.oxidation_state,
+                         *self.electronegativity_features_n,
+                         # only for classifier where you do NOT use a pair of HS/LS TMCs (with two different multiplicities)
+                         self.multiplicity,
+                         self.spin_state,
+                         self.connection_atom_n,
+                         self.ligand_charge_n,
+                         self.ligand_denticity_n,
+                         self.total_number_of_atoms,
+                         self.ligand_number_of_atoms_n
+                         ]
+        if openbabel_available():
+            feature_array += self.ligand_max_bond_order
+        feature_array += [self.kier_index,
+                          self.truncated_kier_index,
+                          *self.individual_atom_counts_n,
+                          *self.truncated_individual_atom_counts_n
+                          ]
+        
+        for featurizer in additional_featurizer:
+            feature_array += featurizer.get_classifier_features()
 
-        # TODO: use a multiline notation
-        # feature_names = np.array(["I(M)", "Ox", r"sum($\chi$)", r"min($\chi$)",
-        #                           r"max($\chi$)", "S", "SS", *["CA"] * len(coord_atomic_numbers),
-        #                           *["LC"] * len(lig_charges), *["LD"]*len(dents), *["L#A"]*len(ligand_sizes), "K",
-        #                           "TK", "#B", "#C", "#N", "#O", "#F", "#P", "#S", "#Cl", "#Br", "#I", "T#B", "T#C", "T#N",
-        #                           "T#O", "T#F", "T#P", "T#S", "T#Cl", "T#Br", "T#I"])
-        # feature_names = np.array(["I(M)", "Ox", r"sum($\chi$)", r"min($\chi$)", r"max($\chi$)", "S", "SS", *["CA"] * len(coord_atomic_numbers),
-        #                           *["LC"] *  len(lig_charges), *["LD"]*len(dents), *["L#A"]*len(ligand_sizes), "max(LBO)", "K", "TK", "#B",
-        #                           "#C", "#N", "#O", "#F", "#P", "#S", "#Cl", "#Br", "#I", "T#B", "T#C", "T#N", "T#O", "T#F", "T#P", "T#S",
-        #                           "T#Cl", "T#Br", "T#I"])
+        return feature_array
 
-        pass
-
-    def get_SSE_prediction_features(self, additional_featurizer: list = []) -> np.ndarray:
+    def get_regression_features(self, additional_featurizer: list = []) -> np.ndarray:
         """
         get features for a prediction task
 
@@ -150,8 +198,28 @@ class MCDL46():
         feature_vector: np.array
             array with features for given transition metal complex
         """
-        # TODO: for loop additional features
-        pass
+        feature_array = [self.metal_identity,
+                         self.oxidation_state,
+                         *self.electronegativity_features_n,
+                         # only for classifier where you do NOT use a pair of HS/LS TMCs (with two different multiplicities)
+                         self.connection_atom_n,
+                         self.ligand_charge_n,
+                         self.ligand_denticity_n,
+                         self.total_number_of_atoms,
+                         self.ligand_number_of_atoms_n
+                         ]
+        if openbabel_available():
+            feature_array += self.ligand_max_bond_order
+        feature_array += [self.kier_index, 
+                          self.truncated_kier_index,
+                          *self.individual_atom_counts_n,
+                          *self.truncated_individual_atom_counts_n
+                          ]
+        
+        for featurizer in additional_featurizer:
+            feature_array += featurizer.get_regression_features()
+
+        return feature_array
 
     ####################
     # Helper Functions #
