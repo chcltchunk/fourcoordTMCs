@@ -25,7 +25,7 @@ df = df[((df["geom.hs"] == "tetrahedral") | (df["geom.hs"] == "square planar")) 
 
 # remove calculation with an <S2> deviation larger S2_CUTOFF
 df = df[((np.abs(df["s2_is.hs"] - df["s2_expect.hs"])) <= S2_CUTOFF)]
-# remove calculation with an SSE lower than SSE_CUTOFF
+# remove calculation with an SSE higher than SSE_CUTOFF
 df = df[df["b3lyp.sse (kcal/mol)"] > SSE_CUTOFF]
 
 # mask only the relevant property columns from the dataset
