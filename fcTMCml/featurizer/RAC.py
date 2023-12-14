@@ -1,3 +1,29 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#
+# =============================================================================
+# Copyright 2021, Jonas Oldenstaedt <joldenstaedt@gmail.com>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+# MA 02110-1301, USA.
+#
+# =============================================================================
+
+# =============================================================================
+# Imports
+# =============================================================================
 import numpy as np
 import networkx as nx
 import operator
@@ -129,3 +155,59 @@ class RAC():
             output[11:11 + 4] = [self.atom_centered_AC(g, c, depth=depth, operation=operator.sub) for (c, g) in ligands]
 
         return output
+
+
+###########################
+# Feature Name Generation #
+###########################
+def get_tetrahedral_feature_names(TMC_type : str = "oct", depth : int = 3, properties: list = ["Z", "chi", "T", "I", "S"], averaged=False):
+    if averaged:
+        start_scopes_thd = {
+            0: ("f", "all"),
+            1: ("mc", "all"),
+            2: ("D_mc", "all"),
+            3: ("lc", "all"),
+            4: ("f", "all"),
+            5: ("D_lc", "all"),
+        }
+    else:
+        start_scopes_thd = {
+            0: ("f", "all"),
+            1: ("mc", "all"),
+            2: ("D_mc", "all"),
+            3: ("lc", "ax1"),
+            4: ("lc", "ax2"),
+            5: ("lc", "ax3"),
+            6: ("lc", "ax4"),
+            7: ("f", "ax1"),
+            9: ("f", "ax2"),
+            10: ("f", "ax3"),
+            11: ("f", "ax4"),
+            12: ("D_lc", "ax1"),
+            13: ("D_lc", "ax2"),
+            14: ("D_lc", "ax3"),
+            15: ("D_lc", "ax4"),
+        }
+
+    start_scopes_oct = {
+        0: ("f", "all"),
+        1: ("mc", "all"),
+        2: ("lc", "ax"),
+        3: ("lc", "eq"),
+        4: ("f", "ax"),
+        5: ("f", "eq"),
+        6: ("D_mc", "all"),
+        7: ("D_lc", "ax"),
+        8: ("D_lc", "eq"),
+    }
+
+    types = {"oct" : start_scopes_oct, "thd" : start_scopes_thd}
+
+    start_scopes = types[TMC_type]
+    names = []
+    for s, (start, scope) in start_scopes.items():
+        for d in range(depth + 1):
+            for p, prop in enumerate(properties):
+                names += [f"{start}-{prop}-{d}-{scope}"]
+
+    return names

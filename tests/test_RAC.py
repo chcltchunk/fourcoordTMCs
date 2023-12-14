@@ -1,7 +1,7 @@
 import numpy as np
 from fcTMCml.featurizer.mol_graph_tools import graph_from_xyz_file
 from fcTMCml.constants import chemical_symbols, electronegativity, test_resource_dir
-from fcTMCml.featurizer.RAC import RAC
+from fcTMCml.featurizer.RAC import RAC, get_tetrahedral_feature_names
 
 
 def test_tetrahedral_racs_vs_molSimplify():
@@ -49,3 +49,10 @@ def test_tetrahedral_racs_vs_molSimplify():
         print(racs.flatten()[:20])
         print(racs_ref[5:25])
         np.testing.assert_allclose(sorted(racs.flatten()), sorted(racs_ref[5:]))
+
+
+def test_get_tetrahedral_feature_names():
+    feature_names = get_tetrahedral_feature_names(TMC_type="thd")
+    assert len(feature_names) == 300
+    feature_names = get_tetrahedral_feature_names(TMC_type="thd", depth=4, averaged=True)   
+    assert len(feature_names) == 150 
