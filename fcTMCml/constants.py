@@ -13,6 +13,7 @@ SSE_CUTOFF = -110
 # floating point accuracy for tests
 EPS = 1e-6
 test_resource_dir = "tests/testresources/"
+raw_data_dir = "data/"
 
 # define properties we'd like to keep in the dataset throughout the complete workflow
 # TODO(ralf): should we have the formal charge in the final dataset?
