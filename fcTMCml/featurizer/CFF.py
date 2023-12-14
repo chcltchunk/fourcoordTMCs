@@ -90,3 +90,27 @@ class CrystalFieldFeatures():
         energy_diff = self.get_energy_diff(geometryA, geometryB)
         guess = 0 if energy_diff < 0 else 1
         return guess
+
+    def get_classifier_features(self, additional_featurizer: list = []) -> list:
+        feature_array = [self.get_energy_diff(), self.get_geometry_guess()]
+        for featurizer in additional_featurizer:
+            feature_array += featurizer.get_classifier_features()
+        return feature_array
+
+    def get_classifier_feature_names(self, additional_featurizer: list = []) -> list:
+        feature_names = ['delE', 'GG']
+        for featurizer in additional_featurizer:
+            feature_names += featurizer.get_classifier_features()
+        return feature_names
+
+    def get_regression_features(self, additional_featurizer: list = []) -> list:
+        feature_array = [self.get_energy_diff()]
+        for featurizer in additional_featurizer:
+            feature_array += featurizer.get_classifier_features()
+        return feature_array
+
+    def get_regression_feature_names(self, additional_featurizer: list = []) -> list:
+        feature_names = ['delE']
+        for featurizer in additional_featurizer:
+            feature_names += featurizer.get_classifier_features()
+        return feature_names
