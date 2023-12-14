@@ -2,7 +2,7 @@ import numpy as np
 import networkx as nx
 import operator
 from fcTMCml.constants import electronegativity, covalent_radii
-from fcTMCml.featurizer.mol_graph_tools import get_metal_node_id, compute_graph_determinant
+from fcTMCml.featurizer.mol_graph_tools import get_metal_node_id
 
 
 class RAC():
@@ -72,7 +72,7 @@ class RAC():
         # For tetrahedrals there are 4 start/scope
         # combinations for product ACs and 2 for difference ACs.
         n_props = len(self.property_fun(self.graph, list(self.graph.nodes.keys())[0]))
-        output =  np.zeros((4 + 2, depth + 1, n_props)) if averaging else np.zeros((3 + 3 * 4, depth + 1, n_props))
+        output = np.zeros((4 + 2, depth + 1, n_props)) if averaging else np.zeros((3 + 3 * 4, depth + 1, n_props))
 
         # start = f, scope = all, product
         output[0] = self.multi_centered_AC(self.graph, depth=depth)
@@ -109,7 +109,7 @@ class RAC():
         if averaging:
             # start = lc, scope = lig, product
             output[2] = np.mean([self.atom_centered_AC(g, c, depth=depth) for (c, g) in ligands], axis=0)
-             # start = lig, scope = lig, product
+            # start = lig, scope = lig, product
             output[3] = np.mean([self.multi_centered_AC(g, depth=depth) for (_, g) in ligands], axis=0)
 
             # Finally calculate the difference ACs the same way:
