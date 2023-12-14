@@ -30,9 +30,14 @@ import operator
 from fcTMCml.constants import electronegativity, covalent_radii
 from fcTMCml.featurizer.mol_graph_tools import get_metal_node_id
 
+# load molSimplify ligand dict from ligands.dict
+# TODO(ralf): is there a simpler way of doing this w/o using molSimplify?
+# move to constants or tools?
+ligand_dict = {x.split(":")[0]: x.split(":")[1][:-1].split(",") for x in open("fcTMCml/featurizer/ligands.dict").readlines()[2:]}
+
 
 class RAC():
-    def __init__(self, graph, property_fun=None) -> None:
+    def __init__(self, graph, oxidation_state: int, ligand_list: list, property_fun=None) -> None:
         self.graph = graph
         if property_fun is None:
             self.property_fun = self.racs_property_vector
@@ -41,11 +46,14 @@ class RAC():
         self.metal_node_id = get_metal_node_id(graph=graph)
         if self.metal_node_id is None:
             raise Exception("Could not find metal in complex.")
+        self.oxidation_state = oxidation_state
+        self.ligand_list = ligand_list
+        self.ligand_denticity_n = self.get_ligand_denticity()
 
     ###########################
     # Feature Name Generation #
     ###########################
-    def get_tetrahedral_feature_names(self, depth: int = 3, properties: list = ["Z", "chi", "T", "I", "S"], averaged=False):
+    def get_tetrahedral_rac_names(self, depth: int = 3, properties: list = ["Z", "chi", "T", "I", "S"], averaged=False) -> list:
         if averaged:
             start_scopes_thd = {
                 0: ("f", "all"),
@@ -127,7 +135,7 @@ class RAC():
                 output[d_ij] += operation(p_i, p_j)
         return output
 
-    def get_tetrahedral_racs(self, depth: int = 3, averaged=False):
+    def get_tetrahedral_racs(self, depth: int = 3, averaged=False) -> np.array:
         """
         compute RACs for tetrahedral TMCs without averaging
 
@@ -201,3 +209,29 @@ class RAC():
             output[11:11 + 4] = [self.atom_centered_AC(g, c, depth=depth, operation=operator.sub) for (c, g) in ligands]
 
         return output
+
+    def get_ligand_denticity(self) -> list:
+        denticity_n = []
+        for ligand in self.ligand_list:
+            denticity_n += [int(len(ligand_dict[ligand][2].split(" ")))]
+        return denticity_n
+
+    def get_classifier_features(self, depth: int = 3, averaged: bool = False, additional_featurizer: list = []):
+        racs = self.get_tetrahedral_racs(depth, averaged)
+        feature_array = list(racs.flatten()) + [self.oxidation_state] + self.ligand_denticity_n
+        for featurizer in additional_featurizer:
+            feature_array += featurizer.get_regression_features()
+        return feature_array
+
+    def get_classifier_feature_names(self, depth: int = 3, averaged: bool = False, additional_featurizer: list = []):
+        racs = self.get_tetrahedral_rac_names(depth, averaged)
+        feature_array = racs + ['Ox', 'LD1', 'LD2', 'LD3', 'LD4']
+        for featurizer in additional_featurizer:
+            feature_array += featurizer.get_regression_features()
+        return feature_array
+
+    def get_regression_features(self, depth: int = 3, averaged: bool = False, additional_featurizer: list = []):
+        return self.get_classifier_feature_names(depth, averaged, additional_featurizer)
+
+    def get_regression_feature_names(self, depth: int = 3, averaged: bool = False, additional_featurizer: list = []):
+        return self.get_classifier_feature_names(depth, averaged, additional_featurizer)
