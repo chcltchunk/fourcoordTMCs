@@ -1,7 +1,8 @@
 import numpy as np
 from fcTMCml.featurizer.mol_graph_tools import graph_from_xyz_file
 from fcTMCml.constants import chemical_symbols, electronegativity, test_resource_dir
-from fcTMCml.featurizer.RAC import RAC, get_tetrahedral_feature_names
+from fcTMCml.featurizer.RAC import RAC
+from tests.helper_functions import get_dummy_graph
 
 
 def test_tetrahedral_racs_vs_molSimplify():
@@ -43,8 +44,8 @@ def test_tetrahedral_racs_vs_molSimplify():
 
     for name, _, racs_ref in rac_array:
         graph = graph_from_xyz_file(test_resource_dir + f"/tetrahedral_racs/xyz_files/{name}")
-        rac300 = RAC(graph=graph, property_fun=property_fun)
-        racs = rac300.get_tetrahedral_racs(depth=4, averaging=True)
+        rac150 = RAC(graph=graph, property_fun=property_fun)
+        racs = rac150.get_tetrahedral_racs(depth=4, averaged=True)
         assert len(racs.flatten()) == 150
         print(racs.flatten()[:20])
         print(racs_ref[5:25])
@@ -52,7 +53,8 @@ def test_tetrahedral_racs_vs_molSimplify():
 
 
 def test_get_tetrahedral_feature_names():
-    feature_names = get_tetrahedral_feature_names(TMC_type="thd")
+    rac = RAC(graph=get_dummy_graph())
+    feature_names = rac.get_tetrahedral_feature_names()
     assert len(feature_names) == 300
-    feature_names = get_tetrahedral_feature_names(TMC_type="thd", depth=4, averaged=True)   
+    feature_names = rac.get_tetrahedral_feature_names(depth=4, averaged=True)   
     assert len(feature_names) == 150 

@@ -42,6 +42,49 @@ class RAC():
         if self.metal_node_id is None:
             raise Exception("Could not find metal in complex.")
 
+    ###########################
+    # Feature Name Generation #
+    ###########################
+    def get_tetrahedral_feature_names(self, depth: int = 3, properties: list = ["Z", "chi", "T", "I", "S"], averaged=False):
+        if averaged:
+            start_scopes_thd = {
+                0: ("f", "all"),
+                1: ("mc", "all"),
+                2: ("D_mc", "all"),
+                3: ("lc", "all"),
+                4: ("f", "all"),
+                5: ("D_lc", "all"),
+            }
+        else:
+            start_scopes_thd = {
+                0: ("f", "all"),
+                1: ("mc", "all"),
+                2: ("D_mc", "all"),
+                3: ("lc", "ax1"),
+                4: ("lc", "ax2"),
+                5: ("lc", "ax3"),
+                6: ("lc", "ax4"),
+                7: ("f", "ax1"),
+                9: ("f", "ax2"),
+                10: ("f", "ax3"),
+                11: ("f", "ax4"),
+                12: ("D_lc", "ax1"),
+                13: ("D_lc", "ax2"),
+                14: ("D_lc", "ax3"),
+                15: ("D_lc", "ax4"),
+            }
+
+        start_scopes = start_scopes_thd
+        names = []
+        for s, (start, scope) in start_scopes.items():
+            for d in range(depth + 1):
+                for p, prop in enumerate(properties):
+                    names += [f"{start}-{prop}-{d}-{scope}"]
+        return names
+
+    #########################################
+    # Default RACs Property Vector Function #
+    #########################################
     def racs_property_vector(self, graph, node) -> np.array:
         output = np.zeros(5)
         Z = self.graph.nodes[node]["atomic_number"]
@@ -57,6 +100,9 @@ class RAC():
         output[4] = covalent_radii[Z]
         return output
 
+    ####################
+    # RAC Construction #
+    ####################
     def atom_centered_AC(self, graph, starting_node, depth: int = 3, operation=operator.mul) -> np.array:
         # Generate all paths from the starting node to all possible nodes
         lengths = nx.single_source_shortest_path_length(
@@ -81,7 +127,7 @@ class RAC():
                 output[d_ij] += operation(p_i, p_j)
         return output
 
-    def get_tetrahedral_racs(self, depth: int = 3, averaging=False):
+    def get_tetrahedral_racs(self, depth: int = 3, averaged=False):
         """
         compute RACs for tetrahedral TMCs without averaging
 
@@ -98,7 +144,7 @@ class RAC():
         # For tetrahedrals there are 4 start/scope
         # combinations for product ACs and 2 for difference ACs.
         n_props = len(self.property_fun(self.graph, list(self.graph.nodes.keys())[0]))
-        output = np.zeros((4 + 2, depth + 1, n_props)) if averaging else np.zeros((3 + 3 * 4, depth + 1, n_props))
+        output = np.zeros((4 + 2, depth + 1, n_props)) if averaged else np.zeros((3 + 3 * 4, depth + 1, n_props))
 
         # start = f, scope = all, product
         output[0] = self.multi_centered_AC(self.graph, depth=depth)
@@ -132,7 +178,7 @@ class RAC():
 
         # Note that the ligand centered RACs are averaged over the involved
         # ligands.
-        if averaging:
+        if averaged:
             # start = lc, scope = lig, product
             output[2] = np.mean([self.atom_centered_AC(g, c, depth=depth) for (c, g) in ligands], axis=0)
             # start = lig, scope = lig, product
@@ -155,59 +201,3 @@ class RAC():
             output[11:11 + 4] = [self.atom_centered_AC(g, c, depth=depth, operation=operator.sub) for (c, g) in ligands]
 
         return output
-
-
-###########################
-# Feature Name Generation #
-###########################
-def get_tetrahedral_feature_names(TMC_type : str = "oct", depth : int = 3, properties: list = ["Z", "chi", "T", "I", "S"], averaged=False):
-    if averaged:
-        start_scopes_thd = {
-            0: ("f", "all"),
-            1: ("mc", "all"),
-            2: ("D_mc", "all"),
-            3: ("lc", "all"),
-            4: ("f", "all"),
-            5: ("D_lc", "all"),
-        }
-    else:
-        start_scopes_thd = {
-            0: ("f", "all"),
-            1: ("mc", "all"),
-            2: ("D_mc", "all"),
-            3: ("lc", "ax1"),
-            4: ("lc", "ax2"),
-            5: ("lc", "ax3"),
-            6: ("lc", "ax4"),
-            7: ("f", "ax1"),
-            9: ("f", "ax2"),
-            10: ("f", "ax3"),
-            11: ("f", "ax4"),
-            12: ("D_lc", "ax1"),
-            13: ("D_lc", "ax2"),
-            14: ("D_lc", "ax3"),
-            15: ("D_lc", "ax4"),
-        }
-
-    start_scopes_oct = {
-        0: ("f", "all"),
-        1: ("mc", "all"),
-        2: ("lc", "ax"),
-        3: ("lc", "eq"),
-        4: ("f", "ax"),
-        5: ("f", "eq"),
-        6: ("D_mc", "all"),
-        7: ("D_lc", "ax"),
-        8: ("D_lc", "eq"),
-    }
-
-    types = {"oct" : start_scopes_oct, "thd" : start_scopes_thd}
-
-    start_scopes = types[TMC_type]
-    names = []
-    for s, (start, scope) in start_scopes.items():
-        for d in range(depth + 1):
-            for p, prop in enumerate(properties):
-                names += [f"{start}-{prop}-{d}-{scope}"]
-
-    return names
