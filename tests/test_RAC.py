@@ -56,5 +56,5 @@ def test_get_tetrahedral_feature_names():
     rac = RAC(graph=get_dummy_graph())
     feature_names = rac.get_tetrahedral_feature_names()
     assert len(feature_names) == 300
-    feature_names = rac.get_tetrahedral_feature_names(depth=4, averaged=True)   
-    assert len(feature_names) == 150 
+    feature_names = rac.get_tetrahedral_feature_names(depth=4, averaged=True)
+    assert len(feature_names) == 150
