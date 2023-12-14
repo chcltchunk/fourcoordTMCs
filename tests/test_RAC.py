@@ -62,7 +62,7 @@ def test_tetrahedral_racs_vs_molSimplify():
 
     for name, _, racs_ref in rac_array:
         graph = graph_from_xyz_file(test_resource_dir + f"/tetrahedral_racs/xyz_files/{name}")
-        rac150 = RAC(graph=graph, property_fun=property_fun)
+        rac150 = RAC(graph=graph, property_fun=property_fun, oxidation_state=2, ligand_list=["water", "chloride", "iodide", "carbonyl"])
         racs = rac150.get_tetrahedral_racs(depth=4, averaged=True)
         assert len(racs.flatten()) == 150
         print(racs.flatten()[:20])
@@ -71,7 +71,7 @@ def test_tetrahedral_racs_vs_molSimplify():
 
 
 def test_get_tetrahedral_feature_names():
-    rac = RAC(graph=get_dummy_graph())
+    rac = RAC(graph=get_dummy_graph(), oxidation_state=2, ligand_list=["water", "chloride", "iodide", "carbonyl"])
     feature_names = rac.get_tetrahedral_rac_names()
     assert len(feature_names) == 300
     feature_names = rac.get_tetrahedral_rac_names(depth=4, averaged=True)
