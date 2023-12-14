@@ -6,7 +6,7 @@ setup(
     description='Binary Geometry Classification and SSE prediction for four-coordinate TMCs',
     author='Jonas A. Oldensteadt',
     author_email='joldenstaedt@gmail.com',
-    packages=['fcTMCml'],
+    packages=['fcTMCml', 'tests'],
     install_requires=[
         'matplotlib==3.8.2',
         'networkx==3.2.1',
