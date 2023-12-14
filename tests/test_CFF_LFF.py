@@ -1,6 +1,7 @@
 import numpy as np
 from fcTMCml.constants import EPS
 from fcTMCml.featurizer.CFF import CrystalFieldFeatures
+from fcTMCml.featurizer.LFF import LigandFieldFeatures
 
 
 def test_CFF_d_orbital_occupation():
@@ -55,3 +56,17 @@ def test_CFF_energy_features():
     cff = CrystalFieldFeatures("cr", 2, 1)
     cff.occupy_d_orbitals()
     assert abs(cff.calculate_enes(cff.occ, cff.geometry_diff_of_quanta_values["square planar"]) - (-20.56)) <= EPS
+
+
+def test_LFF_lambda_param():
+    pass
+    lff = LigandFieldFeatures("cr", 3, 4, ["acac", "cn", "carbonyl", "water"])
+    lff.occupy_d_orbitals()
+    print(lff.lambda_param())
+    assert lff.lambda_param() - 1.58 <= EPS
+
+
+def test_LFF_calculate_enes():
+    lff = LigandFieldFeatures("cr", 3, 4, ["acac", "cn", "carbonyl", "water"])
+    lff.occupy_d_orbitals()
+    assert lff.calculate_enes(lff.occ, lff.geometry_diff_of_quanta_values["tetrahedral"]) + 5.62 <= EPS

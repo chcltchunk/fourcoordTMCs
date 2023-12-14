@@ -29,18 +29,23 @@ from fcTMCml.featurizer.CFF import CrystalFieldFeatures
 
 
 class LigandFieldFeatures(CrystalFieldFeatures):
-    def __init__(self, metal, ox, mult):
-        super.__init__(metal, ox, mult)
+    def __init__(self, metal, ox, mult, ligand_list):
+        super().__init__(metal, ox, mult)
+        self.ligand_list = ligand_list
 
     def init_dictionaries(self):
-        super.init_dictionaries()
+        super().init_dictionaries()
+
+        self.lambda_a = 2
+        self.lambda_b = 2
+
         # !! water is factor 1 reference for these
         # see jorgensen
         self.cores_splitting_strengths = {"co" : {2: 9.3, 3 : 19.0},
                                           "ni" : {2 : 8.9},
                                           "cr" : {2 : 13.9, 3 : 17.4},
                                           "fe" : {2 : 10.4, 3 : 14.0},
-                                          "mn" : {2 : 8.0, 3 : 12.8}  # Mn3+ is an educated guess... #TODO: adjust 
+                                          "mn" : {2 : 8.0, 3 : 12.8}  # Mn3+ is an educated guess... #TODO: adjust
                                           }
         ud = np.nan
         self.L_dict = {
@@ -121,17 +126,17 @@ class LigandFieldFeatures(CrystalFieldFeatures):
         }
 
     def lambda_param(self) -> float:
-        L = [self.L_dict[i] for i in self.lig_list]
-        h_1 = np.heaviside(self.lambda_a-self.ox, 1)    
-        h_2 = np.heaviside(self.lambda_b-(np.sum(L)), 1)
+        L = [self.L_dict[i] for i in self.ligand_list]
+        h_1 = np.heaviside(self.lambda_a - self.ox, 1)
+        h_2 = np.heaviside(self.lambda_b - (np.sum(L)), 1)
         # use continuos representation
-        metal_splitting = self.cores_splitting_strengths[self.metal][self.ox] 
+        metal_splitting = self.cores_splitting_strengths[self.metal][self.ox]
         h_1 = metal_splitting / 20  # 17.4
-        h_2 = np.sum(L) / (35 * len(self.lig_list))  # normalize by effect of 4 (thd/sqp) CO ligands and add 1 for upscaling
+        h_2 = np.sum(L) / (35 * len(self.ligand_list))  # normalize by effect of 4 (thd/sqp) CO ligands and add 1 for upscaling
         # normalize by effect of 4 (thd/sqp) water ligands and add 1 for upscaling
         # metal based splitting is based on water as reference system
-        return h_1 * h_2 + 1
+        return np.round(h_1 * h_2 + 1, 2)
 
     def calculate_enes(self, occ: np.array, dqs: np.array) -> float:
         dqs = dqs * self.lambda_param()
-        return super.calculate_enes(occ, dqs)
+        return super().calculate_enes(occ, dqs)

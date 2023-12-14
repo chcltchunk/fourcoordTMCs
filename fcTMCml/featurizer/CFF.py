@@ -55,7 +55,7 @@ class CrystalFieldFeatures():
 
     def calculate_enes(self, occ, dqs):
         conf_ene = np.dot(occ, dqs)
-        return conf_ene
+        return round(conf_ene, 2)
 
     def occupy_d_orbitals(self):
         single_es = self.mult - 1  # for spin 1/2
