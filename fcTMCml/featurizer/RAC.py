@@ -224,14 +224,14 @@ class RAC():
         return feature_array
 
     def get_classifier_feature_names(self, depth: int = 3, averaged: bool = False, additional_featurizer: list = []):
-        racs = self.get_tetrahedral_rac_names(depth, averaged)
+        racs = self.get_tetrahedral_rac_names(depth=depth, averaged=averaged)
         feature_array = racs + ['Ox', 'LD1', 'LD2', 'LD3', 'LD4']
         for featurizer in additional_featurizer:
             feature_array += featurizer.get_regression_features()
         return feature_array
 
     def get_regression_features(self, depth: int = 3, averaged: bool = False, additional_featurizer: list = []):
-        return self.get_classifier_feature_names(depth, averaged, additional_featurizer)
+        return self.get_classifier_features(depth=depth, averaged=averaged, additional_featurizer=additional_featurizer)
 
     def get_regression_feature_names(self, depth: int = 3, averaged: bool = False, additional_featurizer: list = []):
-        return self.get_classifier_feature_names(depth, averaged, additional_featurizer)
+        return self.get_classifier_feature_names(depth=depth, averaged=averaged, additional_featurizer=additional_featurizer)
