@@ -409,3 +409,21 @@ def run_krr(X, y):
     # optimize shuffling
     # for i in np.arange(1, 200):
     #    print(i, "Ridge regression; alpha: ", alpha, " avg score: ", k_folds(clf, rns=i))
+
+
+
+
+
+targets = np.load(feature_target_dir + "classifier_targets.npy")
+
+mcdl53_classifier_features = np.load(feature_target_dir + "MCDL53_classifier.npy")
+mcdl53_classifier_feature_names = np.load(feature_target_dir + "MCDL53_classifier_names.npy")
+
+mcdl53_cff_classifier_features = np.load(feature_target_dir + "MCDL53_cff_classifier.npy")
+mcdl53_cff_classifier_feature_names = np.load(feature_target_dir + "MCDL53_cff_classifier_names.npy")
+
+rac300_classifier_features = np.load(feature_target_dir + "RAC_classifier.npy")
+rac300_classifier_feature_names = np.load(feature_target_dir + "RAC_classifier_names.npy")
+
+rac300_cff_classifier_features = np.load(feature_target_dir + "RAC_cff_classifier.npy")
+rac300_cff_classifier_feature_names = np.load(feature_target_dir + "RAC_cff_classifier_names.npy")
