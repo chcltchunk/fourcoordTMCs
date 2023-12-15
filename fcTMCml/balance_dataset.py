@@ -24,13 +24,17 @@
 # =============================================================================
 # Imports
 # =============================================================================
+import numpy as np
+
 from imblearn.over_sampling import SMOTE
 from imblearn.under_sampling import RandomUnderSampler
 from imblearn.pipeline import Pipeline
 
+from fcTMCml.constants import feature_target_dir
 
-def manage_skeewed_dataset(classes, features, samp_type="both"):
-    #print(Counter(geometries))
+
+
+def manage_skeewed_dataset(features, targets, samp_type="over"):
     over = SMOTE(sampling_strategy=0.5, random_state=42, k_neighbors=5)
     under = RandomUnderSampler(sampling_strategy=0.6, random_state=42)
     if samp_type == "both":
@@ -40,6 +44,26 @@ def manage_skeewed_dataset(classes, features, samp_type="both"):
     elif samp_type == "over":
         steps = [('o', over)]
     pipeline = Pipeline(steps=steps)
-    X, y = pipeline.fit_resample(features, classes)
+    X, y = pipeline.fit_resample(features, targets)
     return y, X
-    
+
+
+###########################
+# Geometry Classification #
+###########################
+
+targets = np.load(feature_target_dir + "classifier_targets.npy")
+
+mcdl53_classifier_features = np.load(feature_target_dir + "MCDL53_classifier.npy")
+mcdl53_classifier_feature_names = np.load(feature_target_dir + "MCDL53_classifier_names.npy")
+
+mcdl53_cff_classifier_features = np.load(feature_target_dir + "MCDL53_cff_classifier.npy")
+mcdl53_cff_classifier_feature_names = np.load(feature_target_dir + "MCDL53_cff_classifier_names.npy")
+
+rac300_classifier_features = np.load(feature_target_dir + "RAC_classifier.npy")
+rac300_classifier_feature_names = np.load(feature_target_dir + "RAC_classifier_names.npy")
+
+rac300_cff_classifier_features = np.load(feature_target_dir + "RAC_cff_classifier.npy")
+rac300_cff_classifier_feature_names = np.load(feature_target_dir + "RAC_cff_classifier_names.npy")
+
+
