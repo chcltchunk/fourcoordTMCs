@@ -49,7 +49,7 @@ from sklearn.model_selection import train_test_split
 from hyperopt import hp, tpe, fmin, Trials
 from functools import partial
 from fcTMCml.constants import feature_target_dir
-from fcTMCml.tools import make_dir
+from fcTMCml.tools import make_dir, load_features
 
 classification_in_subdir = "classification_balanced/"
 regression_in_subdir = "regression_raw/"
@@ -60,8 +60,13 @@ regression_out_subdir = "regression_rff_selection/"
 make_dir(feature_target_dir + classification_out_subdir)
 make_dir(feature_target_dir + regression_out_subdir)
 
-classification_targets = np.load(feature_target_dir + classification_in_subdir + "classification_targets.npy")
-regression_targets = np.load(feature_target_dir + regression_in_subdir + "regression_targets.npy")
+
+feature_dict = load_features(feature_target_dir, classification_in_subdir, "classification")
+classification_targets, mcdl53_classifier_features, mcdl53_cff_classifier_features, \
+    rac300_classifier_features, rac300_cff_classifier_features = feature_dict.values()
+
+
+
 
 # geometry 0 : "tedrahedral", 1 : "square planar", 2 : "seesaw"
 geometry = []
@@ -72,35 +77,7 @@ strict_cutoff = 0
 catom_list = None
 
 
-def plot_pca(principalComponents, explained_variance, color_list, filename, color_dic=None, mapper=None, legends=None, title=None):
-    fig, ax = plt.subplots(figsize=(8,8))
 
-    g = ax.scatter(principalComponents.T[0], principalComponents.T[1], s=25, c=color_list)
-    ax.set_xlabel("PC 1 ({})".format(np.round(explained_variance[0],2)), fontsize=20)
-    ax.set_ylabel("PC 2 ({})".format(np.round(explained_variance[1],2)), fontsize=20)
-    ax.tick_params(which="major", direction="in")
-
-    ax.axes.get_xaxis().set_ticks([])
-    ax.axes.get_yaxis().set_ticks([])
-    if color_dic is not None: 
-        markers = [plt.Line2D([0,0],[0,0],color=color, marker='o', linestyle='') for color in color_dic.values()]
-        plt.legend(markers, color_dic.keys(), numpoints=1, prop={'size': 15})
-    elif mapper is not None:
-        cbar = plt.colorbar(mapper[0], ticks=np.arange(-70, 11, 10)) 
-        cbar.ax.tick_params(labelsize=15)
-        cbar.ax.get_yaxis().labelpad = 20
-        cbar.ax.set_ylabel(mapper[1], rotation=90, fontsize=15)
-    if legends is not None:
-        #TODO
-        handles, labels = ax.get_legend_handles_labels()
-        patch1 = mpatches.Patch(color="tab:blue", label="THD")
-        patch2 = mpatches.Patch(color="tab:orange", label="SQP")
-        handles.extend([patch1, patch2])
-        ax.legend(handles=handles, fontsize=15)
-    if title is not None:
-        plt.title(title)
-    plt.savefig(filename, dpi=300, bbox_inches="tight")
-    #plt.show()
 
 
 def k_folds(clf, X, y, return_clf=False, rns=25):
@@ -426,19 +403,6 @@ def run_krr(X, y):
     #    print(i, "Ridge regression; alpha: ", alpha, " avg score: ", k_folds(clf, rns=i))
 
 
-
-
-
-targets = np.load(feature_target_dir + "classifier_targets.npy")
-
-mcdl53_classifier_features = np.load(feature_target_dir + "MCDL53_classifier.npy")
-mcdl53_classifier_feature_names = np.load(feature_target_dir + "MCDL53_classifier_names.npy")
-
-mcdl53_cff_classifier_features = np.load(feature_target_dir + "MCDL53_cff_classifier.npy")
-mcdl53_cff_classifier_feature_names = np.load(feature_target_dir + "MCDL53_cff_classifier_names.npy")
-
-rac300_classifier_features = np.load(feature_target_dir + "RAC_classifier.npy")
-rac300_classifier_feature_names = np.load(feature_target_dir + "RAC_classifier_names.npy")
-
-rac300_cff_classifier_features = np.load(feature_target_dir + "RAC_cff_classifier.npy")
-rac300_cff_classifier_feature_names = np.load(feature_target_dir + "RAC_cff_classifier_names.npy")
+feature_dict = load_features(feature_target_dir, regression_in_subdir, "regression")
+regression_targets, mcdl53_regression_features, mcdl53_cff_regression_features, \
+    rac300_regression_features, rac300_cff_regression_features = feature_dict.values()

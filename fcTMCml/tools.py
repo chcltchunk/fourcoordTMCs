@@ -2,6 +2,9 @@ import importlib.util
 import os
 import numpy as np
 
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+
 
 def openbabel_available() -> bool:
     return False
@@ -48,15 +51,38 @@ def load_features(feature_target_dir, sub_dir, type="regression") -> dict:
     else:
         raise TypeError("feature type not supported")
     return {f"{type}_targets" : targets, 
-<<<<<<< HEAD
-            f"mcdl53_{type}_targets" : mcdl53_features,
-            f"mcdl53_cff_{type}_targets" : mcdl53_cff_features,
-            f"rac300_{type}_targets" : rac300_features,
-            f"rac300_{type}_targets" : rac300_cff_features
-=======
             f"mcdl53_{type}_features" : mcdl53_features,
             f"mcdl53_cff_{type}_features" : mcdl53_cff_features,
             f"rac300_{type}_features" : rac300_features,
             f"rac300_cff_{type}_features" : rac300_cff_features
->>>>>>> balance_ds
             }
+
+
+def plot_pca(principalComponents, explained_variance, color_list, filename, color_dic=None, mapper=None, legends=None, title=None):
+    fig, ax = plt.subplots(figsize=(8,8))
+
+    g = ax.scatter(principalComponents.T[0], principalComponents.T[1], s=25, c=color_list)
+    ax.set_xlabel("PC 1 ({})".format(np.round(explained_variance[0],2)), fontsize=20)
+    ax.set_ylabel("PC 2 ({})".format(np.round(explained_variance[1],2)), fontsize=20)
+    ax.tick_params(which="major", direction="in")
+
+    ax.axes.get_xaxis().set_ticks([])
+    ax.axes.get_yaxis().set_ticks([])
+    if color_dic is not None: 
+        markers = [plt.Line2D([0,0],[0,0],color=color, marker='o', linestyle='') for color in color_dic.values()]
+        plt.legend(markers, color_dic.keys(), numpoints=1, prop={'size': 15})
+    elif mapper is not None:
+        cbar = plt.colorbar(mapper[0], ticks=np.arange(-70, 11, 10)) 
+        cbar.ax.tick_params(labelsize=15)
+        cbar.ax.get_yaxis().labelpad = 20
+        cbar.ax.set_ylabel(mapper[1], rotation=90, fontsize=15)
+    if legends is not None:
+        #TODO
+        handles, labels = ax.get_legend_handles_labels()
+        patch1 = mpatches.Patch(color="tab:blue", label="THD")
+        patch2 = mpatches.Patch(color="tab:orange", label="SQP")
+        handles.extend([patch1, patch2])
+        ax.legend(handles=handles, fontsize=15)
+    if title is not None:
+        plt.title(title)
+    plt.savefig(filename, dpi=300, bbox_inches="tight")
