@@ -52,12 +52,16 @@ from fcTMCml.constants import feature_target_dir
 from fcTMCml.tools import make_dir
 
 classification_in_subdir = "classification_balanced/"
+regression_in_subdir = "regression_raw/"
 
 classification_out_subdir = "classification_rff_selection/"
+regression_out_subdir = "regression_rff_selection/"
 
 make_dir(feature_target_dir + classification_out_subdir)
+make_dir(feature_target_dir + regression_out_subdir)
 
-
+classification_targets = np.load(feature_target_dir + classification_in_subdir + "classification_targets.npy")
+regression_targets = np.load(feature_target_dir + regression_in_subdir + "regression_targets.npy")
 
 # geometry 0 : "tedrahedral", 1 : "square planar", 2 : "seesaw"
 geometry = []
