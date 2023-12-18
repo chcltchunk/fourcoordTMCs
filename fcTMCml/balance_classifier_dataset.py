@@ -60,8 +60,8 @@ def create_balanced_dataset(features, targets, sampling_type="over"):
 # Geometry Classification #
 ###########################
 
-targets, mcdl53_features, mcdl53_cff_features, rac300_features, rac300_cff_features = load_features(feature_target_dir, 
-                                                                                                    classification_in_subdir, "classification")
+feature_dict = load_features(feature_target_dir, classification_in_subdir, "classification")
+targets, mcdl53_features, mcdl53_cff_features, rac300_features, rac300_cff_features = feature_dict.values()
 
 print("inital count square planars / total: ", np.count_nonzero(targets), "/", mcdl53_features.shape[0])
 X, y1 = create_balanced_dataset(mcdl53_features, targets=targets)

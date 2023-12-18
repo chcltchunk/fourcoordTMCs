@@ -48,8 +48,15 @@ def load_features(feature_target_dir, sub_dir, type="regression") -> dict:
     else:
         raise TypeError("feature type not supported")
     return {f"{type}_targets" : targets, 
+<<<<<<< HEAD
             f"mcdl53_{type}_targets" : mcdl53_features,
             f"mcdl53_cff_{type}_targets" : mcdl53_cff_features,
             f"rac300_{type}_targets" : rac300_features,
             f"rac300_{type}_targets" : rac300_cff_features
+=======
+            f"mcdl53_{type}_features" : mcdl53_features,
+            f"mcdl53_cff_{type}_features" : mcdl53_cff_features,
+            f"rac300_{type}_features" : rac300_features,
+            f"rac300_cff_{type}_features" : rac300_cff_features
+>>>>>>> balance_ds
             }
