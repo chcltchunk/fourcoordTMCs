@@ -44,8 +44,19 @@ from sklearn.inspection import permutation_importance
 from sklearn.model_selection import train_test_split 
 
 
+
+
 from hyperopt import hp, tpe, fmin, Trials
 from functools import partial
+from fcTMCml.constants import feature_target_dir
+from fcTMCml.tools import make_dir
+
+classification_in_subdir = "classification_balanced/"
+
+classification_out_subdir = "classification_rff_selection/"
+
+make_dir(feature_target_dir + classification_out_subdir)
+
 
 
 # geometry 0 : "tedrahedral", 1 : "square planar", 2 : "seesaw"
