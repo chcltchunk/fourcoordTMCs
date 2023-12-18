@@ -31,7 +31,7 @@ from imblearn.under_sampling import RandomUnderSampler
 from imblearn.pipeline import Pipeline
 
 from fcTMCml.constants import feature_target_dir
-from fcTMCml.tools import make_dir
+from fcTMCml.tools import make_dir, load_features
 
 classification_in_subdir = "classification_raw/"
 
@@ -60,27 +60,20 @@ def create_balanced_dataset(features, targets, sampling_type="over"):
 # Geometry Classification #
 ###########################
 
-targets = np.load(feature_target_dir + classification_in_subdir + "classifier_targets.npy")
+feature_dict = load_features(feature_target_dir, classification_in_subdir, "classification")
+targets, mcdl53_features, mcdl53_cff_features, rac300_features, rac300_cff_features = feature_dict.values()
 
-mcdl53_classifier_features = np.load(feature_target_dir + classification_in_subdir + "MCDL53_classifier.npy")
-
-mcdl53_cff_classifier_features = np.load(feature_target_dir + classification_in_subdir + "MCDL53_cff_classifier.npy")
-
-rac300_classifier_features = np.load(feature_target_dir + classification_in_subdir + "RAC_classifier.npy")
-
-rac300_cff_classifier_features = np.load(feature_target_dir + classification_in_subdir + "RAC_cff_classifier.npy")
-
-print("inital count square planars / total: ", np.count_nonzero(targets), "/", mcdl53_classifier_features.shape[0])
-X, y1 = create_balanced_dataset(mcdl53_classifier_features, targets=targets)
+print("inital count square planars / total: ", np.count_nonzero(targets), "/", mcdl53_features.shape[0])
+X, y1 = create_balanced_dataset(mcdl53_features, targets=targets)
 np.save(feature_target_dir + classification_out_subdir + "MCDL53_classifier.npy", X)
 print("square planar / total: ", np.count_nonzero(y1), "/", X.shape[0])
-X, y2 = create_balanced_dataset(mcdl53_cff_classifier_features, targets=targets)
+X, y2 = create_balanced_dataset(mcdl53_cff_features, targets=targets)
 np.save(feature_target_dir + classification_out_subdir + "MCDL53_cff_classifier.npy", X)
 print("square planar / total: ", np.count_nonzero(y2), "/", X.shape[0])
-X, y3 = create_balanced_dataset(rac300_classifier_features, targets=targets)
+X, y3 = create_balanced_dataset(rac300_features, targets=targets)
 np.save(feature_target_dir + classification_out_subdir + "RAC_classifier.npy", X)
 print("square planar / total: ", np.count_nonzero(y3), "/", X.shape[0])
-X, y4 = create_balanced_dataset(rac300_cff_classifier_features, targets=targets)
+X, y4 = create_balanced_dataset(rac300_cff_features, targets=targets)
 np.save(feature_target_dir + classification_out_subdir + "RAC_cff_classifier.npy", X)
 print("square planar / total: ", np.count_nonzero(y4), "/", X.shape[0])
 assert list(y1) == list(y2) == list(y3) == list(y4)
