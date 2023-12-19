@@ -44,7 +44,7 @@ def run_rf(X: np.array, y: np.array) -> RandomForestRegressor:
 
 
 def select_features_permutation_importance(A: np.array, y_truth: np.array, run_ident: str,
-                                           cache_dir: str, init_run: bool = True, maximum_retained_features: int = -1) -> np.array:
+                                           cache_dir: str, feature_names: np.array, init_run: bool = True, maximum_retained_features: int = -1) -> np.array:
     """
     calculate most important features based on random forest permutation importance
 
@@ -78,15 +78,16 @@ def select_features_permutation_importance(A: np.array, y_truth: np.array, run_i
     result_importances_mean = np.load(cache_dir + run_ident + ".npy")
 
     thres = 0.010
-
+    print(maximum_retained_features)
     if maximum_retained_features > -1:
-        while np.count_nonzero(list((result_importances_mean / np.max(result_importances_mean)) > thres)) < maximum_retained_features:
-            thres -= 0.001
+        while np.count_nonzero(list((result_importances_mean / np.max(result_importances_mean)) > thres)) > maximum_retained_features:
+            thres += 0.0005
     # TODO: add feature names
     selected_features = A.T[(result_importances_mean / np.max(result_importances_mean)) > thres].T
+    selected_feature_names = list(feature_names[(result_importances_mean / np.max(result_importances_mean)) > thres])
     print("retained ", selected_features.shape[1], " features")
     # selected_feature_names =
-    return selected_features
+    return selected_features, selected_feature_names
 
 
 # set up folder structure
@@ -109,10 +110,12 @@ make_dir(feature_target_dir + classification_out_subdir + pca_subdir)
 make_dir(feature_target_dir + regression_out_subdir)
 
 # load features
-classification_targets, feature_dict = load_features(feature_target_dir, classification_in_subdir, "classification")
+classification_targets, feature_dict, feature_names_dict = load_features(feature_target_dir, classification_in_subdir, "classification")
 mcdl53_classifier_features, mcdl53_cff_classifier_features, \
     rac300_classifier_features, rac300_cff_classifier_features = feature_dict.values()
 
+print(feature_names_dict["rac300_cff_classification_features"])
+quit()
 # loop over all feature sets
 # 1. pre feature selection PCA
 # 2. feature selection
@@ -120,12 +123,16 @@ mcdl53_classifier_features, mcdl53_cff_classifier_features, \
 
 for run_ident in feature_dict:
     features = feature_dict[run_ident]
+    feature_names = feature_names_dict[run_ident]
     principalComponents, explained_variance = get_pca(features=features)
     plot_pca(principalComponents, explained_variance, np.where(classification_targets == 0, "tab:blue", "tab:orange"),
              feature_target_dir + classification_out_subdir + pca_subdir + run_ident + "_before_RF", legends=["THD", "SQP"])
 
-    selected_features = select_features_permutation_importance(features, classification_targets,
-                                                               run_ident=run_ident, cache_dir=cache_dir)
+    selected_features, selected_feature_names = select_features_permutation_importance(features, classification_targets, feature_names=feature_names,
+                                                                                       run_ident=run_ident, cache_dir=cache_dir, init_run=False,
+                                                                                       maximum_retained_features=15)
+
+    print(selected_feature_names)
 
     principalComponents, explained_variance = get_pca(features=selected_features)
     plot_pca(principalComponents, explained_variance, np.where(classification_targets == 0, "tab:blue", "tab:orange"),
