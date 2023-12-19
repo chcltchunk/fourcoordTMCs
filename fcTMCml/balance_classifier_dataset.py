@@ -39,12 +39,12 @@ classification_out_subdir = "classification_balanced/"
 
 make_dir(feature_target_dir + classification_out_subdir)
 
-np.random.seed(0)
+np.random.seed(128)
 
 
 def create_balanced_dataset(features, targets, sampling_type="over"):
-    over = SMOTE(sampling_strategy=0.7, random_state=42, k_neighbors=5)
-    under = RandomUnderSampler(sampling_strategy=0.6, random_state=42)
+    over = SMOTE(sampling_strategy=0.7, random_state=128, k_neighbors=5)
+    under = RandomUnderSampler(sampling_strategy=0.6, random_state=128)
     if sampling_type == "both":
         steps = [('o', over), ('u', under)]
     elif sampling_type == "under":

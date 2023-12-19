@@ -32,13 +32,15 @@ from fcTMCml.tools import make_dir, load_features, get_pca, plot_pca
 
 from sklearn.ensemble import RandomForestRegressor
 
+np.random.seed(128)
+
 
 def run_rf(X: np.array, y: np.array) -> RandomForestRegressor:
     # RFC
     print("\n RFC")
     # kf = KFold(n_splits=10, shuffle=True, random_state=185)
     model = RandomForestRegressor(n_estimators=1000, criterion='squared_error', min_samples_leaf=1, max_leaf_nodes=None, bootstrap=True, oob_score=True,
-                                  random_state=None, ccp_alpha=0.0, max_samples=None)
+                                  random_state=128, ccp_alpha=0.0, max_samples=None)
     model.fit(X, y)
     return model
 
@@ -72,7 +74,7 @@ def select_features_permutation_importance(A: np.array, y_truth: np.array, run_i
 
     if init_run:
         model = run_rf(A, y_truth.flatten())
-        result = permutation_importance(model, A, y_truth.flatten(), n_repeats=50, random_state=0)
+        result = permutation_importance(model, A, y_truth.flatten(), n_repeats=50, random_state=128)
         np.save(cache_dir + "permutation_importances_mean/" + run_ident + ".npy", result.importances_mean)
 
     result_importances_mean = np.load(cache_dir + "permutation_importances_mean/" + run_ident + ".npy")
