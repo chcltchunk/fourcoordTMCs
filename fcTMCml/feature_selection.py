@@ -26,11 +26,115 @@
 # =============================================================================
 
 import numpy as np
-import pickle as pkl
-import re
-import matplotlib.pyplot as plt
+from sklearn.inspection import permutation_importance
+from fcTMCml.constants import feature_target_dir, cache_dir
+from fcTMCml.tools import make_dir, load_features, get_pca, plot_pca
+
+from sklearn.ensemble import RandomForestRegressor
+
+
+def run_rf(X: np.array, y: np.array) -> RandomForestRegressor:
+    # RFC
+    print("\n RFC")
+    # kf = KFold(n_splits=10, shuffle=True, random_state=185)
+    model = RandomForestRegressor(n_estimators=1000, criterion='squared_error', min_samples_leaf=1, max_leaf_nodes=None, bootstrap=True, oob_score=True,
+                                  random_state=None, ccp_alpha=0.0, max_samples=None)
+    model.fit(X, y)
+    return model
+
+
+def select_features_permutation_importance(A: np.array, y_truth: np.array, run_ident: str,
+                                           cache_dir: str, init_run: bool = True, maximum_retained_features: int = -1) -> np.array:
+    """
+    calculate most important features based on random forest permutation importance
+
+    Parameters
+    ----------
+    A: np.array
+        input feature vector
+    y_truth: np.array
+        input prediction target (ground truth) vector
+    run_ident: str
+        feature identifier for storing permuation importance results in cache
+    cache_dir: str
+        directory where to cache the permutation importances
+    init_run: bool
+        usually true, if false the function tries to load the permutation importances from the provided cache_dir
+    maximum_retained_features: int
+        modify threshold of permutation importance to retain at most n features;
+        if -1 (default) all features that fall above a certain threshold are kept
+
+    Returns
+    -------
+    selected_features: np.array
+        new feature vector with only the selected features
+    """
+
+    if init_run:
+        model = run_rf(A, y_truth.flatten())
+        result = permutation_importance(model, A, y_truth.flatten(), n_repeats=50, random_state=0)
+        np.save(cache_dir + run_ident + ".npy", result.importances_mean)
+
+    result_importances_mean = np.load(cache_dir + run_ident + ".npy")
+
+    thres = 0.010
+
+    if maximum_retained_features > -1:
+        while np.count_nonzero(list((result_importances_mean / np.max(result_importances_mean)) > thres)) < maximum_retained_features:
+            thres -= 0.001
+    # TODO: add feature names
+    selected_features = A.T[(result_importances_mean / np.max(result_importances_mean)) > thres].T
+    print("retained ", selected_features.shape[1], " features")
+    # selected_feature_names =
+    return selected_features
+
+
+# set up folder structure
+permutation_importances_cache_subdir = "permutation_importances_mean/"
+
+make_dir(cache_dir)
+make_dir(cache_dir + permutation_importances_cache_subdir)
+
+classification_in_subdir = "classification_balanced/"
+regression_in_subdir = "regression_raw/"
+
+classification_out_subdir = "classification_rff_selection/"
+regression_out_subdir = "regression_rff_selection/"
+
+pca_subdir = "pca/"
+
+make_dir(feature_target_dir + classification_out_subdir)
+make_dir(feature_target_dir + classification_out_subdir + pca_subdir)
+
+make_dir(feature_target_dir + regression_out_subdir)
+
+# load features
+classification_targets, feature_dict = load_features(feature_target_dir, classification_in_subdir, "classification")
+mcdl53_classifier_features, mcdl53_cff_classifier_features, \
+    rac300_classifier_features, rac300_cff_classifier_features = feature_dict.values()
+
+# loop over all feature sets
+# 1. pre feature selection PCA
+# 2. feature selection
+# 3. post feature selection PCA
+
+for run_ident in feature_dict:
+    features = feature_dict[run_ident]
+    principalComponents, explained_variance = get_pca(features=features)
+    plot_pca(principalComponents, explained_variance, np.where(classification_targets == 0, "tab:blue", "tab:orange"),
+             feature_target_dir + classification_out_subdir + pca_subdir + run_ident + "_before_RF", legends=["THD", "SQP"])
+
+    selected_features = select_features_permutation_importance(features, classification_targets,
+                                                               run_ident=run_ident, cache_dir=cache_dir)
+
+    principalComponents, explained_variance = get_pca(features=selected_features)
+    plot_pca(principalComponents, explained_variance, np.where(classification_targets == 0, "tab:blue", "tab:orange"),
+             feature_target_dir + classification_out_subdir + pca_subdir + run_ident + "_after_RF", legends=["THD", "SQP"])
+
+"""
+
+import numpy as np
 from matplotlib import cm, colors
-import matplotlib.patches as mpatches
 
 from sklearn.linear_model import RidgeClassifier
 from sklearn.svm import SVC
@@ -41,29 +145,13 @@ from sklearn import metrics
 from molSimplify.Classes.mol3D import mol3D
 from sklearn.decomposition import PCA, KernelPCA
 from sklearn.inspection import permutation_importance
-from sklearn.model_selection import train_test_split 
+from sklearn.model_selection import train_test_split
 
 
 
 
 from hyperopt import hp, tpe, fmin, Trials
 from functools import partial
-from fcTMCml.constants import feature_target_dir
-from fcTMCml.tools import make_dir, load_features
-
-classification_in_subdir = "classification_balanced/"
-regression_in_subdir = "regression_raw/"
-
-classification_out_subdir = "classification_rff_selection/"
-regression_out_subdir = "regression_rff_selection/"
-
-make_dir(feature_target_dir + classification_out_subdir)
-make_dir(feature_target_dir + regression_out_subdir)
-
-
-feature_dict = load_features(feature_target_dir, classification_in_subdir, "classification")
-classification_targets, mcdl53_classifier_features, mcdl53_cff_classifier_features, \
-    rac300_classifier_features, rac300_cff_classifier_features = feature_dict.values()
 
 
 
@@ -75,8 +163,6 @@ path_control = [] # used to check whether the split is reasonable
 
 strict_cutoff = 0
 catom_list = None
-
-
 
 
 
@@ -107,7 +193,7 @@ def k_folds(clf, X, y, return_clf=False, rns=25):
     if return_clf:
         return np.average(accuracy_score), np.average(ppvs), np.average(sensitivities), np.average(f_scores), clf
     return np.average(accuracy_score), np.average(ppvs), np.average(sensitivities), np.average(f_scores)
-        
+
 
 def grid_search_ridge_clf(X, y):
     ##### RidgeClassifier
@@ -119,7 +205,7 @@ def grid_search_ridge_clf(X, y):
     clf = RidgeClassifier()
     grid_search = GridSearchCV(estimator=clf, param_grid=grid, n_jobs=-1, cv=kf, scoring='accuracy', error_score=0)
     grid_result = grid_search.fit(X,y)
-    
+
     #print("avg score: ", k_folds(RidgeClassifier(alpha=0.6), curr_X, y))
     means = grid_result.cv_results_['mean_test_score']
     stds = grid_result.cv_results_['std_test_score']
@@ -300,10 +386,12 @@ def rc_optimization(X_train, X_val, y_train, y_val):
 
     print("best_perams: ", best)
     return best
+"""
 
 
-def add_fi_to_plot(ax, coeffs, feature_set_mask, q, avg_score):
-    #TODO: improve pie charts : https://matplotlib.org/stable/gallery/pie_and_polar_charts/nested_pie.html#sphx-glr-gallery-pie-and-polar-charts-nested-pie-py
+def add_fig_to_plot(ax, coeffs, feature_set_mask, q, avg_score):
+    # TODO: improve pie charts : https://matplotlib.org/stable/gallery/pie_and_polar_charts/nested_pie.html#sphx-glr-gallery-pie-and-polar-charts-nested-pie-py
+    pass
     """
     fig, ax = plt.subplots(subplot_kw=dict(projection="polar"))
 
@@ -331,6 +419,7 @@ def add_fi_to_plot(ax, coeffs, feature_set_mask, q, avg_score):
     plt.show()
 
     """
+    """
     coeffs_abs = np.abs(coeffs)
     metal_feat_length = np.sum(feature_set_mask[:7])
     charge_length = np.sum(feature_set_mask[-2:])
@@ -342,8 +431,7 @@ def add_fi_to_plot(ax, coeffs, feature_set_mask, q, avg_score):
         outer_sizes = [np.sum(coeffs_abs[:metal_feat_length]), np.sum(coeffs_abs[metal_feat_length:])]
         outer_labels = ['metal', 'ligand'] 
 
-
-    cmap = cm.Blues(np.linspace(0,1,3*metal_feat_length+1))
+    cmap = cm.Blues(np.linspace(0, 1, 3*metal_feat_length+1))
     cmap = colors.ListedColormap(cmap[metal_feat_length-1:2*metal_feat_length,:-1])
     inner_colors = cmap.colors[:-1] 
     colors_outer = [cmap.colors[-1]]
@@ -366,16 +454,9 @@ def add_fi_to_plot(ax, coeffs, feature_set_mask, q, avg_score):
     smaller = ax.pie(coeffs_abs, labels=feature_names[feature_set_mask],
                       colors=inner_colors, radius=0.7,
                       startangle=90, labeldistance=0.5, rotatelabels=True)
-    ax.set_title("set #{}; score: {}".format(q, np.round(avg_score, 2)), s=12)
-
-def run_rf(X: np.array, y: np.array) -> RandomForestRegressor:
-    ##### RFC
-    print("\n RFC")
-    #kf = KFold(n_splits=10, shuffle=True, random_state=185)
-    model = RandomForestRegressor(n_estimators=1000, criterion='squared_error', min_samples_leaf=1, max_leaf_nodes=None, bootstrap=True, oob_score=True, random_state=None, ccp_alpha=0.0, max_samples=None)
-    model.fit(X,y)
-    return model 
-
+    ax.set_title("set #{}; score: {}".format(q, np.round(avg_score, 2)), s=12)  
+    """
+"""
 def run_krr(X, y):
     ##### KRR
     print("\n KRR")
@@ -406,3 +487,5 @@ def run_krr(X, y):
 feature_dict = load_features(feature_target_dir, regression_in_subdir, "regression")
 regression_targets, mcdl53_regression_features, mcdl53_cff_regression_features, \
     rac300_regression_features, rac300_cff_regression_features = feature_dict.values()
+
+"""
