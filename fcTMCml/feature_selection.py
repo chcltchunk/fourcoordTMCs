@@ -73,9 +73,9 @@ def select_features_permutation_importance(A: np.array, y_truth: np.array, run_i
     if init_run:
         model = run_rf(A, y_truth.flatten())
         result = permutation_importance(model, A, y_truth.flatten(), n_repeats=50, random_state=0)
-        np.save(cache_dir + run_ident + ".npy", result.importances_mean)
+        np.save(cache_dir + "permutation_importances_mean/" + run_ident + ".npy", result.importances_mean)
 
-    result_importances_mean = np.load(cache_dir + run_ident + ".npy")
+    result_importances_mean = np.load(cache_dir + "permutation_importances_mean/" + run_ident + ".npy")
 
     thres = 0.010
     print(maximum_retained_features)
@@ -114,8 +114,6 @@ classification_targets, feature_dict, feature_names_dict = load_features(feature
 mcdl53_classifier_features, mcdl53_cff_classifier_features, \
     rac300_classifier_features, rac300_cff_classifier_features = feature_dict.values()
 
-print(feature_names_dict["rac300_cff_classification_features"])
-quit()
 # loop over all feature sets
 # 1. pre feature selection PCA
 # 2. feature selection
@@ -129,9 +127,8 @@ for run_ident in feature_dict:
              feature_target_dir + classification_out_subdir + pca_subdir + run_ident + "_before_RF", legends=["THD", "SQP"])
 
     selected_features, selected_feature_names = select_features_permutation_importance(features, classification_targets, feature_names=feature_names,
-                                                                                       run_ident=run_ident, cache_dir=cache_dir, init_run=False,
+                                                                                       run_ident=run_ident, cache_dir=cache_dir, init_run=True,
                                                                                        maximum_retained_features=15)
-
     print(selected_feature_names)
 
     principalComponents, explained_variance = get_pca(features=selected_features)

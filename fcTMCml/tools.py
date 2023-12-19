@@ -31,44 +31,27 @@ def remove_dir(path: str) -> None:
 
 
 def load_features(feature_target_dir, sub_dir, type="regression") -> dict:
-    if type == "classification":
-        targets = np.load(feature_target_dir + sub_dir + "classifier_targets.npy")
+    targets = np.load(feature_target_dir + sub_dir + f"{type}_targets.npy")
+    
+    mcdl53_features = np.load(feature_target_dir + sub_dir + f"MCDL53_{type}.npy")
+    mcdl53_feature_names = np.load(feature_target_dir + sub_dir + f"MCDL53_{type}_names.npy")
 
-        mcdl53_features = np.load(feature_target_dir + sub_dir + "MCDL53_classifier.npy")
-        mcdl53_feature_names = np.load(feature_target_dir + sub_dir + "MCDL53_classifier_names.npy")
+    mcdl53_cff_features = np.load(feature_target_dir + sub_dir + f"MCDL53_cff_{type}.npy")
+    mcdl53_cff_feature_names = np.load(feature_target_dir + sub_dir + f"MCDL53_cff_{type}_names.npy")
 
-        mcdl53_cff_features = np.load(feature_target_dir + sub_dir + "MCDL53_cff_classifier.npy")
-        mcdl53_cff_feature_names = np.load(feature_target_dir + sub_dir + "MCDL53_cff_classifier_names.npy")
+    rac300_features = np.load(feature_target_dir + sub_dir + f"RAC_{type}.npy")
+    rac300_feature_names = np.load(feature_target_dir + sub_dir + f"RAC_{type}_names.npy")
 
-        rac300_features = np.load(feature_target_dir + sub_dir + "RAC_classifier.npy")
-        rac300_feature_names = np.load(feature_target_dir + sub_dir + "RAC_classifier_names.npy")
-
-        rac300_cff_features = np.load(feature_target_dir + sub_dir + "RAC_cff_classifier.npy")
-        rac300_cff_feature_names = np.load(feature_target_dir + sub_dir + "RAC_cff_classifier_names.npy")
-    elif type == "regression":
-        targets = np.load(feature_target_dir + sub_dir + "regression_targets.npy")
-
-        mcdl53_features = np.load(feature_target_dir + sub_dir + "MCDL53_regression.npy")
-        mcdl53_feature_names = np.load(feature_target_dir + sub_dir + "MCDL53_regression.npy")
-
-        mcdl53_cff_features = np.load(feature_target_dir + sub_dir + "MCDL53_cff_regression.npy")
-        mcdl53_cff_feature_names = np.load(feature_target_dir + sub_dir + "MCDL53_cff_regression.npy")
-
-        rac300_features = np.load(feature_target_dir + sub_dir + "RAC_regression.npy")
-        rac300_feature_names = np.load(feature_target_dir + sub_dir + "RAC_regression.npy")
-
-        rac300_cff_features = np.load(feature_target_dir + sub_dir + "RAC_cff_regression.npy")
-        rac300_cff_feature_names = np.load(feature_target_dir + sub_dir + "RAC_cff_regression.npy")
-    else:
-        raise TypeError("feature type not supported")
-    return targets, {f"mcdl53_{type}_features" : mcdl53_features,
-                     f"mcdl53_cff_{type}_features" : mcdl53_cff_features,
-                     f"rac300_{type}_features" : rac300_features,
-                     f"rac300_cff_{type}_features" : rac300_cff_features
-                     }, {f"mcdl53_{type}_features" : mcdl53_feature_names,
-                         f"mcdl53_cff_{type}_features" : mcdl53_cff_feature_names,
-                         f"rac300_{type}_features" : rac300_feature_names,
-                         f"rac300_cff_{type}_features" : rac300_cff_feature_names
+    rac300_cff_features = np.load(feature_target_dir + sub_dir + f"RAC_cff_{type}.npy")
+    rac300_cff_feature_names = np.load(feature_target_dir + sub_dir + f"RAC_cff_{type}_names.npy")
+    return targets, {f"MCDL53_{type}" : mcdl53_features,
+                     f"MCDL53_cff_{type}" : mcdl53_cff_features,
+                     f"RAC_{type}" : rac300_features,
+                     f"RAC_cff_{type}" : rac300_cff_features
+                     }, {f"MCDL53_{type}" : mcdl53_feature_names,
+                         f"MCDL53_cff_{type}" : mcdl53_cff_feature_names,
+                         f"RAC_{type}" : rac300_feature_names,
+                         f"RAC_cff_{type}" : rac300_cff_feature_names
                          }
 
 

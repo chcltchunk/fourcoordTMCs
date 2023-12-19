@@ -78,31 +78,31 @@ assert len(rac300_classifier_features[0]) == len(rac300_classifier_feature_names
 rac300_cff_classifier_feature_names = rac.get_classifier_feature_names(additional_featurizer=[cff])
 assert len(rac300_cff_classifier_features[0]) == len(rac300_cff_classifier_feature_names)
 
-np.save(feature_target_dir + classification_subdir + "classifier_targets.npy", np.array(classifier_targets))
+np.save(feature_target_dir + classification_subdir + "classification_targets.npy", classifier_targets)
 
 f = np.vstack(mcdl53_classifier_features)
 z_scores = StandardScaler()
 f = z_scores.fit_transform(f)  # X array-like of shape (n_samples, n_features)
-np.save(feature_target_dir + classification_subdir + "MCDL53_classifier.npy", f)
-np.save(feature_target_dir + classification_subdir + "MCDL53_classifier_names.npy", mcdl53_classifier_feature_names)
+np.save(feature_target_dir + classification_subdir + "MCDL53_classification.npy", f)
+np.save(feature_target_dir + classification_subdir + "MCDL53_classification_names.npy", mcdl53_classifier_feature_names)
 
 f = np.vstack(mcdl53_cff_classifier_features)
 z_scores = StandardScaler()
 f = z_scores.fit_transform(f)
-np.save(feature_target_dir + classification_subdir + "MCDL53_cff_classifier.npy", f)
-np.save(feature_target_dir + classification_subdir + "MCDL53_cff_classifier_names.npy", mcdl53_cff_classifier_feature_names)
+np.save(feature_target_dir + classification_subdir + "MCDL53_cff_classification.npy", f)
+np.save(feature_target_dir + classification_subdir + "MCDL53_cff_classification_names.npy", mcdl53_cff_classifier_feature_names)
 
 f = np.vstack(rac300_classifier_features)
 z_scores = StandardScaler()
 f = z_scores.fit_transform(f)
-np.save(feature_target_dir + classification_subdir + "RAC_classifier.npy", f)
-np.save(feature_target_dir + classification_subdir + "RAC_classifier_names.npy", rac300_classifier_feature_names)
+np.save(feature_target_dir + classification_subdir + "RAC_classification.npy", f)
+np.save(feature_target_dir + classification_subdir + "RAC_classification_names.npy", rac300_classifier_feature_names)
 
 f = np.vstack(rac300_cff_classifier_features)
 z_scores = StandardScaler()
 f = z_scores.fit_transform(f)
-np.save(feature_target_dir + classification_subdir + "RAC_cff_classifier.npy", f)
-np.save(feature_target_dir + classification_subdir + "RAC_cff_classifier_names.npy", rac300_cff_classifier_feature_names)
+np.save(feature_target_dir + classification_subdir + "RAC_cff_classification.npy", f)
+np.save(feature_target_dir + classification_subdir + "RAC_cff_classification_names.npy", rac300_cff_classifier_feature_names)
 
 #######################
 # SSE regression task #
