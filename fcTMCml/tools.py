@@ -6,6 +6,7 @@ import numpy as np
 from sklearn.decomposition import PCA
 
 import matplotlib.pyplot as plt
+from matplotlib import cm, colors
 import matplotlib.patches as mpatches
 
 
@@ -89,3 +90,70 @@ def plot_pca(principalComponents, explained_variance, color_list, filename, colo
     if title is not None:
         plt.title(title)
     plt.savefig(filename, dpi=300, bbox_inches="tight")
+
+
+# TODO(jonas): cleanup
+def add_fi_to_plot(ax, coeffs, feature_set_mask, q, avg_score):
+    # TODO: improve pie charts : https://matplotlib.org/stable/gallery/pie_and_polar_charts/nested_pie.html#sphx-glr-gallery-pie-and-polar-charts-nested-pie-py
+    """
+    fig, ax = plt.subplots(subplot_kw=dict(projection="polar"))
+
+    size = 0.3
+    vals = np.array([[60., 32.], [37., 40.], [29., 10.]])
+    # Normalize vals to 2 pi
+    valsnorm = vals/np.sum(vals)*2*np.pi
+    # Obtain the ordinates of the bar edges
+    valsleft = np.cumsum(np.append(0, valsnorm.flatten()[:-1])).reshape(vals.shape)
+
+    cmap = plt.colormaps["tab20c"]
+    outer_colors = cmap(np.arange(3)*4)
+    inner_colors = cmap([1, 2, 5, 6, 9, 10])
+
+    ax.bar(x=valsleft[:, 0],
+       width=valsnorm.sum(axis=1), bottom=1-size, height=size,
+       color=outer_colors, edgecolor='w', linewidth=1, align="edge")
+
+    ax.bar(x=valsleft.flatten(),
+       width=valsnorm.flatten(), bottom=1-2*size, height=size,
+       color=inner_colors, edgecolor='w', linewidth=1, align="edge")
+
+    ax.set(title="Pie plot with `ax.bar` and polar coordinates")
+    ax.set_axis_off()
+    plt.show()
+
+    """
+    coeffs_abs = np.abs(coeffs)
+    metal_feat_length = np.sum(feature_set_mask[:7])
+    charge_length = np.sum(feature_set_mask[-2:])
+    ligand_feat_length = len(coeffs_abs) - metal_feat_length - charge_length
+    if charge_length > 0:
+        outer_sizes = [np.sum(coeffs_abs[:metal_feat_length]), np.sum(coeffs_abs[metal_feat_length:-charge_length]), np.sum(coeffs_abs[-charge_length:])]
+        outer_labels = ['metal', 'ligand', 'mulliken charges']
+    else:
+        outer_sizes = [np.sum(coeffs_abs[:metal_feat_length]), np.sum(coeffs_abs[metal_feat_length:])]
+        outer_labels = ['metal', 'ligand'] 
+
+    cmap = cm.Blues(np.linspace(0, 1, 3 * metal_feat_length + 1))
+    cmap = colors.ListedColormap(cmap[metal_feat_length - 1:2 * metal_feat_length, :-1])
+    inner_colors = cmap.colors[:-1] 
+    colors_outer = [cmap.colors[-1]]
+
+    cmap = cm.Greens(np.linspace(0, 1, 3 * ligand_feat_length + 1))
+    cmap = colors.ListedColormap(cmap[ligand_feat_length - 1:2 * ligand_feat_length, :-1])
+    inner_colors = np.vstack((inner_colors, cmap.colors[:-1]))
+    colors_outer += [cmap.colors[-1]]
+
+    if charge_length > 0:
+        cmap = cm.Oranges(np.linspace(0, 1, 3 * charge_length + 1))
+        cmap = colors.ListedColormap(cmap[charge_length - 1:2 * charge_length, :-1])
+        inner_colors = np.vstack((inner_colors, cmap.colors[:-1]))
+        colors_outer += [cmap.colors[-1]]
+    colors_outer = np.array(colors_outer)
+    print(colors_outer)
+
+    # bigger = ax.pie(outer_sizes, labels=outer_labels, colors=colors_outer,
+    #                  startangle=90, frame=True, labeldistance=0.8, rotatelabels=True)
+    # smaller = ax.pie(coeffs_abs, labels=feature_names[feature_set_mask],
+    #                   colors=inner_colors, radius=0.7,
+    #                   startangle=90, labeldistance=0.5, rotatelabels=True)
+    ax.set_title("set #{}; score: {}".format(q, np.round(avg_score, 2)), s=12)
