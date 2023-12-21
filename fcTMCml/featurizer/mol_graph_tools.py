@@ -1,6 +1,7 @@
 import numpy as np
 import networkx as nx
 from ase.io import read
+from scipy.sparse import diags
 from fcTMCml.constants import covalent_radii, metal_list
 
 
@@ -27,3 +28,13 @@ def get_metal_node_id(graph):
         if graph.nodes[node]['atomic_number'] in metal_list:
             return node
     return None
+
+
+def compute_graph_determinant(graph):
+    # TODO(jonas): test
+    # compute graph determinant
+    # according to https://pubs.acs.org/doi/pdf/10.1021/acs.jpca.0c01458
+    weights = diags(list(nx.get_node_attributes(graph, "atomic_number").values()))
+    A = nx.adjacency_matrix(graph)
+    weighted_A = weights @ A @ weights
+    return np.linalg.det(weighted_A.todense())
