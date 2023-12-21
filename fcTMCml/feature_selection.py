@@ -46,7 +46,8 @@ def run_rf(X: np.array, y: np.array) -> RandomForestRegressor:
 
 
 def select_features_permutation_importance(A: np.array, y_truth: np.array, run_ident: str,
-                                           cache_dir: str, feature_names: np.array, init_run: bool = True, maximum_retained_features: int = -1) -> np.array:
+                                           cache_dir: str, feature_names: np.array, init_run: bool = True,
+                                           maximum_retained_features: int = -1) -> (np.array, np.array, np.array):
     """
     calculate most important features based on random forest permutation importance
 
@@ -84,12 +85,13 @@ def select_features_permutation_importance(A: np.array, y_truth: np.array, run_i
     if maximum_retained_features > -1:
         while np.count_nonzero(list((result_importances_mean / np.max(result_importances_mean)) > thres)) > maximum_retained_features:
             thres += 0.0005
-    # TODO: add feature names
-    selected_features = A.T[(result_importances_mean / np.max(result_importances_mean)) > thres].T
-    selected_feature_names = list(feature_names[(result_importances_mean / np.max(result_importances_mean)) > thres])
+
+    mask = (result_importances_mean / np.max(result_importances_mean)) > thres
+    selected_features = A.T[mask].T
+    selected_feature_names = list(feature_names[mask])
+    selected_feature_importances = list(result_importances_mean[mask])
     print("retained ", selected_features.shape[1], " features")
-    # selected_feature_names =
-    return selected_features, selected_feature_names
+    return selected_features, selected_feature_names, selected_feature_importances
 
 
 # set up folder structure
@@ -138,9 +140,11 @@ for run_ident in feature_dict:
     plot_pca(principalComponents, explained_variance, np.where(classification_targets == 0, "tab:blue", "tab:orange"),
              feature_target_dir + classification_out_subdir + pca_subdir + run_ident + "_before_RF", legends=["THD", "SQP"])
 
-    selected_features, selected_feature_names = select_features_permutation_importance(features, classification_targets, feature_names=feature_names,
-                                                                                       run_ident=run_ident, cache_dir=cache_dir, init_run=False,
-                                                                                       maximum_retained_features=15)
+    selected_features, selected_feature_names, selected_feature_importances = select_features_permutation_importance(features, classification_targets,
+                                                                                                                     feature_names=feature_names,
+                                                                                                                     run_ident=run_ident,
+                                                                                                                     cache_dir=cache_dir, init_run=False,
+                                                                                                                     maximum_retained_features=15)
     print(selected_feature_names)
 
     principalComponents, explained_variance = get_pca(features=selected_features)
@@ -156,4 +160,5 @@ for run_ident in feature_dict:
     # TODO(jonas): write generic function for feauture storing
     np.save(feature_target_dir + classification_out_subdir + f"{run_ident}.npy", selected_features)
     np.save(feature_target_dir + classification_out_subdir + f"{run_ident}_names.npy", selected_feature_names)
+    np.save(feature_target_dir + classification_out_subdir + f"{run_ident}_importances.npy", selected_feature_importances)
     np.save(feature_target_dir + classification_out_subdir + "classification_targets.npy", classification_targets)
