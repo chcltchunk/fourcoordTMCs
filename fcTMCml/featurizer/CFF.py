@@ -100,7 +100,7 @@ class CrystalFieldFeatures():
     def get_classifier_feature_names(self, additional_featurizer: list = []) -> list:
         feature_names = ['delE', 'GG']
         for featurizer in additional_featurizer:
-            feature_names += featurizer.get_classifier_features()
+            feature_names += featurizer.get_classifier_feature_names()
         return feature_names
 
     def get_regression_features(self, additional_featurizer: list = []) -> list:
@@ -112,5 +112,5 @@ class CrystalFieldFeatures():
     def get_regression_feature_names(self, additional_featurizer: list = []) -> list:
         feature_names = ['delE']
         for featurizer in additional_featurizer:
-            feature_names += featurizer.get_classifier_features()
+            feature_names += featurizer.get_classifier_feature_names()
         return feature_names
