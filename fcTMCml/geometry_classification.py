@@ -1,9 +1,7 @@
 import numpy as np
 
 from sklearn.linear_model import RidgeClassifier
-from sklearn.kernel_ridge import KernelRidge
-from sklearn.svm import SVC
-from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import KFold
 from sklearn import metrics
@@ -184,7 +182,7 @@ def rc_optimization(X_train: np.array, X_val: np.array, y_train: np.array, y_val
         val data inputs
     y_val: np.array
         val data targets
-    
+
     Returns
     -------
     best: dict
