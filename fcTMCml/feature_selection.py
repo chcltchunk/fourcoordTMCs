@@ -28,7 +28,7 @@
 import numpy as np
 from sklearn.inspection import permutation_importance
 from fcTMCml.constants import feature_target_dir, cache_dir
-from fcTMCml.tools import make_dir, load_features, get_pca, plot_pca
+from fcTMCml.tools import make_dir, load_features, get_pca, get_tsne, get_umap, plot_pca, plot_tsne, plot_umap
 
 from sklearn.ensemble import RandomForestRegressor
 
@@ -106,10 +106,12 @@ regression_out_subdir = "regression_rff_selection/"
 
 pca_subdir = "pca/"
 tsne_subdir = "tsne/"
+umap_subdir = "umap/"
 
 make_dir(feature_target_dir + classification_out_subdir)
 make_dir(feature_target_dir + classification_out_subdir + pca_subdir)
 make_dir(feature_target_dir + classification_out_subdir + tsne_subdir)
+make_dir(feature_target_dir + classification_out_subdir + umap_subdir)
 
 make_dir(feature_target_dir + regression_out_subdir)
 
@@ -127,6 +129,12 @@ for run_ident in feature_dict:
     features = feature_dict[run_ident]
     feature_names = feature_names_dict[run_ident]
     principalComponents, explained_variance = get_pca(features=features)
+    tsne_embedding = get_tsne(features=features)
+    umap_embedding = get_umap(features=features)
+    plot_tsne(tsne_embedding, np.where(classification_targets == 0, "tab:blue", "tab:orange"),
+              feature_target_dir + classification_out_subdir + tsne_subdir + run_ident + "_before_RF", legends=["THD", "SQP"])
+    plot_umap(umap_embedding, np.where(classification_targets == 0, "tab:blue", "tab:orange"),
+              feature_target_dir + classification_out_subdir + umap_subdir + run_ident + "_before_RF", legends=["THD", "SQP"])
     plot_pca(principalComponents, explained_variance, np.where(classification_targets == 0, "tab:blue", "tab:orange"),
              feature_target_dir + classification_out_subdir + pca_subdir + run_ident + "_before_RF", legends=["THD", "SQP"])
 
@@ -136,6 +144,12 @@ for run_ident in feature_dict:
     print(selected_feature_names)
 
     principalComponents, explained_variance = get_pca(features=selected_features)
+    tsne_embedding = get_tsne(features=selected_features)
+    umap_embedding = get_umap(features=selected_features)
+    plot_tsne(tsne_embedding, np.where(classification_targets == 0, "tab:blue", "tab:orange"),
+              feature_target_dir + classification_out_subdir + tsne_subdir + run_ident + "_after_RF", legends=["THD", "SQP"])
+    plot_umap(umap_embedding, np.where(classification_targets == 0, "tab:blue", "tab:orange"),
+              feature_target_dir + classification_out_subdir + umap_subdir + run_ident + "_after_RF", legends=["THD", "SQP"])
     plot_pca(principalComponents, explained_variance, np.where(classification_targets == 0, "tab:blue", "tab:orange"),
              feature_target_dir + classification_out_subdir + pca_subdir + run_ident + "_after_RF", legends=["THD", "SQP"])
 

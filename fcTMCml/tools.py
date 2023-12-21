@@ -5,6 +5,7 @@ import numpy as np
 
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
+from umap import UMAP
 
 import matplotlib.pyplot as plt
 from matplotlib import cm, colors
@@ -66,8 +67,14 @@ def get_pca(features: np.array) -> (list, list):
 
 def get_tsne(features: np.array) -> list:
     tsne = TSNE()
-    tsne_vector = tsne.fit_transform(features)
-    return tsne_vector
+    tsne_embedding = tsne.fit_transform(features)
+    return tsne_embedding
+
+
+def get_umap(features: np.array) -> list:
+    umap = UMAP()
+    umap_embedding = umap.fit_transform(features)
+    return umap_embedding
 
 
 def plot_pca(principalComponents, explained_variance, color_list, filename, color_dic=None, mapper=None, legends=None, title=None):
@@ -99,7 +106,14 @@ def plot_pca(principalComponents, explained_variance, color_list, filename, colo
     plt.savefig(filename, dpi=300, bbox_inches="tight")
 
 
-# TODO(jonas): cleanup
+def plot_tsne(tsne_embedding, color_list, filename, color_dic=None, mapper=None, legends=None, title=None):
+    plot_pca(tsne_embedding, [0, 0], color_list, filename, color_dic, mapper, legends, title)
+
+
+def plot_umap(tsne_embedding, color_list, filename, color_dic=None, mapper=None, legends=None, title=None):
+    plot_pca(tsne_embedding, [0, 0], color_list, filename, color_dic, mapper, legends, title)
+
+
 def add_fi_to_plot(ax, coeffs, feature_set_mask, q, avg_score):
     # TODO: improve pie charts : https://matplotlib.org/stable/gallery/pie_and_polar_charts/nested_pie.html#sphx-glr-gallery-pie-and-polar-charts-nested-pie-py
     """
