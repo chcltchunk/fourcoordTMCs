@@ -132,7 +132,7 @@ class MCDL53():
                           "T#B", "T#C", "T#N", "T#O", "T#F", "T#P", "T#S", "T#Cl", "T#Br", "T#I"
                           ]
         for featurizer in additional_featurizer:
-            feature_names += featurizer.get_classifier_feature_names()
+            feature_names += featurizer.get_regression_feature_names()
 
         return feature_names
 
