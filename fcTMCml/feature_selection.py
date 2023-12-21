@@ -105,9 +105,11 @@ classification_out_subdir = "classification_rff_selection/"
 regression_out_subdir = "regression_rff_selection/"
 
 pca_subdir = "pca/"
+tsne_subdir = "tsne/"
 
 make_dir(feature_target_dir + classification_out_subdir)
 make_dir(feature_target_dir + classification_out_subdir + pca_subdir)
+make_dir(feature_target_dir + classification_out_subdir + tsne_subdir)
 
 make_dir(feature_target_dir + regression_out_subdir)
 
@@ -129,7 +131,7 @@ for run_ident in feature_dict:
              feature_target_dir + classification_out_subdir + pca_subdir + run_ident + "_before_RF", legends=["THD", "SQP"])
 
     selected_features, selected_feature_names = select_features_permutation_importance(features, classification_targets, feature_names=feature_names,
-                                                                                       run_ident=run_ident, cache_dir=cache_dir, init_run=True,
+                                                                                       run_ident=run_ident, cache_dir=cache_dir, init_run=False,
                                                                                        maximum_retained_features=15)
     print(selected_feature_names)
 
@@ -140,3 +142,4 @@ for run_ident in feature_dict:
     # TODO(jonas): write generic function for feauture storing
     np.save(feature_target_dir + classification_out_subdir + f"{run_ident}.npy", selected_features)
     np.save(feature_target_dir + classification_out_subdir + f"{run_ident}_names.npy", selected_feature_names)
+    np.save(feature_target_dir + classification_out_subdir + "classification_targets.npy", classification_targets)

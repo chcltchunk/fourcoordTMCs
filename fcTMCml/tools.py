@@ -4,6 +4,7 @@ import numpy as np
 
 
 from sklearn.decomposition import PCA
+from sklearn.manifold import TSNE
 
 import matplotlib.pyplot as plt
 from matplotlib import cm, colors
@@ -61,6 +62,12 @@ def get_pca(features: np.array) -> (list, list):
     principalComponents = pca.fit_transform(features)
     explained_variances = pca.explained_variance_ratio_
     return (principalComponents, explained_variances)
+
+
+def get_tsne(features: np.array) -> list:
+    tsne = TSNE()
+    tsne_vector = tsne.fit_transform(features)
+    return tsne_vector
 
 
 def plot_pca(principalComponents, explained_variance, color_list, filename, color_dic=None, mapper=None, legends=None, title=None):

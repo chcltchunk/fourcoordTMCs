@@ -43,7 +43,7 @@ np.random.seed(128)
 
 
 def create_balanced_dataset(features, targets, sampling_type="over"):
-    over = SMOTE(sampling_strategy=0.7, random_state=128, k_neighbors=5)
+    over = SMOTE(sampling_strategy=1, random_state=128, k_neighbors=5)
     under = RandomUnderSampler(sampling_strategy=0.6, random_state=128)
     if sampling_type == "both":
         steps = [('o', over), ('u', under)]
