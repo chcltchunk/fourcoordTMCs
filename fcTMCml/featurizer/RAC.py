@@ -220,18 +220,26 @@ class RAC():
         racs = self.get_tetrahedral_racs(depth, averaged)
         feature_array = list(racs.flatten()) + [self.oxidation_state] + self.ligand_denticity_n
         for featurizer in additional_featurizer:
-            feature_array += featurizer.get_regression_features()
+            feature_array += featurizer.get_classifier_features()
         return feature_array
 
     def get_classifier_feature_names(self, depth: int = 3, averaged: bool = False, additional_featurizer: list = []):
         racs = self.get_tetrahedral_rac_names(depth=depth, averaged=averaged)
         feature_array = racs + ['Ox', 'LD1', 'LD2', 'LD3', 'LD4']
         for featurizer in additional_featurizer:
-            feature_array += featurizer.get_regression_features()
+            feature_array += featurizer.get_classifier_feature_names()
         return feature_array
 
     def get_regression_features(self, depth: int = 3, averaged: bool = False, additional_featurizer: list = []):
-        return self.get_classifier_features(depth=depth, averaged=averaged, additional_featurizer=additional_featurizer)
+        racs = self.get_tetrahedral_racs(depth, averaged)
+        feature_array = list(racs.flatten()) + [self.oxidation_state] + self.ligand_denticity_n
+        for featurizer in additional_featurizer:
+            feature_array += featurizer.get_regression_features()
+        return feature_array
 
     def get_regression_feature_names(self, depth: int = 3, averaged: bool = False, additional_featurizer: list = []):
-        return self.get_classifier_feature_names(depth=depth, averaged=averaged, additional_featurizer=additional_featurizer)
+        racs = self.get_tetrahedral_rac_names(depth=depth, averaged=averaged)
+        feature_array = racs + ['Ox', 'LD1', 'LD2', 'LD3', 'LD4']
+        for featurizer in additional_featurizer:
+            feature_array += featurizer.get_regression_feature_names()
+        return feature_array
