@@ -32,6 +32,8 @@ from fcTMCml.tools import make_dir, load_features, get_pca, get_tsne, get_umap, 
 
 from sklearn.ensemble import RandomForestRegressor
 
+from matplotlib import colors, cm
+
 np.random.seed(128)
 
 
@@ -46,7 +48,8 @@ def run_rf(X: np.array, y: np.array) -> RandomForestRegressor:
 
 
 def select_features_permutation_importance(A: np.array, y_truth: np.array, run_ident: str,
-                                           cache_dir: str, feature_names: np.array, init_run: bool = True,
+                                           cache_dir: str, permutation_importance_subdir: str,
+                                           feature_names: np.array, init_run: bool = True,
                                            maximum_retained_features: int = -1) -> (np.array, np.array, np.array):
     """
     calculate most important features based on random forest permutation importance
@@ -76,9 +79,9 @@ def select_features_permutation_importance(A: np.array, y_truth: np.array, run_i
     if init_run:
         model = run_rf(A, y_truth.flatten())
         result = permutation_importance(model, A, y_truth.flatten(), n_repeats=50, random_state=128)
-        np.save(cache_dir + "permutation_importances_mean/" + run_ident + ".npy", result.importances_mean)
+        np.save(cache_dir + permutation_importance_subdir + run_ident + ".npy", result.importances_mean)
 
-    result_importances_mean = np.load(cache_dir + "permutation_importances_mean/" + run_ident + ".npy")
+    result_importances_mean = np.load(cache_dir + permutation_importance_subdir + run_ident + ".npy")
 
     thres = 0.010
     print(maximum_retained_features)
@@ -93,18 +96,20 @@ def select_features_permutation_importance(A: np.array, y_truth: np.array, run_i
     print("retained ", selected_features.shape[1], " features")
     return selected_features, selected_feature_names, selected_feature_importances
 
+##################
+# Classification #
+##################
 
-# set up folder structure
-permutation_importances_cache_subdir = "permutation_importances_mean/"
+
+# set up folder structure classification
+classification_permutation_importances_cache_subdir = "classification_permutation_importances_mean/"
 
 make_dir(cache_dir)
-make_dir(cache_dir + permutation_importances_cache_subdir)
+make_dir(cache_dir + classification_permutation_importances_cache_subdir)
 
 classification_in_subdir = "classification_balanced/"
-regression_in_subdir = "regression_raw/"
 
 classification_out_subdir = "classification_rff_selection/"
-regression_out_subdir = "regression_rff_selection/"
 
 pca_subdir = "pca/"
 tsne_subdir = "tsne/"
@@ -115,12 +120,8 @@ make_dir(feature_target_dir + classification_out_subdir + pca_subdir)
 make_dir(feature_target_dir + classification_out_subdir + tsne_subdir)
 make_dir(feature_target_dir + classification_out_subdir + umap_subdir)
 
-make_dir(feature_target_dir + regression_out_subdir)
-
 # load features
 classification_targets, feature_dict, feature_names_dict = load_features(feature_target_dir, classification_in_subdir, "classification")
-mcdl53_classifier_features, mcdl53_cff_classifier_features, \
-    rac300_classifier_features, rac300_cff_classifier_features = feature_dict.values()
 
 # loop over all feature sets
 # 1. pre feature selection PCA
@@ -144,7 +145,7 @@ for run_ident in feature_dict:
                                                                                                                      feature_names=feature_names,
                                                                                                                      run_ident=run_ident,
                                                                                                                      cache_dir=cache_dir, init_run=False,
-                                                                                                                     maximum_retained_features=15)
+                                                                                                                     maximum_retained_features=10)
     print(selected_feature_names)
 
     principalComponents, explained_variance = get_pca(features=selected_features)
@@ -162,3 +163,79 @@ for run_ident in feature_dict:
     np.save(feature_target_dir + classification_out_subdir + f"{run_ident}_names.npy", selected_feature_names)
     np.save(feature_target_dir + classification_out_subdir + f"{run_ident}_importances.npy", selected_feature_importances)
     np.save(feature_target_dir + classification_out_subdir + "classification_targets.npy", classification_targets)
+
+##############
+# Regression #
+##############
+
+# set up folder structure regression
+regression_permutation_importances_cache_subdir = "regression_permutation_importances_mean/"
+
+make_dir(cache_dir)
+make_dir(cache_dir + regression_permutation_importances_cache_subdir)
+
+regression_in_subdir = "regression_raw/"
+
+regression_out_subdir = "regression_rff_selection/"
+
+pca_subdir = "pca/"
+tsne_subdir = "tsne/"
+umap_subdir = "umap/"
+
+
+make_dir(feature_target_dir + regression_out_subdir)
+
+make_dir(feature_target_dir + regression_out_subdir)
+make_dir(feature_target_dir + regression_out_subdir + pca_subdir)
+make_dir(feature_target_dir + regression_out_subdir + tsne_subdir)
+make_dir(feature_target_dir + regression_out_subdir + umap_subdir)
+
+
+# load features
+regression_targets, feature_dict, feature_names_dict = load_features(feature_target_dir, regression_in_subdir, "regression")
+
+# loop over all feature sets
+# 1. pre feature selection PCA
+# 2. feature selection
+# 3. post feature selection PCA
+
+for run_ident in feature_dict:
+    features = feature_dict[run_ident]
+    feature_names = feature_names_dict[run_ident]
+    principalComponents, explained_variance = get_pca(features=features)
+    tsne_embedding = get_tsne(features=features)
+    umap_embedding = get_umap(features=features)
+
+    # define colormap for SSE coloring
+    cmap = cm.winter
+    norm = colors.Normalize(vmin=np.min(regression_targets), vmax=np.max(regression_targets))
+    sm = [cm.ScalarMappable(cmap=cmap, norm=norm), "SSE"]
+    print(cmap(norm(regression_targets)))
+    plot_tsne(tsne_embedding, cmap(norm(regression_targets)),
+              feature_target_dir + regression_out_subdir + tsne_subdir + run_ident + "_before_RF", mapper=sm)
+    plot_umap(umap_embedding, cmap(norm(regression_targets)),
+              feature_target_dir + regression_out_subdir + umap_subdir + run_ident + "_before_RF", mapper=sm)
+    plot_pca(principalComponents, explained_variance, cmap(norm(regression_targets)),
+             feature_target_dir + regression_out_subdir + pca_subdir + run_ident + "_before_RF", mapper=sm)
+
+    selected_features, selected_feature_names, selected_feature_importances = \
+        select_features_permutation_importance(features, regression_targets, feature_names=feature_names, run_ident=run_ident,
+                                               cache_dir=cache_dir, permutation_importance_subdir=regression_permutation_importances_cache_subdir,
+                                               init_run=False, maximum_retained_features=10)
+    print(selected_feature_names)
+
+    principalComponents, explained_variance = get_pca(features=selected_features)
+    tsne_embedding = get_tsne(features=selected_features)
+    umap_embedding = get_umap(features=selected_features)
+    plot_tsne(tsne_embedding, cmap(norm(regression_targets)),
+              feature_target_dir + regression_out_subdir + tsne_subdir + run_ident + "_after_RF", mapper=sm)
+    plot_umap(umap_embedding, cmap(norm(regression_targets)),
+              feature_target_dir + regression_out_subdir + umap_subdir + run_ident + "_after_RF", mapper=sm)
+    plot_pca(principalComponents, explained_variance, cmap(norm(regression_targets)),
+             feature_target_dir + regression_out_subdir + pca_subdir + run_ident + "_after_RF", mapper=sm)
+
+    # TODO(jonas): write generic function for feauture storing
+    np.save(feature_target_dir + regression_out_subdir + f"{run_ident}.npy", selected_features)
+    np.save(feature_target_dir + regression_out_subdir + f"{run_ident}_names.npy", selected_feature_names)
+    np.save(feature_target_dir + regression_out_subdir + f"{run_ident}_importances.npy", selected_feature_importances)
+    np.save(feature_target_dir + regression_out_subdir + "regression_targets.npy", regression_targets)
