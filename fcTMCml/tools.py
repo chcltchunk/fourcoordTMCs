@@ -9,6 +9,7 @@ from umap import UMAP
 
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
+from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 
 def openbabel_available() -> bool:
@@ -88,9 +89,11 @@ def plot_pca(principalComponents, explained_variance, color_list, filename, colo
     ax.axes.get_yaxis().set_ticks([])
     if color_dic is not None:
         markers = [plt.Line2D([0, 0], [0, 0], color=color, marker='o', linestyle='') for color in color_dic.values()]
-        plt.legend(markers, color_dic.keys(), numpoints=1, prop={'size': 15})
+        ax.legend(markers, color_dic.keys(), numpoints=1, prop={'size': 15})
     elif mapper is not None:
-        cbar = plt.colorbar(mapper[0], ticks=np.arange(-70, 11, 10))
+        divider = make_axes_locatable(ax)
+        cax = divider.append_axes('right', size='5%', pad=0.05)
+        cbar = fig.colorbar(mapper[0], ticks=np.arange(-110, 11, 10), cax=cax)
         cbar.ax.tick_params(labelsize=15)
         cbar.ax.get_yaxis().labelpad = 20
         cbar.ax.set_ylabel(mapper[1], rotation=90, fontsize=15)
@@ -101,8 +104,8 @@ def plot_pca(principalComponents, explained_variance, color_list, filename, colo
         handles.extend([patch1, patch2])
         ax.legend(handles=handles, fontsize=15)
     if title is not None:
-        plt.title(title)
-    plt.savefig(filename, dpi=300, bbox_inches="tight")
+        ax.set_title(title)
+    fig.savefig(filename, dpi=300, bbox_inches="tight")
 
 
 def plot_tsne(tsne_embedding, color_list, filename, color_dic=None, mapper=None, legends=None, title=None):
