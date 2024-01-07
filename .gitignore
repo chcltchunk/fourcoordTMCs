@@ -6,6 +6,7 @@ __pycache__/
 # other
 *.png
 .DS_Store
+sse_regression_*
 
 # C extensions
 *.so
