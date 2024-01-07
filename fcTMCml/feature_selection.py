@@ -100,7 +100,7 @@ def select_features_permutation_importance(A: np.array, y_truth: np.array, run_i
 # Classification #
 ##################
 
-"""
+
 # set up folder structure classification
 classification_permutation_importances_cache_subdir = "classification_permutation_importances_mean/"
 
@@ -165,7 +165,8 @@ for run_ident in feature_dict:
     np.save(feature_target_dir + classification_out_subdir + f"{run_ident}_names.npy", selected_feature_names)
     np.save(feature_target_dir + classification_out_subdir + f"{run_ident}_importances.npy", selected_feature_importances)
     np.save(feature_target_dir + classification_out_subdir + "classification_targets.npy", classification_targets)
-"""
+
+
 ##############
 # Regression #
 ##############
