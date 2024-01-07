@@ -127,6 +127,7 @@ classification_targets, feature_dict, feature_names_dict = load_features(feature
 # 1. pre feature selection PCA
 # 2. feature selection
 # 3. post feature selection PCA
+print("hey")
 
 for run_ident in feature_dict:
     features = feature_dict[run_ident]
@@ -141,13 +142,14 @@ for run_ident in feature_dict:
     plot_pca(principalComponents, explained_variance, np.where(classification_targets == 0, "tab:blue", "tab:orange"),
              feature_target_dir + classification_out_subdir + pca_subdir + run_ident + "_before_RF", legends=["THD", "SQP"])
 
-    selected_features, selected_feature_names, selected_feature_importances = select_features_permutation_importance(features, classification_targets,
-                                                                                                                     feature_names=feature_names,
-                                                                                                                     run_ident=run_ident,
-                                                                                                                     cache_dir=cache_dir,
-                                                                                                                     permutation_importance_subdir=classification_permutation_importances_cache_subdir,
-                                                                                                                     init_run=False,
-                                                                                                                     maximum_retained_features=15)
+    selected_features, selected_feature_names, selected_feature_importances = \
+        select_features_permutation_importance(features, classification_targets,
+                                               feature_names=feature_names,
+                                               run_ident=run_ident,
+                                               cache_dir=cache_dir,
+                                               permutation_importance_subdir=classification_permutation_importances_cache_subdir,
+                                               init_run=False,
+                                               maximum_retained_features=10)
     print(selected_feature_names)
 
     principalComponents, explained_variance = get_pca(features=selected_features)
@@ -165,7 +167,6 @@ for run_ident in feature_dict:
     np.save(feature_target_dir + classification_out_subdir + f"{run_ident}_names.npy", selected_feature_names)
     np.save(feature_target_dir + classification_out_subdir + f"{run_ident}_importances.npy", selected_feature_importances)
     np.save(feature_target_dir + classification_out_subdir + "classification_targets.npy", classification_targets)
-
 
 ##############
 # Regression #
