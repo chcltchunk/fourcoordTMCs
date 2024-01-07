@@ -28,10 +28,12 @@ import numpy as np
 
 
 class CrystalFieldFeatures():
-    def __init__(self, metal, ox, mult):
+    def __init__(self, metal, ox, mult, geometryA="tetrahedral", geometryB="square planar"):
         self.metal = metal.lower()
         self.ox = int(ox)
-        self.mult = int(mult)
+        self.mult = (int(mult[0]), int(mult[1])) if type(mult) is list else (int(mult), int(mult))
+        self.geometryA = geometryA
+        self.geometryB = geometryB
         self.init_dictionaries()
 
     def init_dictionaries(self):
@@ -55,39 +57,42 @@ class CrystalFieldFeatures():
 
     def calculate_enes(self, occ, dqs):
         conf_ene = np.dot(occ, dqs)
-        return round(conf_ene, 2)
+        return np.round(conf_ene, 2)
 
     def occupy_d_orbitals(self):
-        single_es = self.mult - 1  # for spin 1/2
-        num_es = self.cores_d_conf[self.metal][self.ox]
-        if num_es == 10:
-            if single_es == 0:
-                double_occ = 10
-            else:
-                raise "electron config and multiplicity do not match"
-        double_occ = (num_es - single_es) // 2
-        self.occ = [0] * 5
-        for i in range(double_occ):
-            self.occ[i] = 2
-        for i in range(double_occ, double_occ + single_es):
-            self.occ[i] = 1
+        self.occ = []
+        for i, mult in enumerate(self.mult):
+            single_es = mult - 1  # for spin 1/2
+            num_es = self.cores_d_conf[self.metal][self.ox]
+            if num_es == 10:
+                if single_es == 0:
+                    double_occ = 10
+                else:
+                    raise "electron config and multiplicity do not match"
+            double_occ = (num_es - single_es) // 2
+            occ = [0] * 5
+            for i in range(double_occ):
+                occ[i] = 2
+            for i in range(double_occ, double_occ + single_es):
+                occ[i] = 1
+            self.occ += [occ]
 
-    def get_energy_diff(self, geometryA="tetrahedral", geometryB="square planar"):
+    def get_energy_diff(self):
         """
         calculate energy difference between two geometries
         - used as continous CFF (regression)
         """
         self.occupy_d_orbitals()
-        geomA_energy = self.calculate_enes(self.occ, self.geometry_diff_of_quanta_values[geometryA])
-        geomB_energy = self.calculate_enes(self.occ, self.geometry_diff_of_quanta_values[geometryB])
+        geomA_energy = self.calculate_enes(self.occ[0], self.geometry_diff_of_quanta_values[self.geometryA])
+        geomB_energy = self.calculate_enes(self.occ[1], self.geometry_diff_of_quanta_values[self.geometryB])
         return geomA_energy - geomB_energy
 
-    def get_geometry_guess(self, geometryA="tetrahedral", geometryB="square planar"):
+    def get_geometry_guess(self):
         """
         returns 0 if geometryA is favored else 1
         - used as binary CFF (classification)
         """
-        energy_diff = self.get_energy_diff(geometryA, geometryB)
+        energy_diff = self.get_energy_diff()
         guess = 0 if energy_diff < 0 else 1
         return guess
 
@@ -100,7 +105,7 @@ class CrystalFieldFeatures():
     def get_classifier_feature_names(self, additional_featurizer: list = []) -> list:
         feature_names = ['delE', 'GG']
         for featurizer in additional_featurizer:
-            feature_names += featurizer.get_classifier_features()
+            feature_names += featurizer.get_classifier_feature_names()
         return feature_names
 
     def get_regression_features(self, additional_featurizer: list = []) -> list:
@@ -112,5 +117,5 @@ class CrystalFieldFeatures():
     def get_regression_feature_names(self, additional_featurizer: list = []) -> list:
         feature_names = ['delE']
         for featurizer in additional_featurizer:
-            feature_names += featurizer.get_classifier_features()
+            feature_names += featurizer.get_classifier_feature_names()
         return feature_names
