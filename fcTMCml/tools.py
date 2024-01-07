@@ -25,7 +25,7 @@ def remove_dir(path: str) -> None:
 
 
 def load_features(feature_target_dir, sub_dir, type="regression") -> dict:
-    if type == "classification": 
+    if type == "classification":
         targets = np.load(feature_target_dir + sub_dir + "classifier_targets.npy")
 
         mcdl53_features = np.load(feature_target_dir + sub_dir + "MCDL53_classifier.npy")
@@ -47,7 +47,7 @@ def load_features(feature_target_dir, sub_dir, type="regression") -> dict:
         rac300_cff_features = np.load(feature_target_dir + sub_dir + "RAC_cff_regression.npy")
     else:
         raise TypeError("feature type not supported")
-    return {f"{type}_targets" : targets, 
+    return {f"{type}_targets" : targets,
             f"mcdl53_{type}_features" : mcdl53_features,
             f"mcdl53_cff_{type}_features" : mcdl53_cff_features,
             f"rac300_{type}_features" : rac300_features,
