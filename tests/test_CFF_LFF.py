@@ -78,7 +78,7 @@ def test_energy_diff():
 
 
 def test_LFF_lambda_param():
-    pass  # TODO(jonas) 
+    pass  # TODO(jonas)
     lff = LigandFieldFeatures("cr", 3, 4, ["acac", "cn", "carbonyl", "water"])
     lff.occupy_d_orbitals()
     print(lff.lambda_param())
