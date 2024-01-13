@@ -10,6 +10,12 @@ S2_CUTOFF = 1.5
 # SSE lower than -110 kcal/mol is not reasonable for this dataset
 SSE_CUTOFF = -110
 
+# floating point accuracy for tests
+EPS = 1e-6
+test_resource_dir = "tests/testresources/"
+raw_data_dir = "data/"
+feature_target_dir = "fcTMCml/features/"
+cache_dir = "cache/"
 
 # define properties we'd like to keep in the dataset throughout the complete workflow
 # TODO(ralf): should we have the formal charge in the final dataset?
@@ -30,7 +36,7 @@ __all__ = [
 roman_numerals = {"I": 1, "II": 2, "III": 3, "IV": 4, "V": 5}
 
 metal_list_symbolic = ["Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn"]
-metal_list = np.array(list(range(21, 30))+list(range(39, 48))+list(range(72, 80)))
+metal_list = np.array(list(range(21, 30)) + list(range(39, 48)) + list(range(72, 80)))
 
 # Consistent with the definition in molSimplify:
 # http://www.webelements.com/ (last accessed May 13th 2015)
