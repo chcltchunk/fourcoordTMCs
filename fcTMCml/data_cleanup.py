@@ -13,7 +13,7 @@ from constants import S2_CUTOFF, SSE_CUTOFF
 
 
 # load raw data
-raw_data_dir = "../data/"
+raw_data_dir = "data/"
 df_hetero = pd.read_csv(raw_data_dir + "heteroleptic_thd_sses_bl_homo_with_validation_data_exchange_sensitivity.ssv", sep=";")
 df_homo = pd.read_csv(raw_data_dir + "homoleptic_thd_sses_bl_homo_with_validation_data_exchange_sensitivity.ssv", sep=";")
 

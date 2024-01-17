@@ -15,4 +15,7 @@ setup(
         'ase==3.22.1',
         'scipy==1.11.4',
     ],
+    extras_require={
+        'bond_order_matrix_MCDL46_features': ['openbabel==3.1.1', 'pybel==0.15.5']
+    }
 )

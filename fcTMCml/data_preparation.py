@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from constants import column_list, sse_colum_list
 
-raw_data_dir = "../data/"
+raw_data_dir = "data/"
 df = pd.read_csv(raw_data_dir + "thd_tmcs_geom_sse.csv")
 
 ###########################
