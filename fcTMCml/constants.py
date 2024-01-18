@@ -1,5 +1,6 @@
 import numpy as np
 from ase.data import chemical_symbols, atomic_numbers, covalent_radii
+from fcTMCml.tools import load_ligand_dict
 
 ##############################
 # PROJECT SPECIFIC CONSTANTS #
@@ -16,6 +17,9 @@ test_resource_dir = "tests/testresources/"
 raw_data_dir = "data/"
 feature_target_dir = "fcTMCml/features/"
 cache_dir = "cache/"
+ligand_dict_dir = "fcTMCml/featurizer/ligands.dict"
+
+ligand_dict = load_ligand_dict(ligand_dict_dir)
 
 # define properties we'd like to keep in the dataset throughout the complete workflow
 # TODO(ralf): should we have the formal charge in the final dataset?
