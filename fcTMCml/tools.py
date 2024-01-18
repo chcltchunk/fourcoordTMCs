@@ -53,3 +53,9 @@ def load_features(feature_target_dir, sub_dir, type="regression") -> dict:
             f"rac300_{type}_features" : rac300_features,
             f"rac300_cff_{type}_features" : rac300_cff_features
             }
+
+def load_ligand_dict(path: str) -> dict:
+    # load molSimplify ligand dict from ligands.dict
+    with open(path, "r") as f:
+        lines = f.readlines()
+    return {x.split(":")[0]: x.split(":")[1][:-1].split(",") for x in lines[2:]}
