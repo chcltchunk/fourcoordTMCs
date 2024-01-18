@@ -54,6 +54,7 @@ def load_features(feature_target_dir, sub_dir, type="regression") -> dict:
             f"rac300_cff_{type}_features" : rac300_cff_features
             }
 
+
 def load_ligand_dict(path: str) -> dict:
     # load molSimplify ligand dict from ligands.dict
     with open(path, "r") as f:
