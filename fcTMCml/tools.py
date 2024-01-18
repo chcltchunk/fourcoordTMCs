@@ -115,7 +115,7 @@ def plot_tsne(tsne_embedding, color_list, filename, color_dic=None, mapper=None,
 def plot_umap(tsne_embedding, color_list, filename, color_dic=None, mapper=None, legends=None, title=None):
     plot_pca(tsne_embedding, [0, 0], color_list, filename, color_dic, mapper, legends, title)
 
-    
+
 def load_ligand_dict(path: str) -> dict:
     # load molSimplify ligand dict from ligands.dict
     with open(path, "r") as f:
