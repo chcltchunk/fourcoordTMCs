@@ -121,4 +121,3 @@ def load_ligand_dict(path: str) -> dict:
     with open(path, "r") as f:
         lines = f.readlines()
     return {x.split(":")[0]: x.split(":")[1][:-1].split(",") for x in lines[2:]}
-
