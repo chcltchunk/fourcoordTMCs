@@ -27,13 +27,8 @@
 import numpy as np
 import networkx as nx
 import operator
-from fcTMCml.constants import electronegativity, covalent_radii
+from fcTMCml.constants import electronegativity, covalent_radii, ligand_dict
 from fcTMCml.featurizer.mol_graph_tools import get_metal_node_id
-
-# load molSimplify ligand dict from ligands.dict
-# TODO(ralf): is there a simpler way of doing this w/o using molSimplify?
-# move to constants or tools?
-ligand_dict = {x.split(":")[0]: x.split(":")[1][:-1].split(",") for x in open("fcTMCml/featurizer/ligands.dict").readlines()[2:]}
 
 
 class RAC():
