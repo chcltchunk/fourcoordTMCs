@@ -3,7 +3,7 @@ import numpy as np
 import networkx as nx
 
 from fcTMCml.tools import openbabel_available
-from fcTMCml.constants import electronegativity
+from fcTMCml.constants import electronegativity, ligand_dict
 from fcTMCml.featurizer.mol_graph_tools import get_metal_node_id
 
 """
@@ -35,11 +35,6 @@ Counts  | Individual Atom Counts    | #                 |*new
         | Truncated Atom Counts     | T#                |*new
 ---------------------------------------------------------
 """
-
-
-# load molSimplify ligand dict from ligands.dict
-# TODO(ralf): is there a simpler way of doing this w/o using molSimplify?
-ligand_dict = {x.split(":")[0]: x.split(":")[1][:-1].split(",") for x in open("fcTMCml/featurizer/ligands.dict").readlines()[2:]}
 
 
 class MCDL53():
