@@ -127,7 +127,6 @@ classification_targets, feature_dict, feature_names_dict = load_features(feature
 # 1. pre feature selection PCA
 # 2. feature selection
 # 3. post feature selection PCA
-print("hey")
 
 for run_ident in feature_dict:
     features = feature_dict[run_ident]
