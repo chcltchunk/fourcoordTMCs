@@ -17,6 +17,7 @@ setup(
         'scikit_learn==1.3.2',
         'imbalanced-learn==0.11.0',
         'hyperopt==0.2.7',
+        'umap-learn==0.5.5'
     ],
     extras_require={
         'bond_order_matrix_MCDL46_features': ['openbabel==3.0.0', 'pybel==0.15.5']
