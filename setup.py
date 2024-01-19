@@ -19,6 +19,6 @@ setup(
         'hyperopt==0.2.7',
     ],
     extras_require={
-        'bond_order_matrix_MCDL46_features': ['openbabel==3.1.1', 'pybel==0.15.5']
+        'bond_order_matrix_MCDL46_features': ['openbabel==3.0.0', 'pybel==0.15.5']
     }
 )
