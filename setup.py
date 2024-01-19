@@ -14,8 +14,9 @@ setup(
         'pandas==2.1.4',
         'ase==3.22.1',
         'scipy==1.11.4',
+        'scikit_learn==1.3.2',
     ],
     extras_require={
-        'bond_order_matrix_MCDL46_features': ['openbabel==3.1.1', 'pybel==0.15.5']
+        'bond_order_matrix_MCDL46_features': ['openbabel==3.0.0', 'pybel==0.15.5']
     }
 )
