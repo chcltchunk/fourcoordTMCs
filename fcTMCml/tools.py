@@ -4,7 +4,6 @@ import numpy as np
 
 
 def openbabel_available() -> bool:
-    # return False
     # checks if openbabel is installed
     openbabel_available = importlib.util.find_spec("openbabel")
     return openbabel_available is not None
