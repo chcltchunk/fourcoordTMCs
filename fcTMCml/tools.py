@@ -115,20 +115,6 @@ def plot_umap(tsne_embedding, color_list, filename, color_dic=None, mapper=None,
     plot_pca(tsne_embedding, [0, 0], color_list, filename, color_dic, mapper, legends, title)
 
 
-<<<<<<< HEAD
-=======
-        rac300_cff_features = np.load(feature_target_dir + sub_dir + "RAC_cff_regression.npy")
-    else:
-        raise TypeError("feature type not supported")
-    return {f"{type}_targets" : targets,
-            f"mcdl53_{type}_features" : mcdl53_features,
-            f"mcdl53_cff_{type}_features" : mcdl53_cff_features,
-            f"rac300_{type}_features" : rac300_features,
-            f"rac300_cff_{type}_features" : rac300_cff_features
-            }
-
-
->>>>>>> balance_ds
 def load_ligand_dict(path: str) -> dict:
     # load molSimplify ligand dict from ligands.dict
     with open(path, "r") as f:
