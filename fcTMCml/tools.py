@@ -13,7 +13,6 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 
 def openbabel_available() -> bool:
-    return False
     # checks if openbabel is installed
     openbabel_available = importlib.util.find_spec("openbabel")
     return openbabel_available is not None

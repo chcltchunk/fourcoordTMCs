@@ -14,15 +14,8 @@ from fcTMCml.tools import make_dir, unpack_tar
 
 """
 TODO:
-- construct MCDL53 features
-- construct MCDL53+CFF features
-- construct RAC300 features
-- construct RAC300+CFF features
-- scale all features
 - construct MCDL53+LFF features
 - construct RAC300+LFF features
-- scale features
-
 """
 
 # TODO: if geometries does not exist untar geometries.tar.gz
@@ -80,35 +73,25 @@ assert len(rac300_cff_classifier_features[0]) == len(rac300_cff_classifier_featu
 
 np.save(feature_target_dir + classification_subdir + "classification_targets.npy", classifier_targets)
 
-f = np.vstack(mcdl53_classifier_features)
-z_scores = StandardScaler()
-f = z_scores.fit_transform(f)  # X array-like of shape (n_samples, n_features)
-np.save(feature_target_dir + classification_subdir + "MCDL53_classification.npy", f)
-np.save(feature_target_dir + classification_subdir + "MCDL53_classification_names.npy", mcdl53_classifier_feature_names)
+feature_variants = {'MCDL53_classification' : [mcdl53_classifier_features, mcdl53_classifier_feature_names],
+                    'MCDL53_cff_classification': [mcdl53_cff_classifier_features, mcdl53_cff_classifier_feature_names],
+                    'RAC_classification': [rac300_classifier_features, rac300_classifier_feature_names],
+                    'RAC_cff_classification': [rac300_cff_classifier_features, rac300_cff_classifier_feature_names]
+                    }
 
-f = np.vstack(mcdl53_cff_classifier_features)
-z_scores = StandardScaler()
-f = z_scores.fit_transform(f)
-np.save(feature_target_dir + classification_subdir + "MCDL53_cff_classification.npy", f)
-np.save(feature_target_dir + classification_subdir + "MCDL53_cff_classification_names.npy", mcdl53_cff_classifier_feature_names)
+for feature_variant in feature_variants:
+    f = np.vstack(feature_variants[feature_variant][0])
+    z_scores = StandardScaler()
+    f = z_scores.fit_transform(f)  # X array-like of shape (n_samples, n_features)
+    np.save(feature_target_dir + classification_subdir + f"{feature_variant}.npy", f)
+    np.save(feature_target_dir + classification_subdir + f"{feature_variant}_names.npy", feature_variants[feature_variant][1])
 
-f = np.vstack(rac300_classifier_features)
-z_scores = StandardScaler()
-f = z_scores.fit_transform(f)
-np.save(feature_target_dir + classification_subdir + "RAC_classification.npy", f)
-np.save(feature_target_dir + classification_subdir + "RAC_classification_names.npy", rac300_classifier_feature_names)
-
-f = np.vstack(rac300_cff_classifier_features)
-z_scores = StandardScaler()
-f = z_scores.fit_transform(f)
-np.save(feature_target_dir + classification_subdir + "RAC_cff_classification.npy", f)
-np.save(feature_target_dir + classification_subdir + "RAC_cff_classification_names.npy", rac300_cff_classifier_feature_names)
 
 #######################
 # SSE regression task #
 #######################
 # ,metal,ox,ligstr,complex.size,geom.ls,geom.hs,ls.spin,hs.spin,b3lyp.energy.ls (Ha),b3lyp.energy.hs (Ha),b3lyp.sse (kcal/mol)
-pd.read_csv(raw_data_dir + "thd_sse_prediction.csv")
+df = pd.read_csv(raw_data_dir + "thd_sse_prediction.csv")
 
 regression_targets = []
 mcdl53_regression_features = []
@@ -117,17 +100,16 @@ rac300_regression_features = []
 rac300_cff_regression_features = []
 
 for i, row in df.iterrows():
-    xyz_file_path = raw_data_dir + f"geometries/metal_{row['metal']}_ox_{int(row['ox'])}_spin_{int(row['spin'])}_ligstr_{row['ligstr']}.xyz"
+    xyz_file_path = raw_data_dir + f"geometries/metal_{row['metal']}_ox_{int(row['ox'])}_spin_{int(row['ls.spin'])}_ligstr_{row['ligstr']}.xyz"
     if i == 828:  # xyz_file_path == raw_data_dir + "geometries/metal_fe_ox_2_spin_1_ligstr_scn_furan_furan_furan.xyz":
         continue
     ligand_list = row["ligstr"].split("_")
     mcdlf = MCDL53(graph_from_xyz_file(xyz_file_path), oxidation_state=int(row['ox']), ligand_list=ligand_list,
-                   multiplicity=row['spin'], input_file=xyz_file_path)
-    cff = CrystalFieldFeatures(row["metal"], int(row['ox']), int(row['spin']))
+                   multiplicity=None, input_file=xyz_file_path)
+    cff = CrystalFieldFeatures(row["metal"], int(row['ox']), [int(row['ls.spin']), int(row['hs.spin'])], geometryA='tetrahedral', geometryB='tetrahedral')
     rac = RAC(graph_from_xyz_file(xyz_file_path), int(row['ox']), ligand_list=ligand_list)
 
-    geometry_one_hot = 0 if row["geom"] == 'tetrahedral' else 1
-    regression_targets += [geometry_one_hot]
+    regression_targets += [row["b3lyp.sse (kcal/mol)"]]
     f = mcdlf.get_regression_features()
     mcdl53_regression_features += [f]
     f = mcdlf.get_regression_features(additional_featurizer=[cff])
@@ -148,30 +130,18 @@ assert len(rac300_cff_regression_features[0]) == len(rac300_cff_regression_featu
 
 np.save(feature_target_dir + regression_subdir + "regression_targets.npy", np.array(regression_targets))
 
-f = np.vstack(mcdl53_regression_features)
-z_scores = StandardScaler()
-f = z_scores.fit_transform(f)  # X array-like of shape (n_samples, n_features)
-np.save(feature_target_dir + regression_subdir + "MCDL53_regression.npy", f)
-np.save(feature_target_dir + regression_subdir + "MCDL53_regression_names.npy", mcdl53_regression_feature_names)
+feature_variants = {'MCDL53_regression' : [mcdl53_regression_features, mcdl53_regression_feature_names],
+                    'MCDL53_cff_regression': [mcdl53_cff_regression_features, mcdl53_cff_regression_feature_names],
+                    'RAC_regression': [rac300_regression_features, rac300_regression_feature_names],
+                    'RAC_cff_regression': [rac300_cff_regression_features, rac300_cff_regression_feature_names]
+                    }
 
-f = np.vstack(mcdl53_cff_regression_features)
-z_scores = StandardScaler()
-f = z_scores.fit_transform(f)
-np.save(feature_target_dir + regression_subdir + "MCDL53_cff_regression.npy", f)
-np.save(feature_target_dir + regression_subdir + "MCDL53_cff_regression_names.npy", mcdl53_cff_regression_feature_names)
-
-f = np.vstack(rac300_regression_features)
-z_scores = StandardScaler()
-f = z_scores.fit_transform(f)
-np.save(feature_target_dir + regression_subdir + "RAC_regression.npy", f)
-np.save(feature_target_dir + regression_subdir + "RAC_regression_names.npy", rac300_regression_feature_names)
-
-f = np.vstack(rac300_cff_regression_features)
-z_scores = StandardScaler()
-f = z_scores.fit_transform(f)
-np.save(feature_target_dir + regression_subdir + "RAC_cff_regression.npy", f)
-np.save(feature_target_dir + regression_subdir + "RAC_cff_regression_names.npy", rac300_cff_regression_feature_names)
-
+for feature_variant in feature_variants:
+    f = np.vstack(feature_variants[feature_variant][0])
+    z_scores = StandardScaler()
+    f = z_scores.fit_transform(f)  # X array-like of shape (n_samples, n_features)
+    np.save(feature_target_dir + classification_subdir + f"{feature_variant}.npy", f)
+    np.save(feature_target_dir + classification_subdir + f"{feature_variant}_names.npy", feature_variants[feature_variant][1])
 
 #########################################
 # Hybrid classification/regression task #
