@@ -30,10 +30,10 @@ def k_folds(clf: ClassifierMixin,
     X: np.array
         feature vector
     y: np.array
-        one-hot encoded target vector 
+        one-hot encoded target vector
     return_clf: bool
         if True the classifier will be returnee along with k-fold scores
-    
+
     Returns:
     --------
     accuracy: float
