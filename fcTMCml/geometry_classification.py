@@ -4,8 +4,10 @@ from sklearn.linear_model import RidgeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import KFold
+from sklearn.base import clone
 from sklearn import metrics
 from sklearn.model_selection import train_test_split
+from sklearn.base import ClassifierMixin
 
 from hyperopt import hp, tpe, fmin, Trials
 from functools import partial
@@ -15,7 +17,33 @@ from fcTMCml.constants import feature_target_dir
 from fcTMCml.tools import load_features
 
 
-def k_folds(clf, X, y, return_clf=False, rns=25):
+def k_folds(clf: ClassifierMixin,
+            X: np.array, y: np.array,
+            return_clf: bool = False):
+    """
+    K-Fold cross validation for a Classifier Model
+
+    Parameters:
+    -----------
+    clf: ClassifierMixin
+        the classifier model to run
+    X: np.array
+        feature vector
+    y: np.array
+        one-hot encoded target vector 
+    return_clf: bool
+        if True the classifier will be returnee along with k-fold scores
+    
+    Returns:
+    --------
+    accuracy: float
+        average of model accuracy over k-folds
+    ppv: float
+    sensitivities: float
+    f_scores: float
+    clf: ClassifierMixin
+        only if return_clf is set to true
+    """
     kf = KFold(n_splits=10, shuffle=True, random_state=128)
     kf.get_n_splits(X)
     accuracy_score = []
@@ -25,6 +53,7 @@ def k_folds(clf, X, y, return_clf=False, rns=25):
     for train_index, test_index in kf.split(X):
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]
+        clf = clone(clf)
         # verify that the splits are equally distributed among the classes
         # print(np.count_nonzero(y_train), " / ", y_train.shape[0], " square_planar / total datapoints in training set")
         # print(np.count_nonzero(y_test), " / ", y_test.shape[0], " square_planar / total datapoints in testing set")
@@ -58,21 +87,32 @@ def grid_search_rfc(X: np.array, y: np.array):
     return grid_result.best_params_
 
 
-def train_rfc_hyperopt(hyperparams, X_train, X_val, y_train, y_val, return_model=False):
+def train_rfc_hyperopt(hyperparams: dict,
+                       X_train: np.array, X_val: np.array,
+                       y_train: np.array, y_val: np.array,
+                       return_model: bool = True):
     '''
-    Train a RFC model at given hyperparameters.
+    Train a RandomForestClassifiert model at given hyperparameters.
 
-    inputs
-    hyperparams: dict, hyperparameters for KRR.
-        X_train: np.array, training data inputs
-        y_train: np.array, training data targets
-        X_val: np.array, val data inputs
-        y_val: np.array, val data targets
-        return_model: boolean, if True, return model instead of MAE
+    Parameters:
+    -----------
+    hyperparams: dict
+        hyperparameters for RFC
+    X_train: np.array
+        training data inputs
+    X_val: np.array
+        validation data inputs
+    y_train: np.array
+        training data targets
+    y_val: np.array
+        validation data targets
+    return_model: bool (default True)
+        if True, return model instead of 1 - accuracy
 
-    outputs:
-        mae: float, mean absolute error for the RF model (return_model=False)
-        rfc: scikit-learn KernelRidge object, trained KRR model (return_model=True)
+    Returns:
+    --------
+    1 - accuracy: float
+        1 - accuracy to convert this into a minimization problem
     '''
     rfc = RandomForestClassifier(n_estimators=hyperparams["n_estimators"], max_features=hyperparams["max_features"],
                                  min_samples_split=hyperparams["min_samples_split"], criterion=hyperparams["criterion"],
@@ -85,25 +125,26 @@ def train_rfc_hyperopt(hyperparams, X_train, X_val, y_train, y_val, return_model
     return 1 - acc
 
 
-def rfc_optimization(X_train, X_val, y_train, y_val):
+def rfc_optimization(X_train: np.array, X_val: np.array,
+                     y_train: np.arary, y_val: np.array):
     '''
-    RFC hyperparameters optimization with hyperopt.
+    RandomForestClassifier hyperparameters optimization with hyperopt.
 
-    Parameters
-    ----------
+    Parameters:
+    -----------
     X_train: np.array
         raining data inputs
     y_train: np.array
         training data targets
     X_val: np.array
-        val data inputs
+        validation data inputs
     y_val: np.array
-        val data targets
+        validation data targets
 
-    Returns
-    -------
-    best: dict
-        best hyperparameters.
+    Returns:
+    --------
+    best_hyperparams: dict
+        best hyperparameters
     '''
     # print("---hyperopt---")
     max_features = ["log2", 'sqrt']
@@ -133,65 +174,66 @@ def rfc_optimization(X_train, X_val, y_train, y_val):
     return best
 
 
-def train_rc_hyperopt(hyperparams, X_train, X_val, y_train, y_val, return_model=False) -> float:
+def train_rc_hyperopt(hyperparams: dict,
+                      X_train: np.array, X_val: np.array,
+                      y_train: np.array, y_val: np.array,
+                      return_model: bool = True) -> float:
     '''
     Train a RidgeClassifier model with given hyperparameters.
 
-    Parameters
-    ----------
+    Parameters:
+    -----------
     hyperparams: dict
-        hyperparameters for KRR.
+        hyperparameters for RFC
     X_train: np.array
         training data inputs
+    X_val: np.array
+        validation data inputs
     y_train: np.array
         training data targets
-    X_val: np.array
-        val data inputs
     y_val: np.array
-        val data targets
-    return_model: bool
-        if True, return model instead of MAE
+        validation data targets
+    return_model: bool (default True)
+        if True, return model instead of 1 - accuracy
 
-    Returns
-    -------
-    mae: float
-        mean absolute error for the RF model (return_model=False)
-    krr: scikit-learn KernelRidge object
-        trained KRR model (return_model=True)
+    Returns:
+    --------
+    1 - accuracy: float
+        1 - accuracy to convert this into a minimization problem
     '''
-    krc = RidgeClassifier(alpha=hyperparams["alpha"], tol=hyperparams["tol"], random_state=128)
-    krc.fit(X_train, y_train)
+    rc = RidgeClassifier(alpha=hyperparams["alpha"], tol=hyperparams["tol"], random_state=128)
+    rc.fit(X_train, y_train)
     if return_model:
-        return krc
-    y_pred = krc.predict(X_val)
+        return rc
+    y_pred = rc.predict(X_val)
     acc = metrics.accuracy_score(y_val, y_pred)
     return 1 - acc
 
 
-def rc_optimization(X_train: np.array, X_val: np.array, y_train: np.array, y_val: np.array) -> dict:
+def rc_optimization(X_train: np.array, X_val: np.array,
+                    y_train: np.array, y_val: np.array) -> dict:
     '''
     RidgeClassifier hyperparameters optimization with hyperopt.
 
-    Parameters
-    ----------
+    Parameters:
+    -----------
     X_train: np.array
-        training data inputs
+        raining data inputs
     y_train: np.array
         training data targets
     X_val: np.array
-        val data inputs
+        validation data inputs
     y_val: np.array
-        val data targets
+        validation data targets
 
-    Returns
-    -------
-    best: dict
+    Returns:
+    --------
+    best_hyperparams: dict
         best hyperparameters
     '''
     # print("---hyperopt---")
     space = {"alpha": hp.loguniform("alpha", np.log(1e-8), 1),
              "tol": hp.loguniform("tol", np.log(1e-12), np.log(1)),
-             # "ls": hp.loguniform("ls", np.log(1e-6), np.log(1e6)),
              }
     objective_func = partial(train_rc_hyperopt,
                              X_train=X_train,
@@ -211,7 +253,6 @@ def rc_optimization(X_train: np.array, X_val: np.array, y_train: np.array, y_val
     return best
 
 
-classification_in_subdir = "classification_balanced/"
 classification_in_subdir = "classification_rff_selection/"
 
 
