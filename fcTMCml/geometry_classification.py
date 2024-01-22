@@ -73,6 +73,22 @@ def k_folds(clf: ClassifierMixin,
 
 
 def grid_search_rfc(X: np.array, y: np.array):
+    """
+    run grid search for the RandomForestClassifier
+
+    Parameters:
+    -----------
+    X: np.array
+        feature vector
+    y: np.array
+        one-hot encoded target vector
+
+    Returns:
+    --------
+    best_hyperparams: dict
+        best hyperparameters
+
+    """
     # RFC (takes care of K-Fold internally)
     print("\n RFC")
     clf = RandomForestClassifier(random_state=128)
