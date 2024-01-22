@@ -106,7 +106,7 @@ def grid_search_rfc(X: np.array, y: np.array):
 def train_rfc_hyperopt(hyperparams: dict,
                        X_train: np.array, X_val: np.array,
                        y_train: np.array, y_val: np.array,
-                       return_model: bool = True):
+                       return_model: bool = False):
     '''
     Train a RandomForestClassifiert model at given hyperparameters.
 
@@ -122,7 +122,7 @@ def train_rfc_hyperopt(hyperparams: dict,
         training data targets
     y_val: np.array
         validation data targets
-    return_model: bool (default True)
+    return_model: bool (default False)
         if True, return model instead of 1 - accuracy
 
     Returns:
@@ -142,7 +142,7 @@ def train_rfc_hyperopt(hyperparams: dict,
 
 
 def rfc_optimization(X_train: np.array, X_val: np.array,
-                     y_train: np.arary, y_val: np.array):
+                     y_train: np.array, y_val: np.array):
     '''
     RandomForestClassifier hyperparameters optimization with hyperopt.
 
@@ -193,7 +193,7 @@ def rfc_optimization(X_train: np.array, X_val: np.array,
 def train_rc_hyperopt(hyperparams: dict,
                       X_train: np.array, X_val: np.array,
                       y_train: np.array, y_val: np.array,
-                      return_model: bool = True) -> float:
+                      return_model: bool = False) -> float:
     '''
     Train a RidgeClassifier model with given hyperparameters.
 
@@ -209,7 +209,7 @@ def train_rc_hyperopt(hyperparams: dict,
         training data targets
     y_val: np.array
         validation data targets
-    return_model: bool (default True)
+    return_model: bool (default False)
         if True, return model instead of 1 - accuracy
 
     Returns:
