@@ -11,7 +11,7 @@ This class builds MCDL25 feauteres as described in DOI: 10.1039/c7sc01247k.
     - the exchange sensitivity is removed.
     - the ligand identity is removed
 We add multiplicity, spin-state, the full Kier index, and (truncated) atom
-counts to arrive at a MCDL53 feature vector.
+counts to arrive at a MCDLF feature vector.
 
 ---------------------------------------------------------
 Scope   | Feature                   | Abbreviation      |
@@ -37,10 +37,10 @@ Counts  | Individual Atom Counts    | #                 |*new
 """
 
 
-class MCDL53():
+class MCDLF():
     def __init__(self, graph: nx.graph, oxidation_state: int, ligand_list: list, multiplicity: int = None, truncation: int = 3, input_file: str = None) -> None:
         """
-        initialize MCDL53 features
+        initialize MCDLF features
 
         Parameters
         ----------
@@ -54,7 +54,7 @@ class MCDL53():
         self.ligand_list = ligand_list
         self.metal_node_id = get_metal_node_id(self.graph)
         if self.metal_node_id is None:
-            raise TypeError("Can not generate MCDL53 features without central metal")
+            raise TypeError("Can not generate MCDLF features without central metal")
         # start of feature extraction
         # metal (related) features
         self.metal_identity = graph.nodes[self.metal_node_id]["atomic_number"]
@@ -134,7 +134,7 @@ class MCDL53():
     def get_classifier_features(self, additional_featurizer: list = []) -> list:
         """
         get features for a classifier task
-        returns mcdl53 (mcdl25) (10.1039/C7SC01247K) features for given TMC graph
+        returns mcdlf (mcdl25) (10.1039/C7SC01247K) features for given TMC graph
 
         Parameters
         ----------
