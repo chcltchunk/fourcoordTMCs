@@ -84,6 +84,25 @@ class RAC():
                 for p, prop in enumerate(properties):
                     names += [f"{start}-{prop}-{d}-{scope}"]
         return names
+    
+    def get_tetrahedral_rac_groups(self, tetrahedral_rac_names: list, start: int = 0) -> (list, int):
+        group_identifier = {}
+        tetrahedral_rac_groups = []
+        group_numerator = -1
+        for names in tetrahedral_rac_names:
+            names_split = names.split("-")
+            if names_split[-1][:-1] != "ax":
+                group_numerator += 1
+                tetrahedral_rac_groups += [group_numerator]
+                continue
+            identifier = "-".join(names_split[:-1])
+            if identifier in group_identifier.keys():
+                tetrahedral_rac_groups += [group_identifier[identifier]]
+            else:
+                group_numerator += 1
+                group_identifier[identifier] = group_numerator
+                tetrahedral_rac_groups += [group_numerator]
+        return tetrahedral_rac_groups, group_numerator
 
     #########################################
     # Default RACs Property Vector Function #
@@ -225,6 +244,14 @@ class RAC():
             feature_array += featurizer.get_classifier_feature_names()
         return feature_array
 
+    def get_classifier_feature_groups(self, depth: int = 3, averaged: bool = False, additional_featurizer: list = [], start: int = 0):
+        racs = self.get_tetrahedral_rac_names(depth=depth, averaged=averaged)
+        feature_groups, end_index = self.get_tetrahedral_rac_groups(racs, start=start)
+        feature_groups = feature_groups + [end_index, *[end_index + 1] * 4]
+        for featurizer in additional_featurizer:
+            feature_groups += featurizer.get_classifier_feature_names(start=end_index + 2)
+        return feature_groups
+
     def get_regression_features(self, depth: int = 3, averaged: bool = False, additional_featurizer: list = []):
         racs = self.get_tetrahedral_racs(depth, averaged)
         feature_array = list(racs.flatten()) + [self.oxidation_state] + self.ligand_denticity_n
@@ -238,3 +265,11 @@ class RAC():
         for featurizer in additional_featurizer:
             feature_array += featurizer.get_regression_feature_names()
         return feature_array
+
+    def get_regression_feature_groups(self, depth: int = 3, averaged: bool = False, additional_featurizer: list = [], start: int = 0):
+        racs = self.get_tetrahedral_rac_names(depth=depth, averaged=averaged)
+        feature_groups, end_index = self.get_tetrahedral_rac_groups(racs, start=start)
+        feature_groups = feature_groups + [end_index, *[end_index + 1] * 4]
+        for featurizer in additional_featurizer:
+            feature_groups += featurizer.get_regression_feature_groups(start=end_index + 2)
+        return feature_groups

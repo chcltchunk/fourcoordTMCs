@@ -76,3 +76,20 @@ def test_get_tetrahedral_feature_names():
     assert len(feature_names) == 300
     feature_names = rac.get_tetrahedral_rac_names(depth=4, averaged=True)
     assert len(feature_names) == 150
+
+
+def test_get_tetrahedral_feature_groups():
+    rac = RAC(graph=get_dummy_graph(), oxidation_state=2, ligand_list=["water", "chloride", "iodide", "carbonyl"])
+    feature_names = rac.get_tetrahedral_rac_names()
+    feature_groups, end_index = rac.get_tetrahedral_rac_groups(feature_names)
+    assert end_index == 119
+    assert len(feature_groups) == 300
+    feature_names = rac.get_tetrahedral_rac_names(depth=3, averaged=True)
+    feature_groups, end_index = rac.get_tetrahedral_rac_groups(feature_names)
+    assert end_index == 119
+    assert len(feature_groups) == 120
+    feature_names = rac.get_tetrahedral_rac_names(depth=4, averaged=True)
+    feature_groups, end_index = rac.get_tetrahedral_rac_groups(feature_names)
+    assert end_index == 149
+    assert len(feature_groups) == 150
+

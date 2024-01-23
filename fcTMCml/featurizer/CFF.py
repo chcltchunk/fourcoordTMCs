@@ -108,6 +108,12 @@ class CrystalFieldFeatures():
             feature_names += featurizer.get_classifier_feature_names()
         return feature_names
 
+    def get_classifier_feature_groups(self, additional_featurizer: list = [], start: int = 0) -> list:
+        feature_names = [start, start + 1]
+        for featurizer in additional_featurizer:
+            feature_names += featurizer.get_classifier_feature_names(start=start + 2)
+        return feature_names
+
     def get_regression_features(self, additional_featurizer: list = []) -> list:
         feature_array = [self.get_energy_diff()]
         for featurizer in additional_featurizer:
@@ -118,4 +124,10 @@ class CrystalFieldFeatures():
         feature_names = ['delE']
         for featurizer in additional_featurizer:
             feature_names += featurizer.get_classifier_feature_names()
+        return feature_names
+    
+    def get_regression_feature_groups(self, additional_featurizer: list = [], start: int = 0) -> list:
+        feature_names = [start]
+        for featurizer in additional_featurizer:
+            feature_names += featurizer.get_classifier_feature_groups(start=start + 1)
         return feature_names

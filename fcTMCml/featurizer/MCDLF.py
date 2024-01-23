@@ -109,30 +109,30 @@ class MCDLF():
 
         return feature_names
 
-    def get_classifier_feature_groups(self, additional_featurizer: list = []) -> list:
-        feature_groups = [0,
-                          1,
-                          2, 3, 4,
-                          5,
-                          6,
-                          *[7] * len(self.connection_atom_n),
-                          *[8] * len(self.ligand_charge_n),
-                          *[9] * len(self.ligand_denticity_n),
-                          10,
-                          *[11] * len(self.ligand_number_of_atoms_n),
+    def get_classifier_feature_groups(self, additional_featurizer: list = [], start: int = 0) -> list:
+        feature_groups = [start,
+                          start + 1,
+                          start + 2, start + 3, start +4,
+                          start + 5,
+                          start + 6,
+                          *[start + 7] * len(self.connection_atom_n),
+                          *[start + 8] * len(self.ligand_charge_n),
+                          *[start + 9] * len(self.ligand_denticity_n),
+                          start + 10,
+                          *[start + 11] * len(self.ligand_number_of_atoms_n),
                           ]
         if openbabel_available():
-            feature_groups += [12]
-            i = 13
+            feature_groups += [start + 12]
+            i = start + 13
         else:
-            i = 12
+            i = start + 12
         feature_groups += [i,
                            i + 1,
                            *[i + 2] * 10,
                            *[i + 3] * 10
                            ]
         for featurizer in additional_featurizer:
-            feature_groups += featurizer.get_classifier_feature_groups()
+            feature_groups += featurizer.get_classifier_feature_groups(start=i + 4)
 
         return feature_groups
 
@@ -158,28 +158,28 @@ class MCDLF():
 
         return feature_names
     
-    def get_regression_feature_groups(self, additional_featurizer: list = []) -> list:
-        feature_groups = [0,
-                          1,
-                          2, 3, 4,
-                          *[5] * len(self.connection_atom_n),
-                          *[6] * len(self.ligand_charge_n),
-                          *[7] * len(self.ligand_denticity_n),
-                          8,
-                          *[9] * len(self.ligand_number_of_atoms_n)
+    def get_regression_feature_groups(self, additional_featurizer: list = [], start: int = 0) -> list:
+        feature_groups = [start,
+                          start + 1,
+                          start + 2, start + 3, start + 4,
+                          *[start + 5] * len(self.connection_atom_n),
+                          *[start + 6] * len(self.ligand_charge_n),
+                          *[start + 7] * len(self.ligand_denticity_n),
+                          start + 8,
+                          *[start + 9] * len(self.ligand_number_of_atoms_n)
                           ]
         if openbabel_available():
-            feature_groups += [10]
-            i = 11
+            feature_groups += [start + 10]
+            i = start + 11
         else:
-            i = 10
+            i = start + 10
         feature_groups += [i,
                            i + 1,
                            *[i + 2] * 10,
                            *[i + 3] * 10
                            ]
         for featurizer in additional_featurizer:
-            feature_groups += featurizer.get_regression_feature_groups()
+            feature_groups += featurizer.get_regression_feature_groups(start=i + 4)
 
         return feature_groups
 
