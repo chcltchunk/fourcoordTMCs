@@ -13,6 +13,7 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 
 def openbabel_available() -> bool:
+    return False
     # checks if openbabel is installed
     openbabel_available = importlib.util.find_spec("openbabel")
     return openbabel_available is not None
@@ -32,29 +33,40 @@ def remove_dir(path: str) -> None:
     os.removedirs(path)
 
 
-def load_features(feature_target_dir, sub_dir, type="regression") -> dict:
+def load_features(feature_target_dir, sub_dir, type="regression", load_groups: bool = False) -> dict:
     targets = np.load(feature_target_dir + sub_dir + f"{type}_targets.npy")
 
-    mcdl53_features = np.load(feature_target_dir + sub_dir + f"MCDL53_{type}.npy")
-    mcdl53_feature_names = np.load(feature_target_dir + sub_dir + f"MCDL53_{type}_names.npy")
+    mcdlf_features = np.load(feature_target_dir + sub_dir + f"MCDLF_{type}.npy")
+    mcdlf_feature_names = np.load(feature_target_dir + sub_dir + f"MCDLF_{type}_names.npy")
 
-    mcdl53_cff_features = np.load(feature_target_dir + sub_dir + f"MCDL53_cff_{type}.npy")
-    mcdl53_cff_feature_names = np.load(feature_target_dir + sub_dir + f"MCDL53_cff_{type}_names.npy")
+    mcdlf_cff_features = np.load(feature_target_dir + sub_dir + f"MCDLF_cff_{type}.npy")
+    mcdlf_cff_feature_names = np.load(feature_target_dir + sub_dir + f"MCDLF_cff_{type}_names.npy")
 
-    rac300_features = np.load(feature_target_dir + sub_dir + f"RAC_{type}.npy")
-    rac300_feature_names = np.load(feature_target_dir + sub_dir + f"RAC_{type}_names.npy")
+    rac_features = np.load(feature_target_dir + sub_dir + f"RAC_{type}.npy")
+    rac_feature_names = np.load(feature_target_dir + sub_dir + f"RAC_{type}_names.npy")
 
-    rac300_cff_features = np.load(feature_target_dir + sub_dir + f"RAC_cff_{type}.npy")
-    rac300_cff_feature_names = np.load(feature_target_dir + sub_dir + f"RAC_cff_{type}_names.npy")
-    return targets, {f"MCDL53_{type}" : mcdl53_features,
-                     f"MCDL53_cff_{type}" : mcdl53_cff_features,
-                     f"RAC_{type}" : rac300_features,
-                     f"RAC_cff_{type}" : rac300_cff_features
-                     }, {f"MCDL53_{type}" : mcdl53_feature_names,
-                         f"MCDL53_cff_{type}" : mcdl53_cff_feature_names,
-                         f"RAC_{type}" : rac300_feature_names,
-                         f"RAC_cff_{type}" : rac300_cff_feature_names
-                         }
+    rac_cff_features = np.load(feature_target_dir + sub_dir + f"RAC_cff_{type}.npy")
+    rac_cff_feature_names = np.load(feature_target_dir + sub_dir + f"RAC_cff_{type}_names.npy")
+    return_dictionaries = [{f"MCDLF_{type}" : mcdlf_features,
+                            f"MCDLF_cff_{type}" : mcdlf_cff_features,
+                            f"RAC_{type}" : rac_features,
+                            f"RAC_cff_{type}" : rac_cff_features
+                            }, {f"MCDLF_{type}" : mcdlf_feature_names,
+                                f"MCDLF_cff_{type}" : mcdlf_cff_feature_names,
+                                f"RAC_{type}" : rac_feature_names,
+                                f"RAC_cff_{type}" : rac_cff_feature_names
+                                }]
+    if load_groups:
+        mcdlf_feature_groups = np.load(feature_target_dir + sub_dir + f"MCDLF_{type}_groups.npy")
+        mcdlf_cff_feature_groups = np.load(feature_target_dir + sub_dir + f"MCDLF_cff_{type}_groups.npy")
+        rac_feature_groups = np.load(feature_target_dir + sub_dir + f"RAC_{type}_groups.npy")
+        rac_cff_feature_groups = np.load(feature_target_dir + sub_dir + f"RAC_cff_{type}_groups.npy")
+        return_dictionaries += [{f"MCDLF_{type}" : mcdlf_feature_groups,
+                                 f"MCDLF_cff_{type}" : mcdlf_cff_feature_groups,
+                                 f"RAC_{type}" : rac_feature_groups,
+                                 f"RAC_cff_{type}" : rac_cff_feature_groups
+                                 }]
+    return targets, *return_dictionaries
 
 
 def get_pca(features: np.array) -> (list, list):

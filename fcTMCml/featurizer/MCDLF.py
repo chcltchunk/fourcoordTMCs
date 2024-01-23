@@ -11,7 +11,7 @@ This class builds MCDL25 feauteres as described in DOI: 10.1039/c7sc01247k.
     - the exchange sensitivity is removed.
     - the ligand identity is removed
 We add multiplicity, spin-state, the full Kier index, and (truncated) atom
-counts to arrive at a MCDL53 feature vector.
+counts to arrive at a MCDLF feature vector.
 
 ---------------------------------------------------------
 Scope   | Feature                   | Abbreviation      |
@@ -37,10 +37,10 @@ Counts  | Individual Atom Counts    | #                 |*new
 """
 
 
-class MCDL53():
+class MCDLF():
     def __init__(self, graph: nx.graph, oxidation_state: int, ligand_list: list, multiplicity: int = None, truncation: int = 3, input_file: str = None) -> None:
         """
-        initialize MCDL53 features
+        initialize MCDLF features
 
         Parameters
         ----------
@@ -54,7 +54,7 @@ class MCDL53():
         self.ligand_list = ligand_list
         self.metal_node_id = get_metal_node_id(self.graph)
         if self.metal_node_id is None:
-            raise TypeError("Can not generate MCDL53 features without central metal")
+            raise TypeError("Can not generate MCDLF features without central metal")
         # start of feature extraction
         # metal (related) features
         self.metal_identity = graph.nodes[self.metal_node_id]["atomic_number"]
@@ -109,6 +109,33 @@ class MCDL53():
 
         return feature_names
 
+    def get_classifier_feature_groups(self, additional_featurizer: list = [], start: int = 0) -> list:
+        feature_groups = [start,
+                          start + 1,
+                          start + 2, start + 3, start + 4,
+                          start + 5,
+                          start + 6,
+                          *[start + 7] * len(self.connection_atom_n),
+                          *[start + 8] * len(self.ligand_charge_n),
+                          *[start + 9] * len(self.ligand_denticity_n),
+                          start + 10,
+                          *[start + 11] * len(self.ligand_number_of_atoms_n),
+                          ]
+        if openbabel_available():
+            feature_groups += [start + 12]
+            i = start + 13
+        else:
+            i = start + 12
+        feature_groups += [i,
+                           i + 1,
+                           *list(i + 2 + np.arange(10)),
+                           *list(i + 13 + np.arange(10))
+                           ]
+        for featurizer in additional_featurizer:
+            feature_groups += featurizer.get_classifier_feature_groups(start=i + 24)
+
+        return feature_groups
+
     def get_regression_feature_names(self, additional_featurizer: list = []) -> list:
         feature_names = ["I(M)",
                          "Ox",
@@ -131,10 +158,35 @@ class MCDL53():
 
         return feature_names
 
+    def get_regression_feature_groups(self, additional_featurizer: list = [], start: int = 0) -> list:
+        feature_groups = [start,
+                          start + 1,
+                          start + 2, start + 3, start + 4,
+                          *[start + 5] * len(self.connection_atom_n),
+                          *[start + 6] * len(self.ligand_charge_n),
+                          *[start + 7] * len(self.ligand_denticity_n),
+                          start + 8,
+                          *[start + 9] * len(self.ligand_number_of_atoms_n)
+                          ]
+        if openbabel_available():
+            feature_groups += [start + 10]
+            i = start + 11
+        else:
+            i = start + 10
+        feature_groups += [i,
+                           i + 1,
+                           *list(i + 2 + np.arange(10)),
+                           *list(i + 13 + np.arange(10))
+                           ]
+        for featurizer in additional_featurizer:
+            feature_groups += featurizer.get_regression_feature_groups(start=i + 24)
+
+        return feature_groups
+
     def get_classifier_features(self, additional_featurizer: list = []) -> list:
         """
         get features for a classifier task
-        returns mcdl53 (mcdl25) (10.1039/C7SC01247K) features for given TMC graph
+        returns mcdlf (mcdl25) (10.1039/C7SC01247K) features for given TMC graph
 
         Parameters
         ----------

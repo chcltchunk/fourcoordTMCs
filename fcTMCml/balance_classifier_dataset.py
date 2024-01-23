@@ -60,7 +60,7 @@ def create_balanced_dataset(features, targets, sampling_type="over"):
 # Geometry Classification #
 ###########################
 
-targets, feature_dict, feature_names_dict = load_features(feature_target_dir, classification_in_subdir, "classification")
+targets, feature_dict, feature_names_dict, feature_groups_dict = load_features(feature_target_dir, classification_in_subdir, "classification", load_groups=True)
 # mcdl53_features, mcdl53_cff_features, rac300_features, rac300_cff_features = feature_dict.values()
 
 y_n = []
@@ -71,6 +71,7 @@ for run_ident in feature_dict:
     y_n += [y]
     np.save(feature_target_dir + classification_out_subdir + f"{run_ident}.npy", X)
     np.save(feature_target_dir + classification_out_subdir + f"{run_ident}_names.npy", feature_names_dict[run_ident])
+    np.save(feature_target_dir + classification_out_subdir + f"{run_ident}_groups.npy", feature_groups_dict[run_ident])
     print("square planar / total: ", np.count_nonzero(y), "/", X.shape[0])
 
 assert list(y_n[0]) == list(y_n[1]) == list(y_n[2]) == list(y_n[3])
