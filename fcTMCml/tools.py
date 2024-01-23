@@ -35,11 +35,11 @@ def remove_dir(path: str) -> None:
 def load_features(feature_target_dir, sub_dir, type="regression") -> dict:
     targets = np.load(feature_target_dir + sub_dir + f"{type}_targets.npy")
 
-    mcdlf_features = np.load(feature_target_dir + sub_dir + f"MCDL53_{type}.npy")
-    mcdlf_feature_names = np.load(feature_target_dir + sub_dir + f"MCDL53_{type}_names.npy")
+    mcdlf_features = np.load(feature_target_dir + sub_dir + f"MCDLF_{type}.npy")
+    mcdlf_feature_names = np.load(feature_target_dir + sub_dir + f"MCDLF_{type}_names.npy")
 
-    mcdlf_cff_features = np.load(feature_target_dir + sub_dir + f"MCDL53_cff_{type}.npy")
-    mcdlf_cff_feature_names = np.load(feature_target_dir + sub_dir + f"MCDL53_cff_{type}_names.npy")
+    mcdlf_cff_features = np.load(feature_target_dir + sub_dir + f"MCDLF_cff_{type}.npy")
+    mcdlf_cff_feature_names = np.load(feature_target_dir + sub_dir + f"MCDLF_cff_{type}_names.npy")
 
     rac_features = np.load(feature_target_dir + sub_dir + f"RAC_{type}.npy")
     rac_feature_names = np.load(feature_target_dir + sub_dir + f"RAC_{type}_names.npy")
