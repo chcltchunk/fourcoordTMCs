@@ -68,12 +68,28 @@ def test_get_classifier_feature_names():
     assert len(names) == len(features)
 
 
+def test_get_classifier_feature_groups():
+    mcdlf = MCDLF(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"],
+                  multiplicity=2, input_file=test_resource_dir + "dummy.xyz")
+    features = mcdlf.get_classifier_features()
+    names = mcdlf.get_classifier_feature_groups()
+    assert len(names) == len(features)
+
+
 def test_get_regression_feature_names():
     mcdlf = MCDLF(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"],
                   multiplicity=2, input_file=test_resource_dir + "dummy.xyz")
     features = mcdlf.get_regression_features()
-    names = mcdlf.get_regression_feature_names()
-    assert len(names) == len(features)
+    group_ids = mcdlf.get_regression_feature_names()
+    assert len(group_ids) == len(features)
+
+
+def test_get_regression_feature_groups():
+    mcdlf = MCDLF(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"],
+                  multiplicity=2, input_file=test_resource_dir + "dummy.xyz")
+    features = mcdlf.get_regression_features()
+    group_ids = mcdlf.get_regression_feature_groups()
+    assert len(group_ids) == len(features)
 
 
 def test_get_feature_dict():

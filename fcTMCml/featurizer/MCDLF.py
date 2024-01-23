@@ -109,6 +109,33 @@ class MCDLF():
 
         return feature_names
 
+    def get_classifier_feature_groups(self, additional_featurizer: list = []) -> list:
+        feature_groups = [0,
+                          1,
+                          2, 3, 4,
+                          5,
+                          6,
+                          *[7] * len(self.connection_atom_n),
+                          *[8] * len(self.ligand_charge_n),
+                          *[9] * len(self.ligand_denticity_n),
+                          10,
+                          *[11] * len(self.ligand_number_of_atoms_n),
+                          ]
+        if openbabel_available():
+            feature_groups += [12]
+            i = 13
+        else:
+            i = 12
+        feature_groups += [i,
+                           i + 1,
+                           *[i + 2] * 10,
+                           *[i + 3] * 10
+                           ]
+        for featurizer in additional_featurizer:
+            feature_groups += featurizer.get_classifier_feature_groups()
+
+        return feature_groups
+
     def get_regression_feature_names(self, additional_featurizer: list = []) -> list:
         feature_names = ["I(M)",
                          "Ox",
@@ -130,6 +157,31 @@ class MCDLF():
             feature_names += featurizer.get_regression_feature_names()
 
         return feature_names
+    
+    def get_regression_feature_groups(self, additional_featurizer: list = []) -> list:
+        feature_groups = [0,
+                          1,
+                          2, 3, 4,
+                          *[5] * len(self.connection_atom_n),
+                          *[6] * len(self.ligand_charge_n),
+                          *[7] * len(self.ligand_denticity_n),
+                          8,
+                          *[9] * len(self.ligand_number_of_atoms_n)
+                          ]
+        if openbabel_available():
+            feature_groups += [10]
+            i = 11
+        else:
+            i = 10
+        feature_groups += [i,
+                           i + 1,
+                           *[i + 2] * 10,
+                           *[i + 3] * 10
+                           ]
+        for featurizer in additional_featurizer:
+            feature_groups += featurizer.get_regression_feature_groups()
+
+        return feature_groups
 
     def get_classifier_features(self, additional_featurizer: list = []) -> list:
         """
