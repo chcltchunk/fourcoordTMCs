@@ -13,7 +13,7 @@ pip install -e .
 
 
 ## Classifier Results
-## classification after feature selection (1:1 balanced dataset)
+### classification after feature selection (1:1 balanced dataset)
 | Feature Set               | ML Model | Average Score (K-Fold) | PPV   | Sensitivity | F_score |
 |---------------------------|----------|------------------------|-------|-------------|---------|
 | MCDL53_classification     | RR       | 0.792                  | 0.776 | 0.825       | 0.799   |
