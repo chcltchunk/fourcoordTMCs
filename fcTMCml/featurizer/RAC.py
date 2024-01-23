@@ -84,7 +84,7 @@ class RAC():
                 for p, prop in enumerate(properties):
                     names += [f"{start}-{prop}-{d}-{scope}"]
         return names
-    
+
     def get_tetrahedral_rac_groups(self, tetrahedral_rac_names: list, start: int = 0) -> (list, int):
         group_identifier = {}
         tetrahedral_rac_groups = []

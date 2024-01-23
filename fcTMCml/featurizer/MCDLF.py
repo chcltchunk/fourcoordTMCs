@@ -112,7 +112,7 @@ class MCDLF():
     def get_classifier_feature_groups(self, additional_featurizer: list = [], start: int = 0) -> list:
         feature_groups = [start,
                           start + 1,
-                          start + 2, start + 3, start +4,
+                          start + 2, start + 3, start + 4,
                           start + 5,
                           start + 6,
                           *[start + 7] * len(self.connection_atom_n),
@@ -157,7 +157,7 @@ class MCDLF():
             feature_names += featurizer.get_regression_feature_names()
 
         return feature_names
-    
+
     def get_regression_feature_groups(self, additional_featurizer: list = [], start: int = 0) -> list:
         feature_groups = [start,
                           start + 1,

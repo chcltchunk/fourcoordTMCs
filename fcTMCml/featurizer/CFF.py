@@ -125,7 +125,7 @@ class CrystalFieldFeatures():
         for featurizer in additional_featurizer:
             feature_names += featurizer.get_classifier_feature_names()
         return feature_names
-    
+
     def get_regression_feature_groups(self, additional_featurizer: list = [], start: int = 0) -> list:
         feature_names = [start]
         for featurizer in additional_featurizer:

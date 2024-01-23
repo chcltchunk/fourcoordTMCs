@@ -92,4 +92,3 @@ def test_get_tetrahedral_feature_groups():
     feature_groups, end_index = rac.get_tetrahedral_rac_groups(feature_names)
     assert end_index == 149
     assert len(feature_groups) == 150
-
