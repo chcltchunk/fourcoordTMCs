@@ -66,7 +66,6 @@ def load_features(feature_target_dir, sub_dir, type="regression", load_groups: b
                                  f"RAC_{type}" : rac_feature_groups,
                                  f"RAC_cff_{type}" : rac_cff_feature_groups
                                  }]
-        
     return targets, *return_dictionaries
 
 

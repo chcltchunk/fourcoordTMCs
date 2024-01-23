@@ -262,7 +262,7 @@ for run_ident in feature_dict:
              feature_target_dir + regression_out_subdir + pca_subdir + run_ident + "_before_RF", mapper=sm)
 
     selected_features, selected_feature_names, selected_feature_groups, selected_feature_importances = \
-        select_features_permutation_importance(features, regression_targets, feature_names=feature_names, 
+        select_features_permutation_importance(features, regression_targets, feature_names=feature_names,
                                                feature_groups=feature_groups, run_ident=run_ident,
                                                cache_dir=cache_dir, permutation_importance_subdir=regression_permutation_importances_cache_subdir,
                                                init_run=False, maximum_retained_features=10)
