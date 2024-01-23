@@ -249,7 +249,7 @@ class RAC():
         feature_groups, end_index = self.get_tetrahedral_rac_groups(racs, start=start)
         feature_groups = feature_groups + [end_index, *[end_index + 1] * 4]
         for featurizer in additional_featurizer:
-            feature_groups += featurizer.get_classifier_feature_names(start=end_index + 2)
+            feature_groups += featurizer.get_classifier_feature_groups(start=end_index + 2)
         return feature_groups
 
     def get_regression_features(self, depth: int = 3, averaged: bool = False, additional_featurizer: list = []):

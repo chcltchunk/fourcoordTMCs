@@ -128,11 +128,11 @@ class MCDLF():
             i = start + 12
         feature_groups += [i,
                            i + 1,
-                           *[i + 2] * 10,
-                           *[i + 3] * 10
+                           *list(i + 2 + np.arange(10)),
+                           *list(i + 13 + np.arange(10))
                            ]
         for featurizer in additional_featurizer:
-            feature_groups += featurizer.get_classifier_feature_groups(start=i + 4)
+            feature_groups += featurizer.get_classifier_feature_groups(start=i + 24)
 
         return feature_groups
 
@@ -175,11 +175,11 @@ class MCDLF():
             i = start + 10
         feature_groups += [i,
                            i + 1,
-                           *[i + 2] * 10,
-                           *[i + 3] * 10
+                           *list(i + 2 + np.arange(10)),
+                           *list(i + 13 + np.arange(10))
                            ]
         for featurizer in additional_featurizer:
-            feature_groups += featurizer.get_regression_feature_groups(start=i + 4)
+            feature_groups += featurizer.get_regression_feature_groups(start=i + 24)
 
         return feature_groups
 

@@ -49,7 +49,8 @@ def run_rf(X: np.array, y: np.array) -> RandomForestRegressor:
 
 def select_features_permutation_importance(A: np.array, y_truth: np.array, run_ident: str,
                                            cache_dir: str, permutation_importance_subdir: str,
-                                           feature_names: np.array, init_run: bool = True,
+                                           feature_names: np.array, feature_groups: np.array = None,
+                                           init_run: bool = True,
                                            maximum_retained_features: int = -1) -> (np.array, np.array, np.array):
     """
     calculate most important features based on random forest permutation importance
@@ -64,6 +65,13 @@ def select_features_permutation_importance(A: np.array, y_truth: np.array, run_i
         feature identifier for storing permuation importance results in cache
     cache_dir: str
         directory where to cache the permutation importances
+    permutation_importance_subdir: str
+        path of permutation importance results in the cache
+        (either empty or existend depending on init_run parameter)
+    feature_names: np.array
+        array with feature names
+    feature_groups: np.array (default None)
+        if features are supposed to be grouped, this array maps each feature to a groupßß
     init_run: bool
         usually true, if false the function tries to load the permutation importances from the provided cache_dir
     maximum_retained_features: int
@@ -83,13 +91,27 @@ def select_features_permutation_importance(A: np.array, y_truth: np.array, run_i
 
     result_importances_mean = np.load(cache_dir + permutation_importance_subdir + run_ident + ".npy")
 
+    if feature_groups is None:
+        result_importances_mean_grouped = result_importances_mean
+    else:
+        result_importances_mean_grouped = np.bincount(feature_groups, weights=result_importances_mean)
+
     thres = 0.010
-    print(maximum_retained_features)
+    # print(maximum_retained_features)
     if maximum_retained_features > -1:
-        while np.count_nonzero(list((result_importances_mean / np.max(result_importances_mean)) > thres)) > maximum_retained_features:
+        while np.count_nonzero(list((result_importances_mean_grouped / np.max(result_importances_mean_grouped)) > thres)) > maximum_retained_features:
             thres += 0.0005
 
-    mask = (result_importances_mean / np.max(result_importances_mean)) > thres
+    mask = np.where((result_importances_mean_grouped / np.max(result_importances_mean_grouped)) > thres)[0]
+    mask = mask[np.argsort(result_importances_mean_grouped[mask])]
+    print("mask: ", mask)
+    selected_features = []
+    for curr_group_index in mask:
+        print(np.where(feature_groups == curr_group_index))
+        print(feature_names[np.where(feature_groups == curr_group_index)[0]])
+        selected_features += list(A.T[np.where(feature_groups == curr_group_index)[0]].T)
+    quit()
+    print(selected_features)
     selected_features = A.T[mask].T
     selected_feature_names = list(feature_names[mask])
     selected_feature_importances = list(result_importances_mean[mask])
@@ -121,7 +143,8 @@ make_dir(feature_target_dir + classification_out_subdir + tsne_subdir)
 make_dir(feature_target_dir + classification_out_subdir + umap_subdir)
 
 # load features
-classification_targets, feature_dict, feature_names_dict = load_features(feature_target_dir, classification_in_subdir, "classification")
+classification_targets, feature_dict, feature_names_dict, feature_groups_dict = load_features(feature_target_dir, classification_in_subdir,
+                                                                                              "classification", load_groups=True)
 
 # loop over all feature sets
 # 1. pre feature selection PCA
@@ -131,6 +154,7 @@ classification_targets, feature_dict, feature_names_dict = load_features(feature
 for run_ident in feature_dict:
     features = feature_dict[run_ident]
     feature_names = feature_names_dict[run_ident]
+    feature_groups = feature_groups_dict[run_ident]
     principalComponents, explained_variance = get_pca(features=features)
     tsne_embedding = get_tsne(features=features)
     umap_embedding = get_umap(features=features)
@@ -144,6 +168,7 @@ for run_ident in feature_dict:
     selected_features, selected_feature_names, selected_feature_importances = \
         select_features_permutation_importance(features, classification_targets,
                                                feature_names=feature_names,
+                                               feature_groups=feature_groups,
                                                run_ident=run_ident,
                                                cache_dir=cache_dir,
                                                permutation_importance_subdir=classification_permutation_importances_cache_subdir,
@@ -195,7 +220,8 @@ make_dir(feature_target_dir + regression_out_subdir + umap_subdir)
 
 
 # load features
-regression_targets, feature_dict, feature_names_dict = load_features(feature_target_dir, regression_in_subdir, "regression")
+regression_targets, feature_dict, feature_names_dict, feature_groups_dict = load_features(feature_target_dir, regression_in_subdir,
+                                                                                          "regression", load_groups=True)
 
 # loop over all feature sets
 # 1. pre feature selection PCA
@@ -205,6 +231,7 @@ regression_targets, feature_dict, feature_names_dict = load_features(feature_tar
 for run_ident in feature_dict:
     features = feature_dict[run_ident]
     feature_names = feature_names_dict[run_ident]
+    feature_groups = feature_groups_dict[run_ident]
     principalComponents, explained_variance = get_pca(features=features)
     tsne_embedding = get_tsne(features=features)
     umap_embedding = get_umap(features=features)
@@ -222,7 +249,8 @@ for run_ident in feature_dict:
              feature_target_dir + regression_out_subdir + pca_subdir + run_ident + "_before_RF", mapper=sm)
 
     selected_features, selected_feature_names, selected_feature_importances = \
-        select_features_permutation_importance(features, regression_targets, feature_names=feature_names, run_ident=run_ident,
+        select_features_permutation_importance(features, regression_targets, feature_names=feature_names, 
+                                               feature_groups=feature_groups, run_ident=run_ident,
                                                cache_dir=cache_dir, permutation_importance_subdir=regression_permutation_importances_cache_subdir,
                                                init_run=False, maximum_retained_features=10)
     print(selected_feature_names)
