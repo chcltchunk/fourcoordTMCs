@@ -182,7 +182,7 @@ def rfc_optimization(X_train: np.array, X_val: np.array,
                 algo=tpe.suggest,
                 trials=trials,
                 max_evals=200,
-                rstate=np.random.default_rng(0)
+                rstate=np.random.default_rng(128)
                 )
     best.update({"max_features": max_features[best['max_features']],
                  "criterion": criterion[best['criterion']]})
@@ -283,7 +283,7 @@ for run_ident in feature_dict:
     hyperparams = rc_optimization(X_train, X_test, y_train, y_test)
     print(hyperparams)
 
-    clf = RidgeClassifier(**hyperparams)
+    clf = RidgeClassifier(**hyperparams, random_state=128)
     avg_score, ppv, sensitivity, f_score, clf = k_folds(clf, X, y_truth, True)
     coeffs = clf.coef_
 
@@ -294,7 +294,7 @@ for run_ident in feature_dict:
     hyperparams = rfc_optimization(X_train, X_test, y_train, y_test)
     print(hyperparams)
 
-    clf = RandomForestClassifier(**hyperparams)
+    clf = RandomForestClassifier(**hyperparams, random_state=128)
     avg_score, ppv, sensitivity, f_score, clf = k_folds(clf, X, y_truth, True)
     coeffs = clf.feature_importances_
 
