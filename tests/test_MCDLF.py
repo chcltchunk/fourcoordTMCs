@@ -26,7 +26,7 @@ def get_dummy_graph():
 
 def test_get_classifier_features():
     mcdlf = MCDLF(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"],
-                   multiplicity=2, input_file=test_resource_dir + "dummy.xyz")
+                  multiplicity=2, input_file=test_resource_dir + "dummy.xyz")
     features = mcdlf.get_classifier_features()
     if openbabel_available():
         assert len(features) == 53
@@ -44,7 +44,7 @@ def test_get_classifier_features():
 
 def test_get_regression_features():
     mcdlf = MCDLF(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"],
-                   multiplicity=2, input_file=test_resource_dir + "dummy.xyz")
+                  multiplicity=2, input_file=test_resource_dir + "dummy.xyz")
     features = mcdlf.get_regression_features()
     if openbabel_available():
         assert len(features) == 51
@@ -62,7 +62,7 @@ def test_get_regression_features():
 
 def test_get_classifier_feature_names():
     mcdlf = MCDLF(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"],
-                   multiplicity=2, input_file=test_resource_dir + "dummy.xyz")
+                  multiplicity=2, input_file=test_resource_dir + "dummy.xyz")
     features = mcdlf.get_classifier_features()
     names = mcdlf.get_classifier_feature_names()
     assert len(names) == len(features)
@@ -70,7 +70,7 @@ def test_get_classifier_feature_names():
 
 def test_get_regression_feature_names():
     mcdlf = MCDLF(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"],
-                   multiplicity=2, input_file=test_resource_dir + "dummy.xyz")
+                  multiplicity=2, input_file=test_resource_dir + "dummy.xyz")
     features = mcdlf.get_regression_features()
     names = mcdlf.get_regression_feature_names()
     assert len(names) == len(features)
@@ -78,7 +78,7 @@ def test_get_regression_feature_names():
 
 def test_get_feature_dict():
     mcdlf = MCDLF(get_dummy_graph(), 3, ["12crown4", "chloride", "fluoride", "pph3", "phosphine", "acac", "s2-"],
-                   multiplicity=2, input_file=test_resource_dir + "dummy.xyz")
+                  multiplicity=2, input_file=test_resource_dir + "dummy.xyz")
     features = mcdlf.get_regression_features()
     names = mcdlf.get_regression_feature_names()
     feature_dict = mcdlf.get_feature_dict(names, features)

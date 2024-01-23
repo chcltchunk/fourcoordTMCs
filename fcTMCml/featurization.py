@@ -47,7 +47,7 @@ for i, row in df.iterrows():
         continue
     ligand_list = row["ligstr"].split("_")
     mcdlf = MCDLF(graph_from_xyz_file(xyz_file_path), oxidation_state=int(row['ox']), ligand_list=ligand_list,
-                   multiplicity=row['spin'], input_file=xyz_file_path)
+                  multiplicity=row['spin'], input_file=xyz_file_path)
     cff = CrystalFieldFeatures(row["metal"], int(row['ox']), int(row['spin']))
     rac = RAC(graph_from_xyz_file(xyz_file_path), int(row['ox']), ligand_list=ligand_list)
 
@@ -105,7 +105,7 @@ for i, row in df.iterrows():
         continue
     ligand_list = row["ligstr"].split("_")
     mcdlf = MCDLF(graph_from_xyz_file(xyz_file_path), oxidation_state=int(row['ox']), ligand_list=ligand_list,
-                   multiplicity=None, input_file=xyz_file_path)
+                  multiplicity=None, input_file=xyz_file_path)
     cff = CrystalFieldFeatures(row["metal"], int(row['ox']), [int(row['ls.spin']), int(row['hs.spin'])], geometryA='tetrahedral', geometryB='tetrahedral')
     rac = RAC(graph_from_xyz_file(xyz_file_path), int(row['ox']), ligand_list=ligand_list)
 
