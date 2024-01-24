@@ -55,12 +55,12 @@ def thd_model_thesis():
     initializer = tf.keras.initializers.HeUniform(seed=0)
 
     model = Sequential()
-    model.add(Dense(64, activation="leaky_relu", kernel_initializer=initializer, kernel_regularizer=tf.keras.regularizers.L1L2(l1=0.0, l2=l2), input_dim=10))
+    model.add(Dense(64, activation="leaky_relu", kernel_initializer=initializer, kernel_regularizer=tf.keras.regularizers.L1L2(l1=0.0, l2=l2), input_dim=17))
     model.add(Dropout(do))
     model.add(Dense(32, activation="leaky_relu", kernel_initializer=initializer, kernel_regularizer=tf.keras.regularizers.L1L2(l1=0.0, l2=l2)))
     model.add(Dropout(do))
     model.add(Dense(1, activation="linear"))
-    lr = 9.1e-4
+    lr = 9.3e-4
     model.compile(loss="mae", optimizer=Adam(learning_rate=lr, beta_1=0.92, beta_2=0.99),  # decay=lr / 200),
                   metrics=['mse', 'mae', 'mape'])
     return model, 256
@@ -172,8 +172,8 @@ def krr_optimization(X_train: np.array, X_val: np.array, y_train: np.array, y_va
         best hyperparameters
     '''
     # print("---hyperopt---")
-    space = {"alpha": hp.loguniform("alpha", np.log(1e-8), 1),
-             "gamma": hp.loguniform("gamma", np.log(1e-12), np.log(1)),
+    space = {"alpha": hp.loguniform("alpha", -8, 1),
+             "gamma": hp.loguniform("gamma", -12, 1),
              }
 
     objective_func = partial(train_krr_hyperopt,
@@ -186,8 +186,8 @@ def krr_optimization(X_train: np.array, X_val: np.array, y_train: np.array, y_va
                 space,
                 algo=tpe.suggest,
                 trials=trials,
-                max_evals=1000,
-                rstate=np.random.default_rng(0)
+                max_evals=100,
+                rstate=np.random.default_rng(128)
                 )
 
     print("best_perams: ", best)
@@ -222,14 +222,16 @@ regression_targets, feature_dict, feature_names_dict = load_features(feature_tar
 #######
 # KRR #
 #######
+# """
 acc_dict = {}
 for run_ident in feature_dict:
     X = feature_dict[run_ident]
     scaler = StandardScaler()
     print("std: ", np.std(regression_targets))
     y_truth = scaler.fit_transform(regression_targets.reshape(-1, 1))
-
-    hyperparams = krr_optimization(X, y_truth.ravel())
+    X_train, X_test, y_train, y_test = train_test_split(X, y_truth, test_size=0.2, random_state=128)
+    print(X_train.shape, X_test.shape, y_train.shape, y_test.shape)
+    hyperparams = krr_optimization(X_train, X_test, y_train, y_test)
     print(hyperparams)
     clf = KernelRidge(**hyperparams, kernel='rbf')
     mse, mae, r2, mse_train, clf = k_folds(clf, X, y_truth.ravel(), scaler, True)
@@ -245,12 +247,14 @@ for key in acc_dict:
           np.round(acc_dict[key]['mse'], 3), ' ,',
           np.round(acc_dict[key]['mae'], 3), ' ,',
           np.round(acc_dict[key]['r2'], 3), ' ,')
-
+# """
 ######
 # NN #
 ######
 acc_dict = {}
 for run_ident in feature_dict:
+    if run_ident in ["MCDLF_regression", "MCDLF_cff_regression"]:
+        continue
     X = feature_dict[run_ident]
     scaler = StandardScaler()
     y_truth = scaler.fit_transform(regression_targets.reshape(-1, 1))
