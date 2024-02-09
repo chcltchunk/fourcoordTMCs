@@ -156,7 +156,6 @@ np.random.seed(128)
 
 # import data
 regression_in_subdir = "regression_rff_selection/"
-regression_in_subdir = "regression_raw/"
 
 regression_targets, feature_dict, feature_names_dict = load_features(feature_target_dir, regression_in_subdir, "regression")
 
