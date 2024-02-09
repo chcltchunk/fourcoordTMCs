@@ -170,9 +170,7 @@ space = {"alpha": hp.loguniform("alpha", -8, 1),
 acc_dict = {}
 for run_ident in feature_dict:
     X = feature_dict[run_ident]
-    # scaler = StandardScaler()
     print("std: ", np.std(regression_targets))
-    # y_truth = scaler.fit_transform(regression_targets.reshape(-1, 1))
     y_truth = regression_targets.reshape(-1, 1)
     X_train, X_test, y_train, y_test = train_test_split(X, y_truth, test_size=0.2, random_state=128)
     print(X_train.shape, X_test.shape, y_train.shape, y_test.shape)
@@ -181,7 +179,7 @@ for run_ident in feature_dict:
     print(hyperparams)
     clf = KernelRidge(**hyperparams)
     mse, mae, r2, mse_train, mae_train, clf = k_folds(clf, X, y_truth.ravel(), True)
-
+    
     print(run_ident + " KRR (TPE): ", np.round(mae, 3), np.round(mae_train, 3), np.round(mse, 2), np.round(mse_train, 2), np.round(r2, 2))
 
     acc_dict[run_ident + " KRR (TPE): "] = {"mse": mse, "mse_train": mse_train, "mae": mae, "mae_train": mae_train, "r2": r2}
