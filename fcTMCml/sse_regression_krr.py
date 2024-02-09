@@ -88,9 +88,8 @@ def train_krr_hyperopt(hyperparams, X_train, X_val, y_train, y_val, return_model
     if return_model:
         return krr
     y_pred = krr.predict(X_val)
-    # mse = metrics.mean_squared_error(y_val, y_pred, squared=False)
-    mae = metrics.mean_absolute_error(y_val, y_pred)
-    return mae
+    mse = metrics.mean_squared_error(y_val, y_pred)
+    return mse
 
 
 def krr_optimization(X_train: np.array, X_val: np.array, y_train: np.array, y_val: np.array, space: dict) -> dict:
@@ -156,7 +155,7 @@ def grid_search_krr(X, y):
 np.random.seed(128)
 
 # import data
-# regression_in_subdir = "regression_rff_selection/"
+regression_in_subdir = "regression_rff_selection/"
 regression_in_subdir = "regression_raw/"
 
 regression_targets, feature_dict, feature_names_dict = load_features(feature_target_dir, regression_in_subdir, "regression")
@@ -176,12 +175,11 @@ for run_ident in feature_dict:
     print("std: ", np.std(regression_targets))
     # y_truth = scaler.fit_transform(regression_targets.reshape(-1, 1))
     y_truth = regression_targets.reshape(-1, 1)
-    X_train, X_test, y_train, y_test = train_test_split(X, y_truth, test_size=0.25, random_state=128)
+    X_train, X_test, y_train, y_test = train_test_split(X, y_truth, test_size=0.2, random_state=128)
     print(X_train.shape, X_test.shape, y_train.shape, y_test.shape)
     best_hyperparams = krr_optimization(X_train, X_test, y_train, y_test, space)
     hyperparams = space_eval(space, best_hyperparams)
     print(hyperparams)
-    # clf = KernelRidge(**hyperparams, kernel='rbf')
     clf = KernelRidge(**hyperparams)
     mse, mae, r2, mse_train, mae_train, clf = k_folds(clf, X, y_truth.ravel(), True)
 
@@ -190,11 +188,11 @@ for run_ident in feature_dict:
     acc_dict[run_ident + " KRR (TPE): "] = {"mse": mse, "mse_train": mse_train, "mae": mae, "mae_train": mae_train, "r2": r2}
 
 
-print("Feature Set, ML Model, MSE (K-Fold), MSE_train, MAE, MAE_train, R2")
+print("Feature Set, ML Model, MAE, MAE_train, R2, MSE (K-Fold), MSE_train")
 for key in acc_dict:
     print(", ".join(key.split(" ")[:-2]), ' ,',
-          np.round(acc_dict[key]['mse'], 3), ' ,',
-          np.round(acc_dict[key]['mse_train'], 3), ' ,',
           np.round(acc_dict[key]['mae'], 3), ' ,',
           np.round(acc_dict[key]['mae_train'], 3), ' ,',
-          np.round(acc_dict[key]['r2'], 3), ' ,')
+          np.round(acc_dict[key]['r2'], 3), ' ,',
+          np.round(acc_dict[key]['mse'], 3), ' ,',
+          np.round(acc_dict[key]['mse_train'], 3), ' ,')

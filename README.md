@@ -28,15 +28,17 @@ pip install -e .
 
 
 after RFS
-Feature Set, ML Model, MAE, MAE_train, R2
-MCDLF_regression, KRR  , 6.293  , 0.661  , 0.587  ,
-MCDLF_cff_regression, KRR  , 6.019  , 1.559  , 0.617  ,
-RAC_regression, KRR  , 6.608  , 4.598  , 0.58  ,
-RAC_cff_regression, KRR  , 6.504  , 4.39  , 0.584  ,
+| Feature Set          | ML Model | MAE   | MAE_train | R2    | MSE (K-Fold) | MSE_train |
+|----------------------|----------|-------|-----------|-------|--------------|-----------|
+| MCDLF_regression     | KRR      | 6.807 | 4.312     | 0.569 | 9.266        | 5.868     |
+| MCDLF_cff_regression | KRR      | 5.874 | 4.228     | 0.651 | 8.318        | 5.983     |
+| RAC_regression       | KRR      | 6.522 | 5.178     | 0.588 | 9.076        | 7.134     |
+| RAC_cff_regression   | KRR      | 6.438 | 4.956     | 0.589 | 9.048        | 6.892     |
 
 without RFS
-Feature Set, ML Model, MAE, MAE_train, R2
-MCDLF_regression, KRR  , 6.691  , 3.253  , 0.577  ,
-MCDLF_cff_regression, KRR  , 6.131  , 2.85  , 0.614  ,
-RAC_regression, KRR  , 6.952  , 5.268  , 0.576  ,
-RAC_cff_regression, KRR  , 6.475  , 4.155  , 0.601  ,
+| Feature Set          | ML Model | MAE   | MAE_train | R2    | MSE (K-Fold) | MSE_train |
+|----------------------|----------|-------|-----------|-------|--------------|-----------|
+| MCDLF_regression     | KRR      | 6.597 | 4.356     | 0.594 | 9.036        | 6.064     |
+| MCDLF_cff_regression | KRR      | 6.252 | 5.135     | 0.631 | 8.557        | 7.073     |
+| RAC_regression       | KRR      | 6.946 | 5.23      | 0.577 | 9.314        | 7.146     |
+| RAC_cff_regression   | KRR      | 6.352 | 5.033     | 0.604 | 8.921        | 7.128     |
