@@ -17,16 +17,6 @@ from fcTMCml.constants import feature_target_dir
 from fcTMCml.tools import load_features
 
 
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-
-
-
-from tqdm.keras import TqdmCallback
-
-import matplotlib.pyplot as plt
-
-
 def k_folds(clf, X, y, return_clf=False):
     kf = KFold(n_splits=10, shuffle=True, random_state=128)
     kf.get_n_splits(X)
@@ -179,7 +169,7 @@ for run_ident in feature_dict:
     print(hyperparams)
     clf = KernelRidge(**hyperparams)
     mse, mae, r2, mse_train, mae_train, clf = k_folds(clf, X, y_truth.ravel(), True)
-    
+
     print(run_ident + " KRR (TPE): ", np.round(mae, 3), np.round(mae_train, 3), np.round(mse, 2), np.round(mse_train, 2), np.round(r2, 2))
 
     acc_dict[run_ident + " KRR (TPE): "] = {"mse": mse, "mse_train": mse_train, "mae": mae, "mae_train": mae_train, "r2": r2}
