@@ -42,3 +42,6 @@ without RFS
 | MCDLF_cff_regression | KRR      | 6.252 | 5.135     | 0.631 | 8.557        | 7.073     |
 | RAC_regression       | KRR      | 6.946 | 5.23      | 0.577 | 9.314        | 7.146     |
 | RAC_cff_regression   | KRR      | 6.352 | 5.033     | 0.604 | 8.921        | 7.128     |
+| RAC_regression       | NN       | 6.655 | 3.052     | TODO  | 9.48         | 4.17      |
+| RAC_cff_regression   | NN       | 6.352 | 5.033     | TODO  | 8.921        | 7.128     |
+
