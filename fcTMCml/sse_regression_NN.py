@@ -180,8 +180,8 @@ if __name__ == "__main__":
         mse_train, mse_test = history.history["mse"][-1], history.history["val_mse"][-1]
         # r2 = history.history['r2_score'][-1]
         # TODO: plot learning curves final version
-        np.save("train_mae_rac_cff.npy", history.history["mae"])
-        np.save("val_mae_rac_cff.npy", history.history["val_mae"])
+        # np.save("train_mae_rac_cff.npy", history.history["mae"])
+        # np.save("val_mae_rac_cff.npy", history.history["val_mae"])
         result_dict["RAC_cff_regression"] = [mae_train, mae_test, mse_train, mse_test, best_hp]
         mae_train, mae_test, mse_train, mse_test = run_kfold(best_hp)
         result_dict["RAC_cff_regression_kfold"] = [mae_train, mae_test, mse_train, mse_test, best_hp]
@@ -196,8 +196,8 @@ if __name__ == "__main__":
         mae_train, mae_test = history.history["mae"][-1], history.history["val_mae"][-1]
         mse_train, mse_test = history.history["mse"][-1], history.history["val_mse"][-1]
         # r2 = history.history['r2_score'][-1]
-        np.save("train_mae_rac.npy", history.history["mae"])
-        np.save("val_mae_rac.npy", history.history["val_mae"])
+        # np.save("train_mae_rac.npy", history.history["mae"])
+        # np.save("val_mae_rac.npy", history.history["val_mae"])
         result_dict["RAC_regression"] = [mae_train, mae_test, mse_train, mse_test, best_hp]
         mae_train, mae_test, mse_train, mse_test = run_kfold(best_hp)
         result_dict["RAC_regression_kfold"] = [mae_train, mae_test, mse_train, mse_test, best_hp]
