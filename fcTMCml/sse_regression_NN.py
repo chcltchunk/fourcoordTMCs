@@ -38,7 +38,8 @@ if gpus:
 
 space = {
     "hidden_units": hp.choice("hidden_units", [[64, 64], [128, 128], [256, 256]]),
-    "l2_reg": hp.quniform("l2_reg", -5, 0, 1),
+    # "l2_reg": hp.quniform("l2_reg", -5, 0, 1),
+    "l2_reg": hp.loguniform("l2_reg", -5, -1),
     "dropout": hp.quniform("dropout", 0.0, 0.6, 0.1),
     "batch_size": hp.choice("batch_size", [32, 64, 128]),
     "learning_rate": hp.loguniform('learning_rate', -5, -1),
@@ -169,10 +170,10 @@ if __name__ == "__main__":
     result_dict = {}
     with K.get_session():
         # uncomment for hyperparameter training
-        # best = fmin(fn=objective_rac_cff, space=space, algo=tpe.suggest, max_evals=120, show_progressbar=True)
-        # best_hp = space_eval(space, best)
-        best_hp = {'activation': 'softplus', 'batch_size': 32, 'dropout': 0.3, 'hidden_units': (256, 256), 'l2_reg': 0.0, 'learning_rate': 0.01654324497496395}
-        best_hp = {'activation': 'softplus', 'batch_size': 32, 'dropout': 0.3, 'hidden_units': (256, 256), 'l2_reg': 0.0, 'learning_rate': 0.0165}
+        best = fmin(fn=objective_rac_cff, space=space, algo=tpe.suggest, max_evals=120, show_progressbar=True)
+        best_hp = space_eval(space, best)
+        # best_hp = {'activation': 'softplus', 'batch_size': 32, 'dropout': 0.3, 'hidden_units': (256, 256), 'l2_reg': 0.0, 'learning_rate': 0.01654324497496395}
+        # best_hp = {'activation': 'softplus', 'batch_size': 32, 'dropout': 0.3, 'hidden_units': (256, 256), 'l2_reg': 0.0, 'learning_rate': 0.0165}
         print("Best hyperparameters:", best_hp)
         # TODO: k-fold
         history = training(best_hp, key="RAC_cff_regression", return_history=True)
@@ -182,24 +183,35 @@ if __name__ == "__main__":
         # TODO: plot learning curves final version
         # np.save("train_mae_rac_cff.npy", history.history["mae"])
         # np.save("val_mae_rac_cff.npy", history.history["val_mae"])
-        result_dict["RAC_cff_regression"] = [mae_train, mae_test, mse_train, mse_test, best_hp]
+        result_dict["RAC_cff_regression"] = {"mse": mse_test, "mse_train": mse_train, "mae": mae_test, "mae_train": mae_train,
+                                             "best_hp": best_hp}
         mae_train, mae_test, mse_train, mse_test = run_kfold(best_hp)
-        result_dict["RAC_cff_regression_kfold"] = [mae_train, mae_test, mse_train, mse_test, best_hp]
-       
+        result_dict["RAC_cff_regression_kfold"] = {"mse": mse_test, "mse_train": mse_train, "mae": mae_test, "mae_train": mae_train,
+                                                   "best_hp": best_hp}
         # uncomment for hyperparameter training
-        # best = fmin(fn=objective_rac, space=space, algo=tpe.suggest, max_evals=120, show_progressbar=True)
-        # print("Best hyperparameters:", best)
-        # best_hp = space_eval(space, best)
-        best_hp = {'activation': 'leaky_relu', 'batch_size': 128, 'dropout': 0.3, 'hidden_units': (128, 128), 'l2_reg': 0.0, 'learning_rate': 0.038983468378456794}
-        best_hp = {'activation': 'leaky_relu', 'batch_size': 128, 'dropout': 0.3, 'hidden_units': (128, 128), 'l2_reg': 0.0, 'learning_rate': 0.039}
+        best = fmin(fn=objective_rac, space=space, algo=tpe.suggest, max_evals=120, show_progressbar=True)
+        print("Best hyperparameters:", best)
+        best_hp = space_eval(space, best)
+        # best_hp = {'activation': 'leaky_relu', 'batch_size': 128, 'dropout': 0.3, 'hidden_units': (128, 128), 'l2_reg': 0.0, 'learning_rate': 0.038983468378456794}
+        # best_hp = {'activation': 'leaky_relu', 'batch_size': 128, 'dropout': 0.3, 'hidden_units': (128, 128), 'l2_reg': 0.0, 'learning_rate': 0.039}
         history = training(best_hp, key="RAC_regression", return_history=True)
         mae_train, mae_test = history.history["mae"][-1], history.history["val_mae"][-1]
         mse_train, mse_test = history.history["mse"][-1], history.history["val_mse"][-1]
         # r2 = history.history['r2_score'][-1]
         # np.save("train_mae_rac.npy", history.history["mae"])
         # np.save("val_mae_rac.npy", history.history["val_mae"])
-        result_dict["RAC_regression"] = [mae_train, mae_test, mse_train, mse_test, best_hp]
+        result_dict["RAC_regression"] = {"mse": mse_test, "mse_train": mse_train, "mae": mae_test, "mae_train": mae_train,
+                                         "best_hp": best_hp}
         mae_train, mae_test, mse_train, mse_test = run_kfold(best_hp)
-        result_dict["RAC_regression_kfold"] = [mae_train, mae_test, mse_train, mse_test, best_hp]
+        result_dict["RAC_regression_kfold"] = {"mse": mse_test, "mse_train": mse_train, "mae": mae_test, "mae_train": mae_train,
+                                               "best_hp": best_hp}
     print(result_dict)
-    
+
+print("Feature Set, MAE, MAE_train, MSE, MSE_train")
+for key in result_dict:
+    print(" ".join(key.split("_")), ' ,',
+          np.round(result_dict[key]['mae'], 3), ' ,',
+          np.round(result_dict[key]['mae_train'], 3), ' ,',
+          # np.round(result_dict[key]['r2'], 3), ' ,',
+          np.round(np.sqrt(result_dict[key]['mse']), 3), ' ,',
+          np.round(np.sqrt(result_dict[key]['mse_train']), 3), ' ,')
