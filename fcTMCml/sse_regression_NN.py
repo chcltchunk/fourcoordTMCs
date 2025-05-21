@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 
 from hyperopt import hp
 # uncomment for hyperparameter training
-# from hyperopt import tpe, fmin, Trials, space_eval
+from hyperopt import tpe, fmin, Trials, space_eval
 
 from sklearn.model_selection import KFold
 
@@ -138,7 +138,7 @@ def run_kfold(params, key: str = "RAC_cff_regression"):
         mse_train, mse_test = history.history["mse"][-1], history.history["val_mse"][-1]
         mse_train_n += [mse_train]
         mse_test_n += [mse_test]
-       
+
     return np.average(mae_train_n), np.average(mae_test_n), np.average(mse_train_n), np.average(mse_test_n)
 
 
@@ -170,10 +170,11 @@ if __name__ == "__main__":
     result_dict = {}
     with K.get_session():
         # uncomment for hyperparameter training
-        best = fmin(fn=objective_rac_cff, space=space, algo=tpe.suggest, max_evals=120, show_progressbar=True)
-        best_hp = space_eval(space, best)
+        # best = fmin(fn=objective_rac_cff, space=space, algo=tpe.suggest, max_evals=120, show_progressbar=True)
+        # best_hp = space_eval(space, best)
         # best_hp = {'activation': 'softplus', 'batch_size': 32, 'dropout': 0.3, 'hidden_units': (256, 256), 'l2_reg': 0.0, 'learning_rate': 0.01654324497496395}
-        # best_hp = {'activation': 'softplus', 'batch_size': 32, 'dropout': 0.3, 'hidden_units': (256, 256), 'l2_reg': 0.0, 'learning_rate': 0.0165}
+        best_hp = {'activation': 'softplus', 'batch_size': 32, 'dropout': 0.3, 'hidden_units': (256, 256), 'l2_reg': 0.0, 'learning_rate': 0.0165}
+        best_hp = {'activation': 'softplus', 'batch_size': 32, 'dropout': 0.3, 'hidden_units': (256, 256), 'l2_reg': 0.00001, 'learning_rate': 0.0165}
         print("Best hyperparameters:", best_hp)
         # TODO: k-fold
         history = training(best_hp, key="RAC_cff_regression", return_history=True)
@@ -189,11 +190,12 @@ if __name__ == "__main__":
         result_dict["RAC_cff_regression_kfold"] = {"mse": mse_test, "mse_train": mse_train, "mae": mae_test, "mae_train": mae_train,
                                                    "best_hp": best_hp}
         # uncomment for hyperparameter training
-        best = fmin(fn=objective_rac, space=space, algo=tpe.suggest, max_evals=120, show_progressbar=True)
-        print("Best hyperparameters:", best)
-        best_hp = space_eval(space, best)
+        # best = fmin(fn=objective_rac, space=space, algo=tpe.suggest, max_evals=120, show_progressbar=True)
+        # print("Best hyperparameters:", best)
+        # best_hp = space_eval(space, best)
         # best_hp = {'activation': 'leaky_relu', 'batch_size': 128, 'dropout': 0.3, 'hidden_units': (128, 128), 'l2_reg': 0.0, 'learning_rate': 0.038983468378456794}
-        # best_hp = {'activation': 'leaky_relu', 'batch_size': 128, 'dropout': 0.3, 'hidden_units': (128, 128), 'l2_reg': 0.0, 'learning_rate': 0.039}
+        best_hp = {'activation': 'leaky_relu', 'batch_size': 128, 'dropout': 0.3, 'hidden_units': (128, 128), 'l2_reg': 0.0, 'learning_rate': 0.039}
+        best_hp = {'activation': 'leaky_relu', 'batch_size': 128, 'dropout': 0.3, 'hidden_units': (128, 128), 'l2_reg': 0.0005, 'learning_rate': 0.039}
         history = training(best_hp, key="RAC_regression", return_history=True)
         mae_train, mae_test = history.history["mae"][-1], history.history["val_mae"][-1]
         mse_train, mse_test = history.history["mse"][-1], history.history["val_mse"][-1]
