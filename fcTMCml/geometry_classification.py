@@ -16,7 +16,7 @@ from functools import partial
 from fcTMCml.constants import feature_target_dir
 from fcTMCml.tools import load_features
 
-from os import path
+from os import path, environ
 from collections import Counter
 
 
@@ -291,6 +291,10 @@ print(f"adding {n_synthetic} dummy labels")
 # Extend the names array
 target_names = np.concatenate([target_names, ["dummy"] * n_synthetic])
 
+
+random_seed = 423890532
+environ['PYTHONHASHSEED'] = str(random_seed)
+np.random.seed(random_seed)
 
 acc_dict = {}
 failed_names_dict = {}

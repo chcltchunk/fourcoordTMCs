@@ -193,7 +193,6 @@ class RAC():
         # subgraph tuples by first finding set of nodes for the component that the
         # connecting atom c comes from (using nx.node_conncted_component()) and
         # then constructing a subgraph using this node set.
-        # TODO(jonas): move function from MCDLF features to tools.py
         ligands = [
             (c, subgraphs.subgraph(nx.node_connected_component(subgraphs, c)))
             for c in connecting_atoms

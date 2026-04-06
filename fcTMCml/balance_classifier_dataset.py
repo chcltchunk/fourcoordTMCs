@@ -61,7 +61,6 @@ def create_balanced_dataset(features, targets, sampling_type="over"):
 ###########################
 
 targets, feature_dict, feature_names_dict, feature_groups_dict = load_features(feature_target_dir, classification_in_subdir, "classification", load_groups=True)
-# mcdl53_features, mcdl53_cff_features, rac300_features, rac300_cff_features = feature_dict.values()
 
 y_n = []
 for run_ident in feature_dict:
