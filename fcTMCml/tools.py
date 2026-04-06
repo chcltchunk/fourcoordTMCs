@@ -48,7 +48,6 @@ def remove_dir(path: str) -> None:
 
 
 def plot_geometry_convergence_overview(dataframe, filename):
-    # metals = dataframe["metal"].unique()
     fig, ax = plt.subplots(2, 9, figsize=(40, 10))
     plt.subplots_adjust(wspace=0, hspace=0)
     for i, sc in enumerate(["geom.ls", "geom.hs"]):
@@ -210,8 +209,6 @@ def plot_pca(principalComponents: np.array, explained_variance: np.array , color
         cbar.ax.set_ylabel(mapper[1], rotation=90, fontsize=15)
     if legends is not None:
         handles, labels = ax.get_legend_handles_labels()
-        # handle1 = mpatches.Patch(color="dodgerblue", label="THD")
-        # handle2 = mpatches.Patch(color="tab:orange", label="SQP")
         handles.extend([Line2D([0], [0], marker='o', color='w', label='THD',
                         markerfacecolor='dodgerblue', markersize=15, alpha=0.8),
                         Line2D([0], [0], marker='o', color='w', label='SQP',

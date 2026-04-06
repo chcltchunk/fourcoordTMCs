@@ -49,23 +49,15 @@ if gpus:
         print(e)
 
 
-random_seed = 423890532 # 821
+random_seed = 423890532
 
 space = {
     "hidden_units": hp.choice("hidden_units", [[16, 16], [32, 32], [64, 64], [128, 128], [256, 256]]),
-    # "hidden_units": hp.choice("hidden_units", [[16, 16], [32, 32], [32, 64], [64, 32], [64, 64], [64, 128], [128, 64], [128, 128],
-    #                                            [64, 64, 64], [128, 128, 128], [16, 16, 16], [32, 32, 32]]),
-    # "l2_reg": hp.loguniform("l2_reg", -13.8, -4.6),
-    # "l2_reg_1": hp.loguniform("l2_reg_1", -13.8, 0),
-    # "l2_reg_2": hp.loguniform("l2_reg_2", -13.8, 0),
     "l2_reg_1": hp.loguniform("l2_reg_1", -10, -1),
     "l2_reg_2": hp.loguniform("l2_reg_2", -10, -1),
     "dropout": hp.quniform("dropout", 0.01, 0.3, 0.01),
-    # "beta_1": hp.quniform("beta_1", 0.6, 0.99, 0.01),
     "batch_size": hp.choice("batch_size", [32, 64, 128]),
     "learning_rate": hp.loguniform('learning_rate', -12, -6),
-    # "learning_rate": hp.loguniform('learning_rate', np.log(1e-4), np.log(1e-2)),
-    # "lr_schedule_factor": hp.quniform("lr_schedule_factor", 0.2, 0.5, 0.01),
     "activation": hp.choice('dense_activation', ['leaky_relu', 'softplus', 'elu', 'gelu']),
 }
 
@@ -94,7 +86,6 @@ def create_model(params):
                         kernel_initializer=initializers.GlorotNormal(seed=random_seed)))
 
     model.add(Dense(1, activation='linear'))
-    # model.compile(optimizer=Adam(learning_rate=params['learning_rate'], beta_1=params["beta_1"]), loss='mse', metrics=['mae', 'mse', r2_score])
     model.compile(optimizer=Adam(learning_rate=params['learning_rate']), loss='mse', metrics=['mae', 'mse', r2_score, MeanAbsolutePercentageError()])
     # print(model.summary())
     return model
@@ -108,7 +99,6 @@ def training(params, key: str = "RAC_cff_regression", return_history: bool = Fal
     X_train, Y_train, X_test, Y_test = data(key=key)
     es = EarlyStopping(monitor='val_loss', mode='auto', verbose=0, patience=20, restore_best_weights=True)
 
-    # lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=params["lr_schedule_factor"], patience=10, min_lr=1e-5)
     history = model.fit(X_train, Y_train, validation_data=(X_test, Y_test), epochs=150, batch_size=params['batch_size'], verbose=0,
                         callbacks=[es], shuffle=True)
     loss = min(history.history['val_loss'])
@@ -126,8 +116,7 @@ def data(key: str = "RAC_cff_regression"):
 
     X = feature_dict[key]
     y_truth = regression_targets
-    # # y_truth = regression_targets.reshape(-1, 1)
-
+   
     X_train, X_test, Y_train, Y_test = train_test_split(X, y_truth, test_size=0.2, random_state=random_seed)
     scaler = StandardScaler()
     Y_train = scaler.fit_transform(Y_train.reshape(-1, 1))
@@ -155,10 +144,8 @@ def run_kfold(params, key: str = "RAC_cff_regression", folds=5, patience=20):
     regression_targets, feature_dict, feature_names_dict = load_features(feature_target_dir, regression_in_subdir, "regression")
 
     X = feature_dict[key]
-    # scaler = StandardScaler()
     y_truth = regression_targets.reshape(-1, 1)
-    # y_truth = scaler.fit_transform(y_truth)
-
+    
     kf = KFold(n_splits=folds, shuffle=True, random_state=0)
     kf.get_n_splits(X)
     mae_train_n = []
@@ -177,27 +164,21 @@ def run_kfold(params, key: str = "RAC_cff_regression", folds=5, patience=20):
         scaler = StandardScaler()
         Y_train = scaler.fit_transform(Y_train)
         Y_test = scaler.transform(Y_test)
-        # scaler_n += [scaler]
         scaler_X = StandardScaler()
         X_train = scaler_X.fit_transform(X_train)
         X_test = scaler_X.transform(X_test)
         tf.keras.utils.set_random_seed(random_seed)
         model = create_model(params)
         es = EarlyStopping(monitor='val_loss', mode='auto', verbose=0, patience=patience)
-        # lr_scheduler = ReduceLROnPlateau(monitor='val_loss', factor=params["lr_schedule_factor"], patience=10)
-
+        
         history = model.fit(X_train, Y_train, validation_data=(X_test, Y_test), epochs=150,
                             batch_size=params['batch_size'], verbose=0, callbacks=[es], shuffle=True)
         y_predict_n_curr = list(scaler.inverse_transform(model.predict(X_test, verbose=0)))
         y_predict_n_curr_train = list(scaler.inverse_transform(model.predict(X_train, verbose=0)))
-        # y_predict_n_curr = list(model.predict(X_test, verbose=0))
-        # y_predict_n_curr_train = list(model.predict(X_train, verbose=0))
         y_predict_n += [*y_predict_n_curr]
         y_truth_n_curr = list(scaler.inverse_transform(Y_test))
         y_truth_n_curr_train = list(scaler.inverse_transform(Y_train))
-        # y_truth_n_curr = list(Y_test)
-        # y_truth_n_curr_train = list(Y_train)
-
+        
         y_truth_n += [*y_truth_n_curr]
         y_data_set_index += [*list(test_index)]
         mae_train = history.history['mae'][-1]
@@ -230,11 +211,6 @@ def run_kfold(params, key: str = "RAC_cff_regression", folds=5, patience=20):
 
     y_predict_n = y_pred_full
     y_truth_n = y_true_full
-
-    # y_predict_n = scaler.inverse_transform(y_pred_full)
-    # y_truth_n = scaler.inverse_transform(y_true_full)
-    # print(y_truth_n)
-    # print(y_predict_n)
 
     return np.average(mae_train_n), np.average(mae_test_n), np.average(mse_train_n), np.average(mse_test_n), np.average(r2_test_n), np.average(mape_train_n), np.average(mape_test_n), y_predict_n, y_truth_n
 
@@ -289,7 +265,6 @@ if __name__ == "__main__":
     mse_train, mse_test = history.history["mse"][-1], history.history["val_mse"][-1]
     mape_train, mape_test = history.history["mean_absolute_percentage_error"][-1], history.history["val_mean_absolute_percentage_error"][-1]
     r2 = history.history['r2_score'][-1]
-    # TODO: plot learning curves final version
     np.save("results/learning_curves_regression/RAC_cff_train_mse.npy", history.history["mse"])
     np.save("results/learning_curves_regression/RAC_cff_val_mse.npy", history.history["val_mse"])
     np.save("results/learning_curves_regression/RAC_cff_train_mae.npy", history.history["mae"])
@@ -356,13 +331,3 @@ for key in result_dict:
           np.round(result_dict[key]['r2'], 3), ' ,',
           np.round(np.sqrt(result_dict[key]['mse']), 3), ' ,',
           np.round(np.sqrt(result_dict[key]['mse_train']), 3), ' ,')
-    
-print("")
-for key in result_dict:
-    print(" ".join(key.split("_")), ' ,',
-          np.round(result_dict[key]['mae_train'], 3), ' &',
-          np.round(np.sqrt(result_dict[key]['mse_train']), 3), ' &',
-          np.round(result_dict[key]['mae'], 3), ' &',
-          np.round(np.sqrt(result_dict[key]['mse']), 3), ' &',
-          np.round(result_dict[key]['r2'], 3)
-          )

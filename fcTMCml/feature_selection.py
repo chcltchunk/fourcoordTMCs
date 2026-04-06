@@ -40,7 +40,6 @@ np.random.seed(128)
 def run_rf(X: np.array, y: np.array) -> RandomForestRegressor:
     # RFC
     print("\n RFC")
-    # kf = KFold(n_splits=10, shuffle=True, random_state=185)
     model = RandomForestRegressor(n_estimators=1000, criterion='squared_error', min_samples_leaf=1, max_leaf_nodes=None, bootstrap=True, oob_score=True,
                                   random_state=128, ccp_alpha=0.0, max_samples=None)
     model.fit(X, y)
@@ -97,36 +96,23 @@ def select_features_permutation_importance(A: np.array, y_truth: np.array, run_i
         result_importances_mean_grouped = np.bincount(feature_groups, weights=result_importances_mean)
 
     thres = 0.010
-    # print(maximum_retained_features)
     if maximum_retained_features > -1:
         while np.count_nonzero(list((result_importances_mean_grouped / np.max(result_importances_mean_grouped)) > thres)) > maximum_retained_features:
             thres += 0.0005
 
     mask = np.where((result_importances_mean_grouped / np.max(result_importances_mean_grouped)) > thres)[0]
     mask = mask[np.argsort(result_importances_mean_grouped[mask])[::-1]]
-    # print("mask: ", mask)
     selected_feature_indices = []
     selected_feature_names = []
     selected_feature_groups = []
     for curr_group_index in mask:
-        # print(np.where(feature_groups == curr_group_index))
-        # print(feature_names[np.where(feature_groups == curr_group_index)[0]])
-        # print(A.T[np.where(feature_groups == curr_group_index)[0]].T)
-        # print(list(A.T[np.where(feature_groups == curr_group_index)[0]].T))
         selected_feature_names += list(feature_names[np.where(feature_groups == curr_group_index)[0]])
         selected_feature_groups += list(feature_groups[np.where(feature_groups == curr_group_index)[0]])
         selected_feature_indices += list(np.where(feature_groups == curr_group_index)[0])
-    # print(selected_feature_indices)
-    # print(selected_feature_names)
     selected_feature_names = np.array(selected_feature_names)
     selected_feature_groups = np.array(selected_feature_groups)
-    # print(selected_feature_names.shape)
-    # print(selected_feature_groups.shape)
-    # print(selected_feature_groups)
     selected_features = A.T[selected_feature_indices].T
-    # print(selected_features.shape)
     selected_feature_importances = np.array(result_importances_mean[selected_feature_indices])
-    # print(selected_feature_importances.shape)
     print("retained ", selected_features.shape[1], " features")
     return selected_features, selected_feature_names, selected_feature_groups, selected_feature_importances
 
@@ -206,7 +192,6 @@ for run_ident in feature_dict:
     print("Mahalanobis Dist: ", mahalanobis_dist(tsne_embedding[mask], tsne_embedding[~mask]))
     print("Wasserstein Dist: ", wasserstein_dist(tsne_embedding[mask], tsne_embedding[~mask]))
 
-    # TODO(jonas): write generic function for feauture storing
     np.save(feature_target_dir + classification_out_subdir + f"{run_ident}.npy", selected_features)
     np.save(feature_target_dir + classification_out_subdir + f"{run_ident}_names.npy", selected_feature_names)
     np.save(feature_target_dir + classification_out_subdir + f"{run_ident}_groups.npy", selected_feature_groups)
@@ -299,7 +284,6 @@ for run_ident in feature_dict:
     print("Mahalanobis Dist: ", mahalanobis_dist(tsne_embedding[mask], tsne_embedding[~mask]))
     print("Wasserstein Dist: ", wasserstein_dist(tsne_embedding[mask], tsne_embedding[~mask]))
 
-    # TODO(jonas): write generic function for feauture storing
     np.save(feature_target_dir + regression_out_subdir + f"{run_ident}.npy", selected_features)
     np.save(feature_target_dir + regression_out_subdir + f"{run_ident}_names.npy", selected_feature_names)
     np.save(feature_target_dir + regression_out_subdir + f"{run_ident}_groups.npy", selected_feature_groups)

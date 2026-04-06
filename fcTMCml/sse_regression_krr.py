@@ -74,7 +74,6 @@ def train_krr_hyperopt(hyperparams, X_train, X_val, y_train, y_val, return_model
         trained KRR model (return_model=True)
     '''
     krr = KernelRidge(alpha=hyperparams["alpha"], gamma=hyperparams["gamma"], kernel=hyperparams['kernel'])
-    # krr = KernelRidge(alpha=hyperparams["alpha"], gamma=hyperparams["gamma"], kernel="rbf")
     krr.fit(X_train, y_train)
     if return_model:
         return krr
@@ -158,7 +157,6 @@ regression_targets, feature_dict, feature_names_dict = load_features(feature_tar
 # KRR #
 #######
 space = {"alpha": hp.quniform("alpha", 1.0, 10.0, 0.01),
-        #  "alpha": hp.loguniform("alpha", -8, 1),
          "gamma": hp.loguniform("gamma", -12, 1),
          "kernel": hp.choice("kernel", ["rbf", "laplacian"])
          }
