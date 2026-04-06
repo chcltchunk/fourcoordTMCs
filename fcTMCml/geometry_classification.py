@@ -324,7 +324,7 @@ for run_ident in feature_dict:
 
     failed_names_dict["positives" + run_ident + " RFC (TPE): "] = failed_names_positives
     failed_names_dict["negatives" + run_ident + " RFC (TPE): "] = failed_names_negatives
-    
+
     # GridSearch gives similar results but much slower
 
     # hyperparams = grid_search_rfc(X, y_truth)
