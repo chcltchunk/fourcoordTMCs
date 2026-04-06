@@ -16,9 +16,12 @@ from functools import partial
 from fcTMCml.constants import feature_target_dir
 from fcTMCml.tools import load_features
 
+from os import path
+from collections import Counter
+
 
 def k_folds(clf: ClassifierMixin,
-            X: np.array, y: np.array,
+            X: np.array, y: np.array, target_names: np.array,
             return_clf: bool = False):
     """
     K-Fold cross validation for a Classifier Model
@@ -50,9 +53,12 @@ def k_folds(clf: ClassifierMixin,
     ppvs = []
     sensitivities = []
     f_scores = []
+    failed_names_positives = []
+    failed_names_negatives = []
     for train_index, test_index in kf.split(X):
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]
+        current_target_names = target_names[test_index]
         clf = clone(clf)
         # verify that the splits are equally distributed among the classes
         # print(np.count_nonzero(y_train), " / ", y_train.shape[0], " square_planar / total datapoints in training set")
@@ -67,9 +73,13 @@ def k_folds(clf: ClassifierMixin,
         ppvs += [ppv]
         sensitivities += [sensitivity]
         f_scores += [f_score]
+        failed_mask_negatives = list(y_test[y_test == 0] != pred[y_test == 0])
+        failed_mask_positives = list(y_test[y_test == 1] != pred[y_test == 1])
+        failed_names_positives += list(current_target_names[y_test == 1][failed_mask_positives])
+        failed_names_negatives += list(current_target_names[y_test == 0][failed_mask_negatives])
     if return_clf:
-        return np.average(accuracy_score), np.average(ppvs), np.average(sensitivities), np.average(f_scores), clf
-    return np.average(accuracy_score), np.average(ppvs), np.average(sensitivities), np.average(f_scores)
+        return np.average(accuracy_score), np.average(ppvs), np.average(sensitivities), np.average(f_scores), failed_names_negatives, failed_names_positives, clf
+    return np.average(accuracy_score), np.average(ppvs), np.average(sensitivities), np.average(f_scores), failed_names_negatives, failed_names_positives
 
 
 def grid_search_rfc(X: np.array, y: np.array):
@@ -274,7 +284,16 @@ classification_in_subdir = "classification_rff_selection/"
 
 classification_targets, feature_dict, feature_names_dict = load_features(feature_target_dir, classification_in_subdir, "classification")
 
+target_names = np.load(path.join(feature_target_dir, "classification_raw", "classification_target_names.npy"))
+n_synthetic = len(classification_targets) - len(target_names)
+print(f"adding {n_synthetic} dummy labels")
+
+# Extend the names array
+target_names = np.concatenate([target_names, ["dummy"] * n_synthetic])
+
+
 acc_dict = {}
+failed_names_dict = {}
 for run_ident in feature_dict:
     X = feature_dict[run_ident]
     y_truth = classification_targets
@@ -284,24 +303,28 @@ for run_ident in feature_dict:
     print(hyperparams)
 
     clf = RidgeClassifier(**hyperparams, random_state=128)
-    avg_score, ppv, sensitivity, f_score, clf = k_folds(clf, X, y_truth, True)
+    avg_score, ppv, sensitivity, f_score, failed_names_negatives, failed_names_positives, clf = k_folds(clf, X, y_truth, target_names, True)
     coeffs = clf.coef_
 
     print(run_ident + " RR (TPE): ", np.round(avg_score, 3), np.round(ppv, 2), np.round(sensitivity, 2), np.round(f_score, 2))
 
     acc_dict[run_ident + " RR (TPE): "] = {"score": avg_score, "ppv": ppv, "sensitivity": sensitivity, "f_score": f_score, "coeffs": coeffs}
-
+    failed_names_dict["positives" + run_ident + " RR (TPE): "] = failed_names_positives
+    failed_names_dict["negatives" + run_ident + " RR (TPE): "] = failed_names_negatives
     hyperparams = rfc_optimization(X_train, X_test, y_train, y_test)
     print(hyperparams)
 
     clf = RandomForestClassifier(**hyperparams, random_state=128)
-    avg_score, ppv, sensitivity, f_score, clf = k_folds(clf, X, y_truth, True)
+    avg_score, ppv, sensitivity, f_score, failed_names_negatives, failed_names_positives, clf = k_folds(clf, X, y_truth, target_names, True)
     coeffs = clf.feature_importances_
 
     print(run_ident + " RFC (TPE): ", np.round(avg_score, 3), np.round(ppv, 2), np.round(sensitivity, 2), np.round(f_score, 2))
 
     acc_dict[run_ident + " RFC (TPE): "] = {"score": avg_score, "ppv": ppv, "sensitivity": sensitivity, "f_score": f_score, "coeffs": coeffs}
 
+    failed_names_dict["positives" + run_ident + " RFC (TPE): "] = failed_names_positives
+    failed_names_dict["negatives" + run_ident + " RFC (TPE): "] = failed_names_negatives
+    
     # GridSearch gives similar results but much slower
 
     # hyperparams = grid_search_rfc(X, y_truth)
@@ -314,6 +337,62 @@ for run_ident in feature_dict:
     # print(run_ident + " RFC (GS): ", np.round(avg_score, 3), np.round(ppv, 2), np.round(sensitivity, 2), np.round(f_score, 2))
 
     # acc_dict[run_ident + " RFC (GS): "] = {"score": avg_score, "ppv": ppv, "sensitivity": sensitivity, "f_score": f_score, "coeffs": coeffs}
+
+# analyse failed names dict
+print("Analysis for tetrahedrals")
+for run_id, samples in failed_names_dict.items():
+    samples = np.array(samples)
+
+    # Extracting metals, spins, and ligands
+    metals = np.array([s.split('_')[1] if s != "dummy" else "dummy" for s in samples])
+    spins = np.array([int(s.split('_')[s.split('_').index('spin') + 1]) if s != "dummy" else None for s in samples])
+    ligands = [s.split('_')[s.split('_').index('ligstr') + 1:] if s != "dummy" else [] for s in samples]
+
+    # Count "dummy" entries
+    dummy_count = np.sum(metals == "dummy")
+
+    # Count most frequent values
+    metal_counter = Counter(metals[metals != "dummy"])
+    spin_counter = Counter(spins[spins != None])
+    ligand_counter = Counter(np.concatenate(ligands))
+    # Get top 3 most frequent items
+    top_metals = metal_counter.most_common(5)
+    top_spins = spin_counter.most_common(5)
+    top_ligands = ligand_counter.most_common(5)
+    # Get bottom 3 (least frequent) metals and ligands
+    bottom_metals = metal_counter.most_common()[-3:][::-1]
+    bottom_ligands = ligand_counter.most_common()[-3:][::-1]
+
+    # Print results
+    print(f"\n=== Analysis for {run_id} ===")
+    print(f"Total dummy entries: {dummy_count}")
+    print(f"Top 3 most frequent metals: {top_metals}")
+    print(f"Top 3 most frequent spin numbers: {top_spins}")
+    print(f"Top 3 most frequent ligands: {top_ligands}")
+    print(f"Bottom 3 least frequent metals: {bottom_metals}")
+    print(f"Bottom 3 least frequent ligands: {bottom_ligands}")
+
+metals = np.array([s.split('_')[1] if s != "dummy" else "dummy" for s in target_names])
+spins = np.array([int(s.split('_')[s.split('_').index('spin') + 1]) if s != "dummy" else None for s in target_names])
+ligands = [s.split('_')[s.split('_').index('ligstr') + 1:] if s != "dummy" else [] for s in target_names]
+
+# Count "dummy" entries
+dummy_count = np.sum(metals == "dummy")
+
+# Count most frequent values
+metal_counter = Counter(metals[metals != "dummy"])
+ligand_counter = Counter(np.concatenate(ligands))
+# Get top 3 most frequent items
+rarest_metals = metal_counter.most_common()[-10:][::-1]
+rarest_ligands = ligand_counter.most_common()[-10:][::-1]
+common_metals = metal_counter.most_common(10)
+common_ligands = ligand_counter.most_common(10)
+
+print("==Analysis for full ds==")
+print("rarest metals: ", rarest_metals)
+print("rarest ligands: ", rarest_ligands)
+print("common metals: ", common_metals)
+print("common ligands: ", common_ligands)
 
 
 print("Feature Set, ML Model, Average Score (K-Fold), PPV, Sensitivity, F_score")

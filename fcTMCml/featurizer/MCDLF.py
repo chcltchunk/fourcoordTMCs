@@ -10,8 +10,7 @@ from fcTMCml.featurizer.mol_graph_tools import get_metal_node_id
 This class builds MCDL25 feauteres as described in DOI: 10.1039/c7sc01247k.
     - the exchange sensitivity is removed.
     - the ligand identity is removed
-We add multiplicity, spin-state, the full Kier index, and (truncated) atom
-counts to arrive at a MCDLF feature vector.
+We add multiplicity, spin-state, the full Kier index to arrive at a MCDLF feature vector.
 
 ---------------------------------------------------------
 Scope   | Feature                   | Abbreviation      |
@@ -30,9 +29,6 @@ Ligand  | Connection Atom           | CA                |
         | Bond Order                | max(LBO)          |(openbabel only)
         | Kier Index                | K                 |*new
         | Truncated Kier Index      | TK                |
----------------------------------------------------------
-Counts  | Individual Atom Counts    | #                 |*new
-        | Truncated Atom Counts     | T#                |*new
 ---------------------------------------------------------
 """
 
@@ -77,9 +73,6 @@ class MCDLF():
             self.ligand_max_bond_order = self.get_ligand_max_bond_order(input_file)
         self.kier_index = self.get_kier_index()
         self.truncated_kier_index = self.get_kier_index(truncation)
-        # count features
-        self.individual_atom_counts_n = self.get_all_ligands_atom_counts()
-        self.truncated_individual_atom_counts_n = self.get_all_ligands_atom_counts(truncation)
 
     ##############################
     # Feature Assembly Functions #
@@ -100,10 +93,7 @@ class MCDLF():
         if openbabel_available():
             feature_names += ["max_LBO"]
         feature_names += ["K",
-                          "TK",
-                          "#B", "#C", "#N", "#O", "#F", "#P", "#S", "#Cl", "#Br", "#I",
-                          "T#B", "T#C", "T#N", "T#O", "T#F", "T#P", "T#S", "T#Cl", "T#Br", "T#I"
-                          ]
+                          "TK"]
         for featurizer in additional_featurizer:
             feature_names += featurizer.get_classifier_feature_names()
 
@@ -127,10 +117,7 @@ class MCDLF():
         else:
             i = start + 12
         feature_groups += [i,
-                           i + 1,
-                           *list(i + 2 + np.arange(10)),
-                           *list(i + 13 + np.arange(10))
-                           ]
+                           i + 1]
         for featurizer in additional_featurizer:
             feature_groups += featurizer.get_classifier_feature_groups(start=i + 24)
 
@@ -149,9 +136,7 @@ class MCDLF():
         if openbabel_available():
             feature_names += ["max_LBO"]
         feature_names += ["K",
-                          "TK",
-                          "#B", "#C", "#N", "#O", "#F", "#P", "#S", "#Cl", "#Br", "#I",
-                          "T#B", "T#C", "T#N", "T#O", "T#F", "T#P", "T#S", "T#Cl", "T#Br", "T#I"
+                          "TK"
                           ]
         for featurizer in additional_featurizer:
             feature_names += featurizer.get_regression_feature_names()
@@ -173,11 +158,7 @@ class MCDLF():
             i = start + 11
         else:
             i = start + 10
-        feature_groups += [i,
-                           i + 1,
-                           *list(i + 2 + np.arange(10)),
-                           *list(i + 13 + np.arange(10))
-                           ]
+        feature_groups += [i, i + 1]
         for featurizer in additional_featurizer:
             feature_groups += featurizer.get_regression_feature_groups(start=i + 24)
 
@@ -213,11 +194,7 @@ class MCDLF():
                          ]
         if openbabel_available():
             feature_array += [self.ligand_max_bond_order]
-        feature_array += [self.kier_index,
-                          self.truncated_kier_index,
-                          *self.individual_atom_counts_n,
-                          *self.truncated_individual_atom_counts_n
-                          ]
+        feature_array += [self.kier_index, self.truncated_kier_index]
 
         for featurizer in additional_featurizer:
             feature_array += featurizer.get_classifier_features()
@@ -253,8 +230,6 @@ class MCDLF():
             feature_array += [self.ligand_max_bond_order]
         feature_array += [self.kier_index,
                           self.truncated_kier_index,
-                          *self.individual_atom_counts_n,
-                          *self.truncated_individual_atom_counts_n
                           ]
 
         for featurizer in additional_featurizer:
@@ -381,32 +356,3 @@ class MCDLF():
             return np.round(((n3 - 5 * n2 + 8 * n - 4) / (p2 * p2)), 2)
         else:
             return 0.0
-
-    def get_all_ligands_atom_counts(self, truncation: int = None) -> list:
-        """
-        counts B, C, N, O, F, P, S, Cl, Br, I for all ligands
-
-        Parameters
-        ----------
-        truncation: int
-            truncate after n atoms away from metal
-        Returns
-        -------
-        individual_atom_counts: list
-            counts
-        """
-        ligands = self.get_ligands_as_subgraph(truncation)
-        ligands_atom_list = []
-        # store list of all atomic numbers of every ligand in ligands_atom_list
-        for _, ligand in ligands:
-            ligands_atom_list += [*list(nx.get_node_attributes(ligand, 'atomic_number').values())]
-        # mask atoms of interest
-        mask = [5, 6, 7, 8, 9, 15, 16, 17, 35, 53]  # B, C, N, O, F, P, S, Cl, Br, I
-        # generalize to any ligand and any type of atom
-        counts_of_elements = np.zeros(127, dtype=int)
-        # count occurence of every atom type in all ligands
-        counts = np.bincount(ligands_atom_list)
-        # assign counts to general full array
-        counts_of_elements[:len(counts)] = counts
-        # return counts of elements for those of interest
-        return list(counts_of_elements[mask])

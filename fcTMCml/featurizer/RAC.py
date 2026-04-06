@@ -181,6 +181,7 @@ class RAC():
         connecting_atoms = list(subgraphs.neighbors(self.metal_node_id))
         # Assert that we are removing 4 edges
         if len(connecting_atoms) != 4:
+            print(self.ligand_list, self.oxidation_state, self.metal_node_id)
             raise ValueError(
                 "First entry in the graph does not have 4 neighbors "
                 "as expected for an octahedral complex."
@@ -192,7 +193,7 @@ class RAC():
         # subgraph tuples by first finding set of nodes for the component that the
         # connecting atom c comes from (using nx.node_conncted_component()) and
         # then constructing a subgraph using this node set.
-        # TODO(jonas): move function from MCDL53 features to tools.py
+        # TODO(jonas): move function from MCDLF features to tools.py
         ligands = [
             (c, subgraphs.subgraph(nx.node_connected_component(subgraphs, c)))
             for c in connecting_atoms
@@ -247,9 +248,9 @@ class RAC():
     def get_classifier_feature_groups(self, depth: int = 3, averaged: bool = False, additional_featurizer: list = [], start: int = 0):
         racs = self.get_tetrahedral_rac_names(depth=depth, averaged=averaged)
         feature_groups, end_index = self.get_tetrahedral_rac_groups(racs, start=start)
-        feature_groups = feature_groups + [end_index, *[end_index + 1] * 4]
+        feature_groups = feature_groups + [end_index + 1, *[end_index + 2] * 4]
         for featurizer in additional_featurizer:
-            feature_groups += featurizer.get_classifier_feature_groups(start=end_index + 2)
+            feature_groups += featurizer.get_classifier_feature_groups(start=end_index + 3)
         return feature_groups
 
     def get_regression_features(self, depth: int = 3, averaged: bool = False, additional_featurizer: list = []):
@@ -269,7 +270,7 @@ class RAC():
     def get_regression_feature_groups(self, depth: int = 3, averaged: bool = False, additional_featurizer: list = [], start: int = 0):
         racs = self.get_tetrahedral_rac_names(depth=depth, averaged=averaged)
         feature_groups, end_index = self.get_tetrahedral_rac_groups(racs, start=start)
-        feature_groups = feature_groups + [end_index, *[end_index + 1] * 4]
+        feature_groups = feature_groups + [end_index + 1, *[end_index + 2] * 4]
         for featurizer in additional_featurizer:
-            feature_groups += featurizer.get_regression_feature_groups(start=end_index + 2)
+            feature_groups += featurizer.get_regression_feature_groups(start=end_index + 3)
         return feature_groups

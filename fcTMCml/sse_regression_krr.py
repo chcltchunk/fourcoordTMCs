@@ -1,4 +1,5 @@
 from __future__ import print_function
+import os
 import numpy as np
 
 
@@ -18,7 +19,7 @@ from fcTMCml.tools import load_features
 
 
 def k_folds(clf, X, y, return_clf=False):
-    kf = KFold(n_splits=10, shuffle=True, random_state=128)
+    kf = KFold(n_splits=5, shuffle=True, random_state=128)
     kf.get_n_splits(X)
     mse_n = []
     mse_n_train = []
@@ -31,8 +32,8 @@ def k_folds(clf, X, y, return_clf=False):
         clf.fit(X_train, y_train)
         pred = clf.predict(X_test).reshape(-1, 1)
         pred_train = clf.predict(X_train).reshape(-1, 1)
-        mse = metrics.mean_squared_error(y_test, pred, squared=False)
-        mse_train = metrics.mean_squared_error(y_train, pred_train, squared=False)
+        mse = metrics.mean_squared_error(y_test, pred)
+        mse_train = metrics.mean_squared_error(y_train, pred_train)
         mae = metrics.mean_absolute_error(y_test, pred)
         mae_train = metrics.mean_absolute_error(y_train, pred_train)
         r2 = metrics.r2_score(y_test, pred)
@@ -128,7 +129,7 @@ def grid_search_krr(X, y):
     alpha_n = np.logspace(-12, 0, 50)
     gamma_n = np.logspace(-12, 1, 50)
     grid = dict(alpha=alpha_n, gamma=gamma_n)
-    kf = KFold(n_splits=10, shuffle=True, random_state=185)
+    kf = KFold(n_splits=5, shuffle=True, random_state=185)
     clf = KernelRidge(kernel='rbf')
     grid_search = GridSearchCV(estimator=clf, param_grid=grid, cv=kf, scoring='neg_mean_squared_error')
     print(X.shape, y.shape)
@@ -142,7 +143,10 @@ def grid_search_krr(X, y):
 
 
 # set random seed
-np.random.seed(128)
+random_seed = 423890532
+np.random.seed(random_seed)
+os.environ['PYTHONHASHSEED'] = str(random_seed)
+
 
 # import data
 regression_in_subdir = "regression_rff_selection/"
@@ -153,7 +157,8 @@ regression_targets, feature_dict, feature_names_dict = load_features(feature_tar
 #######
 # KRR #
 #######
-space = {"alpha": hp.loguniform("alpha", -8, 1),
+space = {"alpha": hp.quniform("alpha", 1.0, 10.0, 0.01),
+        #  "alpha": hp.loguniform("alpha", -8, 1),
          "gamma": hp.loguniform("gamma", -12, 1),
          "kernel": hp.choice("kernel", ["rbf", "laplacian"])
          }
@@ -183,3 +188,13 @@ for key in acc_dict:
           np.round(acc_dict[key]['r2'], 3), ' ,',
           np.round(acc_dict[key]['mse'], 3), ' ,',
           np.round(acc_dict[key]['mse_train'], 3), ' ,')
+
+print("")
+for key in acc_dict:
+    print(" ".join(key.split("_")), ' ,',
+          np.round(acc_dict[key]['mae_train'], 3), ' &',
+          np.round(np.sqrt(acc_dict[key]['mse_train']), 3), ' &',
+          np.round(acc_dict[key]['mae'], 3), ' &',
+          np.round(np.sqrt(acc_dict[key]['mse']), 3), ' &',
+          np.round(acc_dict[key]['r2'], 3)
+          )

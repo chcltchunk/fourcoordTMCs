@@ -31,7 +31,6 @@ def get_metal_node_id(graph):
 
 
 def compute_graph_determinant(graph):
-    # TODO(jonas): test
     # compute graph determinant
     # according to https://pubs.acs.org/doi/pdf/10.1021/acs.jpca.0c01458
     weights = diags(list(nx.get_node_attributes(graph, "atomic_number").values()))
