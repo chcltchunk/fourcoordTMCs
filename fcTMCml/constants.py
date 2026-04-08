@@ -26,6 +26,7 @@ raw_data_dir = "data/"
 feature_target_dir = "fcTMCml/features/"
 cache_dir = "cache/"
 ligand_dict_dir = "fcTMCml/featurizer/ligands.dict"
+SHAP_directory = "results/feature_importance_analysis/SHAP/"
 
 ligand_dict = load_ligand_dict(ligand_dict_dir)
 

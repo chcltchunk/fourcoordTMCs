@@ -78,13 +78,6 @@ def create_model(params):
                     kernel_regularizer=regularizers.L2(params['l2_reg_2']),
                     kernel_initializer=initializers.GlorotNormal(seed=random_seed)))
 
-    if len(params["hidden_units"]) > 2:
-        # model.add(Dropout(rate=float(params['dropout'])))
-        model.add(Dense(units=params['hidden_units'][2],
-                        activation=params['activation'],
-                        kernel_regularizer=regularizers.L2(params['l2_reg_2']),
-                        kernel_initializer=initializers.GlorotNormal(seed=random_seed)))
-
     model.add(Dense(1, activation='linear'))
     model.compile(optimizer=Adam(learning_rate=params['learning_rate']), loss='mse', metrics=['mae', 'mse', r2_score, MeanAbsolutePercentageError()])
     # print(model.summary())

@@ -1,4 +1,7 @@
+import shap
 import numpy as np
+import pandas as pd
+import pickle as pkl
 
 from sklearn.linear_model import RidgeClassifier
 from sklearn.ensemble import RandomForestClassifier
@@ -13,7 +16,7 @@ from hyperopt import hp, tpe, fmin, Trials
 from functools import partial
 
 
-from fcTMCml.constants import feature_target_dir
+from fcTMCml.constants import feature_target_dir, SHAP_directory
 from fcTMCml.tools import load_features
 
 from os import path, environ
@@ -300,6 +303,7 @@ acc_dict = {}
 failed_names_dict = {}
 for run_ident in feature_dict:
     X = feature_dict[run_ident]
+    feature_names = feature_names_dict[run_ident]
     y_truth = classification_targets
     X_train, X_test, y_train, y_test = train_test_split(X, y_truth, test_size=0.2, random_state=128)
 
@@ -321,6 +325,19 @@ for run_ident in feature_dict:
     clf = RandomForestClassifier(**hyperparams, random_state=128)
     avg_score, ppv, sensitivity, f_score, failed_names_negatives, failed_names_positives, clf = k_folds(clf, X, y_truth, target_names, True)
     coeffs = clf.feature_importances_
+
+    clf = RandomForestClassifier(**hyperparams, random_state=128)
+    X_train_df = pd.DataFrame(X_train, columns=feature_names)
+    X_test_df = pd.DataFrame(X_test, columns=feature_names)
+    print(X_train_df)
+    print(X_test_df)
+    clf.fit(X_train_df, y_train)
+    X100 = shap.utils.sample(X_train_df, 100)
+    print(X100)
+    explainer = shap.Explainer(clf.predict_proba, X100)
+    shap_values = explainer(X_test_df)
+    with open(SHAP_directory + run_ident + "_RFC_shap_values.pkl", 'wb') as f:
+        shap_values = pkl.dump(shap_values, f)
 
     print(run_ident + " RFC (TPE): ", np.round(avg_score, 3), np.round(ppv, 2), np.round(sensitivity, 2), np.round(f_score, 2))
 
