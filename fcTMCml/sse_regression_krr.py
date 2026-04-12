@@ -102,7 +102,6 @@ def krr_optimization(X_train: np.array, X_val: np.array, y_train: np.array, y_va
     best: dict
         best hyperparameters
     '''
-    # print("---hyperopt---")
 
     objective_func = partial(train_krr_hyperopt,
                              X_train=X_train,
@@ -187,12 +186,13 @@ for key in acc_dict:
           np.round(acc_dict[key]['mse'], 3), ' ,',
           np.round(acc_dict[key]['mse_train'], 3), ' ,')
 
-print("")
-for key in acc_dict:
-    print(" ".join(key.split("_")), ' ,',
-          np.round(acc_dict[key]['mae_train'], 3), ' &',
-          np.round(np.sqrt(acc_dict[key]['mse_train']), 3), ' &',
-          np.round(acc_dict[key]['mae'], 3), ' &',
-          np.round(np.sqrt(acc_dict[key]['mse']), 3), ' &',
-          np.round(acc_dict[key]['r2'], 3)
-          )
+# TeX table format output
+# print("")
+# for key in acc_dict:
+#     print(" ".join(key.split("_")), ' ,',
+#           np.round(acc_dict[key]['mae_train'], 3), ' &',
+#           np.round(np.sqrt(acc_dict[key]['mse_train']), 3), ' &',
+#           np.round(acc_dict[key]['mae'], 3), ' &',
+#           np.round(np.sqrt(acc_dict[key]['mse']), 3), ' &',
+#           np.round(acc_dict[key]['r2'], 3)
+#           )

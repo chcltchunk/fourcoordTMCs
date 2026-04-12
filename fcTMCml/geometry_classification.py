@@ -329,11 +329,8 @@ for run_ident in feature_dict:
     clf = RandomForestClassifier(**hyperparams, random_state=128)
     X_train_df = pd.DataFrame(X_train, columns=feature_names)
     X_test_df = pd.DataFrame(X_test, columns=feature_names)
-    print(X_train_df)
-    print(X_test_df)
     clf.fit(X_train_df, y_train)
     X100 = shap.utils.sample(X_train_df, 100)
-    print(X100)
     explainer = shap.Explainer(clf.predict_proba, X100)
     shap_values = explainer(X_test_df)
     with open(SHAP_directory + run_ident + "_RFC_shap_values.pkl", 'wb') as f:

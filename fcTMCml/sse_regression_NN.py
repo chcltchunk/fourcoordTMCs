@@ -35,7 +35,6 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 os.environ["TF_DETERMINISTIC_OPS"] = "1"
 
 
-
 gpus = tf.config.experimental.list_physical_devices('GPU')
 if gpus:
     try:
