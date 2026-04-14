@@ -19,7 +19,7 @@ setup(
         'hyperopt==0.2.7',
         'umap-learn==0.5.5',
         'tensorflow[and-cuda]',
-        'hyperas==0.4.1'
+        'hyperas==0.4.1',
         'shap==0.51.0'
 
     ],
