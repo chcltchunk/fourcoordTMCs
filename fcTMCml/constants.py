@@ -1,6 +1,14 @@
 import numpy as np
 from ase.data import chemical_symbols, atomic_numbers, covalent_radii
-from fcTMCml.tools import load_ligand_dict
+
+
+# ligand dict parsing
+def load_ligand_dict(path: str) -> dict:
+    # load molSimplify ligand dict from ligands.dict
+    with open(path, "r") as f:
+        lines = f.readlines()
+    return {x.split(":")[0]: x.split(":")[1][:-1].split(",") for x in lines[2:]}
+
 
 ##############################
 # PROJECT SPECIFIC CONSTANTS #
@@ -18,11 +26,11 @@ raw_data_dir = "data/"
 feature_target_dir = "fcTMCml/features/"
 cache_dir = "cache/"
 ligand_dict_dir = "fcTMCml/featurizer/ligands.dict"
+SHAP_directory = "results/feature_importance_analysis/SHAP/"
 
 ligand_dict = load_ligand_dict(ligand_dict_dir)
 
 # define properties we'd like to keep in the dataset throughout the complete workflow
-# TODO(ralf): should we have the formal charge in the final dataset?
 column_list = ['metal', 'ox', 'ligstr', 'complex.size']  # , 'charge'
 sse_colum_list = ['geom.ls', 'geom.hs', 'ls.spin', 'hs.spin', 'b3lyp.energy.ls (Ha)', 'b3lyp.energy.hs (Ha)', 'b3lyp.sse (kcal/mol)']
 
@@ -38,6 +46,7 @@ __all__ = [
 ]
 
 roman_numerals = {"I": 1, "II": 2, "III": 3, "IV": 4, "V": 5}
+roman_numerals_r = {1: "I", 2: "II", 3: "III", 4: "IV", 5: "V"}
 
 metal_list_symbolic = ["Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn"]
 metal_list = np.array(list(range(21, 30)) + list(range(39, 48)) + list(range(72, 80)))

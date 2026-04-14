@@ -5,12 +5,13 @@ __pycache__/
 
 # other
 *.png
+*.pdf
 .DS_Store
-sse_regression_*
 
 # C extensions
 *.so
 
+_* 
 # Distribution / packaging
 .Python
 build/

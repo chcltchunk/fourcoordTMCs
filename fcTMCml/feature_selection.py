@@ -24,11 +24,10 @@
 # =============================================================================
 # Imports
 # =============================================================================
-
 import numpy as np
 from sklearn.inspection import permutation_importance
 from fcTMCml.constants import feature_target_dir, cache_dir
-from fcTMCml.tools import make_dir, load_features, get_pca, get_tsne, get_umap, plot_pca, plot_tsne, plot_umap
+from fcTMCml.tools import make_dir, load_features, get_pca, get_tsne, get_umap, plot_pca, plot_tsne, plot_umap, mahalanobis_dist, wasserstein_dist
 
 from sklearn.ensemble import RandomForestRegressor
 
@@ -40,7 +39,6 @@ np.random.seed(128)
 def run_rf(X: np.array, y: np.array) -> RandomForestRegressor:
     # RFC
     print("\n RFC")
-    # kf = KFold(n_splits=10, shuffle=True, random_state=185)
     model = RandomForestRegressor(n_estimators=1000, criterion='squared_error', min_samples_leaf=1, max_leaf_nodes=None, bootstrap=True, oob_score=True,
                                   random_state=128, ccp_alpha=0.0, max_samples=None)
     model.fit(X, y)
@@ -97,36 +95,25 @@ def select_features_permutation_importance(A: np.array, y_truth: np.array, run_i
         result_importances_mean_grouped = np.bincount(feature_groups, weights=result_importances_mean)
 
     thres = 0.010
-    # print(maximum_retained_features)
     if maximum_retained_features > -1:
         while np.count_nonzero(list((result_importances_mean_grouped / np.max(result_importances_mean_grouped)) > thres)) > maximum_retained_features:
             thres += 0.0005
 
-    mask = np.where((result_importances_mean_grouped / np.max(result_importances_mean_grouped)) > thres)[0]
-    mask = mask[np.argsort(result_importances_mean_grouped[mask])[::-1]]
-    # print("mask: ", mask)
+    # uncomment for threshold based selection
+    # mask = np.where((result_importances_mean_grouped / np.max(result_importances_mean_grouped)) > thres)[0]
+    # mask = mask[np.argsort(result_importances_mean_grouped[mask])[::-1]]
+    mask = np.argsort(result_importances_mean_grouped)[-10:]
     selected_feature_indices = []
     selected_feature_names = []
     selected_feature_groups = []
     for curr_group_index in mask:
-        # print(np.where(feature_groups == curr_group_index))
-        # print(feature_names[np.where(feature_groups == curr_group_index)[0]])
-        # print(A.T[np.where(feature_groups == curr_group_index)[0]].T)
-        # print(list(A.T[np.where(feature_groups == curr_group_index)[0]].T))
         selected_feature_names += list(feature_names[np.where(feature_groups == curr_group_index)[0]])
         selected_feature_groups += list(feature_groups[np.where(feature_groups == curr_group_index)[0]])
         selected_feature_indices += list(np.where(feature_groups == curr_group_index)[0])
-    # print(selected_feature_indices)
-    # print(selected_feature_names)
     selected_feature_names = np.array(selected_feature_names)
     selected_feature_groups = np.array(selected_feature_groups)
-    # print(selected_feature_names.shape)
-    # print(selected_feature_groups.shape)
-    # print(selected_feature_groups)
     selected_features = A.T[selected_feature_indices].T
-    # print(selected_features.shape)
     selected_feature_importances = np.array(result_importances_mean[selected_feature_indices])
-    # print(selected_feature_importances.shape)
     print("retained ", selected_features.shape[1], " features")
     return selected_features, selected_feature_names, selected_feature_groups, selected_feature_importances
 
@@ -167,15 +154,19 @@ for run_ident in feature_dict:
     features = feature_dict[run_ident]
     feature_names = feature_names_dict[run_ident]
     feature_groups = feature_groups_dict[run_ident]
-    principalComponents, explained_variance = get_pca(features=features)
+    # principalComponents, explained_variance = get_pca(features=features)
     tsne_embedding = get_tsne(features=features)
-    umap_embedding = get_umap(features=features)
-    plot_tsne(tsne_embedding, np.where(classification_targets == 0, "tab:blue", "tab:orange"),
+    # umap_embedding = get_umap(features=features)
+    plot_tsne(tsne_embedding, np.where(classification_targets == 0, "dodgerblue", "tab:orange"),
               feature_target_dir + classification_out_subdir + tsne_subdir + run_ident + "_before_RF", legends=["THD", "SQP"])
-    plot_umap(umap_embedding, np.where(classification_targets == 0, "tab:blue", "tab:orange"),
-              feature_target_dir + classification_out_subdir + umap_subdir + run_ident + "_before_RF", legends=["THD", "SQP"])
-    plot_pca(principalComponents, explained_variance, np.where(classification_targets == 0, "tab:blue", "tab:orange"),
-             feature_target_dir + classification_out_subdir + pca_subdir + run_ident + "_before_RF", legends=["THD", "SQP"])
+    # plot_umap(umap_embedding, np.where(classification_targets == 0, "dodgerblue", "tab:orange"),
+    #           feature_target_dir + classification_out_subdir + umap_subdir + run_ident + "_before_RF", legends=["THD", "SQP"])
+    # plot_pca(principalComponents, explained_variance, np.where(classification_targets == 0, "dodgerblue", "tab:orange"),
+    #          feature_target_dir + classification_out_subdir + pca_subdir + run_ident + "_before_RF", legends=["THD", "SQP"])
+    mask = classification_targets == 0
+    print(run_ident, " before selection:")
+    print("Mahalanobis Dist: ", mahalanobis_dist(tsne_embedding[mask], tsne_embedding[~mask]))
+    print("Wasserstein Dist: ", wasserstein_dist(tsne_embedding[mask], tsne_embedding[~mask]))
 
     selected_features, selected_feature_names, selected_feature_groups, selected_feature_importances = \
         select_features_permutation_importance(features, classification_targets,
@@ -188,17 +179,20 @@ for run_ident in feature_dict:
                                                maximum_retained_features=10)
     print(selected_feature_names)
 
-    principalComponents, explained_variance = get_pca(features=selected_features)
+    # principalComponents, explained_variance = get_pca(features=selected_features)
     tsne_embedding = get_tsne(features=selected_features)
-    umap_embedding = get_umap(features=selected_features)
-    plot_tsne(tsne_embedding, np.where(classification_targets == 0, "tab:blue", "tab:orange"),
+    # umap_embedding = get_umap(features=selected_features)
+    plot_tsne(tsne_embedding, np.where(classification_targets == 0, "dodgerblue", "tab:orange"),
               feature_target_dir + classification_out_subdir + tsne_subdir + run_ident + "_after_RF", legends=["THD", "SQP"])
-    plot_umap(umap_embedding, np.where(classification_targets == 0, "tab:blue", "tab:orange"),
-              feature_target_dir + classification_out_subdir + umap_subdir + run_ident + "_after_RF", legends=["THD", "SQP"])
-    plot_pca(principalComponents, explained_variance, np.where(classification_targets == 0, "tab:blue", "tab:orange"),
-             feature_target_dir + classification_out_subdir + pca_subdir + run_ident + "_after_RF", legends=["THD", "SQP"])
+    # plot_umap(umap_embedding, np.where(classification_targets == 0, "dodgerblue", "tab:orange"),
+    #           feature_target_dir + classification_out_subdir + umap_subdir + run_ident + "_after_RF", legends=["THD", "SQP"])
+    # plot_pca(principalComponents, explained_variance, np.where(classification_targets == 0, "dodgerblue", "tab:orange"),
+    #          feature_target_dir + classification_out_subdir + pca_subdir + run_ident + "_after_RF", legends=["THD", "SQP"])
 
-    # TODO(jonas): write generic function for feauture storing
+    print(run_ident, " after selection:")
+    print("Mahalanobis Dist: ", mahalanobis_dist(tsne_embedding[mask], tsne_embedding[~mask]))
+    print("Wasserstein Dist: ", wasserstein_dist(tsne_embedding[mask], tsne_embedding[~mask]))
+
     np.save(feature_target_dir + classification_out_subdir + f"{run_ident}.npy", selected_features)
     np.save(feature_target_dir + classification_out_subdir + f"{run_ident}_names.npy", selected_feature_names)
     np.save(feature_target_dir + classification_out_subdir + f"{run_ident}_groups.npy", selected_feature_groups)
@@ -245,21 +239,30 @@ for run_ident in feature_dict:
     features = feature_dict[run_ident]
     feature_names = feature_names_dict[run_ident]
     feature_groups = feature_groups_dict[run_ident]
-    principalComponents, explained_variance = get_pca(features=features)
+
+    # principalComponents, explained_variance = get_pca(features=features)
     tsne_embedding = get_tsne(features=features)
-    umap_embedding = get_umap(features=features)
+    # umap_embedding = get_umap(features=features)
 
     # define colormap for SSE coloring
     cmap = cm.winter
     norm = colors.Normalize(vmin=np.min(regression_targets), vmax=np.max(regression_targets))
     sm = [cm.ScalarMappable(cmap=cmap, norm=norm), "SSE"]
+
     print(cmap(norm(regression_targets)))
     plot_tsne(tsne_embedding, cmap(norm(regression_targets)),
-              feature_target_dir + regression_out_subdir + tsne_subdir + run_ident + "_before_RF", mapper=sm)
-    plot_umap(umap_embedding, cmap(norm(regression_targets)),
-              feature_target_dir + regression_out_subdir + umap_subdir + run_ident + "_before_RF", mapper=sm)
-    plot_pca(principalComponents, explained_variance, cmap(norm(regression_targets)),
-             feature_target_dir + regression_out_subdir + pca_subdir + run_ident + "_before_RF", mapper=sm)
+              feature_target_dir + regression_out_subdir + tsne_subdir + run_ident + "_before_RF", mapper=sm, classification=False)
+    # plot_umap(umap_embedding, cmap(norm(regression_targets)),
+    #           feature_target_dir + regression_out_subdir + umap_subdir + run_ident + "_before_RF", mapper=sm, classification=False)
+    # plot_pca(principalComponents, explained_variance, cmap(norm(regression_targets)),
+    #          feature_target_dir + regression_out_subdir + pca_subdir + run_ident + "_before_RF", mapper=sm, classification=False)
+
+    mask = regression_targets < np.median(regression_targets)
+    print(mask.shape)
+    print(regression_targets.shape)
+    print(run_ident, " before selection:")
+    print("Mahalanobis Dist: ", mahalanobis_dist(tsne_embedding[mask], tsne_embedding[~mask]))
+    print("Wasserstein Dist: ", wasserstein_dist(tsne_embedding[mask], tsne_embedding[~mask]))
 
     selected_features, selected_feature_names, selected_feature_groups, selected_feature_importances = \
         select_features_permutation_importance(features, regression_targets, feature_names=feature_names,
@@ -268,17 +271,20 @@ for run_ident in feature_dict:
                                                init_run=False, maximum_retained_features=10)
     print(selected_feature_names)
 
-    principalComponents, explained_variance = get_pca(features=selected_features)
+    # principalComponents, explained_variance = get_pca(features=selected_features)
     tsne_embedding = get_tsne(features=selected_features)
-    umap_embedding = get_umap(features=selected_features)
+    # umap_embedding = get_umap(features=selected_features)
     plot_tsne(tsne_embedding, cmap(norm(regression_targets)),
-              feature_target_dir + regression_out_subdir + tsne_subdir + run_ident + "_after_RF", mapper=sm)
-    plot_umap(umap_embedding, cmap(norm(regression_targets)),
-              feature_target_dir + regression_out_subdir + umap_subdir + run_ident + "_after_RF", mapper=sm)
-    plot_pca(principalComponents, explained_variance, cmap(norm(regression_targets)),
-             feature_target_dir + regression_out_subdir + pca_subdir + run_ident + "_after_RF", mapper=sm)
+              feature_target_dir + regression_out_subdir + tsne_subdir + run_ident + "_after_RF", mapper=sm, classification=False)
+    # plot_umap(umap_embedding, cmap(norm(regression_targets)),
+    #           feature_target_dir + regression_out_subdir + umap_subdir + run_ident + "_after_RF", mapper=sm, classification=False)
+    # plot_pca(principalComponents, explained_variance, cmap(norm(regression_targets)),
+    #          feature_target_dir + regression_out_subdir + pca_subdir + run_ident + "_after_RF", mapper=sm, classification=False)
 
-    # TODO(jonas): write generic function for feauture storing
+    print(run_ident, " after selection:")
+    print("Mahalanobis Dist: ", mahalanobis_dist(tsne_embedding[mask], tsne_embedding[~mask]))
+    print("Wasserstein Dist: ", wasserstein_dist(tsne_embedding[mask], tsne_embedding[~mask]))
+
     np.save(feature_target_dir + regression_out_subdir + f"{run_ident}.npy", selected_features)
     np.save(feature_target_dir + regression_out_subdir + f"{run_ident}_names.npy", selected_feature_names)
     np.save(feature_target_dir + regression_out_subdir + f"{run_ident}_groups.npy", selected_feature_groups)
