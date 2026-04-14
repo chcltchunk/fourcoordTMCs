@@ -51,8 +51,6 @@ rac_cff_classifier_features = []
 
 for i, row in df.iterrows():
     xyz_file_path = raw_data_dir + f"geometries/metal_{row['metal']}_ox_{int(row['ox'])}_spin_{int(row['spin'])}_ligstr_{row['ligstr']}.xyz"
-    if i == 828:  # xyz_file_path == raw_data_dir + "geometries/metal_fe_ox_2_spin_1_ligstr_scn_furan_furan_furan.xyz":
-        continue
     ligand_list = row["ligstr"].split("_")
     mcdlf = MCDLF(graph_from_xyz_file(xyz_file_path), oxidation_state=int(row['ox']), ligand_list=ligand_list,
                   multiplicity=row['spin'], input_file=xyz_file_path)
