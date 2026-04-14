@@ -165,6 +165,7 @@ nitroso:nitroso.mol,nits,0,build functionalize small,N,0
 nme2:NMe2_-1.xyz,nme2,0,build small organic,BA,-1
 nme3:nme3.mol,nme3,0,build small,N,0
 no-:no-.mol,no-,0,build functionalize small,N,-1
+no:no.mol,no,0,build functionalize small,N,1
 no2-:no2-.mol,no2-,0,build functionalize small,N,-1
 noxygen:noxygen.mol,noxd,0,build small,N,0
 ns-:ns-.mol,ns-,0,build functionalize small,N,-1
