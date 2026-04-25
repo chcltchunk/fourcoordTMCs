@@ -8,6 +8,10 @@ __pycache__/
 *.pdf
 *.npy
 *.pkl
+<<<<<<< HEAD
+=======
+*.csv
+>>>>>>> confusion_matrix
 .DS_Store
 
 # C extensions
