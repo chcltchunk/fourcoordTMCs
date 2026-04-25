@@ -17,7 +17,7 @@ from functools import partial
 
 
 from fcTMCml.constants import feature_target_dir, SHAP_directory
-from fcTMCml.tools import load_features
+from fcTMCml.tools import load_features, plot_confusion_matrix
 
 from os import path, environ
 from collections import Counter
@@ -58,6 +58,7 @@ def k_folds(clf: ClassifierMixin,
     f_scores = []
     failed_names_positives = []
     failed_names_negatives = []
+    conf_mat = np.zeros((2, 2))
     for train_index, test_index in kf.split(X):
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]
@@ -72,6 +73,7 @@ def k_folds(clf: ClassifierMixin,
         ppv = metrics.precision_score(y_test, pred)
         sensitivity = metrics.recall_score(y_test, pred)
         f_score = metrics.f1_score(y_test, pred)
+        conf_mat += metrics.confusion_matrix(y_test, pred)
         accuracy_score += [score]
         ppvs += [ppv]
         sensitivities += [sensitivity]
@@ -81,8 +83,8 @@ def k_folds(clf: ClassifierMixin,
         failed_names_positives += list(current_target_names[y_test == 1][failed_mask_positives])
         failed_names_negatives += list(current_target_names[y_test == 0][failed_mask_negatives])
     if return_clf:
-        return np.average(accuracy_score), np.average(ppvs), np.average(sensitivities), np.average(f_scores), failed_names_negatives, failed_names_positives, clf
-    return np.average(accuracy_score), np.average(ppvs), np.average(sensitivities), np.average(f_scores), failed_names_negatives, failed_names_positives
+        return np.average(accuracy_score), np.average(ppvs), np.average(sensitivities), np.average(f_scores), conf_mat, failed_names_negatives, failed_names_positives, clf
+    return np.average(accuracy_score), np.average(ppvs), np.average(sensitivities), np.average(f_scores), conf_mat, failed_names_negatives, failed_names_positives
 
 
 def grid_search_rfc(X: np.array, y: np.array):
@@ -311,7 +313,7 @@ for run_ident in feature_dict:
     print(hyperparams)
 
     clf = RidgeClassifier(**hyperparams, random_state=128)
-    avg_score, ppv, sensitivity, f_score, failed_names_negatives, failed_names_positives, clf = k_folds(clf, X, y_truth, target_names, True)
+    avg_score, ppv, sensitivity, f_score, conf_mat, failed_names_negatives, failed_names_positives, clf = k_folds(clf, X, y_truth, target_names, True)
     coeffs = clf.coef_
 
     print(run_ident + " RR (TPE): ", np.round(avg_score, 3), np.round(ppv, 2), np.round(sensitivity, 2), np.round(f_score, 2))
@@ -323,12 +325,17 @@ for run_ident in feature_dict:
     print(hyperparams)
 
     clf = RandomForestClassifier(**hyperparams, random_state=128)
-    avg_score, ppv, sensitivity, f_score, failed_names_negatives, failed_names_positives, clf = k_folds(clf, X, y_truth, target_names, True)
+    avg_score, ppv, sensitivity, f_score, conf_mat, failed_names_negatives, failed_names_positives, clf = k_folds(clf, X, y_truth, target_names, True)
     coeffs = clf.feature_importances_
 
     clf = RandomForestClassifier(**hyperparams, random_state=128)
     X_train_df = pd.DataFrame(X_train, columns=feature_names)
     X_test_df = pd.DataFrame(X_test, columns=feature_names)
+
+    ##########################################################
+    # Confusion matrix visualization and SHAP export for RFC #
+    ##########################################################
+    plot_confusion_matrix(conf_mat, f"results/confusion_matrices/{run_ident}_confusion_matrix.pdf")
     clf.fit(X_train_df, y_train)
     X100 = shap.utils.sample(X_train_df, 100)
     explainer = shap.Explainer(clf.predict_proba, X100)
