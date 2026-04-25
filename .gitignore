@@ -8,6 +8,7 @@ __pycache__/
 *.pdf
 *.npy
 *.pkl
+*.csv
 .DS_Store
 
 # C extensions
