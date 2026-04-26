@@ -25,7 +25,7 @@ Ligand  | Connection Atom           | CA                |
         | Charge                    | LC                |
         | Denticity                 | LD                |
         | Number of Atoms           | #A                |
-        | Ligand Number of Atoms    | L#A               |*new (not used)
+        | Ligand Number of Atoms    | L#A               |*new
         | Bond Order                | max(LBO)          |(openbabel only)
         | Kier Index                | K                 |*new
         | Truncated Kier Index      | TK                |
