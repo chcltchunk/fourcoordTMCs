@@ -27,7 +27,10 @@
 import numpy as np
 from sklearn.inspection import permutation_importance
 from fcTMCml.constants import feature_target_dir, cache_dir
-from fcTMCml.tools import make_dir, load_features, get_pca, get_tsne, get_umap, plot_pca, plot_tsne, plot_umap, mahalanobis_dist, wasserstein_dist
+from fcTMCml.tools import make_dir, load_features, get_tsne, plot_tsne, mahalanobis_dist, wasserstein_dist
+# optional umap and pca analysis
+# from fcTMCml.tools import get_pca, get_umap, plot_pca, plot_umap
+
 
 from sklearn.ensemble import RandomForestRegressor
 

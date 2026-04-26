@@ -79,7 +79,7 @@ rac_classifier_feature_names = rac.get_classifier_feature_names()
 rac_classifier_feature_groups = rac.get_classifier_feature_groups()
 # select non-trivial values only
 mask = ~np.isin(rac_classifier_feature_names, zero_RACs)
-rac_classifier_feature_names = [names for i, names in enumerate(rac_classifier_feature_names) if mask[i]] #rac_classifier_feature_names[mask]
+rac_classifier_feature_names = [names for i, names in enumerate(rac_classifier_feature_names) if mask[i]]
 rac_classifier_feature_groups = [groups for i, groups in enumerate(rac_classifier_feature_groups) if mask[i]]
 rac_classifier_features = [[rac for rac, m in zip(row, mask) if m]
                            for row in rac_classifier_features]
@@ -88,7 +88,7 @@ rac_cff_classifier_feature_names = rac.get_classifier_feature_names(additional_f
 rac_cff_classifier_feature_groups = rac.get_classifier_feature_groups(additional_featurizer=[cff])
 # select non-trivial values only
 mask = ~np.isin(rac_cff_classifier_feature_names, zero_RACs)
-rac_cff_classifier_feature_names = [names for i, names in enumerate(rac_cff_classifier_feature_names) if mask[i]] #rac_classifier_feature_names[mask]
+rac_cff_classifier_feature_names = [names for i, names in enumerate(rac_cff_classifier_feature_names) if mask[i]]
 rac_cff_classifier_feature_groups = [groups for i, groups in enumerate(rac_cff_classifier_feature_groups) if mask[i]]
 rac_cff_classifier_features = [[rac for rac, m in zip(row, mask) if m]
                                for row in rac_cff_classifier_features]

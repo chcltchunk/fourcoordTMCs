@@ -1,7 +1,6 @@
 import re
 import shap
 import pickle as pkl
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from fcTMCml.tools import load_features, make_dir, add_feature_inportance_pie_to_plot
@@ -12,24 +11,24 @@ make_dir(SHAP_directory)
 
 classification_in_subdir = "classification_rff_selection/"
 classification_targets, feature_dict, feature_names_dict, feature_importances_dict = load_features(feature_target_dir, classification_in_subdir,
-                                                                                            "classification", load_importances=True)
+                                                                                                   "classification", load_importances=True)
 
 # define TeX style identifier for plots
 replacements = [
-               ['CA', 'I(M)', 'L#A', 'LC', 'Ox', 'S', 'TK', 'max($\chi$)',
-                'min($\chi$)', 'sum($\chi$)'],
-               ['CA', 'I(M)', 'L#A', 'LC', 'Ox', 'S', 'TK', '$\Delta E$', 'max($\chi$)',
-                'sum($\chi$)'],
-               ['$^\mathrm{lc}_\mathrm{ax}\chi_{3}^D$', '$^\mathrm{all}_\mathrm{all}Z_{1}^D$',
-                '$^\mathrm{mc}_\mathrm{all}\chi_{1}^D$', 'Ox', '$^\mathrm{f}_\mathrm{ax}S_{1}$',
-                '$^\mathrm{lc}_\mathrm{ax}Z_{2}$', '$^\mathrm{mc}_\mathrm{all}S_{0}$',
-                '$^\mathrm{mc}_\mathrm{all}Z_{0}$', '$^\mathrm{mc}_\mathrm{all}\chi_{0}$',
-                '$^\mathrm{mc}_\mathrm{all}\chi_{2}$'],
-               ['$^\mathrm{lc}_\mathrm{ax}\chi_{3}^D$', '$^\mathrm{all}_\mathrm{all}Z_{1}^D$',
-                'Ox', '$\Delta E$', '$^\mathrm{f}_\mathrm{ax}\chi_{0}$',
-                '$^\mathrm{lc}_\mathrm{ax}Z_{2}$', '$^\mathrm{mc}_\mathrm{all}S_{0}$',
-                '$^\mathrm{mc}_\mathrm{all}Z_{1}$', '$^\mathrm{mc}_\mathrm{all}\chi_{1}$',
-                '$^\mathrm{mc}_\mathrm{all}\chi_{2}$'],
+               ['CA', 'I(M)', 'L#A', 'LC', 'Ox', 'S', 'TK', r'max($\chi$)',
+                r'min($\chi$)', r'sum($\chi$)'],
+               ['CA', 'I(M)', 'L#A', 'LC', 'Ox', 'S', 'TK', r'$\Delta E$', r'max($\chi$)',
+                r'sum($\chi$)'],
+               [r'$^\mathrm{lc}_\mathrm{ax}\chi_{3}^D$', r'$^\mathrm{all}_\mathrm{all}Z_{1}^D$',
+                r'$^\mathrm{mc}_\mathrm{all}\chi_{1}^D$', 'Ox', r'$^\mathrm{f}_\mathrm{ax}S_{1}$',
+                r'$^\mathrm{lc}_\mathrm{ax}Z_{2}$', r'$^\mathrm{mc}_\mathrm{all}S_{0}$',
+                r'$^\mathrm{mc}_\mathrm{all}Z_{0}$', r'$^\mathrm{mc}_\mathrm{all}\chi_{0}$',
+                r'$^\mathrm{mc}_\mathrm{all}\chi_{2}$'],
+               [r'$^\mathrm{lc}_\mathrm{ax}\chi_{3}^D$', r'$^\mathrm{all}_\mathrm{all}Z_{1}^D$',
+                'Ox', r'$\Delta E$', r'$^\mathrm{f}_\mathrm{ax}\chi_{0}$',
+                r'$^\mathrm{lc}_\mathrm{ax}Z_{2}$', r'$^\mathrm{mc}_\mathrm{all}S_{0}$',
+                r'$^\mathrm{mc}_\mathrm{all}Z_{1}$', r'$^\mathrm{mc}_\mathrm{all}\chi_{1}$',
+                r'$^\mathrm{mc}_\mathrm{all}\chi_{2}$'],
 ]
 
 

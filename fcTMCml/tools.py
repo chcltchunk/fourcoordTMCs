@@ -487,11 +487,13 @@ def add_feature_inportance_pie_to_plot(ax, importances, feature_names, run_ident
                                    'f-Z-1-all', 'f-Z-1-ax1' 'f-Z-1-ax2' 'f-Z-1-ax3' 'f-Z-1-ax4']
                        }
     """
-    blues:  ['#f7fbff', '#ecf4fb', '#e1edf8', '#d6e6f4', '#ccdff1', '#bdd7ec', '#abd0e6', '#99c7e0', '#82bbdb', '#6aaed6', '#58a1cf', '#4695c8', '#3787c0', '#2979b9', '#1b69af', '#105ba4', '#084d96', '#083e81', '#08306b']
+    blues:  ['#f7fbff', '#ecf4fb', '#e1edf8', '#d6e6f4', '#ccdff1', '#bdd7ec', '#abd0e6', '#99c7e0', '#82bbdb', '#6aaed6', '#58a1cf', '#4695c8', '#3787c0',
+             '#2979b9', '#1b69af', '#105ba4', '#084d96', '#083e81', '#08306b']
     greens:  ['#f7fcf5', '#ebf7e7', '#dbf1d6', '#c7e9c0', '#aedea7', '#92d28f', '#73c476', '#52b365', '#37a055', '#228a44', '#0b7734', '#005f26', '#00441b']
     oranges:  ['#fff5eb', '#fee8d2', '#fdd5ad', '#fdb97d', '#fd9c51', '#f87d29', '#e95e0d', '#cd4401', '#a13403', '#7f2704']
     reds:  ['#fff5f0', '#fee3d6', '#fcc4ad', '#fca082', '#fb7c5c', '#f6553c', '#e32f27', '#c2161b', '#9d0d14', '#67000d']
-    greys:  ['#ffffff', '#f9f9f9', '#f4f4f4', '#ededed', '#e4e4e4', '#dcdcdc', '#d1d1d1', '#c6c6c6', '#bbbbbb', '#adadad', '#9e9e9e', '#8f8f8f', '#828282', '#757575', '#686868', '#5c5c5c', '#4d4d4d', '#3c3c3c', '#2b2b2b', '#1c1c1c', '#0e0e0e', '#000000']
+    greys:  ['#ffffff', '#f9f9f9', '#f4f4f4', '#ededed', '#e4e4e4', '#dcdcdc', '#d1d1d1', '#c6c6c6', '#bbbbbb', '#adadad', '#9e9e9e', '#8f8f8f', '#828282',
+             '#757575', '#686868', '#5c5c5c', '#4d4d4d', '#3c3c3c', '#2b2b2b', '#1c1c1c', '#0e0e0e', '#000000']
     """
     inner_chart_colors = {"Global" : {"S" : "#BABABA", "Z" : "#D1D1D1", "chi" : "#DDDDDD", "ox" : "#F4F4F4"},
                           "Counts" : {'#B': '#ffffff', '#C': '#f9f9f9', '#N': '#f4f4f4', '#O': '#ededed', '#F': '#e4e4e4',

@@ -10,7 +10,7 @@ from numpy.random import default_rng
 
 from hyperopt import hp
 # uncomment for hyperparameter training
-from hyperopt import tpe, fmin, Trials, space_eval, rand
+# from hyperopt import tpe, fmin, Trials, space_eval, rand
 
 import os
 
@@ -23,12 +23,11 @@ from fcTMCml.tools import load_features, plot_learning_curve_NN, plot_parity_plo
 
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Dropout, BatchNormalization, Activation
+from tensorflow.keras.layers import Dense, Dropout
 from tensorflow.keras.optimizers.legacy import Adam
 from tensorflow.keras.callbacks import EarlyStopping
 from tensorflow import keras
 from tensorflow.keras import initializers, regularizers
-from tensorflow.keras.callbacks import ReduceLROnPlateau
 from tensorflow.keras.metrics import MeanAbsolutePercentageError
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
@@ -108,7 +107,7 @@ def data(key: str = "RAC_cff_regression"):
 
     X = feature_dict[key]
     y_truth = regression_targets
-   
+
     X_train, X_test, Y_train, Y_test = train_test_split(X, y_truth, test_size=0.2, random_state=random_seed)
     scaler = StandardScaler()
     Y_train = scaler.fit_transform(Y_train.reshape(-1, 1))
@@ -137,7 +136,7 @@ def run_kfold(params, key: str = "RAC_cff_regression", folds=5, patience=20):
 
     X = feature_dict[key]
     y_truth = regression_targets.reshape(-1, 1)
-    
+
     kf = KFold(n_splits=folds, shuffle=True, random_state=0)
     kf.get_n_splits(X)
     mae_train_n = []
@@ -162,7 +161,7 @@ def run_kfold(params, key: str = "RAC_cff_regression", folds=5, patience=20):
         tf.keras.utils.set_random_seed(random_seed)
         model = create_model(params)
         es = EarlyStopping(monitor='val_loss', mode='auto', verbose=0, patience=patience)
-        
+
         history = model.fit(X_train, Y_train, validation_data=(X_test, Y_test), epochs=150,
                             batch_size=params['batch_size'], verbose=0, callbacks=[es], shuffle=True)
         y_predict_n_curr = list(scaler.inverse_transform(model.predict(X_test, verbose=0)))
@@ -170,7 +169,7 @@ def run_kfold(params, key: str = "RAC_cff_regression", folds=5, patience=20):
         y_predict_n += [*y_predict_n_curr]
         y_truth_n_curr = list(scaler.inverse_transform(Y_test))
         y_truth_n_curr_train = list(scaler.inverse_transform(Y_train))
-        
+
         y_truth_n += [*y_truth_n_curr]
         y_data_set_index += [*list(test_index)]
         mae_train = history.history['mae'][-1]
@@ -204,7 +203,8 @@ def run_kfold(params, key: str = "RAC_cff_regression", folds=5, patience=20):
     y_predict_n = y_pred_full
     y_truth_n = y_true_full
 
-    return np.average(mae_train_n), np.average(mae_test_n), np.average(mse_train_n), np.average(mse_test_n), np.average(r2_test_n), np.average(mape_train_n), np.average(mape_test_n), y_predict_n, y_truth_n
+    return np.average(mae_train_n), np.average(mae_test_n), np.average(mse_train_n), np.average(mse_test_n), np.average(r2_test_n), \
+        np.average(mape_train_n), np.average(mape_test_n), y_predict_n, y_truth_n
 
 
 def objective_rac_cff(params):
@@ -251,7 +251,8 @@ if __name__ == "__main__":
     # best = fmin(fn=objective_rac_cff, space=space, algo=tpe.suggest, max_evals=100, show_progressbar=True, rstate=rng)
     # best_hp = space_eval(space, best)
     # print("Best hyperparameters:", best_hp)
-    best_hp = {'activation': 'leaky_relu', 'batch_size': 32, 'dropout': 0.03, 'hidden_units': (16, 16), 'l2_reg_1': 0.0001991825688908534, 'l2_reg_2': 0.00016125082525844049, 'learning_rate': 0.0016904927957746968}
+    best_hp = {'activation': 'leaky_relu', 'batch_size': 32, 'dropout': 0.03, 'hidden_units': (16, 16), 'l2_reg_1': 0.0001991825688908534,
+               'l2_reg_2': 0.00016125082525844049, 'learning_rate': 0.0016904927957746968}
     history = training(best_hp, key="RAC_cff_regression", return_history=True)
     mae_train, mae_test = history.history["mae"][-1], history.history["val_mae"][-1]
     mse_train, mse_test = history.history["mse"][-1], history.history["val_mse"][-1]
@@ -268,7 +269,7 @@ if __name__ == "__main__":
     mae_train, mae_test, mse_train, mse_test, r2, mape_train, mape_test, y_predict_n, y_truth_n = run_kfold(best_hp, key="RAC_cff_regression")
     result_dict["RAC_cff_regression_kfold"] = {"mse": mse_test, "mse_train": mse_train, "mae": mae_test, "mae_train": mae_train,
                                                "mape": mape_test, "mape_train": mape_train, "r2": r2, "best_hp": best_hp}
-    plot_parity_plot(y_predict_n=y_predict_n, y_truth_n=y_truth_n, 
+    plot_parity_plot(y_predict_n=y_predict_n, y_truth_n=y_truth_n,
                      y_label=r"predicted $\Delta E_\mathsf{HS-LS}$ / kcal mol$^{-1}$",
                      x_label=r"calculated $\Delta E_\mathsf{HS-LS}$ / kcal mol$^{-1}$",
                      filename="results/parity_plots_regression/parity_rac_cff_regression_NN_kfold.pdf")
@@ -283,7 +284,8 @@ if __name__ == "__main__":
     # best = fmin(fn=objective_rac, space=space, algo=tpe.suggest, max_evals=100, show_progressbar=True, rstate=rng)
     # best_hp = space_eval(space, best)
     # print("Best hyperparameters:", best_hp)
-    best_hp = {'activation': 'leaky_relu', 'batch_size': 32, 'dropout': 0.19, 'hidden_units': (64, 64), 'l2_reg_1': 0.0005778946971508048, 'l2_reg_2': 0.0002453683368124187, 'learning_rate': 0.001563862198645924}
+    best_hp = {'activation': 'leaky_relu', 'batch_size': 32, 'dropout': 0.19, 'hidden_units': (64, 64), 'l2_reg_1': 0.0005778946971508048,
+               'l2_reg_2': 0.0002453683368124187, 'learning_rate': 0.001563862198645924}
     history = training(best_hp, key="RAC_regression", return_history=True)
     mae_train, mae_test = history.history["mae"][-1], history.history["val_mae"][-1]
     mse_train, mse_test = history.history["mse"][-1], history.history["val_mse"][-1]

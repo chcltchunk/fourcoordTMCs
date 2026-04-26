@@ -83,8 +83,10 @@ def k_folds(clf: ClassifierMixin,
         failed_names_positives += list(current_target_names[y_test == 1][failed_mask_positives])
         failed_names_negatives += list(current_target_names[y_test == 0][failed_mask_negatives])
     if return_clf:
-        return np.average(accuracy_score), np.average(ppvs), np.average(sensitivities), np.average(f_scores), conf_mat, failed_names_negatives, failed_names_positives, clf
-    return np.average(accuracy_score), np.average(ppvs), np.average(sensitivities), np.average(f_scores), conf_mat, failed_names_negatives, failed_names_positives
+        return np.average(accuracy_score), np.average(ppvs), np.average(sensitivities), np.average(f_scores), conf_mat, failed_names_negatives, \
+            failed_names_positives, clf
+    return np.average(accuracy_score), np.average(ppvs), np.average(sensitivities), np.average(f_scores), conf_mat, failed_names_negatives, \
+        failed_names_positives
 
 
 def grid_search_rfc(X: np.array, y: np.array):
