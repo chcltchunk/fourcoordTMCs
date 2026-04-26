@@ -7,6 +7,7 @@ setup(
     author='Jonas A. Oldensteadt',
     author_email='joldenstaedt@gmail.com',
     packages=['fcTMCml'],
+    setup_requires=["numpy"],
     install_requires=[
         'matplotlib==3.8.2',
         'networkx==3.2.1',
