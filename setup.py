@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='fourCoordTMCsMl',
+    name='fourcoordTMCs',
     version='1.0',
     description='Binary Geometry Classification and SSE prediction for four-coordinate TMCs',
     author='Jonas A. Oldensteadt',
